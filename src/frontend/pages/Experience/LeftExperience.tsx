@@ -4,12 +4,21 @@ import { screenSizeConstants } from "../../constants/SizeConstants";
 import { experiencePageConstants } from "../../constants/StringConstants";
 
 const LeftExperience = () => {
-  return <div className={`${screenSizeConstants.subScreenSize} flex-col`}>
-    <PageHeading firstTitle={experiencePageConstants.titleFirst} lastTitle={experiencePageConstants.titleSecond}/>
-    <div className={`${colorConstants.primatyTextColor} font-comfortaa font-bold lg:text-xl lg:mx-4 my-4`}>
+  return (
+    <div
+      className={`${screenSizeConstants.subScreenSize} flex-col justify-center items-center`}
+    >
+      <PageHeading
+        firstTitle={experiencePageConstants.titleFirst}
+        lastTitle={experiencePageConstants.titleSecond}
+      />
+      <div
+        className={`${screenSizeConstants.pageTextContentSize}`}
+      >
         {experiencePageConstants.experienceText}
+      </div>
     </div>
-  </div>;
-}
+  );
+};
 
 export default LeftExperience;
