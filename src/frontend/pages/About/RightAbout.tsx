@@ -7,7 +7,7 @@ const RightAbout = () =>  {
   return <div className={`${screenSizeConstants.subScreenSize} flex-col`}>
     <PageHeading firstTitle={aboutPageConstants.titleFirst} lastTitle={aboutPageConstants.titleSecond}/>
 
-    <div className={`${colorConstants.primatyTextColor} font-comfortaa lg:text-xl my-4 font-bold`}>{aboutPageConstants.aboutText}</div>
+    <div className={`${screenSizeConstants.pageTextContentSize}`}>{aboutPageConstants.aboutText}</div>
   </div>;
 }
 
