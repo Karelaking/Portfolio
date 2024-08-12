@@ -1,7 +1,12 @@
 import { screenSizeConstants } from "../../constants/SizeConstants";
+import LeftSkills from "./LeftSkills";
+import RightSkills from "./RightSkills";
 
 const Skills = () => {
-  return <section className={`${screenSizeConstants.mainScreenSize}`}>this is skills section</section>;
+  return <section className={`${screenSizeConstants.mainScreenSize}`}>
+    <LeftSkills/>
+    <RightSkills/>
+  </section>;
 }
 
 export default Skills
