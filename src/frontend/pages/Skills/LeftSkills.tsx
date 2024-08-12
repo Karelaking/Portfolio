@@ -7,7 +7,7 @@ const LeftSkills = () => {
   return <div className={`${screenSizeConstants.subScreenSize} flex-col`}>
     <PageHeading firstTitle={skillsPageConstants.titleFirst} lastTitle={skillsPageConstants.titleSecond}/>
 
-    <div className={`${colorConstants.primatyTextColor} font-bold font-comfortaa lg:text-xl lg:my-4`}>
+    <div className={`${screenSizeConstants.pageTextContentSize}`}>
         {skillsPageConstants.skillsText}
     </div>
   </div>;

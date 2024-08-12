@@ -6,7 +6,7 @@ import { projectsPageConstants } from "../../constants/StringConstants";
 const RightProjects = () => {
   return <div className={`${screenSizeConstants.subScreenSize} flex-col`}>
     <PageHeading firstTitle={projectsPageConstants.titleFirst} lastTitle={projectsPageConstants.titleSecond}/>
-    <div className={`${colorConstants.primatyTextColor} font-comfortaa font-bold lg:text-xl lg:my-4 lg:px-4`}>
+    <div className={`${screenSizeConstants.pageTextContentSize}`}>
         {projectsPageConstants.projectsText}
     </div>
   </div>;
