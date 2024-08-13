@@ -5,7 +5,7 @@ import { homePageConstants } from "../../constants/StringConstants";
 const LeftHome = () => {
   return (
     <div
-      className={`${screenSizeConstants.subScreenSize} flex-col`}
+      className={`${screenSizeConstants.subScreenSize} flex-col font-bold items-center justify-center`}
     >
       <div className={`${colorConstants.activeBorderColor} border-l-4 px-4`}>
         <div
@@ -14,7 +14,7 @@ const LeftHome = () => {
           {homePageConstants.welcomeText}
         </div>
         <div
-          className={`${colorConstants.primatyTextColor} flex font-lalezar uppercase lg:text-7xl`}
+          className={`${colorConstants.primatyTextColor} flex text-4xl font-lalezar uppercase lg:text-7xl`}
         >
           {homePageConstants.firstPart}
           <div className={`${colorConstants.activeTextColor} mx-3`}>
@@ -22,7 +22,7 @@ const LeftHome = () => {
           </div>
         </div>
         <div
-          className={`${colorConstants.primatyTextColor} font-comfortaa text-md lg:text-xl`}
+          className={`${colorConstants.primatyTextColor} font-comfortaa text-md lg:text-xl fon`}
         >
           {homePageConstants.welcomeText2}
         </div>
