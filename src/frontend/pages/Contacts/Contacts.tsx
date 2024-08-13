@@ -1,7 +1,17 @@
+import ContactsMap from "../../components/Maps/ContactsMap";
 import { screenSizeConstants } from "../../constants/SizeConstants";
+import LeftContacts from "./LeftContacts";
+import RightContacts from "./RightContacts";
+
 
 const Contacts = () => {
-  return <section className={`${screenSizeConstants.mainScreenSize}`}>this is contacts section</section>;
+  return <section className={`${screenSizeConstants.mainScreenSize} lg:flex-col`}>
+    <section className={`${screenSizeConstants.mainScreenSize}`}>
+    <LeftContacts/>
+    <RightContacts/>
+    </section>
+    <ContactsMap/>
+  </section>;
 }
 
 export default Contacts
