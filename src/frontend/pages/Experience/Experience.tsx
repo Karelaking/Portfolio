@@ -1,13 +1,15 @@
-import { screenSizeConstants } from "../../constants/SizeConstants";
-import LeftExperience from "./LeftExperience";
-import RightExperience from "./RightExperience";
+import React from 'react';
+import { screenSizeConstants } from '../../constants/SizeConstants';
+import LeftExperience from './LeftExperience';
+import RightExperience from './RightExperience';
 
-
-const Experience = () => {
-  return <section className={`${screenSizeConstants.mainScreenSize} snap-start`}>
-    <LeftExperience/>
-    <RightExperience/>
-  </section>;
-}
+const Experience: React.FC = () => {
+    return (
+        <section className={`${screenSizeConstants.mainScreenSize} snap-start`}>
+            <LeftExperience />
+            <RightExperience />
+        </section>
+    );
+};
 
 export default Experience;
