@@ -12,16 +12,24 @@
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
+    "@react-three/drei": "^9.109.5",
+    "@react-three/fiber": "^8.17.5",
+    "animejs": "^3.2.2",
+    "aos": "^3.0.0-beta.6",
     "appwrite": "^15.0.0",
+    "framer-motion": "^11.3.28",
     "headlessui": "^0.0.0",
     "heroicons": "^2.1.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0",
+    "three": "^0.167.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@tailwindcss/forms": "^0.5.7",
+    "@types/animejs": "^3.1.12",
+    "@types/aos": "^3.0.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
