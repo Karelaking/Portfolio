@@ -1,0 +1,28 @@
+const colorConstants = {
+    primaryBackgroundColor: 'bg-white dark:bg-slate-900',
+    secondaryBackgroundColor: 'bg-gray-100 dark:bg-slate-800',
+    activeBackgroundColor: 'bg-orange-700 dark:bg-orange-400',
+    hoverBackgroundPrimaryColor: 'hover:bg-slate-50 dark:hover:bg-slate-800',
+    hoverBackgroundSecondaryColor: '',
+    hoverActiveBackgroundColor: 'hover:bg-orange-600 dark:hover:bg-orange-300',
+    primatyTextColor: 'text-gray-700 dark:text-gray-300',
+    secondaryTextColor: 'text-400',
+    activeTextColor: 'text-orange-700 dark:text-orange-400',
+    hoverPrimaryTextColor: 'text-slate-800 dark:text-slate-50',
+    hoverSecondaryTextColor: '',
+    hovetActiveTextColor: 'text-orange-600 dark:text-orange-300',
+    primaryBorderColor: '',
+    secondaryBorderColor: '',
+    activeBorderColor: 'border-orange-700 dark:border-orange-400',
+    hoverPrimaryBorderColor: '',
+    hoverSecondaryBorderColor: '',
+    hovetActiveBorderColor: 'border-orange-600 dark:border-orange-300',
+    primaryFillColor: 'fill-slate-950 dark:fill-white',
+    secondaryFillColor: '',
+    activeFillColor: 'fill-orange-700 dark:fill-orange-400',
+    hoverPrimaryFillColor: 'fill-slate-800 dark:fill-slate-50',
+    hoverSecondaryFillColor: '',
+    hovetActiveFillColor: 'fill-orange-600 dark:fill-orange-300',
+};
+
+export { colorConstants };
