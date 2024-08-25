@@ -4,16 +4,16 @@
 @tailwind variants;
 
 @font-face {
-  font-family: "comfortaa";
-  src: url("./frontend//assets/Fonts/Comfortaa/comfortaa.ttf");
+    font-family: 'comfortaa';
+    src: url('./frontend//assets/Fonts/Comfortaa/comfortaa.ttf');
 }
 
 @font-face {
-    font-family: "korona_one";
-    src: url("./frontend/assets/Fonts/Krona_One/KronaOne-Regular.ttf");
+    font-family: 'korona_one';
+    src: url('./frontend/assets/Fonts/Krona_One/KronaOne-Regular.ttf');
 }
 
 @font-face {
-    font-family: "lalezar";
-    src: url("./frontend/assets/Fonts/Lalezar/Lalezar-Regular.ttf");
+    font-family: 'lalezar';
+    src: url('./frontend/assets/Fonts/Lalezar/Lalezar-Regular.ttf');
 }

@@ -1,13 +1,15 @@
-import {homePageConstants} from '../../constants/StringConstants';
+import React from 'react';
 import { screenSizeConstants } from '../../constants/SizeConstants';
 import LeftHome from './LeftHome';
 import RightHome from './RightHome';
 
-const Home = () => {
-  return <section className={`${screenSizeConstants.mainScreenSize}`}>
-    <LeftHome/>
-    <RightHome/>
-  </section>;
-}
+const Home: React.FC = () => {
+    return (
+        <section className={`${screenSizeConstants.mainScreenSize}`}>
+            <LeftHome />
+            <RightHome />
+        </section>
+    );
+};
 
-export default Home
+export default Home;

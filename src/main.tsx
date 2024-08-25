@@ -1,13 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { BrowserRouter } from 'react-router-dom'
-import Root from './frontend/pages/Root/Root'
+import "./index.css";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import Root from "./frontend/pages/Root/Root";
+import { BrowserRouter } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-createRoot(document.getElementById('root')!).render(
+AOS.init({
+  duration: 7000,
+  useClassNames: true,
+});
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    {/* <RouterProvider router={router}/> */}
     <BrowserRouter>
-    <Root/>
+      <Root />
     </BrowserRouter>
-  </StrictMode>,
-)
+  </StrictMode>
+);
