@@ -61,7 +61,7 @@ const Skills = () => {
       skills: [
         { name: 'Docker', icon: <SiDocker /> },
         { name: 'Git', icon: <SiGit /> },
-        { name: 'Visual Studio Code', icon: <SiVisualstudiocode /> },
+        { name: 'VS Code', icon: <SiVisualstudiocode /> },
         { name: 'Postman', icon: <SiPostman /> },
       ],
     },
@@ -76,8 +76,8 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-scree h-full py-12 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-scree h-full py-12">
+      <div className="mx-auto">
         <div className="flex w-full items-center">
           <CodeBracketIcon className="size-12 mr-5 text-blue-500" />
           <PageHeading partOne="my" partTwo="skills" />
@@ -86,7 +86,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="bg-white overflow-hidden shadow rounded-lg"
+              className="bg-white mx-2 flex flex-col items-center justify-center overflow-hidden shadow rounded-lg"
             >
               <div className="px-4 py-5 sm:p-6">
                 <div className="flex items-center justify-center mb-4">

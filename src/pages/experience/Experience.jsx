@@ -70,13 +70,13 @@ const Experience = () => {
   ];
 
   return (
-    <div className="min-h-screen h-full p-2">
+    <div className="min-h-screen h-full w-full flex flex-col p-2">
       <div className="flex items-center">
         <AcademicCapIcon className="size-12 mr-5 text-blue-500" />
-        <PageHeading partOne="academics" />
+        <PageHeading partOne="my" partTwo="academics" />
       </div>
       {activeTab === 'achievements' && (
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {achievements.map((achievement) => (
             <div
               key={achievement.id}
@@ -102,17 +102,15 @@ const Experience = () => {
         </div>
       )}
 
-      <div className="max-w-4xl mx-auto">
-        {/* <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">
-          Experience
-        </h1> */}
+      <div className="mx-auto w-full">
         <div className="flex items-center">
           <FaBriefcase className="mr-5 text-blue-500 size-9" />
           <PageHeading partOne="my" partTwo="experiences" />
         </div>
         {/* Experience Section */}
         <section>
-          <div className="space-y-6">
+          
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {experiences.map((experience) => (
               <div
                 key={experience.id}

@@ -12,7 +12,7 @@ import { ArrowDownIcon } from '@heroicons/react/16/solid';
 import Title from '../../components/typopraphy/Title';
 
 const iconSize = 28;
-const iconColor = "";
+const iconColor = '';
 
 const icons = [
   {
@@ -76,17 +76,15 @@ export const About = () => {
     <>
       <div
         id="about"
-        className="flex flex-col w-full min-h-screen h-full items-center"
+        className="flex flex-col w-full min-h-screen h-full justify-center items-center"
       >
-        <div className="w-full ">
+        <div className="w-full flex items-center">
           <Title first="katiyar" second="mradul_" />
         </div>
-        <p className="text-xl my-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cum
-          illo tempora aliquam numquam quibusdam distinctio, earum consequatur
-          quas molestiae?
+        <p className="text-3xl lg:text-4xl p-3 lg:p-12 my-4 lg:my-0 lg:text-center font-DancingScript text-center font-semibold">
+           a passionate programmer and developer from very vibrent Kanpur, Uttar Pradesh, India. Currently a student, I'm always on the lookout for new ways to enhance my skills and push the boundaries of what's possible with code.
         </p>
-        <div className="flex flex-wrap gap-8 my-8">
+        <div className="flex flex-wrap gap-6 lg:gap-12 my-8">
           {icons.map((icon) => (
             <div className="flex flex-col items-center">
               <a
@@ -97,12 +95,14 @@ export const About = () => {
               >
                 {icon.icon}
               </a>
-              <p className="text-sm">{icon.text}</p>
+              <p className="text-md font-SofadiOne font-medium">{icon.text}</p>
             </div>
           ))}
         </div>
         <div className="flex flex-col items-center">
-          <p className="text-center mt-10 mb-6 capitalize">scroll down</p>
+          <p className="text-center text-xl mt-8 mb-6 capitalize font-DancingScript font-semibold">
+            scroll down
+          </p>
           <ArrowDownIcon className="size-7 animate-bounce my-4 cursor-pointer" />
         </div>
       </div>
