@@ -3,33 +3,30 @@ import React from 'react';
 const CardWithImage = (props) => {
   return (
     <>
-      <div class="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow">
+      <div className="mx-2 overflow-hidden rounded-lg bg-white shadow">
         <img
           src={props.image}
-          class="aspect-video w-full object-cover"
+          className="aspect-video w-full object-cover"
           alt=""
         />
-        <div class="p-4">
-          {/* <p class="mb-1 text-sm text-primary-500">
-                        Andrea Felsted • <time>18 Nov 2022</time>
-                    </p> */}
-          <h3 class="text-2xl capitalize font-bold text-gray-900">
+        <div className="p-4">
+          <h3 className="text-2xl capitalize font-bold text-gray-900">
             {props.title}
           </h3>
-          <p class="mt-1 text-gray-500">{props.description}</p>
+          <p className="mt-1 text-gray-500">{props.description}</p>
           <p className="text-sm text-blue-400 my-2 capitalize">
             jun 2015 - feb 2017
           </p>
-          <div class="mt-4 flex gap-2">
-            <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
+          <div className="mt-4 flex gap-2">
+            <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
               {' '}
               Design{' '}
             </span>
-            <span class="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-1 text-xs font-semibold text-indigo-600">
+            <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-1 text-xs font-semibold text-indigo-600">
               {' '}
               Product{' '}
             </span>
-            <span class="inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-1 text-xs font-semibold text-orange-600">
+            <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-1 text-xs font-semibold text-orange-600">
               {' '}
               Develop{' '}
             </span>

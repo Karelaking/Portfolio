@@ -20,9 +20,9 @@ const NavigationBar = () => {
     <nav
       className={`sticky z-10 w-full top-0 left-0 bg-white text-gray-800 transition-colors duration-300`}
     >
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" className="flex items-center">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">
+          <span className="self-center text-2xl font-SofadiOne font-semibold whitespace-nowrap">
             KatiyarMradul_
           </span>
         </a>
@@ -45,7 +45,7 @@ const NavigationBar = () => {
           id="navbar-sticky"
         >
           <ul
-            className={`flex flex-col p-4 md:p-0 items-center mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-50 md:bg-white border-gray-100`}
+            className={`flex flex-col p-4 md:p-0 items-center mt-4 font-bold text-xl border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-50 md:bg-white border-gray-100 font-DancingScript`}
           >
             {navItems.map((item) => (
               <li key={item.name}>

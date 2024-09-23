@@ -61,8 +61,8 @@ const Contacts = () => {
 
   if (submitted) {
     return (
-      <div className="flex items-center justify-center min-h-screen h-full">
-        <div className="max-w-md w-ful rounded-lg shadow-lg p-8 transform transition-all duration-500 ease-in-out hover:scale-105">
+      <div className="flex w-full items-center justify-center min-h-screen h-full">
+        <div className="w-full rounded-lg shadow-lg p-8 transform transition-all duration-500 ease-in-out hover:scale-105">
           <h2 className="text-2xl font-bold text-center text-green-600 mb-4">
             Thank You!
           </h2>
@@ -75,14 +75,14 @@ const Contacts = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="flex items-center">
         <PiAddressBook className="size-11 text-blue-500 mr-5" />
         <PageHeading partOne="contact" partTwo="me" />
       </div>
 
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white rounded-md py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div className="sm:mx-auto">
+        <div className="bg-white w-full rounded-md py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
