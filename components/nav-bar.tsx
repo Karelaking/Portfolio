@@ -1,4 +1,4 @@
-// components/nav-bar.tsx
+
 import React from "react";
 import Link from "next/link";
 import {
@@ -14,7 +14,8 @@ import {
   SheetContent,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
+import { LocaleSwitcher } from "lingo.dev/react-client";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -49,6 +50,7 @@ export default function NavBar() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
+              <LocaleSwitcher locales={["en", "es"]} />;
             </NavigationMenuList>
           </NavigationMenu>
         </div>

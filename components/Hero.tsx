@@ -85,7 +85,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-6 md:px-16 lg:px-24 bg-gradient-to-tr from-indigo-50 to-white overflow-hidden">
+    <section className="relative flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-6 md:px-16 lg:px-24 bg-gradient-to-tr from-indigo-50 to-white overflow-hidden my-4 lg:my-0">
       {/* Matrix rain background */}
       <MatrixRain />
 
@@ -154,57 +154,17 @@ export default function Hero() {
       </div>
 
       {/* 3D Canvas */}
-      <div className="w-full md:w-1/2 h-80 md:h-[600px]">
+      <div className="w-full md:w-1/2 h-100 md:h-[600px] my-8">
         <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
           <ambientLight intensity={2} />
           <directionalLight position={[5, 5, 5]} />
           <Model />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
         </Canvas>
       </div>
 
       {/* Decorative animated circle */}
       <div className="absolute top-10 right-10 w-40 h-40 border-4 border-indigo-200 rounded-full animate-ping-slow"></div>
-
-      <style jsx>{`
-        @keyframes scan {
-          0% {
-            top: 0;
-          }
-          100% {
-            top: 100%;
-          }
-        }
-        @keyframes grid-flow {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(50px);
-          }
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translate(0, 0);
-          }
-          25% {
-            transform: translate(10px, -10px);
-          }
-          50% {
-            transform: translate(-5px, -20px);
-          }
-          75% {
-            transform: translate(-10px, -5px);
-          }
-        }
-        .animate-scan {
-          animation: scan 8s linear infinite;
-        }
-        .animate-grid-flow {
-          animation: grid-flow 20s linear infinite;
-        }
-      `}</style>
     </section>
   );
 }
