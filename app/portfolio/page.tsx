@@ -1,56 +1,7 @@
-'use client'
+"use client";
 
+import MatrixRain from "@/components/MatrixRain";
 import React, { useRef, useEffect, useState } from "react";
-
-// Matrix-style falling code effect
-function MatrixRain() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-
-    const chars = "01アイウエオカキクケコサシスセソABCDEF";
-    const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops: number[] = Array(columns).fill(1);
-
-    function draw() {
-      if (!ctx || !canvas) return;
-      ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#6366f1";
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    const interval = setInterval(draw, 50);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-10 pointer-events-none"
-    />
-  );
-}
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState<
@@ -389,83 +340,6 @@ export default function Portfolio() {
           )}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scan {
-          0% {
-            top: 0;
-          }
-          100% {
-            top: 100%;
-          }
-        }
-        @keyframes grid-flow {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(50px);
-          }
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translate(0, 0);
-          }
-          25% {
-            transform: translate(10px, -10px);
-          }
-          50% {
-            transform: translate(-5px, -20px);
-          }
-          75% {
-            transform: translate(-10px, -5px);
-          }
-        }
-        @keyframes expand {
-          from {
-            width: 0;
-          }
-          to {
-            width: 3rem;
-          }
-        }
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-scan {
-          animation: scan 8s linear infinite;
-        }
-        .animate-grid-flow {
-          animation: grid-flow 20s linear infinite;
-        }
-        .animate-expand {
-          animation: expand 0.8s ease-out;
-        }
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out;
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out;
-        }
-      `}</style>
     </section>
   );
 }
