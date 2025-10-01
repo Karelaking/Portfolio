@@ -5,7 +5,7 @@ const withLingo = lingoCompiler.next({
   sourceRoot: "app",
   lingoDir: "lingo",
   sourceLocale: "en",
-  targetLocales: ["es"],
+  targetLocales: ["fr"],
   rsc: true,
   useDirective: true,
   debug: true,
