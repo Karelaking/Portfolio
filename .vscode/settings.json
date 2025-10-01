@@ -1,0 +1,18 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.wordWrap": "on",
+  "editor.mouseWheelZoom": true,
+  "editor.formatOnPaste": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorStyle": "underline",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorWidth": 20,
+  "editor.cursorSurroundingLines": 10,
+  "editor.wrappingStrategy": "advanced",
+  "editor.cursorHeight": 30,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.allowVariableFontsInAccessibilityMode": true,
+  "editor.autoIndentOnPaste": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true
+}
