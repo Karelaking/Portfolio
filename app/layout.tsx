@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LingoProvider, loadDictionary } from "lingo.dev/react/rsc";
 import NavBar from "@/components/nav-bar";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -25,15 +26,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider>
-          <NavBar />
-          <div className="min-w-full min-h-screen">{children}</div>
-        </ThemeProvider>
-      </body>
-    </html>
+    <LingoProvider loadDictionary={(locale) => loadDictionary(locale)}>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ThemeProvider>
+            <NavBar />
+
+            <div className="min-w-full min-h-screen">{children}</div>
+          </ThemeProvider>
+        </body>
+      </html>
+    </LingoProvider>
   );
 }

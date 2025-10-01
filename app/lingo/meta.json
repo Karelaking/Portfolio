@@ -1,0 +1,109 @@
+{
+  "version": 0.1,
+  "files": {
+    "../components/Hero.tsx": {
+      "scopes": {
+        "6/declaration/body/4/argument/19/1": {
+          "type": "element",
+          "hash": "d7d59a0a8a2bf9a6ada31c12f9e65a43",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL KUMAR<element:br></element:br> Web Developer | UI/UX Designer | Creative Problem Solver"
+        },
+        "6/declaration/body/4/argument/19/3": {
+          "type": "element",
+          "hash": "8c16855bc9e1a309296ce3fdba2f87c8",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression."
+        },
+        "6/declaration/body/4/argument/19/5/1": {
+          "type": "element",
+          "hash": "9a4cd1677483b0835e90365f6f1e473c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Explore My Work"
+        },
+        "6/declaration/body/4/argument/19/5/3": {
+          "type": "element",
+          "hash": "c2c77365da18bc682a88fabb28b7ebdf",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Let's Connect"
+        }
+      }
+    },
+    "../components/nav-bar.tsx": {
+      "scopes": {
+        "7/declaration/body/0/argument/1/11/1/3/1/1": {
+          "type": "element",
+          "hash": "520968a9770cddeb6d339c0fcbd70240",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Menu"
+        },
+        "7/declaration/body/0/argument/1/3": {
+          "type": "element",
+          "hash": "432dfb098a4951c9f8101d57ac5e61ce",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        },
+        "8/declaration/body/0/argument/1/11/1/3/1/1": {
+          "type": "element",
+          "hash": "520968a9770cddeb6d339c0fcbd70240",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Menu"
+        },
+        "8/declaration/body/0/argument/1/11/1/3/3": {
+          "type": "element",
+          "hash": "d3d01a58b663aaa54ade6cbc6d0ba35d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<function:navItems.map/><element:LocaleSwitcher></element:LocaleSwitcher>;"
+        },
+        "8/declaration/body/0/argument/1/3": {
+          "type": "element",
+          "hash": "432dfb098a4951c9f8101d57ac5e61ce",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        }
+      }
+    },
+    "../components/ui/sheet.tsx": {
+      "scopes": {
+        "9/body/0/argument/3/3/3": {
+          "type": "element",
+          "hash": "2c2e22f8424a1031de89063bd0022e16",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Close"
+        }
+      }
+    },
+    "layout.tsx": {
+      "scopes": {
+        "10/declaration/body/0/argument/1/0/1/1": {
+          "type": "element",
+          "hash": "4d78d69fd3b81b2c746f00e4028d3fd5",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:NavBar></element:NavBar><element:LocaleSwitcher></element:LocaleSwitcher>;<element:div>{children}</element:div>"
+        }
+      }
+    }
+  }
+}
