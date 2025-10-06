@@ -27,11 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <LingoProvider loadDictionary={(locale) => loadDictionary(locale)}>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <NavBar />
 
             <div className="min-w-full min-h-screen">{children}</div>

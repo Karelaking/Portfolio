@@ -1,7 +1,10 @@
 "use client";
 
-import MatrixRain from "@/components/MatrixRain";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import React, { useRef, useEffect } from "react";
+import MatrixRain from "@/components/MatrixRain";
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -118,9 +121,12 @@ export default function About() {
         <div className="mb-20 animate-fade-in">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-px bg-indigo-600 animate-expand"></div>
-            <span className="text-sm font-semibold text-indigo-600 tracking-wider uppercase">
+            <Badge
+              variant="outline"
+              className="text-sm font-semibold text-indigo-600 tracking-wider uppercase border-indigo-200 bg-transparent"
+            >
               About
-            </span>
+            </Badge>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
             Crafting Digital Experiences
@@ -133,7 +139,7 @@ export default function About() {
         <div ref={contentRef} className="mb-20">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              I&apos;m Mradul Kumar, a web developer and UI/UX designer with
+              I&lsquo;m Mradul Kumar, a web developer and UI/UX designer with
               over 5 years of experience building digital products that blend
               form and function. My work spans from early-stage startups to
               established enterprises, always with a focus on creating solutions
@@ -143,11 +149,11 @@ export default function About() {
               My approach is rooted in understanding the problem before jumping
               to solutions. I believe the best work happens at the intersection
               of user needs, business goals, and technical constraints. Whether
-              it&apos;s architecting a scalable frontend system or refining
+              it&lsquo;s architecting a scalable frontend system or refining
               micro-interactions, I bring the same level of attention to detail.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              When I&apos;m not pushing pixels or writing code, I&apos;m
+              When I&lsquo;m not pushing pixels or writing code, I&lsquo;m
               exploring emerging web technologies, contributing to open-source
               projects, or mentoring aspiring developers in the community.
             </p>
@@ -161,13 +167,13 @@ export default function About() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {expertise.map((skill, index) => (
-              <div
+              <Card
                 key={index}
-                className="bg-white/60 backdrop-blur-sm border border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-medium hover:border-indigo-300 hover:bg-white/80 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer animate-slide-up"
+                className="bg-white/60 backdrop-blur-sm border border-gray-200 px-6 py-4 text-gray-700 font-medium hover:border-indigo-300 hover:bg-white/80 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {skill}
-              </div>
+              </Card>
             ))}
           </div>
         </div>
@@ -214,32 +220,34 @@ export default function About() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Let&apos;s build something together
+                Let&lsquo;s build something together
               </h3>
               <p className="text-gray-600">
                 Available for select freelance projects and full-time
                 opportunities.
               </p>
             </div>
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all whitespace-nowrap hover:gap-3 hover:shadow-xl hover:shadow-indigo-600/30"
+            <Button
+              asChild
+              className="group inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all whitespace-nowrap hover:gap-3 hover:shadow-xl hover:shadow-indigo-600/30"
             >
-              Get in Touch
-              <svg
-                className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
+              <a href="#contact">
+                Get in Touch
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </Button>
           </div>
         </div>
       </div>

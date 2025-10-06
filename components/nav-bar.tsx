@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { LocaleSwitcher } from "lingo.dev/react-client";
+import { ThemeModeToggleButton } from "./theme-toggle-button";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -26,7 +27,7 @@ const navItems = [
 
 export default function NavBar() {
   return (
-    <header className="bg-white border-b sticky top-0 z-50">
+    <header className="bg-white dark:bg-slate-800 border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold">
@@ -50,6 +51,7 @@ export default function NavBar() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
+              <ThemeModeToggleButton/>
               <LocaleSwitcher locales={["en", "es"]} />;
             </NavigationMenuList>
           </NavigationMenu>

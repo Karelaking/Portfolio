@@ -110,7 +110,7 @@ export default function Hero() {
       {/* 3D Canvas */}
       <div className="w-full md:w-1/2 h-100 md:h-[600px] my-8">
         <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
-          <ambientLight intensity={2} />
+          <ambientLight intensity={1.8} />
           <directionalLight position={[5, 5, 5]} />
           <Model />
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
