@@ -13,7 +13,7 @@ export default function MatrixRain() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    const chars = "01アイウエオカキクケコサシスセソABCDEF";
+    const chars = "01アイウエオカधキクケऊコサシスセソABCDEFअ";
     const fontSize = 18;
     const columns = Math.floor(canvas.width / fontSize);
     const drops: number[] = Array(columns).fill(1);
