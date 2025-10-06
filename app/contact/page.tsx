@@ -1,5 +1,5 @@
 "use client";
-import MatrixRain from "@/components/MatrixRain";
+import MatrixRain from "@/components/matrix-rain";
 import React from "react";
 
 const Contact = () => {

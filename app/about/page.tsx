@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import React, { useRef, useEffect } from "react";
-import MatrixRain from "@/components/MatrixRain";
+import MatrixRain from "@/components/matrix-rain";
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);

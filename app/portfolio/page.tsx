@@ -1,6 +1,6 @@
 "use client";
 
-import MatrixRain from "@/components/MatrixRain";
+import MatrixRain from "@/components/matrix-rain";
 import React, { useRef, useEffect, useState } from "react";
 
 export default function Portfolio() {
