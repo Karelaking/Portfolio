@@ -24,9 +24,8 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-const locales: string[] = ["en", "es", "fr"];
+const locales: string[] = ["en", "es", "fr", "hi-IN", "ko-KR"];
 
-// ✅ Extract the loop into its own component
 function NavLinks() {
   return (
     <>
@@ -59,7 +58,6 @@ export default function NavBar() {
         <div className="hidden sm:flex sm:items-center sm:space-x-6">
           <NavigationMenu>
             <NavigationMenuList className="flex space-x-4">
-              {/* ✅ Use separate component — avoids index scope bug */}
               <NavLinks />
               <ThemeModeToggleButton />
               <LocaleSwitcher locales={locales} />
@@ -90,6 +88,8 @@ export default function NavBar() {
                     </Link>
                   </SheetClose>
                 ))}
+                <LocaleSwitcher locales={locales} />
+                <ThemeModeToggleButton />
               </nav>
             </SheetContent>
           </Sheet>
