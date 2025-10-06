@@ -1,4 +1,3 @@
-
 import React from "react";
 import Link from "next/link";
 import {
@@ -25,6 +24,28 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
+const locales: string[] = ["en", "es", "fr"];
+
+// ✅ Extract the loop into its own component
+function NavLinks() {
+  return (
+    <>
+      {navItems.map((item) => (
+        <NavigationMenuItem key={item.href}>
+          <NavigationMenuLink asChild>
+            <Link
+              href={item.href}
+              className="px-3 py-2 rounded-md hover:bg-gray-100"
+            >
+              {item.label}
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      ))}
+    </>
+  );
+}
+
 export default function NavBar() {
   return (
     <header className="bg-white dark:bg-slate-800 border-b sticky top-0 z-50">
@@ -38,21 +59,10 @@ export default function NavBar() {
         <div className="hidden sm:flex sm:items-center sm:space-x-6">
           <NavigationMenu>
             <NavigationMenuList className="flex space-x-4">
-              {navItems.map((item) => (
-                <NavigationMenuItem key={item.href}>
-                  {/* Tell NavigationMenuLink to use our Link as its “a” */}
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href={item.href}
-                      className="px-3 py-2 rounded-md hover:bg-gray-100"
-                    >
-                      {item.label}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-              <ThemeModeToggleButton/>
-              <LocaleSwitcher locales={["en", "es"]} />;
+              {/* ✅ Use separate component — avoids index scope bug */}
+              <NavLinks />
+              <ThemeModeToggleButton />
+              <LocaleSwitcher locales={locales} />
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -74,7 +84,6 @@ export default function NavBar() {
                   <SheetClose asChild key={item.href}>
                     <Link
                       href={item.href}
-                      key={item.href}
                       className="block px-3 py-2 rounded-md hover:bg-gray-100"
                     >
                       {item.label}
