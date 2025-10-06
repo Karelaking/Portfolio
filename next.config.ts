@@ -15,6 +15,7 @@ const withLingo = lingoCompiler.next({
 
 const nextConfig: NextConfig = {
   experimental: {
+    optimizeCss: false,
   },
 };
 
