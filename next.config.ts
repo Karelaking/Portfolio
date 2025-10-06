@@ -5,15 +5,17 @@ const withLingo = lingoCompiler.next({
   sourceRoot: "app",
   lingoDir: "lingo",
   sourceLocale: "en",
-  targetLocales: ["fr"],
+  targetLocales: ["fr", "es"],
   rsc: true,
-  useDirective: true,
+  useDirective: false,
   debug: true,
+  models:"lingo.dev"
 });
 
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+  },
 };
 
 export default withLingo(nextConfig);
