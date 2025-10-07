@@ -1,4 +1,4 @@
-export default {
+export default lingo = {
   version: 0.1,
   files: {
     "../components/Hero.tsx": {
