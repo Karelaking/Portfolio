@@ -23,7 +23,7 @@ const MatrixRain = (): React.JSX.Element => {
       ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#6366f1";
+      ctx.fillStyle = "#064207";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -44,7 +44,7 @@ const MatrixRain = (): React.JSX.Element => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-30 pointer-events-none dark:bg-slate-800"
+      className="absolute inset-0 w-full h-full opacity-30 pointer-events-none"
     />
   );
 }

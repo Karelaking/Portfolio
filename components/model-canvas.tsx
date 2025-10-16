@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
 import * as THREE from "three";
+import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-const ModelCanvas = () => {
+const ModelCanvas = (): React.JSX.Element => {
   // Simple rotating 3D model
   function Model() {
     const gltf = useGLTF("models/model.glb");

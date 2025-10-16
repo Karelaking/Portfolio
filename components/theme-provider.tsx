@@ -3,10 +3,11 @@
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
-export function ThemeProvider({
+const ThemeProvider = ({
   children,
   ...props
-}: React.ComponentProps<typeof NextThemesProvider>) {
+}: React.ComponentProps<typeof NextThemesProvider>): React.JSX.Element => {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
-}
-    
+};
+
+export default ThemeProvider;

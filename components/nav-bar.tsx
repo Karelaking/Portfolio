@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -13,28 +14,29 @@ import {
   SheetContent,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
-import { LocaleSwitcher } from "lingo.dev/react-client";
-import { ThemeModeToggleButton } from "./theme-toggle-button";
+// import { LocaleSwitcher } from "lingo.dev/react-client";
+import ThemeModeToggleButton from "./theme-toggle-button";
+import LangSwitcher from "./lang-switcher";
 
-const navItems = [
+const navItems: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Contact", href: "/contact" },
 ];
 
-const locales: string[] = ["en", "es", "fr", "hi-IN", "ko-KR"];
+// const locales: string[] = ["en", "es", "fr", "hi-IN", "ko-KR"];
 
-function NavLinks() {
+const NavLinks = (): React.JSX.Element => {
   return (
     <>
       {navItems.map((item) => (
         <NavigationMenuItem key={item.href}>
           <NavigationMenuLink asChild>
             <Link
+
               href={item.href}
-              className="px-3 py-2 rounded-md hover:bg-gray-100"
+              className="px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:text-black"
             >
               {item.label}
             </Link>
@@ -43,9 +45,9 @@ function NavLinks() {
       ))}
     </>
   );
-}
+};
 
-export default function NavBar() {
+const NavBar = (): React.JSX.Element => {
   return (
     <header className="bg-white dark:bg-slate-800 border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
@@ -60,7 +62,8 @@ export default function NavBar() {
             <NavigationMenuList className="flex space-x-4">
               <NavLinks />
               <ThemeModeToggleButton />
-              <LocaleSwitcher locales={locales} />
+              {/* <LocaleSwitcher locales={locales} /> */}
+              <LangSwitcher />
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -81,14 +84,16 @@ export default function NavBar() {
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.href}>
                     <Link
+                      replace
                       href={item.href}
-                      className="block px-3 py-2 rounded-md hover:bg-gray-100"
+                      className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:text-black"
                     >
                       {item.label}
                     </Link>
                   </SheetClose>
                 ))}
-                <LocaleSwitcher locales={locales} />
+                {/* <LocaleSwitcher locales={locales} /> */}
+                <LangSwitcher />
                 <ThemeModeToggleButton />
               </nav>
             </SheetContent>
@@ -97,4 +102,6 @@ export default function NavBar() {
       </div>
     </header>
   );
-}
+};
+
+export default NavBar;
