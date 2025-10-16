@@ -10,7 +10,7 @@ import FloatingParticles from "./floating-particles";
 
 // Matrix-style falling code effect
 
-export default function Hero() {
+const Hero = (): React.JSX.Element => {
   const heading = useRef<HTMLHeadingElement>(null);
   const sub = useRef<HTMLParagraphElement>(null);
   const buttons = useRef<HTMLDivElement>(null);
@@ -31,22 +31,22 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-6 md:px-16 lg:px-24 bg-gradient-to-tr from-indigo-50 to-white overflow-hidden my-4 lg:my-0">
-      <MatrixRain />
+    <section className="relative flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-6 md:px-16 lg:px-24 bg-gradient-to-tr from-indigo-50 to-white overflow-hidden py-4 lg:py-0">
       <GridBackground />
       <FloatingParticles />
+      <MatrixRain />
       <ScanningLine />
       {/* Text block */}
       <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
         <h1
           ref={heading}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900"
+          className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-gray-300"
         >
           MRADUL KUMAR
           <br />
-          Web Developer | UI/UX Designer | Creative Problem Solver
+          Web Developer | UI/UX Designer | Creative Problem
         </h1>
-        <p ref={sub} className="text-lg md:text-xl text-gray-700 max-w-lg">
+        <p ref={sub} className="text-lg md:text-xl text-gray-700 dark:text-gray-500 max-w-lg">
           I design and build modern, responsive, and user-focused websites that
           don&apos;t just look good — they perform. My mission is simple: turn
           ideas into seamless digital experiences that leave a lasting
@@ -59,7 +59,7 @@ export default function Hero() {
         >
           <a
             href="#portfolio"
-            className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition"
+            className="inline-block px-6 py-3 bg-indigo-600 dark:bg-indigo-300 text-white rounded-lg shadow hover:bg-indigo-700 transition"
           >
             Explore My Work
           </a>
@@ -77,3 +77,5 @@ export default function Hero() {
     </section>
   );
 }
+
+export default Hero;

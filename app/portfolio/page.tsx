@@ -3,7 +3,7 @@
 import MatrixRain from "@/components/matrix-rain";
 import React, { useRef, useEffect, useState } from "react";
 
-export default function Portfolio() {
+const Portfolio = (): React.JSX.Element => {
   const [activeTab, setActiveTab] = useState<
     "skills" | "experience" | "education"
   >("skills");
@@ -46,6 +46,7 @@ export default function Portfolio() {
         "GraphQL",
         "MongoDB",
         "PostgreSQL",
+        "Nest.js",
       ],
     },
     {
@@ -54,34 +55,34 @@ export default function Portfolio() {
     },
   ];
 
-  const experiences = [
-    {
-      role: "Web Developer",
-      company: "Tech Solutions Inc.",
-      period: "Jan 2023 - Present",
-      location: "Remote",
-      description:
-        "Led development of customer-facing web applications serving 50K+ monthly users. Architected scalable frontend solutions and optimized performance across the platform.",
-      achievements: [
-        "Increased organic traffic by 40% through technical SEO improvements and performance optimization",
-        "Reduced page load times by 2.3 seconds, improving Core Web Vitals scores by 60%",
-        "Collaborated with product and design teams to deliver 5 major feature releases on schedule",
-      ],
-    },
-    {
-      role: "Frontend Developer",
-      company: "Digital Agency",
-      period: "Jun 2022 - Dec 2022",
-      location: "Hybrid",
-      description:
-        "Developed responsive web applications for diverse clients across healthcare, finance, and e-commerce sectors.",
-      achievements: [
-        "Built 8 production-ready websites using React, achieving 95+ Lighthouse scores",
-        "Implemented WCAG 2.1 AA accessibility standards across all projects",
-        "Reduced JavaScript bundle size by 35% through code splitting and lazy loading",
-      ],
-    },
-  ];
+  // const experiences = [
+  //   {
+  //     role: "Web Developer",
+  //     company: "Tech Solutions Inc.",
+  //     period: "Jan 2023 - Present",
+  //     location: "Remote",
+  //     description:
+  //       "Led development of customer-facing web applications serving 50K+ monthly users. Architected scalable frontend solutions and optimized performance across the platform.",
+  //     achievements: [
+  //       "Increased organic traffic by 40% through technical SEO improvements and performance optimization",
+  //       "Reduced page load times by 2.3 seconds, improving Core Web Vitals scores by 60%",
+  //       "Collaborated with product and design teams to deliver 5 major feature releases on schedule",
+  //     ],
+  //   },
+  //   {
+  //     role: "Frontend Developer",
+  //     company: "Digital Agency",
+  //     period: "Jun 2022 - Dec 2022",
+  //     location: "Hybrid",
+  //     description:
+  //       "Developed responsive web applications for diverse clients across healthcare, finance, and e-commerce sectors.",
+  //     achievements: [
+  //       "Built 8 production-ready websites using React, achieving 95+ Lighthouse scores",
+  //       "Implemented WCAG 2.1 AA accessibility standards across all projects",
+  //       "Reduced JavaScript bundle size by 35% through code splitting and lazy loading",
+  //     ],
+  //   },
+  // ];
 
   const education = [
     {
@@ -174,7 +175,7 @@ export default function Portfolio() {
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600"></div>
               )}
             </button>
-            <button
+            {/* <button
               onClick={() => setActiveTab("experience")}
               className={`pb-4 font-medium transition-all relative ${
                 activeTab === "experience"
@@ -186,7 +187,7 @@ export default function Portfolio() {
               {activeTab === "experience" && (
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600"></div>
               )}
-            </button>
+            </button> */}
             <button
               onClick={() => setActiveTab("education")}
               className={`pb-4 font-medium transition-all relative ${
@@ -260,7 +261,7 @@ export default function Portfolio() {
           )}
 
           {/* Experience Tab */}
-          {activeTab === "experience" && (
+          {/* {activeTab === "experience" && (
             <div className="animate-fade-in-up space-y-6">
               {experiences.map((exp, index) => (
                 <div
@@ -296,7 +297,7 @@ export default function Portfolio() {
                 </div>
               ))}
             </div>
-          )}
+          )} */}
 
           {/* Education Tab */}
           {activeTab === "education" && (
@@ -343,3 +344,5 @@ export default function Portfolio() {
     </section>
   );
 }
+
+export default Portfolio;

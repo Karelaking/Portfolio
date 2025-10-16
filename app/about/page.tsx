@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import React, { useRef, useEffect } from "react";
 import MatrixRain from "@/components/matrix-rain";
 
-export default function About() {
+const About = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
@@ -254,3 +254,5 @@ export default function About() {
     </section>
   );
 }
+
+export default About;

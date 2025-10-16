@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
-const NavMenu = () => {
+const NavMenu = (): React.JSX.Element => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
