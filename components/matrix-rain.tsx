@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function MatrixRain() {
+const MatrixRain = (): React.JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -44,7 +44,9 @@ export default function MatrixRain() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-30 pointer-events-none"
+      className="absolute inset-0 w-full h-full opacity-30 pointer-events-none dark:bg-slate-800"
     />
   );
 }
+
+export default MatrixRain;
