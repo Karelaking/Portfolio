@@ -1,7 +1,11 @@
+"use client";
+
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 const MatrixRain = (): React.JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -18,12 +22,20 @@ const MatrixRain = (): React.JSX.Element => {
     const columns = Math.floor(canvas.width / fontSize);
     const drops: number[] = Array(columns).fill(1);
 
+    // Determine current theme (resolvedTheme handles 'system' theme)
+    const currentTheme = resolvedTheme || theme;
+    const isDark = currentTheme === "dark";
+
+    // Theme-based colors
+    const bgFade = isDark ? "rgba(0, 0, 0, 0.05)" : "rgba(255, 255, 255, 0.05)";
+    const textColor = isDark ? "#064207" : "#86efac"; // dark green for dark mode, light green for light mode
+
     function draw() {
       if (!ctx || !canvas) return;
-      ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
+      ctx.fillStyle = bgFade;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#064207";
+      ctx.fillStyle = textColor;
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -39,14 +51,14 @@ const MatrixRain = (): React.JSX.Element => {
 
     const interval = setInterval(draw, 50);
     return () => clearInterval(interval);
-  }, []);
+  }, [theme, resolvedTheme]); // Re-run effect when theme changes
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-30 pointer-events-none"
+      className="absolute inset-0 w-full min-h-full opacity-30 pointer-events-none dark:opacity-20"
     />
   );
-}
+};
 
 export default MatrixRain;

@@ -3,10 +3,6 @@ import ModelCanvas from "./model-canvas";
 import React, { useRef, useEffect } from "react";
 
 import Circle from "./circle";
-import MatrixRain from "./matrix-rain";
-import ScanningLine from "./scanning-line";
-import GridBackground from "./grid-background";
-import FloatingParticles from "./floating-particles";
 
 // Matrix-style falling code effect
 
@@ -31,22 +27,20 @@ const Hero = (): React.JSX.Element => {
   }, []);
 
   return (
-    <section className="relative flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-6 md:px-16 lg:px-24 bg-gradient-to-tr from-indigo-50 to-white overflow-hidden py-4 lg:py-0">
-      <GridBackground />
-      <FloatingParticles />
-      <MatrixRain />
-      <ScanningLine />
-      {/* Text block */}
+    <section className="relative flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden py-4 lg:py-0">
       <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
         <h1
           ref={heading}
-          className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-gray-300"
+          className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-gray-300 text-shadow-2xl"
         >
           MRADUL KUMAR
           <br />
           Web Developer | UI/UX Designer | Creative Problem
         </h1>
-        <p ref={sub} className="text-lg md:text-xl text-gray-700 dark:text-gray-500 max-w-lg">
+        <p
+          ref={sub}
+          className="text-lg md:text-xl text-gray-700 dark:text-gray-500 max-w-lg"
+        >
           I design and build modern, responsive, and user-focused websites that
           don&apos;t just look good — they perform. My mission is simple: turn
           ideas into seamless digital experiences that leave a lasting
@@ -71,7 +65,6 @@ const Hero = (): React.JSX.Element => {
           </a>
         </div>
       </div>
-
       <ModelCanvas />
       <Circle />
     </section>

@@ -629,8 +629,186 @@ export default {
         },
       },
     },
+    "page.tsx": {
+      entries: {
+        "3/declaration/body/0/argument": {
+          content: {
+            en: "1 <element:MatrixRain></element:MatrixRain>",
+            es: "1 <element:MatrixRain></element:MatrixRain>",
+            fr: "1 <element:MatrixRain></element:MatrixRain>",
+            "hi-IN": "1 <element:MatrixRain></element:MatrixRain>",
+            "ko-KR": "1 <element:MatrixRain></element:MatrixRain>",
+          },
+          hash: "9f88543a30fd0ad4ae313000a8469f16",
+        },
+      },
+    },
     "portfolio/page.tsx": {
       entries: {
+        "2/0/init/body/6/argument/17/11/11/expression/right/1/expression/0/body/1/1/5/3/expression/right":
+          {
+            content: {
+              en: "GPA: {edu.gpa}",
+              es: "Promedio: {edu.gpa}",
+              fr: "Moyenne : {edu.gpa}",
+              "hi-IN": "जीपीए: {edu.gpa}",
+              "ko-KR": "학점: {edu.gpa}",
+            },
+            hash: "c8fe4daef65f7ceac4fadb87b2b50f4c",
+          },
+        "2/0/init/body/6/argument/17/11/11/expression/right/1/expression/0/body/1/1/7/expression/right":
+          {
+            content: {
+              en: "Focus: {edu.focus}",
+              es: "Enfoque: {edu.focus}",
+              fr: "Spécialisation : {edu.focus}",
+              "hi-IN": "फोकस: {edu.focus}",
+              "ko-KR": "전공: {edu.focus}",
+            },
+            hash: "619457fd00950f2d38a76a7d2804141b",
+          },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/1": {
+          content: {
+            en: "Core Competencies",
+            es: "Competencias principales",
+            fr: "Compétences fondamentales",
+            "hi-IN": "मुख्य क्षमताएँ",
+            "ko-KR": "핵심 역량",
+          },
+          hash: "e27a125962ce34069c7611b83cbdfa05",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/1/1": {
+          content: {
+            en: "Technical",
+            es: "Técnicas",
+            fr: "Techniques",
+            "hi-IN": "तकनीकी",
+            "ko-KR": "기술적",
+          },
+          hash: "41865c6d55b8f96d4b71f98b62b11c30",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/1/3/1": {
+          content: {
+            en: "• Responsive Web Design & Mobile-First Development",
+            es: "• Diseño web responsivo y desarrollo mobile-first",
+            fr: "• Conception web responsive et développement mobile-first",
+            "hi-IN": "• रेस्पॉन्सिव वेब डिज़ाइन और मोबाइल-फर्स्ट डेवलपमेंट",
+            "ko-KR": "• 반응형 웹 디자인 및 모바일 우선 개발",
+          },
+          hash: "4385c118140de4cd01792682ae4f5c08",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/1/3/3": {
+          content: {
+            en: "• Performance Optimization & Web Vitals",
+            es: "• Optimización de rendimiento y Web Vitals",
+            fr: "• Optimisation des performances et Web Vitals",
+            "hi-IN": "• प्रदर्शन अनुकूलन और वेब वाइटल्स",
+            "ko-KR": "• 성능 최적화 및 웹 바이탈",
+          },
+          hash: "ff60d1d85a1f879f2f6c4ad4778ea6b1",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/1/3/5": {
+          content: {
+            en: "• RESTful API Design & Integration",
+            es: "• Diseño e integración de API RESTful",
+            fr: "• Conception et intégration d'API RESTful",
+            "hi-IN": "• RESTful API डिज़ाइन और एकीकरण",
+            "ko-KR": "• RESTful API 설계 및 통합",
+          },
+          hash: "ae2bde4cbe49e7e1431699b3baff149b",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/3/1": {
+          content: {
+            en: "Professional",
+            es: "Profesionales",
+            fr: "Professionnelles",
+            "hi-IN": "पेशेवर",
+            "ko-KR": "전문적",
+          },
+          hash: "0059ac0aac3f10a46b28c095e697cbbb",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/3/3/1": {
+          content: {
+            en: "• Agile/Scrum Methodology",
+            es: "• Metodología Agile/Scrum",
+            fr: "• Méthodologie Agile/Scrum",
+            "hi-IN": "• एजाइल/स्क्रम पद्धति",
+            "ko-KR": "• 애자일/스크럼 방법론",
+          },
+          hash: "b3390d990a0fd38bc557822254fa99d6",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/3/3/3": {
+          content: {
+            en: "• Technical Documentation",
+            es: "• Documentación técnica",
+            fr: "• Documentation technique",
+            "hi-IN": "• तकनीकी दस्तावेज़ीकरण",
+            "ko-KR": "• 기술 문서화",
+          },
+          hash: "a1692a27af8c2c492a959164b5dd03fa",
+        },
+        "2/0/init/body/6/argument/17/11/3/expression/right/1/3/3/3/3/5": {
+          content: {
+            en: "• Cross-functional Collaboration",
+            es: "• Colaboración multifuncional",
+            fr: "• Collaboration interfonctionnelle",
+            "hi-IN": "• क्रॉस-फंक्शनल सहयोग",
+            "ko-KR": "• 부서 간 협업",
+          },
+          hash: "e18155e6583a67d9831f82e87b7f82e6",
+        },
+        "2/0/init/body/6/argument/17/3/1/3": {
+          content: {
+            en: "Expertise",
+            es: "Experiencia",
+            fr: "Expertise",
+            "hi-IN": "विशेषज्ञता",
+            "ko-KR": "전문 분야",
+          },
+          hash: "0ba0ba8aa46a8031b14f009edabcc569",
+        },
+        "2/0/init/body/6/argument/17/3/3": {
+          content: {
+            en: "Technical Capabilities",
+            es: "Capacidades técnicas",
+            fr: "Capacités techniques",
+            "hi-IN": "तकनीकी क्षमताएँ",
+            "ko-KR": "기술적 역량",
+          },
+          hash: "b2516d896e22f3a1aba3a970f55c8eb1",
+        },
+        "2/0/init/body/6/argument/17/3/5": {
+          content: {
+            en: "A comprehensive overview of my technical skills, professional experience, and educational background.",
+            es: "Una visión completa de mis habilidades técnicas, experiencia profesional y formación académica.",
+            fr: "Un aperçu complet de mes compétences techniques, expérience professionnelle et formation académique.",
+            "hi-IN":
+              "मेरे तकनीकी कौशल, पेशेवर अनुभव और शैक्षिक पृष्ठभूमि का एक व्यापक अवलोकन।",
+            "ko-KR":
+              "제 기술 능력, 전문 경험 및 교육 배경에 대한 종합적인 개요입니다.",
+          },
+          hash: "6ea07332497a162e8ed2e03d14c15fc6",
+        },
+        "2/0/init/body/6/argument/17/7/1/1": {
+          content: {
+            en: "Technical Skills<expression/>",
+            es: "Habilidades técnicas<expression/>",
+            fr: "Compétences techniques<expression/>",
+            "hi-IN": "तकनीकी कौशल<expression/>",
+            "ko-KR": "기술 스킬<expression/>",
+          },
+          hash: "55f3b4b8edd497efeed8ec9c1e0390bc",
+        },
+        "2/0/init/body/6/argument/17/7/1/5": {
+          content: {
+            en: "Education<expression/>",
+            es: "Educación<expression/>",
+            fr: "Formation<expression/>",
+            "hi-IN": "शिक्षा<expression/>",
+            "ko-KR": "학력<expression/>",
+          },
+          hash: "1ce04997ebf1c048d70dc513d32db2d3",
+        },
         "2/0/init/body/7/argument/17/11/11/expression/right/1/expression/0/body/1/1/5/3/expression/right":
           {
             content: {
@@ -798,13 +976,13 @@ export default {
         },
         "2/0/init/body/7/argument/17/7/1/3": {
           content: {
-            en: "Education<expression/>",
-            es: "Educación<expression/>",
-            fr: "Éducation<expression/>",
-            "hi-IN": "शिक्षा<expression/>",
-            "ko-KR": "교육<expression/>",
+            en: "Experience<expression/>",
+            es: "Experiencia<expression/>",
+            fr: "Expérience<expression/>",
+            "hi-IN": "अनुभव<expression/>",
+            "ko-KR": "경력<expression/>",
           },
-          hash: "db819da68b16a0e9e874ec02736afef5",
+          hash: "27c5afad7595c563019bd7806a4098ea",
         },
         "2/0/init/body/7/argument/17/7/1/5": {
           content: {
