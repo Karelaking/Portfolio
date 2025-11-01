@@ -14,7 +14,7 @@ import {
   SheetContent,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-// import { LocaleSwitcher } from "lingo.dev/react-client";
+import {caveat } from "@/fonts/fonts";
 import ThemeModeToggleButton from "./theme-toggle-button";
 import LangSwitcher from "./lang-switcher";
 
@@ -52,7 +52,7 @@ const NavBar = (): React.JSX.Element => {
     <header className="bg-white dark:bg-slate-800 border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold">
+        <Link href="/" className={`text-3xl font-bold ${caveat.className}`}>
           MRADUL
         </Link>
 
@@ -62,7 +62,6 @@ const NavBar = (): React.JSX.Element => {
             <NavigationMenuList className="flex space-x-4">
               <NavLinks />
               <ThemeModeToggleButton />
-              {/* <LocaleSwitcher locales={locales} /> */}
               <LangSwitcher />
             </NavigationMenuList>
           </NavigationMenu>
@@ -78,7 +77,7 @@ const NavBar = (): React.JSX.Element => {
             </SheetTrigger>
             <SheetContent side="right" className="w-64 px-4 py-6">
               <div className="flex justify-between items-center mb-6">
-                <span className="text-lg font-semibold">Menu</span>
+                <span className={`text-lg font-semibold ${caveat.className}`}>MRADUL</span>
               </div>
               <nav className="flex flex-col space-y-4">
                 {navItems.map((item) => (
@@ -86,13 +85,12 @@ const NavBar = (): React.JSX.Element => {
                     <Link
                       replace
                       href={item.href}
-                      className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:text-black"
+                      className={`block px-3 py-2 rounded-md hover:bg-gray-100 text-black dark:text-white ${caveat.className} text-2xl`}
                     >
                       {item.label}
                     </Link>
                   </SheetClose>
                 ))}
-                {/* <LocaleSwitcher locales={locales} /> */}
                 <LangSwitcher />
                 <ThemeModeToggleButton />
               </nav>
