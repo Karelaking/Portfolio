@@ -3,6 +3,14 @@
   "files": {
     "../components/email-template.tsx": {
       "scopes": {
+        "2/0/init/body/0/argument/1": {
+          "type": "element",
+          "hash": "ddad7f0baf16e2baa11cf622335bc85a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Welcome, {firstName}!"
+        },
         "2/declaration/body/0/argument/1": {
           "type": "element",
           "hash": "ddad7f0baf16e2baa11cf622335bc85a",
