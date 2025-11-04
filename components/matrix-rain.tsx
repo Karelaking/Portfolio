@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import { major_mono } from "@/fonts/fonts";
 
 const MatrixRain = (): React.JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -36,7 +37,7 @@ const MatrixRain = (): React.JSX.Element => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = textColor;
-      ctx.font = `${fontSize}px monospace`;
+      ctx.font = `${fontSize}px ${major_mono.className} uppercase`;
 
       for (let i = 0; i < drops.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)];

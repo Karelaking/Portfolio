@@ -15,6 +15,85 @@ export default {
         },
       },
     },
+    "../components/hero-animated-content.tsx": {
+      entries: {
+        "13/declaration/body/9/argument/1/1/1/1": {
+          content: {
+            en: "MRADUL",
+            es: "MRADUL",
+            fr: "MRADUL",
+            "hi-IN": "MRADUL",
+            "ko-KR": "MRADUL",
+          },
+          hash: "249668cfe473da4e62ebfad1b028d8fb",
+        },
+        "13/declaration/body/9/argument/1/1/1/3": {
+          content: {
+            en: "KUMAR",
+            es: "KUMAR",
+            fr: "KUMAR",
+            "hi-IN": "KUMAR",
+            "ko-KR": "KUMAR",
+          },
+          hash: "5d0f94ed6eb7f1543e5810b089c461a1",
+        },
+        "13/declaration/body/9/argument/1/1/1/7": {
+          content: {
+            en: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            es: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            fr: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "hi-IN":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "ko-KR":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+          },
+          hash: "f6d9cae2c62981cd2d1f3a58d9f064dc",
+        },
+        "13/declaration/body/9/argument/1/1/11/1": {
+          content: {
+            en: "Explore My Work",
+            es: "Explora mi trabajo",
+            fr: "Explorez mon travail",
+            "hi-IN": "मेरे काम का अन्वेषण करें",
+            "ko-KR": "내 작업 살펴보기",
+          },
+          hash: "246139a9061ca22c69b43da7a7e27aca",
+        },
+        "13/declaration/body/9/argument/1/1/11/3": {
+          content: {
+            en: "Let's Connect",
+            es: "Conectemos",
+            fr: "Connectons-nous",
+            "hi-IN": "आइए जुड़ें",
+            "ko-KR": "연락하기",
+          },
+          hash: "6db5260f3cea7d10bc1ad849cd93e875",
+        },
+        "13/declaration/body/9/argument/1/1/3": {
+          content: {
+            en: "Web Developer | UI/UX Designer | Creative Problem",
+            es: "Desarrollador web | Diseñador UI/UX | Solucionador creativo",
+            fr: "Développeur web | Designer UI/UX | Résolution créative de problèmes",
+            "hi-IN":
+              "वेब डेवलपर | यूआई/यूएक्स डिज़ाइनर | क्रिएटिव प्रॉब्लम सॉल्वर",
+            "ko-KR": "웹 개발자 | UI/UX 디자이너 | 창의적 문제 해결사",
+          },
+          hash: "61e7b7e30d8bd2dd31538277a41ccfd0",
+        },
+        "13/declaration/body/9/argument/1/1/5": {
+          content: {
+            en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
+            es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",
+            fr: "Je conçois et construis des sites web modernes, réactifs et centrés sur l'utilisateur qui ne sont pas seulement beaux — ils performent. Ma mission est simple : transformer des idées en expériences numériques fluides qui laissent une impression durable.",
+            "hi-IN":
+              "मैं आधुनिक, रेस्पॉन्सिव और उपयोगकर्ता-केंद्रित वेबसाइटें डिज़ाइन और निर्माण करता हूँ जो सिर्फ अच्छी नहीं दिखतीं — वे प्रदर्शन करती हैं। मेरा मिशन सरल है: विचारों को सहज डिजिटल अनुभवों में बदलना जो एक स्थायी प्रभाव छोड़ते हैं।",
+            "ko-KR":
+              "단순히 보기 좋은 것을 넘어 성능까지 갖춘 현대적이고 반응형이며 사용자 중심의 웹사이트를 디자인하고 구축합니다. 제 미션은 간단합니다: 아이디어를 지속적인 인상을 남기는 원활한 디지털 경험으로 전환하는 것입니다.",
+          },
+          hash: "60c776949735bc5f998e1be1eea37d09",
+        },
+      },
+    },
     "../components/hero-section.tsx": {
       entries: {
         "10/0/init/body/3/argument/1/1": {
@@ -160,6 +239,446 @@ export default {
           hash: "ccdc7ecff34cc87a9d24a8807ec1a9c1",
         },
         "10/0/init/body/4/argument/1/5": {
+          content: {
+            en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
+            es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",
+            fr: "Je conçois et développe des sites web modernes, réactifs et centrés sur l'utilisateur qui ne sont pas seulement beaux — ils performent. Ma mission est simple : transformer des idées en expériences numériques fluides qui laissent une impression durable.",
+            "hi-IN":
+              "मैं आधुनिक, प्रतिक्रियाशील और उपयोगकर्ता-केंद्रित वेबसाइटों को डिज़ाइन और निर्माण करता हूँ जो सिर्फ अच्छी नहीं दिखतीं — वे प्रदर्शन करती हैं। मेरा मिशन सरल है: विचारों को सहज डिजिटल अनुभवों में बदलना जो स्थायी प्रभाव छोड़ते हैं।",
+            "ko-KR":
+              "저는 단순히 보기 좋은 것을 넘어 실제로 성능이 뛰어난 현대적이고 반응형이며 사용자 중심의 웹사이트를 디자인하고 구축합니다. 제 사명은 간단합니다: 아이디어를 지속적인 인상을 남기는 원활한 디지털 경험으로 전환하는 것입니다.",
+          },
+          hash: "8c16855bc9e1a309296ce3fdba2f87c8",
+        },
+        "11/0/init/body/0/argument/1/1/1/1": {
+          content: {
+            en: "MRADUL",
+            es: "MRADUL",
+            fr: "MRADUL",
+            "hi-IN": "MRADUL",
+            "ko-KR": "MRADUL",
+          },
+          hash: "249668cfe473da4e62ebfad1b028d8fb",
+        },
+        "11/0/init/body/0/argument/1/1/1/3": {
+          content: {
+            en: "KUMAR",
+            es: "KUMAR",
+            fr: "KUMAR",
+            "hi-IN": "KUMAR",
+            "ko-KR": "KUMAR",
+          },
+          hash: "5d0f94ed6eb7f1543e5810b089c461a1",
+        },
+        "11/0/init/body/0/argument/1/1/1/7": {
+          content: {
+            en: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            es: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            fr: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "hi-IN":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "ko-KR":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+          },
+          hash: "e3f0fa06cf51a5df93b21a41e06c7e9f",
+        },
+        "11/0/init/body/0/argument/1/1/11/1": {
+          content: {
+            en: "Explore My Work",
+            es: "Explorar mi trabajo",
+            fr: "Explorer mon travail",
+            "hi-IN": "मेरे काम का अन्वेषण करें",
+            "ko-KR": "내 작업 살펴보기",
+          },
+          hash: "9a4cd1677483b0835e90365f6f1e473c",
+        },
+        "11/0/init/body/0/argument/1/1/11/3": {
+          content: {
+            en: "Let's Connect",
+            es: "Conectemos",
+            fr: "Connectons-nous",
+            "hi-IN": "आइए जुड़ें",
+            "ko-KR": "연락하기",
+          },
+          hash: "c2c77365da18bc682a88fabb28b7ebdf",
+        },
+        "11/0/init/body/0/argument/1/1/3": {
+          content: {
+            en: "Web Developer | UI/UX Designer | Creative Problem",
+            es: "Desarrollador Web | Diseñador UI/UX | Solucionador Creativo",
+            fr: "Développeur Web | Designer UI/UX | Résolution Créative de Problèmes",
+            "hi-IN":
+              "वेब डेवलपर | यूआई/यूएक्स डिज़ाइनर | क्रिएटिव प्रॉब्लम सॉल्वर",
+            "ko-KR": "웹 개발자 | UI/UX 디자이너 | 창의적 문제 해결사",
+          },
+          hash: "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+        },
+        "11/0/init/body/0/argument/1/1/5": {
+          content: {
+            en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
+            es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",
+            fr: "Je conçois et développe des sites web modernes, réactifs et centrés sur l'utilisateur qui ne sont pas seulement beaux — ils performent. Ma mission est simple : transformer des idées en expériences numériques fluides qui laissent une impression durable.",
+            "hi-IN":
+              "मैं आधुनिक, प्रतिक्रियाशील और उपयोगकर्ता-केंद्रित वेबसाइटों को डिज़ाइन और निर्माण करता हूँ जो सिर्फ अच्छी नहीं दिखतीं — वे प्रदर्शन करती हैं। मेरा मिशन सरल है: विचारों को सहज डिजिटल अनुभवों में बदलना जो स्थायी प्रभाव छोड़ते हैं।",
+            "ko-KR":
+              "저는 단순히 보기 좋은 것을 넘어 실제로 성능이 뛰어난 현대적이고 반응형이며 사용자 중심의 웹사이트를 디자인하고 구축합니다. 제 사명은 간단합니다: 아이디어를 지속적인 인상을 남기는 원활한 디지털 경험으로 전환하는 것입니다.",
+          },
+          hash: "8c16855bc9e1a309296ce3fdba2f87c8",
+        },
+        "11/0/init/body/4/argument/1/1/1": {
+          content: {
+            en: "MRADUL",
+            es: "MRADUL",
+            fr: "MRADUL",
+            "hi-IN": "MRADUL",
+            "ko-KR": "MRADUL",
+          },
+          hash: "249668cfe473da4e62ebfad1b028d8fb",
+        },
+        "11/0/init/body/4/argument/1/1/3": {
+          content: {
+            en: "KUMAR",
+            es: "KUMAR",
+            fr: "KUMAR",
+            "hi-IN": "KUMAR",
+            "ko-KR": "KUMAR",
+          },
+          hash: "5d0f94ed6eb7f1543e5810b089c461a1",
+        },
+        "11/0/init/body/4/argument/1/1/7": {
+          content: {
+            en: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            es: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            fr: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "hi-IN":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "ko-KR":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+          },
+          hash: "e3f0fa06cf51a5df93b21a41e06c7e9f",
+        },
+        "11/0/init/body/4/argument/1/11/1": {
+          content: {
+            en: "Explore My Work",
+            es: "Explorar mi trabajo",
+            fr: "Explorer mon travail",
+            "hi-IN": "मेरे काम का अन्वेषण करें",
+            "ko-KR": "내 작업 살펴보기",
+          },
+          hash: "9a4cd1677483b0835e90365f6f1e473c",
+        },
+        "11/0/init/body/4/argument/1/11/3": {
+          content: {
+            en: "Let's Connect",
+            es: "Conectemos",
+            fr: "Connectons-nous",
+            "hi-IN": "आइए जुड़ें",
+            "ko-KR": "연락하기",
+          },
+          hash: "c2c77365da18bc682a88fabb28b7ebdf",
+        },
+        "11/0/init/body/4/argument/1/3": {
+          content: {
+            en: "Web Developer | UI/UX Designer | Creative Problem",
+            es: "Desarrollador Web | Diseñador UI/UX | Solucionador Creativo",
+            fr: "Développeur Web | Designer UI/UX | Résolution Créative de Problèmes",
+            "hi-IN":
+              "वेब डेवलपर | यूआई/यूएक्स डिज़ाइनर | क्रिएटिव प्रॉब्लम सॉल्वर",
+            "ko-KR": "웹 개발자 | UI/UX 디자이너 | 창의적 문제 해결사",
+          },
+          hash: "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+        },
+        "11/0/init/body/4/argument/1/5": {
+          content: {
+            en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
+            es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",
+            fr: "Je conçois et développe des sites web modernes, réactifs et centrés sur l'utilisateur qui ne sont pas seulement beaux — ils performent. Ma mission est simple : transformer des idées en expériences numériques fluides qui laissent une impression durable.",
+            "hi-IN":
+              "मैं आधुनिक, प्रतिक्रियाशील और उपयोगकर्ता-केंद्रित वेबसाइटों को डिज़ाइन और निर्माण करता हूँ जो सिर्फ अच्छी नहीं दिखतीं — वे प्रदर्शन करती हैं। मेरा मिशन सरल है: विचारों को सहज डिजिटल अनुभवों में बदलना जो स्थायी प्रभाव छोड़ते हैं।",
+            "ko-KR":
+              "저는 단순히 보기 좋은 것을 넘어 실제로 성능이 뛰어난 현대적이고 반응형이며 사용자 중심의 웹사이트를 디자인하고 구축합니다. 제 사명은 간단합니다: 아이디어를 지속적인 인상을 남기는 원활한 디지털 경험으로 전환하는 것입니다.",
+          },
+          hash: "8c16855bc9e1a309296ce3fdba2f87c8",
+        },
+        "11/0/init/body/5/argument/1/1/1": {
+          content: {
+            en: "MRADUL",
+            es: "MRADUL",
+            fr: "MRADUL",
+            "hi-IN": "MRADUL",
+            "ko-KR": "MRADUL",
+          },
+          hash: "249668cfe473da4e62ebfad1b028d8fb",
+        },
+        "11/0/init/body/5/argument/1/1/3": {
+          content: {
+            en: "KUMAR",
+            es: "KUMAR",
+            fr: "KUMAR",
+            "hi-IN": "KUMAR",
+            "ko-KR": "KUMAR",
+          },
+          hash: "5d0f94ed6eb7f1543e5810b089c461a1",
+        },
+        "11/0/init/body/5/argument/1/1/7": {
+          content: {
+            en: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            es: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            fr: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "hi-IN":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "ko-KR":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+          },
+          hash: "e3f0fa06cf51a5df93b21a41e06c7e9f",
+        },
+        "11/0/init/body/5/argument/1/11/1": {
+          content: {
+            en: "Explore My Work",
+            es: "Explorar mi trabajo",
+            fr: "Explorer mon travail",
+            "hi-IN": "मेरे काम का अन्वेषण करें",
+            "ko-KR": "내 작업 살펴보기",
+          },
+          hash: "9a4cd1677483b0835e90365f6f1e473c",
+        },
+        "11/0/init/body/5/argument/1/11/3": {
+          content: {
+            en: "Let's Connect",
+            es: "Conectemos",
+            fr: "Connectons-nous",
+            "hi-IN": "आइए जुड़ें",
+            "ko-KR": "연락하기",
+          },
+          hash: "c2c77365da18bc682a88fabb28b7ebdf",
+        },
+        "11/0/init/body/5/argument/1/3": {
+          content: {
+            en: "Web Developer | UI/UX Designer | Creative Problem",
+            es: "Desarrollador Web | Diseñador UI/UX | Solucionador Creativo",
+            fr: "Développeur Web | Designer UI/UX | Résolution Créative de Problèmes",
+            "hi-IN":
+              "वेब डेवलपर | यूआई/यूएक्स डिज़ाइनर | क्रिएटिव प्रॉब्लम सॉल्वर",
+            "ko-KR": "웹 개발자 | UI/UX 디자이너 | 창의적 문제 해결사",
+          },
+          hash: "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+        },
+        "11/0/init/body/5/argument/1/5": {
+          content: {
+            en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
+            es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",
+            fr: "Je conçois et développe des sites web modernes, réactifs et centrés sur l'utilisateur qui ne sont pas seulement beaux — ils performent. Ma mission est simple : transformer des idées en expériences numériques fluides qui laissent une impression durable.",
+            "hi-IN":
+              "मैं आधुनिक, प्रतिक्रियाशील और उपयोगकर्ता-केंद्रित वेबसाइटों को डिज़ाइन और निर्माण करता हूँ जो सिर्फ अच्छी नहीं दिखतीं — वे प्रदर्शन करती हैं। मेरा मिशन सरल है: विचारों को सहज डिजिटल अनुभवों में बदलना जो स्थायी प्रभाव छोड़ते हैं।",
+            "ko-KR":
+              "저는 단순히 보기 좋은 것을 넘어 실제로 성능이 뛰어난 현대적이고 반응형이며 사용자 중심의 웹사이트를 디자인하고 구축합니다. 제 사명은 간단합니다: 아이디어를 지속적인 인상을 남기는 원활한 디지털 경험으로 전환하는 것입니다.",
+          },
+          hash: "8c16855bc9e1a309296ce3fdba2f87c8",
+        },
+        "12/0/init/body/4/argument/1/1/1": {
+          content: {
+            en: "MRADUL",
+            es: "MRADUL",
+            fr: "MRADUL",
+            "hi-IN": "MRADUL",
+            "ko-KR": "MRADUL",
+          },
+          hash: "249668cfe473da4e62ebfad1b028d8fb",
+        },
+        "12/0/init/body/4/argument/1/1/3": {
+          content: {
+            en: "KUMAR",
+            es: "KUMAR",
+            fr: "KUMAR",
+            "hi-IN": "KUMAR",
+            "ko-KR": "KUMAR",
+          },
+          hash: "5d0f94ed6eb7f1543e5810b089c461a1",
+        },
+        "12/0/init/body/4/argument/1/1/7": {
+          content: {
+            en: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            es: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            fr: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "hi-IN":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "ko-KR":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+          },
+          hash: "e3f0fa06cf51a5df93b21a41e06c7e9f",
+        },
+        "12/0/init/body/4/argument/1/11/1": {
+          content: {
+            en: "Explore My Work",
+            es: "Explorar mi trabajo",
+            fr: "Explorer mon travail",
+            "hi-IN": "मेरे काम का अन्वेषण करें",
+            "ko-KR": "내 작업 살펴보기",
+          },
+          hash: "9a4cd1677483b0835e90365f6f1e473c",
+        },
+        "12/0/init/body/4/argument/1/11/3": {
+          content: {
+            en: "Let's Connect",
+            es: "Conectemos",
+            fr: "Connectons-nous",
+            "hi-IN": "आइए जुड़ें",
+            "ko-KR": "연락하기",
+          },
+          hash: "c2c77365da18bc682a88fabb28b7ebdf",
+        },
+        "12/0/init/body/4/argument/1/3": {
+          content: {
+            en: "Web Developer | UI/UX Designer | Creative Problem",
+            es: "Desarrollador Web | Diseñador UI/UX | Solucionador Creativo",
+            fr: "Développeur Web | Designer UI/UX | Résolution Créative de Problèmes",
+            "hi-IN":
+              "वेब डेवलपर | यूआई/यूएक्स डिज़ाइनर | क्रिएटिव प्रॉब्लम सॉल्वर",
+            "ko-KR": "웹 개발자 | UI/UX 디자이너 | 창의적 문제 해결사",
+          },
+          hash: "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+        },
+        "12/0/init/body/4/argument/1/5": {
+          content: {
+            en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
+            es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",
+            fr: "Je conçois et développe des sites web modernes, réactifs et centrés sur l'utilisateur qui ne sont pas seulement beaux — ils performent. Ma mission est simple : transformer des idées en expériences numériques fluides qui laissent une impression durable.",
+            "hi-IN":
+              "मैं आधुनिक, प्रतिक्रियाशील और उपयोगकर्ता-केंद्रित वेबसाइटों को डिज़ाइन और निर्माण करता हूँ जो सिर्फ अच्छी नहीं दिखतीं — वे प्रदर्शन करती हैं। मेरा मिशन सरल है: विचारों को सहज डिजिटल अनुभवों में बदलना जो स्थायी प्रभाव छोड़ते हैं।",
+            "ko-KR":
+              "저는 단순히 보기 좋은 것을 넘어 실제로 성능이 뛰어난 현대적이고 반응형이며 사용자 중심의 웹사이트를 디자인하고 구축합니다. 제 사명은 간단합니다: 아이디어를 지속적인 인상을 남기는 원활한 디지털 경험으로 전환하는 것입니다.",
+          },
+          hash: "8c16855bc9e1a309296ce3fdba2f87c8",
+        },
+        "13/0/init/body/9/argument/1/1/1": {
+          content: {
+            en: "MRADUL",
+            es: "MRADUL",
+            fr: "MRADUL",
+            "hi-IN": "MRADUL",
+            "ko-KR": "MRADUL",
+          },
+          hash: "249668cfe473da4e62ebfad1b028d8fb",
+        },
+        "13/0/init/body/9/argument/1/1/1/1": {
+          content: {
+            en: "MRADUL",
+            es: "MRADUL",
+            fr: "MRADUL",
+            "hi-IN": "MRADUL",
+            "ko-KR": "MRADUL",
+          },
+          hash: "249668cfe473da4e62ebfad1b028d8fb",
+        },
+        "13/0/init/body/9/argument/1/1/1/3": {
+          content: {
+            en: "KUMAR",
+            es: "KUMAR",
+            fr: "KUMAR",
+            "hi-IN": "KUMAR",
+            "ko-KR": "KUMAR",
+          },
+          hash: "5d0f94ed6eb7f1543e5810b089c461a1",
+        },
+        "13/0/init/body/9/argument/1/1/1/7": {
+          content: {
+            en: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            es: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            fr: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "hi-IN":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "ko-KR":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+          },
+          hash: "e3f0fa06cf51a5df93b21a41e06c7e9f",
+        },
+        "13/0/init/body/9/argument/1/1/11/1": {
+          content: {
+            en: "Explore My Work",
+            es: "Explorar mi trabajo",
+            fr: "Explorer mon travail",
+            "hi-IN": "मेरे काम का अन्वेषण करें",
+            "ko-KR": "내 작업 살펴보기",
+          },
+          hash: "9a4cd1677483b0835e90365f6f1e473c",
+        },
+        "13/0/init/body/9/argument/1/1/11/3": {
+          content: {
+            en: "Let's Connect",
+            es: "Conectemos",
+            fr: "Connectons-nous",
+            "hi-IN": "आइए जुड़ें",
+            "ko-KR": "연락하기",
+          },
+          hash: "c2c77365da18bc682a88fabb28b7ebdf",
+        },
+        "13/0/init/body/9/argument/1/1/3": {
+          content: {
+            en: "Web Developer | UI/UX Designer | Creative Problem",
+            es: "Desarrollador Web | Diseñador UI/UX | Solucionador Creativo",
+            fr: "Développeur Web | Designer UI/UX | Résolution Créative de Problèmes",
+            "hi-IN":
+              "वेब डेवलपर | यूआई/यूएक्स डिज़ाइनर | क्रिएटिव प्रॉब्लम सॉल्वर",
+            "ko-KR": "웹 개발자 | UI/UX 디자이너 | 창의적 문제 해결사",
+          },
+          hash: "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+        },
+        "13/0/init/body/9/argument/1/1/5": {
+          content: {
+            en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
+            es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",
+            fr: "Je conçois et développe des sites web modernes, réactifs et centrés sur l'utilisateur qui ne sont pas seulement beaux — ils performent. Ma mission est simple : transformer des idées en expériences numériques fluides qui laissent une impression durable.",
+            "hi-IN":
+              "मैं आधुनिक, प्रतिक्रियाशील और उपयोगकर्ता-केंद्रित वेबसाइटों को डिज़ाइन और निर्माण करता हूँ जो सिर्फ अच्छी नहीं दिखतीं — वे प्रदर्शन करती हैं। मेरा मिशन सरल है: विचारों को सहज डिजिटल अनुभवों में बदलना जो स्थायी प्रभाव छोड़ते हैं।",
+            "ko-KR":
+              "저는 단순히 보기 좋은 것을 넘어 실제로 성능이 뛰어난 현대적이고 반응형이며 사용자 중심의 웹사이트를 디자인하고 구축합니다. 제 사명은 간단합니다: 아이디어를 지속적인 인상을 남기는 원활한 디지털 경험으로 전환하는 것입니다.",
+          },
+          hash: "8c16855bc9e1a309296ce3fdba2f87c8",
+        },
+        "13/0/init/body/9/argument/1/1/7": {
+          content: {
+            en: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            es: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            fr: "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "hi-IN":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+            "ko-KR":
+              "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>",
+          },
+          hash: "e3f0fa06cf51a5df93b21a41e06c7e9f",
+        },
+        "13/0/init/body/9/argument/1/11/1": {
+          content: {
+            en: "Explore My Work",
+            es: "Explorar mi trabajo",
+            fr: "Explorer mon travail",
+            "hi-IN": "मेरे काम का अन्वेषण करें",
+            "ko-KR": "내 작업 살펴보기",
+          },
+          hash: "9a4cd1677483b0835e90365f6f1e473c",
+        },
+        "13/0/init/body/9/argument/1/11/3": {
+          content: {
+            en: "Let's Connect",
+            es: "Conectemos",
+            fr: "Connectons-nous",
+            "hi-IN": "आइए जुड़ें",
+            "ko-KR": "연락하기",
+          },
+          hash: "c2c77365da18bc682a88fabb28b7ebdf",
+        },
+        "13/0/init/body/9/argument/1/3": {
+          content: {
+            en: "Web Developer | UI/UX Designer | Creative Problem",
+            es: "Desarrollador Web | Diseñador UI/UX | Solucionador Creativo",
+            fr: "Développeur Web | Designer UI/UX | Résolution Créative de Problèmes",
+            "hi-IN":
+              "वेब डेवलपर | यूआई/यूएक्स डिज़ाइनर | क्रिएटिव प्रॉब्लम सॉल्वर",
+            "ko-KR": "웹 개발자 | UI/UX 디자이너 | 창의적 문제 해결사",
+          },
+          hash: "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+        },
+        "13/0/init/body/9/argument/1/5": {
           content: {
             en: "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression.",
             es: "Diseño y construyo sitios web modernos, responsivos y centrados en el usuario que no solo se ven bien, sino que funcionan. Mi misión es simple: convertir ideas en experiencias digitales fluidas que dejen una impresión duradera.",

@@ -1,9 +1,13 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { LingoProvider, loadDictionary } from "lingo.dev/react/rsc";
+import {gsap} from "gsap";
+import type { Metadata } from "next";
+import { useGSAP } from "@gsap/react";
 import NavBar from "@/components/nav-bar";
+import { Geist, Geist_Mono } from "next/font/google";
 import ThemeProvider from "@/components/theme-provider";
+import { LingoProvider, loadDictionary } from "lingo.dev/react/rsc";
+
+gsap.registerPlugin(useGSAP);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

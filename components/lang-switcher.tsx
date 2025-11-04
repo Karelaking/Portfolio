@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Globe, Check } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Globe, Check } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 const languages = [
   { code: "en", name: "English", flag: "🇺🇸" },
@@ -25,59 +25,63 @@ const languages = [
 ];
 
 const LangSwitcher = () => {
-  const [activeLocale, setActiveLocale] = useState('en');
+  const [activeLocale, setActiveLocale] = useState("en");
 
   // Read locale from cookie on mount
   useEffect(() => {
-    const cookies = document.cookie.split('; ');
-    const localeCookie = cookies.find(row => row.startsWith('lingo-locale='));
+    const cookies = document.cookie.split("; ");
+    const localeCookie = cookies.find((row) => row.startsWith("lingo-locale="));
     if (localeCookie) {
-      const locale = localeCookie.split('=')[1];
+      const locale = localeCookie.split("=")[1];
       setActiveLocale(locale);
     }
   }, []);
 
   // Set locale cookie and update state
-  const setLocale = (locale:string) => {
+  const setLocale = (locale: string) => {
     // Set cookie with 1 year expiration
     const maxAge = 365 * 24 * 60 * 60; // 1 year in seconds
     document.cookie = `lingo-locale=${locale}; path=/; max-age=${maxAge}; SameSite=Lax`;
-    
+
     setActiveLocale(locale);
-    
+
     // Reload page to apply new locale
     window.location.reload();
   };
 
-  const currentLanguage = languages.find(lang => lang.code === activeLocale) || languages[0];
+  const currentLanguage =
+    languages.find((lang) => lang.code === activeLocale) || languages[0];
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2">
-          <Globe className="h-4 w-4" />
-          <span className="hidden sm:inline">{currentLanguage.name}</span>
-          <span className="sm:hidden">{currentLanguage.flag}</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
-        {languages.map((language) => (
-          <DropdownMenuItem
-            key={language.code}
-            onClick={() => setLocale(language.code)}
-            className="cursor-pointer flex items-center justify-between"
-          >
-            <span className="flex items-center gap-2">
-              <span className="text-lg">{language.flag}</span>
-              <span>{language.name}</span>
-            </span>
-            {activeLocale === language.code && (
-              <Check className="h-4 w-4 text-primary" />
-            )}
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    
+    <div className="my-6 mx-4 lg:mx-0 lg:my-0">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" size="sm" className="gap-2">
+            <Globe className="h-4 w-4" />
+            <span className="hidden sm:inline">{currentLanguage.name}</span>
+            <span className="sm:hidden">{currentLanguage.flag}</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-48">
+          {languages.map((language) => (
+            <DropdownMenuItem
+              key={language.code}
+              onClick={() => setLocale(language.code)}
+              className="cursor-pointer flex items-center justify-between"
+            >
+              <span className="flex items-center gap-2">
+                <span className="text-lg">{language.flag}</span>
+                <span>{language.name}</span>
+              </span>
+              {activeLocale === language.code && (
+                <Check className="h-4 w-4 text-primary" />
+              )}
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   );
 };
 

@@ -1,21 +1,21 @@
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React, { useRef, forwardRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-const ModelCanvas = (): React.JSX.Element => {
+const ModelCanvas = forwardRef<HTMLDivElement>((props, ref) => {
   // Simple rotating 3D model
   function Model() {
     const gltf = useGLTF("models/model.glb");
-    const ref = useRef<THREE.Group>(null);
+    const modelRef = useRef<THREE.Group>(null);
     useFrame(() => {
-      if (ref.current) ref.current.rotation.y += 0.003;
+      if (modelRef.current) modelRef.current.rotation.y += 0.003;
     });
-    return <primitive ref={ref} object={gltf.scene} scale={1.2} />;
+    return <primitive ref={modelRef} object={gltf.scene} scale={1.2} />;
   }
 
   return (
-    <div className="w-full md:w-1/2 h-100 md:h-[600px] my-8">
+    <div ref={ref} className="w-full md:w-1/2 h-100 md:h-[600px] mb-8">
       <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
         <ambientLight intensity={1.8} />
         <directionalLight position={[5, 5, 5]} />
@@ -24,6 +24,8 @@ const ModelCanvas = (): React.JSX.Element => {
       </Canvas>
     </div>
   );
-};
+});
+
+ModelCanvas.displayName = "ModelCanvas";
 
 export default ModelCanvas;
