@@ -13,6 +13,66 @@
         }
       }
     },
+    "../components/hero-animated-content.tsx": {
+      "scopes": {
+        "13/declaration/body/9/argument/1/1/1/1": {
+          "type": "element",
+          "hash": "249668cfe473da4e62ebfad1b028d8fb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        },
+        "13/declaration/body/9/argument/1/1/1/3": {
+          "type": "element",
+          "hash": "5d0f94ed6eb7f1543e5810b089c461a1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "KUMAR"
+        },
+        "13/declaration/body/9/argument/1/1/1/7": {
+          "type": "element",
+          "hash": "f6d9cae2c62981cd2d1f3a58d9f064dc",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>"
+        },
+        "13/declaration/body/9/argument/1/1/11/1": {
+          "type": "element",
+          "hash": "246139a9061ca22c69b43da7a7e27aca",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Explore My Work"
+        },
+        "13/declaration/body/9/argument/1/1/11/3": {
+          "type": "element",
+          "hash": "6db5260f3cea7d10bc1ad849cd93e875",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Let's Connect"
+        },
+        "13/declaration/body/9/argument/1/1/3": {
+          "type": "element",
+          "hash": "61e7b7e30d8bd2dd31538277a41ccfd0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Web Developer | UI/UX Designer | Creative Problem"
+        },
+        "13/declaration/body/9/argument/1/1/5": {
+          "type": "element",
+          "hash": "60c776949735bc5f998e1be1eea37d09",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression."
+        }
+      }
+    },
     "../components/hero-section.tsx": {
       "scopes": {
         "10/0/init/body/3/argument/1/1": {
@@ -120,6 +180,62 @@
           "content": "Web Developer | UI/UX Designer | Creative Problem"
         },
         "10/0/init/body/4/argument/1/5": {
+          "type": "element",
+          "hash": "8c16855bc9e1a309296ce3fdba2f87c8",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression."
+        },
+        "11/0/init/body/0/argument/1/1/1/1": {
+          "type": "element",
+          "hash": "249668cfe473da4e62ebfad1b028d8fb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        },
+        "11/0/init/body/0/argument/1/1/1/3": {
+          "type": "element",
+          "hash": "5d0f94ed6eb7f1543e5810b089c461a1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "KUMAR"
+        },
+        "11/0/init/body/0/argument/1/1/1/7": {
+          "type": "element",
+          "hash": "e3f0fa06cf51a5df93b21a41e06c7e9f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>"
+        },
+        "11/0/init/body/0/argument/1/1/11/1": {
+          "type": "element",
+          "hash": "9a4cd1677483b0835e90365f6f1e473c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Explore My Work"
+        },
+        "11/0/init/body/0/argument/1/1/11/3": {
+          "type": "element",
+          "hash": "c2c77365da18bc682a88fabb28b7ebdf",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Let's Connect"
+        },
+        "11/0/init/body/0/argument/1/1/3": {
+          "type": "element",
+          "hash": "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Web Developer | UI/UX Designer | Creative Problem"
+        },
+        "11/0/init/body/0/argument/1/1/5": {
           "type": "element",
           "hash": "8c16855bc9e1a309296ce3fdba2f87c8",
           "context": "",
@@ -288,6 +404,110 @@
           "content": "Web Developer | UI/UX Designer | Creative Problem"
         },
         "12/0/init/body/4/argument/1/5": {
+          "type": "element",
+          "hash": "8c16855bc9e1a309296ce3fdba2f87c8",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression."
+        },
+        "13/0/init/body/9/argument/1/1/1": {
+          "type": "element",
+          "hash": "249668cfe473da4e62ebfad1b028d8fb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        },
+        "13/0/init/body/9/argument/1/1/1/1": {
+          "type": "element",
+          "hash": "249668cfe473da4e62ebfad1b028d8fb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        },
+        "13/0/init/body/9/argument/1/1/1/3": {
+          "type": "element",
+          "hash": "5d0f94ed6eb7f1543e5810b089c461a1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "KUMAR"
+        },
+        "13/0/init/body/9/argument/1/1/1/7": {
+          "type": "element",
+          "hash": "e3f0fa06cf51a5df93b21a41e06c7e9f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>"
+        },
+        "13/0/init/body/9/argument/1/1/11/1": {
+          "type": "element",
+          "hash": "9a4cd1677483b0835e90365f6f1e473c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Explore My Work"
+        },
+        "13/0/init/body/9/argument/1/1/11/3": {
+          "type": "element",
+          "hash": "c2c77365da18bc682a88fabb28b7ebdf",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Let's Connect"
+        },
+        "13/0/init/body/9/argument/1/1/3": {
+          "type": "element",
+          "hash": "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Web Developer | UI/UX Designer | Creative Problem"
+        },
+        "13/0/init/body/9/argument/1/1/5": {
+          "type": "element",
+          "hash": "8c16855bc9e1a309296ce3fdba2f87c8",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I design and build modern, responsive, and user-focused websites that don't just look good — they perform. My mission is simple: turn ideas into seamless digital experiences that leave a lasting impression."
+        },
+        "13/0/init/body/9/argument/1/1/7": {
+          "type": "element",
+          "hash": "e3f0fa06cf51a5df93b21a41e06c7e9f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "KATIYAR<element:svg><element:motion.path></element:motion.path></element:svg>"
+        },
+        "13/0/init/body/9/argument/1/11/1": {
+          "type": "element",
+          "hash": "9a4cd1677483b0835e90365f6f1e473c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Explore My Work"
+        },
+        "13/0/init/body/9/argument/1/11/3": {
+          "type": "element",
+          "hash": "c2c77365da18bc682a88fabb28b7ebdf",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Let's Connect"
+        },
+        "13/0/init/body/9/argument/1/3": {
+          "type": "element",
+          "hash": "ccdc7ecff34cc87a9d24a8807ec1a9c1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Web Developer | UI/UX Designer | Creative Problem"
+        },
+        "13/0/init/body/9/argument/1/5": {
           "type": "element",
           "hash": "8c16855bc9e1a309296ce3fdba2f87c8",
           "context": "",
