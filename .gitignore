@@ -42,5 +42,9 @@ next-env.d.ts
 bun.lockb
 package-lock.json
 ./app/lingo
+<<<<<<< HEAD
 __fixtures__
 cosmos
+=======
+pnpm-lock.yaml
+>>>>>>> 00bc145 (bug fix)
