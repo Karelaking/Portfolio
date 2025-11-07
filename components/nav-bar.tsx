@@ -12,7 +12,7 @@ const NavBar = (): React.JSX.Element => {
         <Link href="/" className={`text-3xl font-bold ${caveat.className}`}>
           MRADUL
         </Link>
-        <div className="flex gap-x-2 lg:gap-x-12 itecms-center justify-center">
+        <div className="flex lg:gap-x-12 itecms-center justify-center">
           <LangSwitcher />
           <ThemeModeToggleButton />
         </div>
