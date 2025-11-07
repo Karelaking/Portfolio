@@ -5,12 +5,14 @@ interface CircleTextProps {
   text: string;
   isBold?: boolean;
   textColor?: string;
+  height?: string;
 }
 
 export const CircleText = ({
   text,
   isBold = false,
   textColor = "#fca5a5",
+  height = "-top-2",
 }: CircleTextProps): JSX.Element => {
   return (
     <span className={`relative ${isBold ? 'font-bold' : ''}`} style={{ color: textColor }}>
@@ -18,7 +20,7 @@ export const CircleText = ({
       <svg
         viewBox="0 0 286 73"
         fill="none"
-        className="absolute -left-2 -right-2 -top-1 bottom-0 translate-y-1"
+        className={`absolute -left-2 -right-2 ${height} bottom-0 translate-y-1`}
       >
         <motion.path
           initial={{ pathLength: 0 }}

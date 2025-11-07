@@ -15,6 +15,232 @@ export default {
         },
       },
     },
+    "../components/expertise-card-comic.tsx": {
+      entries: {
+        "3/0/init/body/1/argument/1/11/1-aria-label": {
+          content: {
+            en: "View Details",
+            es: "Ver detalles",
+            fr: "Voir les détails",
+            "hi-IN": "विवरण देखें",
+            "ko-KR": "세부 정보 보기",
+          },
+          hash: "f89b1a0b178c4e8448cdbee27998ed03",
+        },
+        "3/0/init/body/1/argument/1/11/1/1": {
+          content: {
+            en: "DETAILS",
+            es: "DETALLES",
+            fr: "DÉTAILS",
+            "hi-IN": "विवरण",
+            "ko-KR": "세부 정보",
+          },
+          hash: "be3c2a680cbcbfda8862997d65d1def5",
+        },
+        "3/0/init/body/1/argument/1/11/3-aria-label": {
+          content: {
+            en: "View Projects",
+            es: "Ver proyectos",
+            fr: "Voir les projets",
+            "hi-IN": "प्रोजेक्ट देखें",
+            "ko-KR": "프로젝트 보기",
+          },
+          hash: "58be26aded5ce40d33a1201b2cc3c785",
+        },
+        "3/0/init/body/1/argument/1/11/3/1": {
+          content: {
+            en: "PROJECTS",
+            es: "PROYECTOS",
+            fr: "PROJETS",
+            "hi-IN": "प्रोजेक्ट",
+            "ko-KR": "프로젝트",
+          },
+          hash: "3cd193ec649929afc6df9b1082b65d5b",
+        },
+      },
+    },
+    "../components/expertise-card.tsx": {
+      entries: {
+        "1/0/init/body/0/argument/1/1/1/3/1": {
+          content: {
+            en: "Captain Creative",
+            es: "Capitán Creativo",
+            fr: "Capitaine Créatif",
+            "hi-IN": "कैप्टन क्रिएटिव",
+            "ko-KR": "캡틴 크리에이티브",
+          },
+          hash: "409777a70d893aba62c0b2cd97d459a1",
+        },
+        "1/0/init/body/0/argument/1/1/1/3/3": {
+          content: {
+            en: "@TheInker",
+            es: "@TheInker",
+            fr: "@TheInker",
+            "hi-IN": "@TheInker",
+            "ko-KR": "@TheInker",
+          },
+          hash: "13b3ce1fc302e5f75588bf14ad0dc73c",
+        },
+        "1/0/init/body/0/argument/1/1/3/3": {
+          content: {
+            en: "MEANWHILE... I've discovered a new source of ultimate creative power!",
+            es: "MIENTRAS TANTO... ¡He descubierto una nueva fuente de poder creativo definitivo!",
+            fr: "PENDANT CE TEMPS... J'ai découvert une nouvelle source de pouvoir créatif ultime !",
+            "hi-IN":
+              "इस बीच... मैंने परम रचनात्मक शक्ति का एक नया स्रोत खोज लिया है!",
+            "ko-KR":
+              "그런데... 나는 궁극적인 창의적 힘의 새로운 원천을 발견했어요!",
+          },
+          hash: "673940b07fb326f6c47e37dfc2c2499a",
+        },
+        "1/0/init/body/0/argument/1/1/5/1-aria-label": {
+          content: {
+            en: "Like Post",
+            es: "Me gusta la publicación",
+            fr: "Aimer la publication",
+            "hi-IN": "पोस्ट पसंद करें",
+            "ko-KR": "게시물 좋아요",
+          },
+          hash: "79cb19e9261fe7f358ee1f82eae16ab6",
+        },
+        "1/0/init/body/0/argument/1/1/5/3-aria-label": {
+          content: {
+            en: "Comment on Post",
+            es: "Comentar en la publicación",
+            fr: "Commenter la publication",
+            "hi-IN": "पोस्ट पर टिप्पणी करें",
+            "ko-KR": "게시물에 댓글 달기",
+          },
+          hash: "c237df6ac765990102498873896c534a",
+        },
+        "1/0/init/body/0/argument/1/1/5/5-aria-label": {
+          content: {
+            en: "Share Post",
+            es: "Compartir publicación",
+            fr: "Partager la publication",
+            "hi-IN": "पोस्ट साझा करें",
+            "ko-KR": "게시물 공유하기",
+          },
+          hash: "12c748be244ebaccfddd625d26a6a2b3",
+        },
+        "2/0/init/body/0/argument/1/1/1/3/1": {
+          content: {
+            en: "Captain Creative",
+            es: "Capitán Creativo",
+            fr: "Capitaine Créatif",
+            "hi-IN": "कैप्टन क्रिएटिव",
+            "ko-KR": "캡틴 크리에이티브",
+          },
+          hash: "409777a70d893aba62c0b2cd97d459a1",
+        },
+        "2/0/init/body/0/argument/1/1/1/3/3": {
+          content: {
+            en: "@TheInker",
+            es: "@TheInker",
+            fr: "@TheInker",
+            "hi-IN": "@TheInker",
+            "ko-KR": "@TheInker",
+          },
+          hash: "13b3ce1fc302e5f75588bf14ad0dc73c",
+        },
+        "2/0/init/body/0/argument/1/1/3/3": {
+          content: {
+            en: "MEANWHILE... I've discovered a new source of ultimate creative power!",
+            es: "MIENTRAS TANTO... ¡He descubierto una nueva fuente de poder creativo definitivo!",
+            fr: "PENDANT CE TEMPS... J'ai découvert une nouvelle source de pouvoir créatif ultime !",
+            "hi-IN":
+              "इस बीच... मैंने परम रचनात्मक शक्ति का एक नया स्रोत खोज लिया है!",
+            "ko-KR":
+              "그런데... 나는 궁극적인 창의적 힘의 새로운 원천을 발견했어요!",
+          },
+          hash: "673940b07fb326f6c47e37dfc2c2499a",
+        },
+        "2/0/init/body/0/argument/1/1/5/1-aria-label": {
+          content: {
+            en: "Like Post",
+            es: "Me gusta la publicación",
+            fr: "Aimer la publication",
+            "hi-IN": "पोस्ट पसंद करें",
+            "ko-KR": "게시물 좋아요",
+          },
+          hash: "79cb19e9261fe7f358ee1f82eae16ab6",
+        },
+        "2/0/init/body/0/argument/1/1/5/3-aria-label": {
+          content: {
+            en: "Comment on Post",
+            es: "Comentar en la publicación",
+            fr: "Commenter la publication",
+            "hi-IN": "पोस्ट पर टिप्पणी करें",
+            "ko-KR": "게시물에 댓글 달기",
+          },
+          hash: "c237df6ac765990102498873896c534a",
+        },
+        "2/0/init/body/0/argument/1/1/5/5-aria-label": {
+          content: {
+            en: "Share Post",
+            es: "Compartir publicación",
+            fr: "Partager la publication",
+            "hi-IN": "पोस्ट साझा करें",
+            "ko-KR": "게시물 공유하기",
+          },
+          hash: "12c748be244ebaccfddd625d26a6a2b3",
+        },
+        "3/0/init/body/0/argument/3/15/11/1": {
+          content: {
+            en: "Technologies & Tools",
+            es: "Tecnologías y herramientas",
+            fr: "Technologies et outils",
+            "hi-IN": "प्रौद्योगिकियां और उपकरण",
+            "ko-KR": "기술 및 도구",
+          },
+          hash: "9f991d721c40c3bdc99dbe82b00fc025",
+        },
+      },
+    },
+    "../components/expertise-neobrutalist-card.tsx": {
+      entries: {
+        "3/0/init/body/1/argument/3/3/1": {
+          content: {
+            en: "TECH STACK:",
+            es: "STACK TECNOLÓGICO:",
+            fr: "STACK TECHNIQUE :",
+            "hi-IN": "टेक स्टैक:",
+            "ko-KR": "기술 스택:",
+          },
+          hash: "36c0a87e6012f19533e144b89d2aa533",
+        },
+        "3/0/init/body/1/argument/3/3/3/3/expression/right": {
+          content: {
+            en: "+<expression/>",
+            es: "+<expression/>",
+            fr: "+<expression/>",
+            "hi-IN": "+<expression/>",
+            "ko-KR": "+<expression/>",
+          },
+          hash: "c17d4c5ea51eb5ef805e373b650ac426",
+        },
+        "3/0/init/body/1/argument/3/5": {
+          content: {
+            en: "VIEW DETAILS",
+            es: "VER DETALLES",
+            fr: "VOIR LES DÉTAILS",
+            "hi-IN": "विवरण देखें",
+            "ko-KR": "상세 보기",
+          },
+          hash: "a9144580fa079f2d895d30eb837879ce",
+        },
+        "4/declaration/0/init/body/0/argument/1/1": {
+          content: {
+            en: "MY EXPERTISE",
+            es: "MI EXPERIENCIA",
+            fr: "MON EXPERTISE",
+            "hi-IN": "मेरी विशेषज्ञता",
+            "ko-KR": "나의 전문 분야",
+          },
+          hash: "d8682a34db28bdae775a497bae46e19a",
+        },
+      },
+    },
     "../components/hero-animated-content.tsx": {
       entries: {
         "13/declaration/body/9/argument/1/1/1/1": {
@@ -1677,6 +1903,36 @@ export default {
           },
           hash: "b1ee87c5b606ef3db1ad7d386f1b54e5",
         },
+        "6/0/init/body/3/argument/1/1/1/1/expression/alternate/3": {
+          content: {
+            en: "Light",
+            es: "Claro",
+            fr: "Clair",
+            "hi-IN": "लाइट",
+            "ko-KR": "라이트",
+          },
+          hash: "eec090005b9bed1e92497863acd9df9d",
+        },
+        "6/0/init/body/3/argument/1/1/1/1/expression/consequent/5": {
+          content: {
+            en: "Dark",
+            es: "Oscuro",
+            fr: "Sombre",
+            "hi-IN": "डार्क",
+            "ko-KR": "다크",
+          },
+          hash: "7d7e6dc1eec3d5040186cbd716bae3ea",
+        },
+        "6/0/init/body/3/argument/1/1/1/3": {
+          content: {
+            en: "Toggle theme",
+            es: "Cambiar tema",
+            fr: "Changer de thème",
+            "hi-IN": "थीम टॉगल करें",
+            "ko-KR": "테마 전환",
+          },
+          hash: "dd03ee6b83901fc440f90236483dafc5",
+        },
         "6/0/init/body/3/argument/1/1/1/expression/alternate/1/3": {
           content: {
             en: "Light",
@@ -1709,13 +1965,13 @@ export default {
         },
         "6/0/init/body/3/argument/1/1/1/expression/alternate/3": {
           content: {
-            en: "Dark",
-            es: "Oscuro",
-            fr: "Sombre",
-            "hi-IN": "डार्क",
-            "ko-KR": "다크",
+            en: "Light",
+            es: "Claro",
+            fr: "Clair",
+            "hi-IN": "लाइट",
+            "ko-KR": "라이트",
           },
-          hash: "73e6e208ba628b26e90fcf6dce15e1b2",
+          hash: "0b25133d91e7f9167019fd681c1bcaa8",
         },
         "6/0/init/body/3/argument/1/1/1/expression/consequent/1/3/1": {
           content: {
@@ -1759,13 +2015,13 @@ export default {
         },
         "6/0/init/body/3/argument/1/1/1/expression/consequent/5": {
           content: {
-            en: "Light",
-            es: "Claro",
-            fr: "Clair",
-            "hi-IN": "लाइट",
-            "ko-KR": "라이트",
+            en: "Dark",
+            es: "Oscuro",
+            fr: "Sombre",
+            "hi-IN": "डार्क",
+            "ko-KR": "다크",
           },
-          hash: "bb78ea2c6edd8662676c81a8a13ecb93",
+          hash: "7d7e6dc1eec3d5040186cbd716bae3ea",
         },
         "6/0/init/body/3/argument/1/1/3": {
           content: {
@@ -1806,6 +2062,36 @@ export default {
             "ko-KR": "테마 전환",
           },
           hash: "dd03ee6b83901fc440f90236483dafc5",
+        },
+        "6/0/init/body/3/argument/1/3/1": {
+          content: {
+            en: "Light",
+            es: "Claro",
+            fr: "Clair",
+            "hi-IN": "लाइट",
+            "ko-KR": "라이트",
+          },
+          hash: "4a160facd660ff87159199bdb928d47a",
+        },
+        "6/0/init/body/3/argument/1/3/3": {
+          content: {
+            en: "Dark",
+            es: "Oscuro",
+            fr: "Sombre",
+            "hi-IN": "डार्क",
+            "ko-KR": "다크",
+          },
+          hash: "feaa9968bfe2a9fc29cd26423e38c697",
+        },
+        "6/0/init/body/3/argument/1/3/5": {
+          content: {
+            en: "System",
+            es: "Sistema",
+            fr: "Système",
+            "hi-IN": "सिस्टम",
+            "ko-KR": "시스템",
+          },
+          hash: "f1b073669f3672ad8777468af31fa098",
         },
         "6/0/init/body/3/argument/3/1": {
           content: {
@@ -2257,12 +2543,12 @@ export default {
         "4/0/init/body/7/argument/1/7/1/1": {
           content: {
             en: "I‘m Mradul Kumar, a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
-            es: "Soy Mradul Kumar, desarrollador web y diseñador UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en fase inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
-            fr: "Je suis Mradul Kumar, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques alliant forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
+            es: "Soy Mradul Kumar, un desarrollador web y diseñador de UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en etapa inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
+            fr: "Je suis Mradul Kumar, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques qui allient forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
             "hi-IN":
-              "मैं मृदुल कुमार हूँ, एक वेब डेवलपर और यूआई/यूएक्स डिज़ाइनर जिसे रूप और कार्य को मिलाने वाले डिजिटल उत्पादों के निर्माण में 5 वर्ष से अधिक का अनुभव है। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनकारी दोनों हों।",
+              "मैं मृदुल कुमार हूँ, एक वेब डेवलपर और यूआई/यूएक्स डिज़ाइनर जिसे फॉर्म और फंक्शन को मिलाकर डिजिटल प्रोडक्ट्स बनाने का 5 साल से अधिक का अनुभव है। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला हुआ है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करते हुए जो सुंदर और प्रदर्शनशील दोनों हों।",
             "ko-KR":
-              "저는 Mradul Kumar이며, 형태와 기능을 결합한 디지털 제품을 구축하는 데 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
+              "저는 Mradul Kumar이며, 형태와 기능을 조화시키는 디지털 제품을 구축한 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
           },
           hash: "52421bb5c2c0323e4b277738498fc189",
         },
@@ -2280,15 +2566,15 @@ export default {
         },
         "4/0/init/body/7/argument/1/7/1/5": {
           content: {
-            en: "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to open-source projects, or mentoring aspiring developers in the community.",
-            es: "Cuando no estoy ajustando píxeles o escribiendo código, exploro tecnologías web emergentes, contribuyo a proyectos de código abierto o mentorizo a desarrolladores aspirantes en la comunidad.",
-            fr: "Quand je ne manipule pas les pixels ou n'écris pas de code, j'explore les technologies web émergentes, je contribue à des projets open-source ou je guide des développeurs en herbe dans la communauté.",
+            en: "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community.",
+            es: "Cuando no estoy moviendo píxeles o escribiendo código, estoy explorando tecnologías web emergentes, contribuyendo a proyectos o mentorizando a desarrolladores aspirantes en la comunidad.",
+            fr: "Quand je ne suis pas en train d'agencer des pixels ou d'écrire du code, j'explore les technologies web émergentes, je contribue à des projets ou je guide des développeurs en herbe dans la communauté.",
             "hi-IN":
-              "जब मैं पिक्सेल या कोड नहीं लिख रहा होता हूँ, तो मैं उभरती वेब तकनीकों का पता लगा रहा होता हूँ, ओपन-सोर्स प्रोजेक्ट्स में योगदान दे रहा होता हूँ, या समुदाय में आकांक्षी डेवलपर्स को मेंटर कर रहा होता हूँ।",
+              "जब मैं पिक्सेल को पुश या कोड लिख नहीं रहा होता हूँ, तब मैं उभरती वेब तकनीकों का पता लगाता हूँ, प्रोजेक्ट्स में योगदान देता हूँ, या समुदाय में आकांक्षी डेवलपर्स को मेंटर करता हूँ।",
             "ko-KR":
-              "픽셀을 조정하거나 코드를 작성하지 않을 때는 새로운 웹 기술을 탐색하거나, 오픈 소스 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
+              "픽셀을 조작하거나 코드를 작성하지 않을 때는 새로운 웹 기술을 탐구하거나, 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
           },
-          hash: "bf3ab806b9f011c490aedbe142d6763d",
+          hash: "348eac9bbc14279e7d8db2c3e5e7481c",
         },
         "4/0/init/body/7/argument/13/11/1": {
           content: {
@@ -2588,6 +2874,36 @@ export default {
           },
           hash: "10d62d90b299bf658ad355c121a37d38",
         },
+        "5/0/init/body/7/argument/1/11/3/1/expression/0/body-description": {
+          content: {
+            en: "Building modern web applications",
+            es: "Construyendo aplicaciones web modernas",
+            fr: "Création d'applications web modernes",
+            "hi-IN": "आधुनिक वेब एप्लिकेशन का निर्माण",
+            "ko-KR": "현대적인 웹 애플리케이션 구축",
+          },
+          hash: "8dd03378e1852c295095474d1a7c6c6b",
+        },
+        "5/0/init/body/7/argument/1/11/3/1/expression/0/body-title": {
+          content: {
+            en: "Frontend Development",
+            es: "Desarrollo Frontend",
+            fr: "Développement frontend",
+            "hi-IN": "फ्रंटएंड डेवलपमेंट",
+            "ko-KR": "프론트엔드 개발",
+          },
+          hash: "84dfe46a319ea11134c0db5f2712806b",
+        },
+        "5/0/init/body/7/argument/1/13/1": {
+          content: {
+            en: "Core Expertise",
+            es: "Experiencia principal",
+            fr: "Expertise principale",
+            "hi-IN": "मुख्य विशेषज्ञता",
+            "ko-KR": "핵심 전문 분야",
+          },
+          hash: "498a8b0773845320d0bd750c0c109696",
+        },
         "5/0/init/body/7/argument/1/15/1/1": {
           content: {
             en: "0+",
@@ -2648,6 +2964,66 @@ export default {
           },
           hash: "fa9dbda88067369d8daef367b688ddee",
         },
+        "5/0/init/body/7/argument/1/17/1/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "5/0/init/body/7/argument/1/17/1/3": {
+          content: {
+            en: "Projects Built",
+            es: "Proyectos realizados",
+            fr: "Projets réalisés",
+            "hi-IN": "परियोजनाएँ बनाई गईं",
+            "ko-KR": "구축한 프로젝트",
+          },
+          hash: "09e063c5fea17203dfc48d7b2528f58d",
+        },
+        "5/0/init/body/7/argument/1/17/3/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "5/0/init/body/7/argument/1/17/3/3": {
+          content: {
+            en: "Technologies",
+            es: "Tecnologías",
+            fr: "Technologies",
+            "hi-IN": "तकनीकें",
+            "ko-KR": "기술",
+          },
+          hash: "bee6e2dd04bcf7e9f69a2829b8b08414",
+        },
+        "5/0/init/body/7/argument/1/17/5/1": {
+          content: {
+            en: "0%",
+            es: "0%",
+            fr: "0%",
+            "hi-IN": "0%",
+            "ko-KR": "0%",
+          },
+          hash: "e4c707e92074492ae9d597af3048d06b",
+        },
+        "5/0/init/body/7/argument/1/17/5/3": {
+          content: {
+            en: "Commitment",
+            es: "Compromiso",
+            fr: "Engagement",
+            "hi-IN": "प्रतिबद्धता",
+            "ko-KR": "헌신도",
+          },
+          hash: "b386ee6606f47d3d781e811bc244a8f0",
+        },
         "5/0/init/body/7/argument/1/3-title": {
           content: {
             en: "About Me",
@@ -2660,15 +3036,15 @@ export default {
         },
         "5/0/init/body/7/argument/1/7/1/1": {
           content: {
-            en: "I‘m Mradul Kumar, a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
-            es: "Soy Mradul Kumar, desarrollador web y diseñador UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en fase inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
-            fr: "Je suis Mradul Kumar, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques alliant forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
+            en: "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
+            es: "Soy <expression/>, un desarrollador web y diseñador de UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en etapa inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
+            fr: "Je suis <expression/>, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques qui allient forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
             "hi-IN":
-              "मैं मृदुल कुमार हूँ, एक वेब डेवलपर और यूआई/यूएक्स डिज़ाइनर जिसे रूप और कार्य को मिलाने वाले डिजिटल उत्पादों के निर्माण में 5 वर्ष से अधिक का अनुभव है। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनकारी दोनों हों।",
+              "मैं <expression/> हूँ, एक वेब डेवलपर और UI/UX डिज़ाइनर जिसे डिजिटल प्रोडक्ट्स बनाने का 5 साल से अधिक का अनुभव है जो रूप और कार्य को मिलाते हैं। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनशील दोनों हों।",
             "ko-KR":
-              "저는 Mradul Kumar이며, 형태와 기능을 결합한 디지털 제품을 구축하는 데 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
+              "저는 <expression/> 입니다. 형태와 기능을 조화시키는 디지털 제품을 구축한 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
           },
-          hash: "52421bb5c2c0323e4b277738498fc189",
+          hash: "955d94e5d28c94998573287e65a6c222",
         },
         "5/0/init/body/7/argument/1/7/1/3": {
           content: {
@@ -2684,15 +3060,51 @@ export default {
         },
         "5/0/init/body/7/argument/1/7/1/5": {
           content: {
-            en: "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to open-source projects, or mentoring aspiring developers in the community.",
-            es: "Cuando no estoy ajustando píxeles o escribiendo código, exploro tecnologías web emergentes, contribuyo a proyectos de código abierto o mentorizo a desarrolladores aspirantes en la comunidad.",
-            fr: "Quand je ne manipule pas les pixels ou n'écris pas de code, j'explore les technologies web émergentes, je contribue à des projets open-source ou je guide des développeurs en herbe dans la communauté.",
+            en: "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community.",
+            es: "Cuando no estoy moviendo píxeles o escribiendo código, estoy explorando tecnologías web emergentes, contribuyendo a proyectos o mentorizando a desarrolladores aspirantes en la comunidad.",
+            fr: "Quand je ne suis pas en train d'agencer des pixels ou d'écrire du code, j'explore les technologies web émergentes, je contribue à des projets ou je guide des développeurs en herbe dans la communauté.",
             "hi-IN":
-              "जब मैं पिक्सेल या कोड नहीं लिख रहा होता हूँ, तो मैं उभरती वेब तकनीकों का पता लगा रहा होता हूँ, ओपन-सोर्स प्रोजेक्ट्स में योगदान दे रहा होता हूँ, या समुदाय में आकांक्षी डेवलपर्स को मेंटर कर रहा होता हूँ।",
+              "जब मैं पिक्सेल को पुश या कोड लिख नहीं रहा होता हूँ, तब मैं उभरती वेब तकनीकों का पता लगाता हूँ, प्रोजेक्ट्स में योगदान देता हूँ, या समुदाय में आकांक्षी डेवलपर्स को मेंटर करता हूँ।",
             "ko-KR":
-              "픽셀을 조정하거나 코드를 작성하지 않을 때는 새로운 웹 기술을 탐색하거나, 오픈 소스 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
+              "픽셀을 조작하거나 코드를 작성하지 않을 때는 새로운 웹 기술을 탐구하거나, 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
           },
-          hash: "bf3ab806b9f011c490aedbe142d6763d",
+          hash: "348eac9bbc14279e7d8db2c3e5e7481c",
+        },
+        "5/0/init/body/7/argument/1/9/1/1": {
+          content: {
+            en: "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
+            es: "Soy <expression/>, un desarrollador web y diseñador de UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en etapa inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
+            fr: "Je suis <expression/>, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques qui allient forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
+            "hi-IN":
+              "मैं <expression/> हूँ, एक वेब डेवलपर और UI/UX डिज़ाइनर जिसे डिजिटल प्रोडक्ट्स बनाने का 5 साल से अधिक का अनुभव है जो रूप और कार्य को मिलाते हैं। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनशील दोनों हों।",
+            "ko-KR":
+              "저는 <expression/> 입니다. 형태와 기능을 조화시키는 디지털 제품을 구축한 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
+          },
+          hash: "e08a44f0210455bd6619019c13192a47",
+        },
+        "5/0/init/body/7/argument/1/9/1/3": {
+          content: {
+            en: "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail.",
+            es: "Mi enfoque se basa en entender el problema antes de saltar a las soluciones. Creo que el mejor trabajo ocurre en la intersección de las necesidades del usuario, los objetivos del negocio y las limitaciones técnicas. Ya sea arquitectando un sistema frontend escalable o refinando micro-interacciones, aporto el mismo nivel de atención al detalle.",
+            fr: "Mon approche est ancrée dans la compréhension du problème avant de passer aux solutions. Je crois que le meilleur travail se produit à l'intersection des besoins des utilisateurs, des objectifs commerciaux et des contraintes techniques. Qu'il s'agisse d'architecturer un système frontend évolutif ou d'affiner des micro-interactions, j'apporte le même niveau d'attention aux détails.",
+            "hi-IN":
+              "मेरा दृष्टिकोण समाधानों पर कूदने से पहले समस्या को समझने में निहित है। मेरा मानना है कि सबसे अच्छा काम उपयोगकर्ता की जरूरतों, व्यावसायिक लक्ष्यों और तकनीकी बाधाओं के चौराहे पर होता है। चाहे वह एक स्केलेबल फ्रंटएंड सिस्टम की आर्किटेक्चरिंग हो या माइक्रो-इंटरैक्शन को परिष्कृत करना हो, मैं विवरण पर समान स्तर का ध्यान देता हूँ।",
+            "ko-KR":
+              "제 접근 방식은 해결책을 찾기 전에 문제를 이해하는 데 뿌리를 두고 있습니다. 저는 최고의 작업이 사용자 요구, 비즈니스 목표, 기술적 제약의 교차점에서 이루어진다고 믿습니다. 확장 가능한 프론트엔드 시스템을 설계하든 미세 상호작용을 개선하든, 저는 동일한 수준의 세심한 주의를 기울입니다.",
+          },
+          hash: "1dcd87bddeadef8e7d9838e1e31d38e6",
+        },
+        "5/0/init/body/7/argument/1/9/1/5": {
+          content: {
+            en: "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community.",
+            es: "Cuando no estoy moviendo píxeles o escribiendo código, estoy explorando tecnologías web emergentes, contribuyendo a proyectos <expression/>, o mentorizando a desarrolladores aspirantes en la comunidad.",
+            fr: "Quand je ne suis pas en train d'agencer des pixels ou d'écrire du code, j'explore les technologies web émergentes, je contribue à des projets <expression/>, ou je guide des développeurs en herbe dans la communauté.",
+            "hi-IN":
+              "जब मैं पिक्सेल को पुश या कोड लिखने में व्यस्त नहीं होता, तो मैं उभरती वेब तकनीकों का पता लगाता हूं, <expression/> प्रोजेक्ट्स में योगदान देता हूं, या समुदाय में आकांक्षी डेवलपर्स को मेंटर करता हूं।",
+            "ko-KR":
+              "픽셀을 조정하거나 코드를 작성하지 않을 때는, 새로운 웹 기술을 탐구하거나, <expression/> 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
+          },
+          hash: "04271d04bc94ebca80f4b6dd5797104a",
         },
         "5/0/init/body/7/argument/13/11/1": {
           content: {
@@ -3177,6 +3589,814 @@ export default {
           },
           hash: "1eab47cfaf86d5734a0adf17900133e7",
         },
+        "6/0/init/body/7/argument/1/11/1": {
+          content: {
+            en: "Core Expertise",
+            es: "Experiencia principal",
+            fr: "Expertise principale",
+            "hi-IN": "मुख्य विशेषज्ञता",
+            "ko-KR": "핵심 전문 분야",
+          },
+          hash: "498a8b0773845320d0bd750c0c109696",
+        },
+        "6/0/init/body/7/argument/1/11/3/1/expression/0/body-description": {
+          content: {
+            en: "Building modern web applications",
+            es: "Construyendo aplicaciones web modernas",
+            fr: "Création d'applications web modernes",
+            "hi-IN": "आधुनिक वेब एप्लिकेशन का निर्माण",
+            "ko-KR": "현대적인 웹 애플리케이션 구축",
+          },
+          hash: "8dd03378e1852c295095474d1a7c6c6b",
+        },
+        "6/0/init/body/7/argument/1/11/3/1/expression/0/body-title": {
+          content: {
+            en: "Frontend Development",
+            es: "Desarrollo Frontend",
+            fr: "Développement frontend",
+            "hi-IN": "फ्रंटएंड डेवलपमेंट",
+            "ko-KR": "프론트엔드 개발",
+          },
+          hash: "84dfe46a319ea11134c0db5f2712806b",
+        },
+        "6/0/init/body/7/argument/1/11/3/1/expression/0/body/1/3": {
+          content: {
+            en: "My expertise",
+            es: "Mi experiencia",
+            fr: "Mon expertise",
+            "hi-IN": "मेरी विशेषज्ञता",
+            "ko-KR": "내 전문 분야",
+          },
+          hash: "98d256219a06401ff2f4d268e4d9420d",
+        },
+        "6/0/init/body/7/argument/1/13/1": {
+          content: {
+            en: "Core Expertise",
+            es: "Experiencia principal",
+            fr: "Expertise principale",
+            "hi-IN": "मुख्य विशेषज्ञता",
+            "ko-KR": "핵심 전문 분야",
+          },
+          hash: "498a8b0773845320d0bd750c0c109696",
+        },
+        "6/0/init/body/7/argument/1/15/1": {
+          content: {
+            en: "Technical Skills (Neo Style)",
+            es: "Habilidades técnicas (estilo neo)",
+            fr: "Compétences techniques (style néo)",
+            "hi-IN": "तकनीकी कौशल (नियो स्टाइल)",
+            "ko-KR": "기술적 스킬 (네오 스타일)",
+          },
+          hash: "4c8e0865539666759032f081093f5a5e",
+        },
+        "6/0/init/body/7/argument/1/15/1/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "6/0/init/body/7/argument/1/15/1/3": {
+          content: {
+            en: "Projects Built",
+            es: "Proyectos realizados",
+            fr: "Projets réalisés",
+            "hi-IN": "परियोजनाएँ बनाई गईं",
+            "ko-KR": "구축한 프로젝트",
+          },
+          hash: "09e063c5fea17203dfc48d7b2528f58d",
+        },
+        "6/0/init/body/7/argument/1/15/3/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "6/0/init/body/7/argument/1/15/3/1-title": {
+          content: {
+            en: "SKILL 01",
+            es: "HABILIDAD 01",
+            fr: "COMPÉTENCE 01",
+            "hi-IN": "कौशल 01",
+            "ko-KR": "스킬 01",
+          },
+          hash: "0a44928ad5720da495a7c7b03966b3c2",
+        },
+        "6/0/init/body/7/argument/1/15/3/3": {
+          content: {
+            en: "Technologies",
+            es: "Tecnologías",
+            fr: "Technologies",
+            "hi-IN": "तकनीकें",
+            "ko-KR": "기술",
+          },
+          hash: "bee6e2dd04bcf7e9f69a2829b8b08414",
+        },
+        "6/0/init/body/7/argument/1/15/3/3-title": {
+          content: {
+            en: "SKILL 02",
+            es: "HABILIDAD 02",
+            fr: "COMPÉTENCE 02",
+            "hi-IN": "कौशल 02",
+            "ko-KR": "스킬 02",
+          },
+          hash: "582eb3f29abecc338c22004810d6bd08",
+        },
+        "6/0/init/body/7/argument/1/15/3/5-title": {
+          content: {
+            en: "SKILL 03",
+            es: "HABILIDAD 03",
+            fr: "COMPÉTENCE 03",
+            "hi-IN": "कौशल 03",
+            "ko-KR": "스킬 03",
+          },
+          hash: "f4aa989b24c56057576634bf325c09bb",
+        },
+        "6/0/init/body/7/argument/1/15/3/7-title": {
+          content: {
+            en: "SKILL 04",
+            es: "HABILIDAD 04",
+            fr: "COMPÉTENCE 04",
+            "hi-IN": "कौशल 04",
+            "ko-KR": "스킬 04",
+          },
+          hash: "726837f824cb515ae3238037b19c3e0b",
+        },
+        "6/0/init/body/7/argument/1/15/5/1": {
+          content: {
+            en: "0%",
+            es: "0%",
+            fr: "0%",
+            "hi-IN": "0%",
+            "ko-KR": "0%",
+          },
+          hash: "e4c707e92074492ae9d597af3048d06b",
+        },
+        "6/0/init/body/7/argument/1/15/5/3": {
+          content: {
+            en: "Commitment",
+            es: "Compromiso",
+            fr: "Engagement",
+            "hi-IN": "प्रतिबद्धता",
+            "ko-KR": "헌신도",
+          },
+          hash: "b386ee6606f47d3d781e811bc244a8f0",
+        },
+        "6/0/init/body/7/argument/1/17/1/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "6/0/init/body/7/argument/1/17/1/3": {
+          content: {
+            en: "Projects Built",
+            es: "Proyectos realizados",
+            fr: "Projets réalisés",
+            "hi-IN": "परियोजनाएँ बनाई गईं",
+            "ko-KR": "구축한 프로젝트",
+          },
+          hash: "09e063c5fea17203dfc48d7b2528f58d",
+        },
+        "6/0/init/body/7/argument/1/17/3/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "6/0/init/body/7/argument/1/17/3/3": {
+          content: {
+            en: "Technologies",
+            es: "Tecnologías",
+            fr: "Technologies",
+            "hi-IN": "तकनीकें",
+            "ko-KR": "기술",
+          },
+          hash: "bee6e2dd04bcf7e9f69a2829b8b08414",
+        },
+        "6/0/init/body/7/argument/1/17/5/1": {
+          content: {
+            en: "0%",
+            es: "0%",
+            fr: "0%",
+            "hi-IN": "0%",
+            "ko-KR": "0%",
+          },
+          hash: "e4c707e92074492ae9d597af3048d06b",
+        },
+        "6/0/init/body/7/argument/1/17/5/3": {
+          content: {
+            en: "Commitment",
+            es: "Compromiso",
+            fr: "Engagement",
+            "hi-IN": "प्रतिबद्धता",
+            "ko-KR": "헌신도",
+          },
+          hash: "b386ee6606f47d3d781e811bc244a8f0",
+        },
+        "6/0/init/body/7/argument/1/19/1/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "6/0/init/body/7/argument/1/19/1/3": {
+          content: {
+            en: "Projects Built",
+            es: "Proyectos realizados",
+            fr: "Projets réalisés",
+            "hi-IN": "परियोजनाएँ बनाई गईं",
+            "ko-KR": "구축한 프로젝트",
+          },
+          hash: "09e063c5fea17203dfc48d7b2528f58d",
+        },
+        "6/0/init/body/7/argument/1/19/3/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "6/0/init/body/7/argument/1/19/3/3": {
+          content: {
+            en: "Technologies",
+            es: "Tecnologías",
+            fr: "Technologies",
+            "hi-IN": "तकनीकें",
+            "ko-KR": "기술",
+          },
+          hash: "bee6e2dd04bcf7e9f69a2829b8b08414",
+        },
+        "6/0/init/body/7/argument/1/19/5/1": {
+          content: {
+            en: "0%",
+            es: "0%",
+            fr: "0%",
+            "hi-IN": "0%",
+            "ko-KR": "0%",
+          },
+          hash: "e4c707e92074492ae9d597af3048d06b",
+        },
+        "6/0/init/body/7/argument/1/19/5/3": {
+          content: {
+            en: "Commitment",
+            es: "Compromiso",
+            fr: "Engagement",
+            "hi-IN": "प्रतिबद्धता",
+            "ko-KR": "헌신도",
+          },
+          hash: "b386ee6606f47d3d781e811bc244a8f0",
+        },
+        "6/0/init/body/7/argument/1/3-title": {
+          content: {
+            en: "About Me",
+            es: "Sobre mí",
+            fr: "À propos de moi",
+            "hi-IN": "मेरे बारे में",
+            "ko-KR": "내 소개",
+          },
+          hash: "915db3113b767ce646b80d391c4e21fd",
+        },
+        "6/0/init/body/7/argument/1/3/1/3": {
+          content: {
+            en: "About Me",
+            es: "Sobre mí",
+            fr: "À propos de moi",
+            "hi-IN": "मेरे बारे में",
+            "ko-KR": "나에 대하여",
+          },
+          hash: "d2d155184dd41ff029a91dd6e9679e6d",
+        },
+        "6/0/init/body/7/argument/1/3/3/1": {
+          content: {
+            en: "Passionate <element:span>Web Developer</element:span> & <element:span>UI/UX Designer</element:span><element:span>Crafting Seamless Digital Experiences</element:span>",
+            es: "<element:span>Desarrollador web</element:span> & <element:span>Diseñador UI/UX</element:span> apasionado<element:span>Creando experiencias digitales fluidas</element:span>",
+            fr: "<element:span>Développeur web</element:span> & <element:span>Designer UI/UX</element:span> passionné<element:span>Créateur d'expériences numériques fluides</element:span>",
+            "hi-IN":
+              "उत्साही <element:span>वेब डेवलपर</element:span> और <element:span>यूआई/यूएक्स डिज़ाइनर</element:span><element:span>सहज डिजिटल अनुभव बनाना</element:span>",
+            "ko-KR":
+              "열정적인 <element:span>웹 개발자</element:span> & <element:span>UI/UX 디자이너</element:span><element:span>매끄러운 디지털 경험을 창조합니다</element:span>",
+          },
+          hash: "7b186dd0fbf349decb65048ecf54cac1",
+        },
+        "6/0/init/body/7/argument/1/5/1/3": {
+          content: {
+            en: "About Me",
+            es: "Sobre mí",
+            fr: "À propos de moi",
+            "hi-IN": "मेरे बारे में",
+            "ko-KR": "나에 대하여",
+          },
+          hash: "d2d155184dd41ff029a91dd6e9679e6d",
+        },
+        "6/0/init/body/7/argument/1/7/1/1": {
+          content: {
+            en: "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
+            es: "Soy <expression/>, un desarrollador web y diseñador de UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en etapa inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
+            fr: "Je suis <expression/>, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques qui allient forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
+            "hi-IN":
+              "मैं <expression/> हूँ, एक वेब डेवलपर और UI/UX डिज़ाइनर जिसे डिजिटल प्रोडक्ट्स बनाने का 5 साल से अधिक का अनुभव है जो रूप और कार्य को मिलाते हैं। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनशील दोनों हों।",
+            "ko-KR":
+              "저는 <expression/> 입니다. 형태와 기능을 조화시키는 디지털 제품을 구축한 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
+          },
+          hash: "a484f6bda85d013f5df5f45b0e9e5bdc",
+        },
+        "6/0/init/body/7/argument/1/7/1/3": {
+          content: {
+            en: "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail.",
+            es: "Mi enfoque se basa en entender el problema antes de saltar a las soluciones. Creo que el mejor trabajo ocurre en la intersección de las necesidades del usuario, los objetivos del negocio y las limitaciones técnicas. Ya sea arquitectando un sistema frontend escalable o refinando micro-interacciones, aporto el mismo nivel de atención al detalle.",
+            fr: "Mon approche est ancrée dans la compréhension du problème avant de passer aux solutions. Je crois que le meilleur travail se produit à l'intersection des besoins des utilisateurs, des objectifs commerciaux et des contraintes techniques. Qu'il s'agisse d'architecturer un système frontend évolutif ou d'affiner des micro-interactions, j'apporte le même niveau d'attention aux détails.",
+            "hi-IN":
+              "मेरा दृष्टिकोण समाधानों पर कूदने से पहले समस्या को समझने में निहित है। मेरा मानना है कि सबसे अच्छा काम उपयोगकर्ता की जरूरतों, व्यावसायिक लक्ष्यों और तकनीकी बाधाओं के चौराहे पर होता है। चाहे वह एक स्केलेबल फ्रंटएंड सिस्टम की आर्किटेक्चरिंग हो या माइक्रो-इंटरैक्शन को परिष्कृत करना हो, मैं विवरण पर समान स्तर का ध्यान देता हूँ।",
+            "ko-KR":
+              "제 접근 방식은 해결책을 찾기 전에 문제를 이해하는 데 뿌리를 두고 있습니다. 저는 최고의 작업이 사용자 요구, 비즈니스 목표, 기술적 제약의 교차점에서 이루어진다고 믿습니다. 확장 가능한 프론트엔드 시스템을 설계하든 미세 상호작용을 개선하든, 저는 동일한 수준의 세심한 주의를 기울입니다.",
+          },
+          hash: "1dcd87bddeadef8e7d9838e1e31d38e6",
+        },
+        "6/0/init/body/7/argument/1/7/1/5": {
+          content: {
+            en: "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community.",
+            es: "Cuando no estoy moviendo píxeles o escribiendo código, estoy explorando tecnologías web emergentes, contribuyendo a proyectos <expression/>, o mentorizando a desarrolladores aspirantes en la comunidad.",
+            fr: "Quand je ne suis pas en train d'agencer des pixels ou d'écrire du code, j'explore les technologies web émergentes, je contribue à des projets <expression/>, ou je guide des développeurs en herbe dans la communauté.",
+            "hi-IN":
+              "जब मैं पिक्सेल को पुश या कोड लिखने में व्यस्त नहीं होता, तो मैं उभरती वेब तकनीकों का पता लगाता हूं, <expression/> प्रोजेक्ट्स में योगदान देता हूं, या समुदाय में आकांक्षी डेवलपर्स को मेंटर करता हूं।",
+            "ko-KR":
+              "픽셀을 조정하거나 코드를 작성하지 않을 때는, 새로운 웹 기술을 탐구하거나, <expression/> 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
+          },
+          hash: "04271d04bc94ebca80f4b6dd5797104a",
+        },
+        "6/0/init/body/7/argument/1/9/1/1": {
+          content: {
+            en: "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
+            es: "Soy <expression/>, un desarrollador web y diseñador de UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en etapa inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
+            fr: "Je suis <expression/>, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques qui allient forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
+            "hi-IN":
+              "मैं <expression/> हूँ, एक वेब डेवलपर और UI/UX डिज़ाइनर जिसे डिजिटल प्रोडक्ट्स बनाने का 5 साल से अधिक का अनुभव है जो रूप और कार्य को मिलाते हैं। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनशील दोनों हों।",
+            "ko-KR":
+              "저는 <expression/> 입니다. 형태와 기능을 조화시키는 디지털 제품을 구축한 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
+          },
+          hash: "e08a44f0210455bd6619019c13192a47",
+        },
+        "6/0/init/body/7/argument/1/9/1/3": {
+          content: {
+            en: "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail.",
+            es: "Mi enfoque se basa en entender el problema antes de saltar a las soluciones. Creo que el mejor trabajo ocurre en la intersección de las necesidades del usuario, los objetivos del negocio y las limitaciones técnicas. Ya sea arquitectando un sistema frontend escalable o refinando micro-interacciones, aporto el mismo nivel de atención al detalle.",
+            fr: "Mon approche est ancrée dans la compréhension du problème avant de passer aux solutions. Je crois que le meilleur travail se produit à l'intersection des besoins des utilisateurs, des objectifs commerciaux et des contraintes techniques. Qu'il s'agisse d'architecturer un système frontend évolutif ou d'affiner des micro-interactions, j'apporte le même niveau d'attention aux détails.",
+            "hi-IN":
+              "मेरा दृष्टिकोण समाधानों पर कूदने से पहले समस्या को समझने में निहित है। मेरा मानना है कि सबसे अच्छा काम उपयोगकर्ता की जरूरतों, व्यावसायिक लक्ष्यों और तकनीकी बाधाओं के चौराहे पर होता है। चाहे वह एक स्केलेबल फ्रंटएंड सिस्टम की आर्किटेक्चरिंग हो या माइक्रो-इंटरैक्शन को परिष्कृत करना हो, मैं विवरण पर समान स्तर का ध्यान देता हूँ।",
+            "ko-KR":
+              "제 접근 방식은 해결책을 찾기 전에 문제를 이해하는 데 뿌리를 두고 있습니다. 저는 최고의 작업이 사용자 요구, 비즈니스 목표, 기술적 제약의 교차점에서 이루어진다고 믿습니다. 확장 가능한 프론트엔드 시스템을 설계하든 미세 상호작용을 개선하든, 저는 동일한 수준의 세심한 주의를 기울입니다.",
+          },
+          hash: "1dcd87bddeadef8e7d9838e1e31d38e6",
+        },
+        "6/0/init/body/7/argument/1/9/1/5": {
+          content: {
+            en: "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community.",
+            es: "Cuando no estoy moviendo píxeles o escribiendo código, estoy explorando tecnologías web emergentes, contribuyendo a proyectos <expression/>, o mentorizando a desarrolladores aspirantes en la comunidad.",
+            fr: "Quand je ne suis pas en train d'agencer des pixels ou d'écrire du code, j'explore les technologies web émergentes, je contribue à des projets <expression/>, ou je guide des développeurs en herbe dans la communauté.",
+            "hi-IN":
+              "जब मैं पिक्सेल को पुश या कोड लिखने में व्यस्त नहीं होता, तो मैं उभरती वेब तकनीकों का पता लगाता हूं, <expression/> प्रोजेक्ट्स में योगदान देता हूं, या समुदाय में आकांक्षी डेवलपर्स को मेंटर करता हूं।",
+            "ko-KR":
+              "픽셀을 조정하거나 코드를 작성하지 않을 때는, 새로운 웹 기술을 탐구하거나, <expression/> 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
+          },
+          hash: "04271d04bc94ebca80f4b6dd5797104a",
+        },
+        "7/0/init/body/7/argument/1/11/1": {
+          content: {
+            en: "Core Expertise",
+            es: "Experiencia principal",
+            fr: "Expertise principale",
+            "hi-IN": "मुख्य विशेषज्ञता",
+            "ko-KR": "핵심 전문 분야",
+          },
+          hash: "498a8b0773845320d0bd750c0c109696",
+        },
+        "7/0/init/body/7/argument/1/11/3/1/expression/0/body-description": {
+          content: {
+            en: "Building modern web applications",
+            es: "Construyendo aplicaciones web modernas",
+            fr: "Création d'applications web modernes",
+            "hi-IN": "आधुनिक वेब एप्लिकेशन का निर्माण",
+            "ko-KR": "현대적인 웹 애플리케이션 구축",
+          },
+          hash: "8dd03378e1852c295095474d1a7c6c6b",
+        },
+        "7/0/init/body/7/argument/1/11/3/1/expression/0/body/1/3": {
+          content: {
+            en: "My expertise",
+            es: "Mi experiencia",
+            fr: "Mon expertise",
+            "hi-IN": "मेरी विशेषज्ञता",
+            "ko-KR": "내 전문 분야",
+          },
+          hash: "98d256219a06401ff2f4d268e4d9420d",
+        },
+        "7/0/init/body/7/argument/1/13/1": {
+          content: {
+            en: "Core Expertise",
+            es: "Experiencia principal",
+            fr: "Expertise principale",
+            "hi-IN": "मुख्य विशेषज्ञता",
+            "ko-KR": "핵심 전문 분야",
+          },
+          hash: "498a8b0773845320d0bd750c0c109696",
+        },
+        "7/0/init/body/7/argument/1/15/1": {
+          content: {
+            en: "Technical Skills (Neo Style)",
+            es: "Habilidades técnicas (estilo neo)",
+            fr: "Compétences techniques (style néo)",
+            "hi-IN": "तकनीकी कौशल (नियो स्टाइल)",
+            "ko-KR": "기술적 스킬 (네오 스타일)",
+          },
+          hash: "4c8e0865539666759032f081093f5a5e",
+        },
+        "7/0/init/body/7/argument/1/15/1/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "7/0/init/body/7/argument/1/15/1/3": {
+          content: {
+            en: "Projects Built",
+            es: "Proyectos realizados",
+            fr: "Projets réalisés",
+            "hi-IN": "परियोजनाएँ बनाई गईं",
+            "ko-KR": "구축한 프로젝트",
+          },
+          hash: "09e063c5fea17203dfc48d7b2528f58d",
+        },
+        "7/0/init/body/7/argument/1/15/3/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "7/0/init/body/7/argument/1/15/3/1-title": {
+          content: {
+            en: "SKILL 01",
+            es: "HABILIDAD 01",
+            fr: "COMPÉTENCE 01",
+            "hi-IN": "कौशल 01",
+            "ko-KR": "스킬 01",
+          },
+          hash: "0a44928ad5720da495a7c7b03966b3c2",
+        },
+        "7/0/init/body/7/argument/1/15/3/3": {
+          content: {
+            en: "Technologies",
+            es: "Tecnologías",
+            fr: "Technologies",
+            "hi-IN": "तकनीकें",
+            "ko-KR": "기술",
+          },
+          hash: "bee6e2dd04bcf7e9f69a2829b8b08414",
+        },
+        "7/0/init/body/7/argument/1/15/3/3-title": {
+          content: {
+            en: "SKILL 02",
+            es: "HABILIDAD 02",
+            fr: "COMPÉTENCE 02",
+            "hi-IN": "कौशल 02",
+            "ko-KR": "스킬 02",
+          },
+          hash: "582eb3f29abecc338c22004810d6bd08",
+        },
+        "7/0/init/body/7/argument/1/15/3/5-title": {
+          content: {
+            en: "SKILL 03",
+            es: "HABILIDAD 03",
+            fr: "COMPÉTENCE 03",
+            "hi-IN": "कौशल 03",
+            "ko-KR": "스킬 03",
+          },
+          hash: "f4aa989b24c56057576634bf325c09bb",
+        },
+        "7/0/init/body/7/argument/1/15/3/7-title": {
+          content: {
+            en: "SKILL 04",
+            es: "HABILIDAD 04",
+            fr: "COMPÉTENCE 04",
+            "hi-IN": "कौशल 04",
+            "ko-KR": "스킬 04",
+          },
+          hash: "726837f824cb515ae3238037b19c3e0b",
+        },
+        "7/0/init/body/7/argument/1/15/5/1": {
+          content: {
+            en: "0%",
+            es: "0%",
+            fr: "0%",
+            "hi-IN": "0%",
+            "ko-KR": "0%",
+          },
+          hash: "e4c707e92074492ae9d597af3048d06b",
+        },
+        "7/0/init/body/7/argument/1/15/5/3": {
+          content: {
+            en: "Commitment",
+            es: "Compromiso",
+            fr: "Engagement",
+            "hi-IN": "प्रतिबद्धता",
+            "ko-KR": "헌신도",
+          },
+          hash: "b386ee6606f47d3d781e811bc244a8f0",
+        },
+        "7/0/init/body/7/argument/1/17/1/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "7/0/init/body/7/argument/1/17/1/3": {
+          content: {
+            en: "Projects Built",
+            es: "Proyectos realizados",
+            fr: "Projets réalisés",
+            "hi-IN": "परियोजनाएँ बनाई गईं",
+            "ko-KR": "구축한 프로젝트",
+          },
+          hash: "09e063c5fea17203dfc48d7b2528f58d",
+        },
+        "7/0/init/body/7/argument/1/17/3/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "7/0/init/body/7/argument/1/17/3/3": {
+          content: {
+            en: "Technologies",
+            es: "Tecnologías",
+            fr: "Technologies",
+            "hi-IN": "तकनीकें",
+            "ko-KR": "기술",
+          },
+          hash: "bee6e2dd04bcf7e9f69a2829b8b08414",
+        },
+        "7/0/init/body/7/argument/1/17/5/1": {
+          content: {
+            en: "0%",
+            es: "0%",
+            fr: "0%",
+            "hi-IN": "0%",
+            "ko-KR": "0%",
+          },
+          hash: "e4c707e92074492ae9d597af3048d06b",
+        },
+        "7/0/init/body/7/argument/1/17/5/3": {
+          content: {
+            en: "Commitment",
+            es: "Compromiso",
+            fr: "Engagement",
+            "hi-IN": "प्रतिबद्धता",
+            "ko-KR": "헌신도",
+          },
+          hash: "b386ee6606f47d3d781e811bc244a8f0",
+        },
+        "7/0/init/body/7/argument/1/19/1/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "7/0/init/body/7/argument/1/19/1/3": {
+          content: {
+            en: "Projects Built",
+            es: "Proyectos realizados",
+            fr: "Projets réalisés",
+            "hi-IN": "परियोजनाएँ बनाई गईं",
+            "ko-KR": "구축한 프로젝트",
+          },
+          hash: "09e063c5fea17203dfc48d7b2528f58d",
+        },
+        "7/0/init/body/7/argument/1/19/3/1": {
+          content: {
+            en: "0+",
+            es: "0+",
+            fr: "0+",
+            "hi-IN": "0+",
+            "ko-KR": "0+",
+          },
+          hash: "4a6c5b59bc1a535c481eb411d04e5114",
+        },
+        "7/0/init/body/7/argument/1/19/3/3": {
+          content: {
+            en: "Technologies",
+            es: "Tecnologías",
+            fr: "Technologies",
+            "hi-IN": "तकनीकें",
+            "ko-KR": "기술",
+          },
+          hash: "bee6e2dd04bcf7e9f69a2829b8b08414",
+        },
+        "7/0/init/body/7/argument/1/19/5/1": {
+          content: {
+            en: "0%",
+            es: "0%",
+            fr: "0%",
+            "hi-IN": "0%",
+            "ko-KR": "0%",
+          },
+          hash: "e4c707e92074492ae9d597af3048d06b",
+        },
+        "7/0/init/body/7/argument/1/19/5/3": {
+          content: {
+            en: "Commitment",
+            es: "Compromiso",
+            fr: "Engagement",
+            "hi-IN": "प्रतिबद्धता",
+            "ko-KR": "헌신도",
+          },
+          hash: "b386ee6606f47d3d781e811bc244a8f0",
+        },
+        "7/0/init/body/7/argument/1/3-title": {
+          content: {
+            en: "About Me",
+            es: "Sobre mí",
+            fr: "À propos de moi",
+            "hi-IN": "मेरे बारे में",
+            "ko-KR": "내 소개",
+          },
+          hash: "915db3113b767ce646b80d391c4e21fd",
+        },
+        "7/0/init/body/7/argument/1/3/1/3": {
+          content: {
+            en: "About Me",
+            es: "Sobre mí",
+            fr: "À propos de moi",
+            "hi-IN": "मेरे बारे में",
+            "ko-KR": "나에 대하여",
+          },
+          hash: "d2d155184dd41ff029a91dd6e9679e6d",
+        },
+        "7/0/init/body/7/argument/1/3/3/1": {
+          content: {
+            en: "Passionate <element:span>Web Developer</element:span> & <element:span>UI/UX Designer</element:span><element:span>Crafting Seamless Digital Experiences</element:span>",
+            es: "<element:span>Desarrollador web</element:span> & <element:span>Diseñador UI/UX</element:span> apasionado<element:span>Creando experiencias digitales fluidas</element:span>",
+            fr: "<element:span>Développeur web</element:span> & <element:span>Designer UI/UX</element:span> passionné<element:span>Créateur d'expériences numériques fluides</element:span>",
+            "hi-IN":
+              "उत्साही <element:span>वेब डेवलपर</element:span> और <element:span>यूआई/यूएक्स डिज़ाइनर</element:span><element:span>सहज डिजिटल अनुभव बनाना</element:span>",
+            "ko-KR":
+              "열정적인 <element:span>웹 개발자</element:span> & <element:span>UI/UX 디자이너</element:span><element:span>매끄러운 디지털 경험을 창조합니다</element:span>",
+          },
+          hash: "7b186dd0fbf349decb65048ecf54cac1",
+        },
+        "7/0/init/body/7/argument/1/3/3/3": {
+          content: {
+            en: "Crafting Seamless Digital Experiences",
+            es: "Creando experiencias digitales fluidas",
+            fr: "Création d'expériences numériques fluides",
+            "hi-IN": "सहज डिजिटल अनुभव बनाना",
+            "ko-KR": "원활한 디지털 경험 구축",
+          },
+          hash: "ddaea9ecc0e2d489f8c8ba9e3ae599ba",
+        },
+        "7/0/init/body/7/argument/1/5/1/3": {
+          content: {
+            en: "About Me",
+            es: "Sobre mí",
+            fr: "À propos de moi",
+            "hi-IN": "मेरे बारे में",
+            "ko-KR": "나에 대하여",
+          },
+          hash: "d2d155184dd41ff029a91dd6e9679e6d",
+        },
+        "7/0/init/body/7/argument/1/5/3/1": {
+          content: {
+            en: "Passionate Web Developer & UI/UX Designer",
+            es: "Desarrollador web apasionado y diseñador de UI/UX",
+            fr: "Développeur web passionné & designer UI/UX",
+            "hi-IN": "उत्साही वेब डेवलपर और यूआई/यूएक्स डिज़ाइनर",
+            "ko-KR": "열정적인 웹 개발자 및 UI/UX 디자이너",
+          },
+          hash: "8a7bf90bbf5dc585c355f3bc127dcfd0",
+        },
+        "7/0/init/body/7/argument/1/5/3/3": {
+          content: {
+            en: "Crafting Seamless Digital Experiences",
+            es: "Creando experiencias digitales fluidas",
+            fr: "Création d'expériences numériques fluides",
+            "hi-IN": "सहज डिजिटल अनुभव बनाना",
+            "ko-KR": "원활한 디지털 경험 구축",
+          },
+          hash: "ddaea9ecc0e2d489f8c8ba9e3ae599ba",
+        },
+        "7/0/init/body/7/argument/1/7/1/1": {
+          content: {
+            en: "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
+            es: "Soy <expression/>, un desarrollador web y diseñador de UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en etapa inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
+            fr: "Je suis <expression/>, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques qui allient forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
+            "hi-IN":
+              "मैं <expression/> हूँ, एक वेब डेवलपर और UI/UX डिज़ाइनर जिसे डिजिटल प्रोडक्ट्स बनाने का 5 साल से अधिक का अनुभव है जो रूप और कार्य को मिलाते हैं। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनशील दोनों हों।",
+            "ko-KR":
+              "저는 <expression/> 입니다. 형태와 기능을 조화시키는 디지털 제품을 구축한 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
+          },
+          hash: "a484f6bda85d013f5df5f45b0e9e5bdc",
+        },
+        "7/0/init/body/7/argument/1/7/1/3": {
+          content: {
+            en: "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail.",
+            es: "Mi enfoque se basa en entender el problema antes de saltar a las soluciones. Creo que el mejor trabajo ocurre en la intersección de las necesidades del usuario, los objetivos del negocio y las limitaciones técnicas. Ya sea arquitectando un sistema frontend escalable o refinando micro-interacciones, aporto el mismo nivel de atención al detalle.",
+            fr: "Mon approche est ancrée dans la compréhension du problème avant de passer aux solutions. Je crois que le meilleur travail se produit à l'intersection des besoins des utilisateurs, des objectifs commerciaux et des contraintes techniques. Qu'il s'agisse d'architecturer un système frontend évolutif ou d'affiner des micro-interactions, j'apporte le même niveau d'attention aux détails.",
+            "hi-IN":
+              "मेरा दृष्टिकोण समाधानों पर कूदने से पहले समस्या को समझने में निहित है। मेरा मानना है कि सबसे अच्छा काम उपयोगकर्ता की जरूरतों, व्यावसायिक लक्ष्यों और तकनीकी बाधाओं के चौराहे पर होता है। चाहे वह एक स्केलेबल फ्रंटएंड सिस्टम की आर्किटेक्चरिंग हो या माइक्रो-इंटरैक्शन को परिष्कृत करना हो, मैं विवरण पर समान स्तर का ध्यान देता हूँ।",
+            "ko-KR":
+              "제 접근 방식은 해결책을 찾기 전에 문제를 이해하는 데 뿌리를 두고 있습니다. 저는 최고의 작업이 사용자 요구, 비즈니스 목표, 기술적 제약의 교차점에서 이루어진다고 믿습니다. 확장 가능한 프론트엔드 시스템을 설계하든 미세 상호작용을 개선하든, 저는 동일한 수준의 세심한 주의를 기울입니다.",
+          },
+          hash: "1dcd87bddeadef8e7d9838e1e31d38e6",
+        },
+        "7/0/init/body/7/argument/1/7/1/5": {
+          content: {
+            en: "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community.",
+            es: "Cuando no estoy moviendo píxeles o escribiendo código, estoy explorando tecnologías web emergentes, contribuyendo a proyectos <expression/>, o mentorizando a desarrolladores aspirantes en la comunidad.",
+            fr: "Quand je ne suis pas en train d'agencer des pixels ou d'écrire du code, j'explore les technologies web émergentes, je contribue à des projets <expression/>, ou je guide des développeurs en herbe dans la communauté.",
+            "hi-IN":
+              "जब मैं पिक्सेल को पुश या कोड लिखने में व्यस्त नहीं होता, तो मैं उभरती वेब तकनीकों का पता लगाता हूं, <expression/> प्रोजेक्ट्स में योगदान देता हूं, या समुदाय में आकांक्षी डेवलपर्स को मेंटर करता हूं।",
+            "ko-KR":
+              "픽셀을 조정하거나 코드를 작성하지 않을 때는, 새로운 웹 기술을 탐구하거나, <expression/> 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
+          },
+          hash: "04271d04bc94ebca80f4b6dd5797104a",
+        },
+        "7/0/init/body/7/argument/1/9/1/1": {
+          content: {
+            en: "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant.",
+            es: "Soy <expression/>, un desarrollador web y diseñador de UI/UX con más de 5 años de experiencia construyendo productos digitales que combinan forma y función. Mi trabajo abarca desde startups en etapa inicial hasta empresas consolidadas, siempre con un enfoque en crear soluciones que sean tanto estéticas como eficientes.",
+            fr: "Je suis <expression/>, développeur web et designer UI/UX avec plus de 5 ans d'expérience dans la création de produits numériques qui allient forme et fonction. Mon travail s'étend des startups en phase de démarrage aux entreprises établies, toujours avec l'objectif de créer des solutions à la fois esthétiques et performantes.",
+            "hi-IN":
+              "मैं <expression/> हूँ, एक वेब डेवलपर और UI/UX डिज़ाइनर जिसे डिजिटल प्रोडक्ट्स बनाने का 5 साल से अधिक का अनुभव है जो रूप और कार्य को मिलाते हैं। मेरा काम शुरुआती स्टार्टअप से लेकर स्थापित उद्यमों तक फैला है, हमेशा ऐसे समाधान बनाने पर ध्यान केंद्रित करता है जो सुंदर और प्रदर्शनशील दोनों हों।",
+            "ko-KR":
+              "저는 <expression/> 입니다. 형태와 기능을 조화시키는 디지털 제품을 구축한 5년 이상의 경험을 가진 웹 개발자이자 UI/UX 디자이너입니다. 제 작업은 초기 단계의 스타트업부터 기존 기업까지 다양하며, 항상 아름답고 성능이 좋은 솔루션을 만드는 데 중점을 두고 있습니다.",
+          },
+          hash: "e08a44f0210455bd6619019c13192a47",
+        },
+        "7/0/init/body/7/argument/1/9/1/3": {
+          content: {
+            en: "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail.",
+            es: "Mi enfoque se basa en entender el problema antes de saltar a las soluciones. Creo que el mejor trabajo ocurre en la intersección de las necesidades del usuario, los objetivos del negocio y las limitaciones técnicas. Ya sea arquitectando un sistema frontend escalable o refinando micro-interacciones, aporto el mismo nivel de atención al detalle.",
+            fr: "Mon approche est ancrée dans la compréhension du problème avant de passer aux solutions. Je crois que le meilleur travail se produit à l'intersection des besoins des utilisateurs, des objectifs commerciaux et des contraintes techniques. Qu'il s'agisse d'architecturer un système frontend évolutif ou d'affiner des micro-interactions, j'apporte le même niveau d'attention aux détails.",
+            "hi-IN":
+              "मेरा दृष्टिकोण समाधानों पर कूदने से पहले समस्या को समझने में निहित है। मेरा मानना है कि सबसे अच्छा काम उपयोगकर्ता की जरूरतों, व्यावसायिक लक्ष्यों और तकनीकी बाधाओं के चौराहे पर होता है। चाहे वह एक स्केलेबल फ्रंटएंड सिस्टम की आर्किटेक्चरिंग हो या माइक्रो-इंटरैक्शन को परिष्कृत करना हो, मैं विवरण पर समान स्तर का ध्यान देता हूँ।",
+            "ko-KR":
+              "제 접근 방식은 해결책을 찾기 전에 문제를 이해하는 데 뿌리를 두고 있습니다. 저는 최고의 작업이 사용자 요구, 비즈니스 목표, 기술적 제약의 교차점에서 이루어진다고 믿습니다. 확장 가능한 프론트엔드 시스템을 설계하든 미세 상호작용을 개선하든, 저는 동일한 수준의 세심한 주의를 기울입니다.",
+          },
+          hash: "1dcd87bddeadef8e7d9838e1e31d38e6",
+        },
+        "7/0/init/body/7/argument/1/9/1/5": {
+          content: {
+            en: "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community.",
+            es: "Cuando no estoy moviendo píxeles o escribiendo código, estoy explorando tecnologías web emergentes, contribuyendo a proyectos <expression/>, o mentorizando a desarrolladores aspirantes en la comunidad.",
+            fr: "Quand je ne suis pas en train d'agencer des pixels ou d'écrire du code, j'explore les technologies web émergentes, je contribue à des projets <expression/>, ou je guide des développeurs en herbe dans la communauté.",
+            "hi-IN":
+              "जब मैं पिक्सेल को पुश या कोड लिखने में व्यस्त नहीं होता, तो मैं उभरती वेब तकनीकों का पता लगाता हूं, <expression/> प्रोजेक्ट्स में योगदान देता हूं, या समुदाय में आकांक्षी डेवलपर्स को मेंटर करता हूं।",
+            "ko-KR":
+              "픽셀을 조정하거나 코드를 작성하지 않을 때는, 새로운 웹 기술을 탐구하거나, <expression/> 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
+          },
+          hash: "04271d04bc94ebca80f4b6dd5797104a",
+        },
       },
     },
     "experience/page.tsx": {
@@ -3190,6 +4410,20 @@ export default {
             "ko-KR": "경력",
           },
           hash: "c3e0d278cfa1c14e9477e3d5c8c39ce0",
+        },
+      },
+    },
+    "loading.tsx": {
+      entries: {
+        "1/0/init/body/0/argument": {
+          content: {
+            en: "Loading",
+            es: "Cargando",
+            fr: "Chargement",
+            "hi-IN": "लोड हो रहा है",
+            "ko-KR": "로딩 중",
+          },
+          hash: "c6bc8c380e83336c81a92594d3f23000",
         },
       },
     },
