@@ -17,5 +17,6 @@
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
-  }
+  },
+  "docwriter.style": "Auto-detect"
 }

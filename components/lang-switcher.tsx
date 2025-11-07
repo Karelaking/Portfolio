@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 
 const languages = [
   { code: "en", name: "English", flag: "🇺🇸" },
@@ -53,14 +53,15 @@ const LangSwitcher = () => {
     languages.find((lang) => lang.code === activeLocale) || languages[0];
 
   return (
-    
-    <div className="my-6 mx-4 lg:mx-0 lg:my-0">
+    <div className="my-6 mx-4 lg:mx-0 lg:my-0 bg-transparent">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm" className="gap-2">
+          <Button variant="outline" size="sm" className="gap-2 bg-transparent border-0">
             <Globe className="h-4 w-4" />
-            <span className="hidden sm:inline">{currentLanguage.name}</span>
-            <span className="sm:hidden">{currentLanguage.flag}</span>
+            <div className="hidden">
+              <span className="">{currentLanguage.name}</span>
+              <span className="">{currentLanguage.flag}</span>
+            </div>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
