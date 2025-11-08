@@ -1,3 +1,5 @@
+'use client'
+
 import * as THREE from "three";
 import React, { useRef, forwardRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";

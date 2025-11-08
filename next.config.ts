@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: false,
   },
+  output: 'standalone',
 };
 
 export default withLingo(nextConfig);

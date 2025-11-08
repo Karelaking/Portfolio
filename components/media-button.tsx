@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef } from 'react'
-import { Button } from './ui/button';
-import { LucideProps } from 'lucide-react';
 import { gsap } from 'gsap';
+import { Button } from './ui/button';
+import React, { useRef } from 'react';
+import { LucideProps } from 'lucide-react';
 
 export interface MediaButtonProps {
   icon: React.ForwardRefExoticComponent<

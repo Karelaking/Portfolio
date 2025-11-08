@@ -21,6 +21,186 @@
         }
       }
     },
+    "../components/expertise-card-comic.tsx": {
+      "scopes": {
+        "3/0/init/body/1/argument/1/11/1-aria-label": {
+          "type": "attribute",
+          "hash": "f89b1a0b178c4e8448cdbee27998ed03",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "View Details"
+        },
+        "3/0/init/body/1/argument/1/11/1/1": {
+          "type": "element",
+          "hash": "be3c2a680cbcbfda8862997d65d1def5",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "DETAILS"
+        },
+        "3/0/init/body/1/argument/1/11/3-aria-label": {
+          "type": "attribute",
+          "hash": "58be26aded5ce40d33a1201b2cc3c785",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "View Projects"
+        },
+        "3/0/init/body/1/argument/1/11/3/1": {
+          "type": "element",
+          "hash": "3cd193ec649929afc6df9b1082b65d5b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "PROJECTS"
+        }
+      }
+    },
+    "../components/expertise-card.tsx": {
+      "scopes": {
+        "1/0/init/body/0/argument/1/1/1/3/1": {
+          "type": "element",
+          "hash": "409777a70d893aba62c0b2cd97d459a1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Captain Creative"
+        },
+        "1/0/init/body/0/argument/1/1/1/3/3": {
+          "type": "element",
+          "hash": "13b3ce1fc302e5f75588bf14ad0dc73c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "@TheInker"
+        },
+        "1/0/init/body/0/argument/1/1/3/3": {
+          "type": "element",
+          "hash": "673940b07fb326f6c47e37dfc2c2499a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MEANWHILE... I've discovered a new source of ultimate creative power!"
+        },
+        "1/0/init/body/0/argument/1/1/5/1-aria-label": {
+          "type": "attribute",
+          "hash": "79cb19e9261fe7f358ee1f82eae16ab6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Like Post"
+        },
+        "1/0/init/body/0/argument/1/1/5/3-aria-label": {
+          "type": "attribute",
+          "hash": "c237df6ac765990102498873896c534a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Comment on Post"
+        },
+        "1/0/init/body/0/argument/1/1/5/5-aria-label": {
+          "type": "attribute",
+          "hash": "12c748be244ebaccfddd625d26a6a2b3",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Share Post"
+        },
+        "2/0/init/body/0/argument/1/1/1/3/1": {
+          "type": "element",
+          "hash": "409777a70d893aba62c0b2cd97d459a1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Captain Creative"
+        },
+        "2/0/init/body/0/argument/1/1/1/3/3": {
+          "type": "element",
+          "hash": "13b3ce1fc302e5f75588bf14ad0dc73c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "@TheInker"
+        },
+        "2/0/init/body/0/argument/1/1/3/3": {
+          "type": "element",
+          "hash": "673940b07fb326f6c47e37dfc2c2499a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MEANWHILE... I've discovered a new source of ultimate creative power!"
+        },
+        "2/0/init/body/0/argument/1/1/5/1-aria-label": {
+          "type": "attribute",
+          "hash": "79cb19e9261fe7f358ee1f82eae16ab6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Like Post"
+        },
+        "2/0/init/body/0/argument/1/1/5/3-aria-label": {
+          "type": "attribute",
+          "hash": "c237df6ac765990102498873896c534a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Comment on Post"
+        },
+        "2/0/init/body/0/argument/1/1/5/5-aria-label": {
+          "type": "attribute",
+          "hash": "12c748be244ebaccfddd625d26a6a2b3",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Share Post"
+        },
+        "3/0/init/body/0/argument/3/15/11/1": {
+          "type": "element",
+          "hash": "9f991d721c40c3bdc99dbe82b00fc025",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies & Tools"
+        }
+      }
+    },
+    "../components/expertise-neobrutalist-card.tsx": {
+      "scopes": {
+        "3/0/init/body/1/argument/3/3/1": {
+          "type": "element",
+          "hash": "36c0a87e6012f19533e144b89d2aa533",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "TECH STACK:"
+        },
+        "3/0/init/body/1/argument/3/3/3/3/expression/right": {
+          "type": "element",
+          "hash": "c17d4c5ea51eb5ef805e373b650ac426",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "+<expression/>"
+        },
+        "3/0/init/body/1/argument/3/5": {
+          "type": "element",
+          "hash": "a9144580fa079f2d895d30eb837879ce",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "VIEW DETAILS"
+        },
+        "4/declaration/0/init/body/0/argument/1/1": {
+          "type": "element",
+          "hash": "d8682a34db28bdae775a497bae46e19a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MY EXPERTISE"
+        }
+      }
+    },
     "../components/hero-animated-content.tsx": {
       "scopes": {
         "13/declaration/body/9/argument/1/1/1/1": {
@@ -1086,6 +1266,30 @@
           "skip": false,
           "overrides": {},
           "content": "MRADUL"
+        },
+        "5/0/init/body/0/argument/1/1": {
+          "type": "element",
+          "hash": "432dfb098a4951c9f8101d57ac5e61ce",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        },
+        "5/0/init/body/0/argument/1/3": {
+          "type": "element",
+          "hash": "432dfb098a4951c9f8101d57ac5e61ce",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
+        },
+        "9/0/init/body/0/argument/1/3": {
+          "type": "element",
+          "hash": "432dfb098a4951c9f8101d57ac5e61ce",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "MRADUL"
         }
       }
     },
@@ -1275,6 +1479,30 @@
           "overrides": {},
           "content": "System"
         },
+        "6/0/init/body/3/argument/1/1/1/1/expression/alternate/3": {
+          "type": "element",
+          "hash": "eec090005b9bed1e92497863acd9df9d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Light"
+        },
+        "6/0/init/body/3/argument/1/1/1/1/expression/consequent/5": {
+          "type": "element",
+          "hash": "7d7e6dc1eec3d5040186cbd716bae3ea",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Dark"
+        },
+        "6/0/init/body/3/argument/1/1/1/3": {
+          "type": "element",
+          "hash": "dd03ee6b83901fc440f90236483dafc5",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Toggle theme"
+        },
         "6/0/init/body/3/argument/1/1/1/expression/alternate/1/3": {
           "type": "element",
           "hash": "0b25133d91e7f9167019fd681c1bcaa8",
@@ -1301,11 +1529,11 @@
         },
         "6/0/init/body/3/argument/1/1/1/expression/alternate/3": {
           "type": "element",
-          "hash": "73e6e208ba628b26e90fcf6dce15e1b2",
+          "hash": "0b25133d91e7f9167019fd681c1bcaa8",
           "context": "",
           "skip": false,
           "overrides": {},
-          "content": "Dark"
+          "content": "Light"
         },
         "6/0/init/body/3/argument/1/1/1/expression/consequent/1/3/1": {
           "type": "element",
@@ -1341,11 +1569,11 @@
         },
         "6/0/init/body/3/argument/1/1/1/expression/consequent/5": {
           "type": "element",
-          "hash": "bb78ea2c6edd8662676c81a8a13ecb93",
+          "hash": "7d7e6dc1eec3d5040186cbd716bae3ea",
           "context": "",
           "skip": false,
           "overrides": {},
-          "content": "Light"
+          "content": "Dark"
         },
         "6/0/init/body/3/argument/1/1/3": {
           "type": "element",
@@ -1378,6 +1606,30 @@
           "skip": false,
           "overrides": {},
           "content": "Toggle theme"
+        },
+        "6/0/init/body/3/argument/1/3/1": {
+          "type": "element",
+          "hash": "4a160facd660ff87159199bdb928d47a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Light"
+        },
+        "6/0/init/body/3/argument/1/3/3": {
+          "type": "element",
+          "hash": "feaa9968bfe2a9fc29cd26423e38c697",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Dark"
+        },
+        "6/0/init/body/3/argument/1/3/5": {
+          "type": "element",
+          "hash": "f1b073669f3672ad8777468af31fa098",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "System"
         },
         "6/0/init/body/3/argument/3/1": {
           "type": "element",
@@ -1741,11 +1993,11 @@
         },
         "4/0/init/body/7/argument/1/7/1/5": {
           "type": "element",
-          "hash": "bf3ab806b9f011c490aedbe142d6763d",
+          "hash": "348eac9bbc14279e7d8db2c3e5e7481c",
           "context": "",
           "skip": false,
           "overrides": {},
-          "content": "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to open-source projects, or mentoring aspiring developers in the community."
+          "content": "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community."
         },
         "4/0/init/body/7/argument/13/11/1": {
           "type": "element",
@@ -1971,6 +2223,30 @@
           "overrides": {},
           "content": "Core Expertise"
         },
+        "5/0/init/body/7/argument/1/11/3/1/expression/0/body-description": {
+          "type": "attribute",
+          "hash": "8dd03378e1852c295095474d1a7c6c6b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Building modern web applications"
+        },
+        "5/0/init/body/7/argument/1/11/3/1/expression/0/body-title": {
+          "type": "attribute",
+          "hash": "84dfe46a319ea11134c0db5f2712806b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Frontend Development"
+        },
+        "5/0/init/body/7/argument/1/13/1": {
+          "type": "element",
+          "hash": "498a8b0773845320d0bd750c0c109696",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Core Expertise"
+        },
         "5/0/init/body/7/argument/1/15/1/1": {
           "type": "element",
           "hash": "5190ceef16094fae82b216f7d592069f",
@@ -2019,6 +2295,54 @@
           "overrides": {},
           "content": "Commitment"
         },
+        "5/0/init/body/7/argument/1/17/1/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "5/0/init/body/7/argument/1/17/1/3": {
+          "type": "element",
+          "hash": "09e063c5fea17203dfc48d7b2528f58d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Projects Built"
+        },
+        "5/0/init/body/7/argument/1/17/3/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "5/0/init/body/7/argument/1/17/3/3": {
+          "type": "element",
+          "hash": "bee6e2dd04bcf7e9f69a2829b8b08414",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies"
+        },
+        "5/0/init/body/7/argument/1/17/5/1": {
+          "type": "element",
+          "hash": "e4c707e92074492ae9d597af3048d06b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0%"
+        },
+        "5/0/init/body/7/argument/1/17/5/3": {
+          "type": "element",
+          "hash": "b386ee6606f47d3d781e811bc244a8f0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Commitment"
+        },
         "5/0/init/body/7/argument/1/3-title": {
           "type": "attribute",
           "hash": "915db3113b767ce646b80d391c4e21fd",
@@ -2029,11 +2353,11 @@
         },
         "5/0/init/body/7/argument/1/7/1/1": {
           "type": "element",
-          "hash": "52421bb5c2c0323e4b277738498fc189",
+          "hash": "955d94e5d28c94998573287e65a6c222",
           "context": "",
           "skip": false,
           "overrides": {},
-          "content": "I‘m Mradul Kumar, a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant."
+          "content": "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant."
         },
         "5/0/init/body/7/argument/1/7/1/3": {
           "type": "element",
@@ -2045,11 +2369,35 @@
         },
         "5/0/init/body/7/argument/1/7/1/5": {
           "type": "element",
-          "hash": "bf3ab806b9f011c490aedbe142d6763d",
+          "hash": "348eac9bbc14279e7d8db2c3e5e7481c",
           "context": "",
           "skip": false,
           "overrides": {},
-          "content": "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to open-source projects, or mentoring aspiring developers in the community."
+          "content": "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community."
+        },
+        "5/0/init/body/7/argument/1/9/1/1": {
+          "type": "element",
+          "hash": "e08a44f0210455bd6619019c13192a47",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant."
+        },
+        "5/0/init/body/7/argument/1/9/1/3": {
+          "type": "element",
+          "hash": "1dcd87bddeadef8e7d9838e1e31d38e6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail."
+        },
+        "5/0/init/body/7/argument/1/9/1/5": {
+          "type": "element",
+          "hash": "04271d04bc94ebca80f4b6dd5797104a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community."
         },
         "5/0/init/body/7/argument/13/11/1": {
           "type": "element",
@@ -2410,6 +2758,630 @@
           "skip": false,
           "overrides": {},
           "content": "When I‘m not pushing pixels or writing code, I‘m exploring emerging web technologies, contributing to open-source projects, or mentoring aspiring developers in the community."
+        },
+        "6/0/init/body/7/argument/1/11/1": {
+          "type": "element",
+          "hash": "498a8b0773845320d0bd750c0c109696",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Core Expertise"
+        },
+        "6/0/init/body/7/argument/1/11/3/1/expression/0/body-description": {
+          "type": "attribute",
+          "hash": "8dd03378e1852c295095474d1a7c6c6b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Building modern web applications"
+        },
+        "6/0/init/body/7/argument/1/11/3/1/expression/0/body-title": {
+          "type": "attribute",
+          "hash": "84dfe46a319ea11134c0db5f2712806b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Frontend Development"
+        },
+        "6/0/init/body/7/argument/1/11/3/1/expression/0/body/1/3": {
+          "type": "element",
+          "hash": "98d256219a06401ff2f4d268e4d9420d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "My expertise"
+        },
+        "6/0/init/body/7/argument/1/13/1": {
+          "type": "element",
+          "hash": "498a8b0773845320d0bd750c0c109696",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Core Expertise"
+        },
+        "6/0/init/body/7/argument/1/15/1": {
+          "type": "element",
+          "hash": "4c8e0865539666759032f081093f5a5e",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technical Skills (Neo Style)"
+        },
+        "6/0/init/body/7/argument/1/15/1/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "6/0/init/body/7/argument/1/15/1/3": {
+          "type": "element",
+          "hash": "09e063c5fea17203dfc48d7b2528f58d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Projects Built"
+        },
+        "6/0/init/body/7/argument/1/15/3/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "6/0/init/body/7/argument/1/15/3/1-title": {
+          "type": "attribute",
+          "hash": "0a44928ad5720da495a7c7b03966b3c2",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 01"
+        },
+        "6/0/init/body/7/argument/1/15/3/3": {
+          "type": "element",
+          "hash": "bee6e2dd04bcf7e9f69a2829b8b08414",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies"
+        },
+        "6/0/init/body/7/argument/1/15/3/3-title": {
+          "type": "attribute",
+          "hash": "582eb3f29abecc338c22004810d6bd08",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 02"
+        },
+        "6/0/init/body/7/argument/1/15/3/5-title": {
+          "type": "attribute",
+          "hash": "f4aa989b24c56057576634bf325c09bb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 03"
+        },
+        "6/0/init/body/7/argument/1/15/3/7-title": {
+          "type": "attribute",
+          "hash": "726837f824cb515ae3238037b19c3e0b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 04"
+        },
+        "6/0/init/body/7/argument/1/15/5/1": {
+          "type": "element",
+          "hash": "e4c707e92074492ae9d597af3048d06b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0%"
+        },
+        "6/0/init/body/7/argument/1/15/5/3": {
+          "type": "element",
+          "hash": "b386ee6606f47d3d781e811bc244a8f0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Commitment"
+        },
+        "6/0/init/body/7/argument/1/17/1/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "6/0/init/body/7/argument/1/17/1/3": {
+          "type": "element",
+          "hash": "09e063c5fea17203dfc48d7b2528f58d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Projects Built"
+        },
+        "6/0/init/body/7/argument/1/17/3/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "6/0/init/body/7/argument/1/17/3/3": {
+          "type": "element",
+          "hash": "bee6e2dd04bcf7e9f69a2829b8b08414",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies"
+        },
+        "6/0/init/body/7/argument/1/17/5/1": {
+          "type": "element",
+          "hash": "e4c707e92074492ae9d597af3048d06b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0%"
+        },
+        "6/0/init/body/7/argument/1/17/5/3": {
+          "type": "element",
+          "hash": "b386ee6606f47d3d781e811bc244a8f0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Commitment"
+        },
+        "6/0/init/body/7/argument/1/19/1/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "6/0/init/body/7/argument/1/19/1/3": {
+          "type": "element",
+          "hash": "09e063c5fea17203dfc48d7b2528f58d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Projects Built"
+        },
+        "6/0/init/body/7/argument/1/19/3/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "6/0/init/body/7/argument/1/19/3/3": {
+          "type": "element",
+          "hash": "bee6e2dd04bcf7e9f69a2829b8b08414",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies"
+        },
+        "6/0/init/body/7/argument/1/19/5/1": {
+          "type": "element",
+          "hash": "e4c707e92074492ae9d597af3048d06b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0%"
+        },
+        "6/0/init/body/7/argument/1/19/5/3": {
+          "type": "element",
+          "hash": "b386ee6606f47d3d781e811bc244a8f0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Commitment"
+        },
+        "6/0/init/body/7/argument/1/3-title": {
+          "type": "attribute",
+          "hash": "915db3113b767ce646b80d391c4e21fd",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "About Me"
+        },
+        "6/0/init/body/7/argument/1/3/1/3": {
+          "type": "element",
+          "hash": "d2d155184dd41ff029a91dd6e9679e6d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "About Me"
+        },
+        "6/0/init/body/7/argument/1/3/3/1": {
+          "type": "element",
+          "hash": "7b186dd0fbf349decb65048ecf54cac1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Passionate <element:span>Web Developer</element:span> & <element:span>UI/UX Designer</element:span><element:span>Crafting Seamless Digital Experiences</element:span>"
+        },
+        "6/0/init/body/7/argument/1/5/1/3": {
+          "type": "element",
+          "hash": "d2d155184dd41ff029a91dd6e9679e6d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "About Me"
+        },
+        "6/0/init/body/7/argument/1/7/1/1": {
+          "type": "element",
+          "hash": "a484f6bda85d013f5df5f45b0e9e5bdc",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant."
+        },
+        "6/0/init/body/7/argument/1/7/1/3": {
+          "type": "element",
+          "hash": "1dcd87bddeadef8e7d9838e1e31d38e6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail."
+        },
+        "6/0/init/body/7/argument/1/7/1/5": {
+          "type": "element",
+          "hash": "04271d04bc94ebca80f4b6dd5797104a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community."
+        },
+        "6/0/init/body/7/argument/1/9/1/1": {
+          "type": "element",
+          "hash": "e08a44f0210455bd6619019c13192a47",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant."
+        },
+        "6/0/init/body/7/argument/1/9/1/3": {
+          "type": "element",
+          "hash": "1dcd87bddeadef8e7d9838e1e31d38e6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail."
+        },
+        "6/0/init/body/7/argument/1/9/1/5": {
+          "type": "element",
+          "hash": "04271d04bc94ebca80f4b6dd5797104a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community."
+        },
+        "7/0/init/body/7/argument/1/11/1": {
+          "type": "element",
+          "hash": "498a8b0773845320d0bd750c0c109696",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Core Expertise"
+        },
+        "7/0/init/body/7/argument/1/11/3/1/expression/0/body-description": {
+          "type": "attribute",
+          "hash": "8dd03378e1852c295095474d1a7c6c6b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Building modern web applications"
+        },
+        "7/0/init/body/7/argument/1/11/3/1/expression/0/body/1/3": {
+          "type": "element",
+          "hash": "98d256219a06401ff2f4d268e4d9420d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "My expertise"
+        },
+        "7/0/init/body/7/argument/1/13/1": {
+          "type": "element",
+          "hash": "498a8b0773845320d0bd750c0c109696",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Core Expertise"
+        },
+        "7/0/init/body/7/argument/1/15/1": {
+          "type": "element",
+          "hash": "4c8e0865539666759032f081093f5a5e",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technical Skills (Neo Style)"
+        },
+        "7/0/init/body/7/argument/1/15/1/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "7/0/init/body/7/argument/1/15/1/3": {
+          "type": "element",
+          "hash": "09e063c5fea17203dfc48d7b2528f58d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Projects Built"
+        },
+        "7/0/init/body/7/argument/1/15/3/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "7/0/init/body/7/argument/1/15/3/1-title": {
+          "type": "attribute",
+          "hash": "0a44928ad5720da495a7c7b03966b3c2",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 01"
+        },
+        "7/0/init/body/7/argument/1/15/3/3": {
+          "type": "element",
+          "hash": "bee6e2dd04bcf7e9f69a2829b8b08414",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies"
+        },
+        "7/0/init/body/7/argument/1/15/3/3-title": {
+          "type": "attribute",
+          "hash": "582eb3f29abecc338c22004810d6bd08",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 02"
+        },
+        "7/0/init/body/7/argument/1/15/3/5-title": {
+          "type": "attribute",
+          "hash": "f4aa989b24c56057576634bf325c09bb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 03"
+        },
+        "7/0/init/body/7/argument/1/15/3/7-title": {
+          "type": "attribute",
+          "hash": "726837f824cb515ae3238037b19c3e0b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "SKILL 04"
+        },
+        "7/0/init/body/7/argument/1/15/5/1": {
+          "type": "element",
+          "hash": "e4c707e92074492ae9d597af3048d06b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0%"
+        },
+        "7/0/init/body/7/argument/1/15/5/3": {
+          "type": "element",
+          "hash": "b386ee6606f47d3d781e811bc244a8f0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Commitment"
+        },
+        "7/0/init/body/7/argument/1/17/1/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "7/0/init/body/7/argument/1/17/1/3": {
+          "type": "element",
+          "hash": "09e063c5fea17203dfc48d7b2528f58d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Projects Built"
+        },
+        "7/0/init/body/7/argument/1/17/3/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "7/0/init/body/7/argument/1/17/3/3": {
+          "type": "element",
+          "hash": "bee6e2dd04bcf7e9f69a2829b8b08414",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies"
+        },
+        "7/0/init/body/7/argument/1/17/5/1": {
+          "type": "element",
+          "hash": "e4c707e92074492ae9d597af3048d06b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0%"
+        },
+        "7/0/init/body/7/argument/1/17/5/3": {
+          "type": "element",
+          "hash": "b386ee6606f47d3d781e811bc244a8f0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Commitment"
+        },
+        "7/0/init/body/7/argument/1/19/1/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "7/0/init/body/7/argument/1/19/1/3": {
+          "type": "element",
+          "hash": "09e063c5fea17203dfc48d7b2528f58d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Projects Built"
+        },
+        "7/0/init/body/7/argument/1/19/3/1": {
+          "type": "element",
+          "hash": "4a6c5b59bc1a535c481eb411d04e5114",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0+"
+        },
+        "7/0/init/body/7/argument/1/19/3/3": {
+          "type": "element",
+          "hash": "bee6e2dd04bcf7e9f69a2829b8b08414",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Technologies"
+        },
+        "7/0/init/body/7/argument/1/19/5/1": {
+          "type": "element",
+          "hash": "e4c707e92074492ae9d597af3048d06b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "0%"
+        },
+        "7/0/init/body/7/argument/1/19/5/3": {
+          "type": "element",
+          "hash": "b386ee6606f47d3d781e811bc244a8f0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Commitment"
+        },
+        "7/0/init/body/7/argument/1/3-title": {
+          "type": "attribute",
+          "hash": "915db3113b767ce646b80d391c4e21fd",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "About Me"
+        },
+        "7/0/init/body/7/argument/1/3/1/3": {
+          "type": "element",
+          "hash": "d2d155184dd41ff029a91dd6e9679e6d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "About Me"
+        },
+        "7/0/init/body/7/argument/1/3/3/1": {
+          "type": "element",
+          "hash": "7b186dd0fbf349decb65048ecf54cac1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Passionate <element:span>Web Developer</element:span> & <element:span>UI/UX Designer</element:span><element:span>Crafting Seamless Digital Experiences</element:span>"
+        },
+        "7/0/init/body/7/argument/1/3/3/3": {
+          "type": "element",
+          "hash": "ddaea9ecc0e2d489f8c8ba9e3ae599ba",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Crafting Seamless Digital Experiences"
+        },
+        "7/0/init/body/7/argument/1/5/1/3": {
+          "type": "element",
+          "hash": "d2d155184dd41ff029a91dd6e9679e6d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "About Me"
+        },
+        "7/0/init/body/7/argument/1/5/3/1": {
+          "type": "element",
+          "hash": "8a7bf90bbf5dc585c355f3bc127dcfd0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Passionate Web Developer & UI/UX Designer"
+        },
+        "7/0/init/body/7/argument/1/5/3/3": {
+          "type": "element",
+          "hash": "ddaea9ecc0e2d489f8c8ba9e3ae599ba",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Crafting Seamless Digital Experiences"
+        },
+        "7/0/init/body/7/argument/1/7/1/1": {
+          "type": "element",
+          "hash": "a484f6bda85d013f5df5f45b0e9e5bdc",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant."
+        },
+        "7/0/init/body/7/argument/1/7/1/3": {
+          "type": "element",
+          "hash": "1dcd87bddeadef8e7d9838e1e31d38e6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail."
+        },
+        "7/0/init/body/7/argument/1/7/1/5": {
+          "type": "element",
+          "hash": "04271d04bc94ebca80f4b6dd5797104a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community."
+        },
+        "7/0/init/body/7/argument/1/9/1/1": {
+          "type": "element",
+          "hash": "e08a44f0210455bd6619019c13192a47",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "I‘m <expression/> , a web developer and UI/UX designer with over 5 years of experience building digital products that blend form and function. My work spans from early-stage startups to established enterprises, always with a focus on creating solutions that are both beautiful and performant."
+        },
+        "7/0/init/body/7/argument/1/9/1/3": {
+          "type": "element",
+          "hash": "1dcd87bddeadef8e7d9838e1e31d38e6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "My approach is rooted in understanding the problem before jumping to solutions. I believe the best work happens at the intersection of user needs, business goals, and technical constraints. Whether it‘s architecting a scalable frontend system or refining micro-interactions, I bring the same level of attention to detail."
+        },
+        "7/0/init/body/7/argument/1/9/1/5": {
+          "type": "element",
+          "hash": "04271d04bc94ebca80f4b6dd5797104a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "When I‘m not pushing pixels or writing code, I‘mexploring emerging web technologies, contributing to <expression/> projects, or mentoring aspiring developers in the community."
         }
       }
     },
@@ -2422,6 +3394,18 @@
           "skip": false,
           "overrides": {},
           "content": "Experience"
+        }
+      }
+    },
+    "loading.tsx": {
+      "scopes": {
+        "1/0/init/body/0/argument": {
+          "type": "element",
+          "hash": "c6bc8c380e83336c81a92594d3f23000",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Loading"
         }
       }
     },
