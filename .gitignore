@@ -42,4 +42,5 @@ next-env.d.ts
 bun.lockb
 package-lock.json
 ./app/lingo
-pnpm-lock.yaml
+__fixtures__
+cosmos

@@ -129,10 +129,10 @@ export default function HeroAnimatedContent() {
   return (
     <div ref={heroSectionRef} className="w-full">
       <section className="relative flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-2 md:px-4 lg:px-8 bg-transparent overflow-hidden lg:py-0 py-12">
-        <div className="w-full md:w-1/2 space-y-5 text-center md:text-left mt-4">
+        <div className="w-full md:w-1/2 space-y-6 text-center md:text-left mt-4">
           <h1
             ref={nameHeadingRef}
-            className={`text-5xl md:text-8xl tracking-tight text-gray-900 dark:text-gray-300 text-shadow-2xl ${caveat.className}`}
+            className={`text-6xl md:text-8xl tracking-tight text-gray-900 dark:text-gray-300 text-shadow-2xl ${caveat.className}`}
           >
             <span className="text-[#6ee7b7] left-out">MRADUL</span>
             <span className="text-[#a5b4fc] mx-4">KUMAR</span>&nbsp;
