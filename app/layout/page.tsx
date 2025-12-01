@@ -14,8 +14,6 @@ const pageLayoutVariants = cva("w-full relative min-h-screen py-18 px-6 md:px-16
   variants: {
     transparent: {
       true: "bg-transparent",
-    },
-    soid: {
       false: "bg-white dark:bg-gray-700",
     },
   },
