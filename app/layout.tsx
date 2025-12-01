@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import NavBar from "@/components/nav-bar";
 import { Geist, Geist_Mono } from "next/font/google";
 import ThemeProvider from "@/components/theme-provider";
-import { LingoProvider, loadDictionary } from "lingo.dev/react/rsc";
+// import { LingoProvider, loadDictionary } from "lingo.dev/react/rsc";
 
 gsap.registerPlugin(useGSAP);
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <LingoProvider loadDictionary={(locale) => loadDictionary(locale)}>
+    // <LingoProvider loadDictionary={(locale) => loadDictionary(locale)}>
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -47,6 +47,6 @@ export default function RootLayout({
           </ThemeProvider>
         </body>
       </html>
-    </LingoProvider>
+    // </LingoProvider>
   );
 }
