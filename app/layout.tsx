@@ -2,9 +2,10 @@ import "./globals.css";
 import { gsap } from "gsap";
 import type { Metadata } from "next";
 import { useGSAP } from "@gsap/react";
-import NavBar from "@/components/nav-bar";
+import Header from "./layout/header";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Provider } from "./layout/provider";
+import { Provider } from "./provider/provider";
+import Footer from "./layout/footer";
 
 gsap.registerPlugin(useGSAP);
 
@@ -34,8 +35,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Provider>
-          <NavBar />
+          <Header />
           <div className="min-w-full min-h-screen">{children}</div>
+          <Footer />
         </Provider>
       </body>
     </html>

@@ -2,10 +2,10 @@
 
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import React, { useRef, useEffect } from "react";
-import PageLayout from "@/components/page-layout";
 import { CircleText } from "@/components/circle-text";
 import { Badge } from "@/components/ui/badge";
 import { caveat } from "@/fonts/fonts";
+import PageLayout from "../layout/page";
 
 const About = (): React.JSX.Element => {
   const ctaRef = useRef<HTMLDivElement>(null);
