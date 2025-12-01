@@ -6,6 +6,7 @@ import { CircleText } from "@/components/circle-text";
 import { Badge } from "@/components/ui/badge";
 import { caveat } from "@/fonts/fonts";
 import PageLayout from "../layout/page";
+import Title from "@/components/title";
 
 const About = (): React.JSX.Element => {
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -48,18 +49,14 @@ const About = (): React.JSX.Element => {
       sectionRef={sectionRef}
       sectionId="about"
       className="shadow-2xl"
+      
     >
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-20 animate-fade-in">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-px bg-indigo-600 animate-expand"></div>
-            <Badge
-              variant="outline"
-              className="text-sm font-semibold text-indigo-600 tracking-wider uppercase border-indigo-200 bg-transparent"
-            >
-              About Me
-            </Badge>
+            <Title>About</Title>
           </div>
           <h2
             className={`text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight ${caveat.className}`}
