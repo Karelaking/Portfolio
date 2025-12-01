@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import {caveat } from "@/fonts/fonts";
-import LangSwitcher from "./lang-switcher";
 import ThemeModeToggleButton from "./theme-toggle-button";
 
 
@@ -13,7 +12,6 @@ const NavBar = (): React.JSX.Element => {
           MRADUL
         </Link>
         <div className="flex lg:gap-x-12 itecms-center justify-center">
-          <LangSwitcher />
           <ThemeModeToggleButton />
         </div>
       </div>
