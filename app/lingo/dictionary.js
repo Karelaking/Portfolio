@@ -3,6 +3,12 @@ export default {
   files: {
     "../components/email-template.tsx": {
       entries: {
+        "2/0/init/body/0/argument/1": {
+          content: {
+            en: "Welcome, {firstName}!",
+          },
+          hash: "ddad7f0baf16e2baa11cf622335bc85a",
+        },
         "2/declaration/body/0/argument/1": {
           content: {
             en: "Welcome, {firstName}!",
@@ -1664,6 +1670,24 @@ export default {
             fr: "MRADUL",
             "hi-IN": "MRADUL",
             "ko-KR": "MRADUL",
+          },
+          hash: "432dfb098a4951c9f8101d57ac5e61ce",
+        },
+        "5/0/init/body/0/argument/1/1": {
+          content: {
+            en: "MRADUL",
+          },
+          hash: "432dfb098a4951c9f8101d57ac5e61ce",
+        },
+        "5/0/init/body/0/argument/1/3": {
+          content: {
+            en: "MRADUL",
+          },
+          hash: "432dfb098a4951c9f8101d57ac5e61ce",
+        },
+        "9/0/init/body/0/argument/1/3": {
+          content: {
+            en: "MRADUL",
           },
           hash: "432dfb098a4951c9f8101d57ac5e61ce",
         },
@@ -4396,6 +4420,16 @@ export default {
               "픽셀을 조정하거나 코드를 작성하지 않을 때는, 새로운 웹 기술을 탐구하거나, <expression/> 프로젝트에 기여하거나, 커뮤니티에서 열망하는 개발자들을 멘토링하고 있습니다.",
           },
           hash: "04271d04bc94ebca80f4b6dd5797104a",
+        },
+      },
+    },
+    "error.tsx": {
+      entries: {
+        "1/body/0/argument": {
+          content: {
+            en: "Error",
+          },
+          hash: "3c95bcb32c2104b99a46f5b3dd015248",
         },
       },
     },

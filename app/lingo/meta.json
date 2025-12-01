@@ -3385,6 +3385,18 @@
         }
       }
     },
+    "error.tsx": {
+      "scopes": {
+        "1/body/0/argument": {
+          "type": "element",
+          "hash": "3c95bcb32c2104b99a46f5b3dd015248",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Error"
+        }
+      }
+    },
     "experience/page.tsx": {
       "scopes": {
         "1/0/init/body/0/argument": {
