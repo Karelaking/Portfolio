@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import {caveat } from "@/fonts/fonts";
-import ThemeModeToggleButton from "./theme-toggle-button";
+import { caveat } from "@/fonts/fonts";
+import ThemeModeToggleButton from "@/components/theme-toggle-button";
 
 
-const NavBar = (): React.JSX.Element => {
+const Header = (): React.JSX.Element => {
   return (
     <header className="bg-white dark:bg-slate-800 border-b sticky top-0 z-50">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-18 shadow-lg border-0 border-transparent">
@@ -19,4 +19,4 @@ const NavBar = (): React.JSX.Element => {
   );
 };
 
-export default NavBar;
+export default Header;

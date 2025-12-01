@@ -10,9 +10,9 @@ import {
 import Heading from "@/components/heading";
 import { Badge } from "@/components/ui/badge";
 import React, { useRef, useEffect } from "react";
-import PageLayout from "@/components/page-layout";
 import { GraduationCap, Code2, Briefcase, Award } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PageLayout from "../layout/page";
 
 const Portfolio = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null);

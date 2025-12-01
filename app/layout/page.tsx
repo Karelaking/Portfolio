@@ -1,11 +1,11 @@
 import React from "react";
 
 interface PageLayoutProps {
-  children: React.ReactNode;
-  sectionRef?: React.RefObject<HTMLElement | null>;
   sectionId?: string;
   className?: string;
   transparent?: boolean;
+  children: React.ReactNode;
+  sectionRef?: React.RefObject<HTMLElement | null>;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
