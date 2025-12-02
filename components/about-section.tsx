@@ -1,14 +1,18 @@
 "use client";
 
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import React, { useRef, useEffect } from "react";
 import { CircleText } from "@/components/circle-text";
-import { Badge } from "@/components/ui/badge";
 import { caveat } from "@/fonts/fonts";
-import PageLayout from "../layout/page";
-import Title from "@/components/title";
+import PageLayout from "@/app/layout/page";
+import PageHeader from "./page-header";
 
-const About = (): React.JSX.Element => {
+const AboutSection = (): React.JSX.Element => {
   const ctaRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -49,18 +53,11 @@ const About = (): React.JSX.Element => {
       sectionRef={sectionRef}
       sectionId="about"
       className="shadow-2xl"
-      
     >
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-20 animate-fade-in">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-px bg-indigo-600 animate-expand"></div>
-            <Title>About</Title>
-          </div>
-          <h2
-            className={`text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight ${caveat.className}`}
-          >
+          <PageHeader title="About Me">
             <span className="block">
               Passionate <span className="text-blue-300">Web Developer</span> &{" "}
               <span className="text-purple-300">UI/UX Designer</span>
@@ -68,13 +65,14 @@ const About = (): React.JSX.Element => {
                 Crafting Seamless Digital Experiences
               </span>
             </span>
-          </h2>
+          </PageHeader>
         </div>
-
+      </div>
+      <div className="relative z-10 max-w-3xl mx-auto">
         {/* Main Content */}
         <div ref={contentRef} className="mb-20">
           <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            <p className="text-xl text-gray-700 dark:text-gray-400 leading-relaxed mb-6">
               I&lsquo;m{" "}
               {
                 <CircleText
@@ -84,24 +82,23 @@ const About = (): React.JSX.Element => {
                   height="-top-3"
                 />
               }{" "}
-              , a web developer and UI/UX designer with over 5 years of
-              experience building digital products that blend form and function.
-              My work spans from early-stage startups to established
-              enterprises, always with a focus on creating solutions that are
-              both beautiful and performant.
+              , a web developer and UI/UX designer building digital products
+              that blend form and function. My work spans from early-stage
+              startups to established enterprises, always with a focus on
+              creating solutions that are both beautiful and performant.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 dark:text-gray-400 leading-relaxed mb-6">
               My approach is rooted in understanding the problem before jumping
               to solutions. I believe the best work happens at the intersection
               of user needs, business goals, and technical constraints. Whether
               it&lsquo;s architecting a scalable frontend system or refining
               micro-interactions, I bring the same level of attention to detail.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-700 dark:text-gray-400 leading-relaxed">
               When I&lsquo;m not pushing pixels or writing code, I&lsquo;m
-              exploring emerging web technologies, contributing to{" "}
-              {<CircleText text="OPEN-SOURCE" isBold={true} />}
-              projects, or mentoring aspiring developers in the community.
+              exploring web technologies, contributing to{" "}
+              {<CircleText text="OPEN-SOURCE" isBold={true} />} projects, or
+              mentoring aspiring developers in the community.
             </p>
           </div>
         </div>
@@ -173,4 +170,4 @@ const About = (): React.JSX.Element => {
   );
 };
 
-export default About;
+export default AboutSection;

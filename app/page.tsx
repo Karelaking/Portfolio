@@ -1,13 +1,12 @@
 "use client";
 
-import About from "./about/page";
-import Portfolio from "./portfolio/page";
 import { useEffect, useRef } from "react";
 import Hero from "@/components/hero-section";
 import MatrixRain from "@/components/matrix-rain";
 import ScanningLine from "@/components/scanning-line";
 import GridBackground from "@/components/grid-background";
-import FloatingParticles from "@/components/floating-particles";
+import AboutSection from "@/components/about-section";
+
 
 export default function Home() {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -48,7 +47,6 @@ export default function Home() {
         <MatrixRain />
         <ScanningLine />
         <GridBackground />
-        <FloatingParticles />
       </div>
 
       {/* Scrollable Content Container */}
@@ -70,7 +68,7 @@ export default function Home() {
           className="min-h-screen flex items-center justify-center"
           id="about"
         >
-          <About />
+          <AboutSection/>
         </section>
         <section
           ref={(el) => {
@@ -79,7 +77,7 @@ export default function Home() {
           className="min-h-screen flex items-center justify-center"
           id="portfolio"
         >
-          <Portfolio />
+          
         </section>
       </div>
     </main>
