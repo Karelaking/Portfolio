@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "./ui/badge";
+
 import { caveat } from "@/fonts/fonts";
 import Title from "./title";
 
