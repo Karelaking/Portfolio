@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/card";
 import React, { useRef, useEffect } from "react";
 import { CircleText } from "@/components/circle-text";
-import { caveat } from "@/fonts/fonts";
 import PageLayout from "@/app/layout/page";
 import PageHeader from "./page-header";
 import Heading from "./heading";
@@ -17,13 +16,12 @@ const AboutSection = (): React.JSX.Element => {
   const ctaRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
+
   const metricsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const elements = [
       contentRef.current,
-      skillsRef.current,
       metricsRef.current,
       ctaRef.current,
     ];
@@ -54,7 +52,7 @@ const AboutSection = (): React.JSX.Element => {
       sectionRef={sectionRef}
       sectionId="about"
       className="shadow-2xl"
-    >
+    >   
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-20 animate-fade-in">
@@ -105,7 +103,7 @@ const AboutSection = (): React.JSX.Element => {
         </div>
 
         {/* Expertise Grid */}
-        <div ref={skillsRef} className="mb-20">
+        <div className="mb-20">
         <Heading>My Expertise</Heading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {expertise.map((skill, index) => (
