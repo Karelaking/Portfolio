@@ -1,32 +1,19 @@
-import React from 'react'
-import { Badge } from './ui/badge';
-import { caveat } from '@/fonts/fonts';
+import { caveat } from "@/fonts/fonts";
+import React from "react";
+import { cn } from "@/lib/utils";
 
-interface HeadingProps {
-  title: string;
-  discription: string[];
-}
-const Heading = ({title, discription}: HeadingProps) => {
-  return (
-    <div className="mb-20 animate-fade-in">
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-12 h-px bg-indigo-600 animate-expand"></div>
-        <Badge
-          variant="outline"
-          className="text-sm font-semibold text-indigo-600 tracking-wider uppercase border-indigo-200 bg-transparent"
-        >
-          {title}
-        </Badge>
-      </div>
-      <h2 className={`text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight ${caveat.className}`}>
-        {discription.map((line, index) => (
-          <span key={index} className="block">
-            {line}
-          </span>
-        ))}
-      </h2>
-    </div>
-  );
+interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  children?: React.ReactNode;
+  className?: string;
 }
 
-export default Heading
+function Heading({ children, className, ...props }: HeadingProps): React.JSX.Element {
+  return <h3
+    className={cn(`text-4xl text-start font-extrabold text-gray-900 mb-8 border-l-3 border-indigo-600 pl-4 uppercase ${caveat.className}`, className)}
+    {...props}
+  >
+    {children}
+  </h3>;
+}
+
+export default Heading;

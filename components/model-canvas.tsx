@@ -15,7 +15,7 @@ const ModelCanvas = forwardRef<HTMLDivElement>((props, ref) => {
   }
 
   return (
-    <div ref={ref} className="w-full md:w-1/2 h-100 md:h-[600px] mb-8">
+    <div ref={ref} className="w-full h-1/2 md:w-1/2 md:h-[600px] md:mb-8">
       <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
         <ambientLight intensity={1.8} />
         <directionalLight position={[5, 5, 5]} />

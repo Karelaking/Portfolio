@@ -160,9 +160,9 @@ export default function HeroAnimatedContent() {
           </h1>
           <h1
             ref={heading}
-            className={`text-5xl md:text-6xl tracking-tight text-gray-900 dark:text-gray-300 text-shadow-2xl leading-10 md:leading-16 font-bold `}
+            className={`text-5xl md:text-6xl tracking-tight text-gray-900 dark:text-gray-300 text-shadow-2xl leading-12 md:leading-16 font-bold `}
           >
-            Fullstack Developer | UI/UX Designer | Creative Problem | API Designer
+            Fullstack Developer | UI/UX Designer | API Designer
           </h1>
           <p
             ref={sub}
