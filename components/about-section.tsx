@@ -11,6 +11,7 @@ import { CircleText } from "@/components/circle-text";
 import { caveat } from "@/fonts/fonts";
 import PageLayout from "@/app/layout/page";
 import PageHeader from "./page-header";
+import Heading from "./heading";
 
 const AboutSection = (): React.JSX.Element => {
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -105,11 +106,7 @@ const AboutSection = (): React.JSX.Element => {
 
         {/* Expertise Grid */}
         <div ref={skillsRef} className="mb-20">
-          <h3
-            className={`text-2xl font-extrabold text-gray-900 mb-8 ${caveat.className}`}
-          >
-            Core Expertise
-          </h3>
+        <Heading>My Expertise</Heading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {expertise.map((skill, index) => (
               <Card
