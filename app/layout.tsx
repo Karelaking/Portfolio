@@ -2,10 +2,10 @@ import "./globals.css";
 import { gsap } from "gsap";
 import type { Metadata } from "next";
 import { useGSAP } from "@gsap/react";
-import Header from "./layout/header";
+import Header from "@/components/layout-header";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Provider } from "./provider/provider";
-import Footer from "./layout/footer";
+import Footer from "@/components/layout-footer";
 
 gsap.registerPlugin(useGSAP);
 
