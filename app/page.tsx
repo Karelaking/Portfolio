@@ -8,6 +8,7 @@ import GridBackground from "@/components/grid-background";
 import AboutSection from "@/components/about-section";
 import ExpertiseCard from "@/components/expertise-card";
 import ExperienceSection from "@/components/experience-section";
+import ExpertiseSection from "@/components/expertise-section";
 
 
 export default function Home() {
@@ -117,10 +118,67 @@ export default function Home() {
           />
         </section>
         
-        {/* Experience Section */}
+        {/* Expertise Section */}
         <section
           ref={(el) => {
             sectionsRef.current[3] = el;
+          }}
+          className="min-h-screen"
+          id="expertise"
+        >
+          <ExpertiseSection />
+        </section>
+        
+        {/* Portfolio Section */}
+        <section
+          ref={(el) => {
+            sectionsRef.current[4] = el;
+          }}
+          className="min-h-screen grid md:grid-cols-2 lg:grid-cols-3 gap-2 items-center justify-center p-2 lg:p-8"
+          id="portfolio"
+        >
+          <ExpertiseCard 
+            title="Frontend"
+            description="Crafting responsive, performant user interfaces with modern frameworks and best practices."
+            skills={["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"]}
+            pastelColor="purple"
+          />
+          <ExpertiseCard 
+            title="Backend"
+            description="Building scalable server-side applications with robust APIs and database architecture."
+            skills={["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"]}
+            pastelColor="blue"
+          />
+          <ExpertiseCard 
+            title="UI/UX Design"
+            description="Creating intuitive, beautiful interfaces that prioritize user experience and accessibility."
+            skills={["Figma", "Adobe XD", "Prototyping", "Design Systems", "User Research"]}
+            pastelColor="pink"
+          />
+          <ExpertiseCard 
+            title="Mobile Development"
+            description="Developing cross-platform mobile applications with native performance and feel."
+            skills={["React Native", "Flutter", "iOS", "Android", "Progressive Web Apps"]}
+            pastelColor="green"
+          />
+          <ExpertiseCard 
+            title="Cloud & DevOps"
+            description="Deploying and managing applications with modern cloud infrastructure and CI/CD pipelines."
+            skills={["AWS", "Docker", "Kubernetes", "GitHub Actions", "Vercel"]}
+            pastelColor="yellow"
+          />
+          <ExpertiseCard 
+            title="API Design"
+            description="Designing and implementing efficient, secure APIs that power modern applications."
+            skills={["GraphQL", "REST", "WebSocket", "Authentication", "Rate Limiting"]}
+            pastelColor="indigo"
+          />
+        </section>
+        
+        {/* Experience Section */}
+        <section
+          ref={(el) => {
+            sectionsRef.current[5] = el;
           }}
           className="min-h-screen"
           id="experience"

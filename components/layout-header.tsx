@@ -32,6 +32,12 @@ const Header = (): React.JSX.Element => {
             About
           </button>
           <button 
+            onClick={() => scrollToSection('expertise')}
+            className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+          >
+            Expertise
+          </button>
+          <button 
             onClick={() => scrollToSection('portfolio')}
             className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
           >

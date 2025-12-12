@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Provider>
-          <Header />
+          {/* <Header /> */}
           <div className="min-w-full min-h-screen">{children}</div>
           <Footer />
         </Provider>
