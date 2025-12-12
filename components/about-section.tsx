@@ -103,7 +103,7 @@ const AboutSection = (): React.JSX.Element => {
         </div>
 
         {/* Expertise Grid */}
-        <div className="mb-20">
+        {/* <div className="mb-20">
         <Heading>My Expertise</Heading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {expertise.map((skill, index) => (
@@ -122,7 +122,7 @@ const AboutSection = (): React.JSX.Element => {
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Key Metrics */}
         <div ref={metricsRef} className="grid md:grid-cols-3 gap-8 mb-4">

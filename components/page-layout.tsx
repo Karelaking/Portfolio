@@ -1,13 +1,12 @@
 import React from "react";
-import { cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-interface PageLayoutProps {
-  sectionId?: string;
-  sectionRef?: React.RefObject<HTMLElement | null>;
-  className?: string;
-  transparent?: boolean;
+interface PageLayoutProps extends VariantProps<typeof pageLayoutVariants> {
   children: React.ReactNode;
+  sectionId?: string;
+  className?: string;
+  sectionRef?: React.RefObject<HTMLElement | null>;
 }
 
 const pageLayoutVariants = cva("w-full relative min-h-screen py-18 px-6 md:px-16 lg:px-24 overflow-hidden rounded-2xl my-4", {
@@ -33,7 +32,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     <section
       ref={sectionRef}
       id={sectionId}
-      className={cn(pageLayoutVariants({ transparent, className }))}
+      className={cn(pageLayoutVariants({ transparent }), className)}
     >
       {children}
     </section>
