@@ -96,7 +96,7 @@ const Card = ({ containerRef, src, alt, top, left, rotate, className }: cardPros
     let maxZIndex = -Infinity;
 
     els.forEach((el) => {
-      let zIndex = parseInt(
+      const zIndex = parseInt(
         window.getComputedStyle(el).getPropertyValue("z-index")
       );
 

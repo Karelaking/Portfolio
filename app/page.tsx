@@ -7,7 +7,7 @@ import ScanningLine from "@/components/scanning-line";
 import GridBackground from "@/components/grid-background";
 import AboutSection from "@/components/about-section";
 import ExpertiseCard from "@/components/expertise-card";
-import ExperienceCard from "@/components/experience-card";
+import ExperienceSection from "@/components/experience-section";
 
 
 export default function Home() {
@@ -117,33 +117,15 @@ export default function Home() {
           />
         </section>
         
-        {/* Experience Section Demo */}
+        {/* Experience Section */}
         <section
           ref={(el) => {
             sectionsRef.current[3] = el;
           }}
-          className="min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-24"
+          className="min-h-screen"
           id="experience"
         >
-          <div className="w-full max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
-              Experience
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ExperienceCard
-                title="Senior Frontend Developer"
-                description="Led the development of a customer-facing dashboard using React and TypeScript, improving performance by 40%."
-                tech={["React", "TypeScript", "Next.js", "Tailwind CSS", "GraphQL"]}
-                animationDelay={100}
-              />
-              <ExperienceCard
-                title="Full Stack Engineer"
-                description="Built scalable microservices architecture serving 1M+ daily users with 99.9% uptime."
-                tech={["Node.js", "PostgreSQL", "Docker", "AWS", "Redis"]}
-                animationDelay={200}
-              />
-            </div>
-          </div>
+          <ExperienceSection />
         </section>
       </div>
     </main>
