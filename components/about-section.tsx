@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import React, { useRef, useEffect } from "react";
 import { CircleText } from "@/components/circle-text";
-import PageLayout from "@/app/layout/page";
+import PageLayout from "@/components/page-layout";
 import PageHeader from "./page-header";
 import Heading from "./heading";
 

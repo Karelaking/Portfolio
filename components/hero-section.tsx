@@ -2,21 +2,57 @@
 
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import MediaButton, { MediaButtonProps } from "./media-button";
+import { IconBrandFacebook, IconBrandLinkedin, IconBrandTwitter, IconBrandInstagram, IconBrandGithub } from "@tabler/icons-react";
+
+const media: MediaButtonProps[] = [
+  {
+    icon: IconBrandTwitter,
+    color: "bg-blue-500 hover:bg-blue-600 text-white",
+    handleClick: () => window.open("https://twitter.com/mradulkatiyar", "_blank"),
+  },
+  {
+    icon: IconBrandLinkedin,
+    color: "bg-blue-700 hover:bg-blue-800 text-white",
+    handleClick: () => window.open("https://www.linkedin.com/in/mradulkatiyar/", "_blank"),
+  },
+  {
+    icon: IconBrandGithub,
+    color: "bg-gray-800 hover:bg-gray-900 text-white",
+    handleClick: () => window.open("  https://github.com/mradulkatiyar", "_blank"),
+  },
+  {
+    icon: IconBrandInstagram,
+    color: "bg-pink-500 hover:bg-pink-600 text-white",
+    handleClick: () => window.open("https://www.instagram.com/mradulkatiyar/", "_blank"),
+  },
+  {
+    icon: IconBrandFacebook,
+    color: "bg-blue-600 hover:bg-blue-700 text-white",
+    handleClick: () => window.open("https://www.facebook.com/mradulkatiyar", "_blank"),
+  },
+]
 
 const HeroSection = () => {
   return (
-    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto min-h-screen">
       <div>
-        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium">
+        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3">
           Better every day
         </span>
-        <h3 className="text-4xl md:text-6xl font-semibold">
-          Let's change it up a bit
+        <h3 className="text-4xl md:text-6xl font-extrabold uppercase">
+          mradul kumar katiyar
         </h3>
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in
-          error repellat voluptatibus ad.
+ I am a full stack web developer, API designer, and student passionate about building robust digital experiences.
         </p>
+        <div className="w-full flex gap-4 mb-4">
+          {
+            media.map((item, index) => (
+             <MediaButton key={index} {...item} />
+            ))
+          }
+        </div>
         <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
           Find a class
         </button>

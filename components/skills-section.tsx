@@ -1,6 +1,6 @@
 
 
-import PageLayout from '@/app/layout/page'
+import PageLayout from '@/components/page-layout'
 import React from 'react'
 import Heading from './heading';
 
