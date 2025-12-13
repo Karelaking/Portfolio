@@ -53,10 +53,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-max`}
       >
         <Provider>
-          <div className="relative w-full h-full min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+          <div className="w-full h-max bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
             <Header navItems={navItems} />
              {children}
           </div>
