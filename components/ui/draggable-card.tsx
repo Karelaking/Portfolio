@@ -113,7 +113,7 @@ export const DraggableCardBody = ({
         document.body.style.cursor = "grabbing";
       }}
       onDragEnd={(event, info) => {
-        document.body.style.cursor = "default";
+        document.body.style.cursor =  "default";
 
         controls.start({
           rotateX: 0,
@@ -163,7 +163,7 @@ export const DraggableCardBody = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative min-h-96 w-80 overflow-hidden rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900",
+        "relative min-h-96 min-w-60 md:w-80 overflow-hidden rounded-md bg-neutral-100 md:p-6 p-2 shadow-2xl transform-3d dark:bg-neutral-900",
         className,
       )}
     >
@@ -186,6 +186,6 @@ export const DraggableCardContainer = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div className={cn("[perspective:3000px]", className)}>{children}</div>
+    <div className={cn("perspective-[3000px]", className)} id="gallery">{children}</div>
   );
 };
