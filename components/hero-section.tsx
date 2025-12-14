@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import MediaButton, { MediaButtonProps } from "./media-button";
 import { IconBrandFacebook, IconBrandLinkedin, IconBrandTwitter, IconBrandInstagram, IconBrandGithub } from "@tabler/icons-react";
+import Link from "next/link";
 
 const media: MediaButtonProps[] = [
   {
@@ -35,27 +36,27 @@ const media: MediaButtonProps[] = [
 
 const HeroSection = () => {
   return (
-    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto min-h-screen">
-      <div>
-        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3">
+    <section className="w-full px-8 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto min-h-screen" id="home">
+      <div className="">
+        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3 uppercase">
           Better every day
         </span>
         <h3 className="text-4xl md:text-6xl font-extrabold uppercase">
           mradul kumar katiyar
         </h3>
-        <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
- I am a full stack web developer, API designer, and student passionate about building robust digital experiences.
+        <p className="text-base md:text-xl text-slate-500 my-4 md:my-6 font-semibold">
+ full stack web developer | API designer | student passionate about building robust digital experiences.
         </p>
-        <div className="w-full flex gap-4 mb-4">
-          {
-            media.map((item, index) => (
-             <MediaButton key={index} {...item} />
-            ))
-          }
+        <div className="flex flex-wrap gap-6">
+          <Link className="relative" href="#">
+            <span className="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
+            <span className="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-indigo-600 hover:text-white">Hire me</span>
+          </Link>
+          <Link href="#about" className="relative">
+            <span className="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-gray-700"></span>
+            <span className="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-black px-3 py-1 text-base font-bold text-white transition duration-100 hover:bg-white hover:text-indigo-600">Know more</span>
+          </Link>
         </div>
-        <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
-          Find a class
-        </button>
       </div>
       <ShuffleGrid />
     </section>
@@ -152,10 +153,11 @@ const generateSquares = (): React.ReactElement[] => {
       key={sq.id}
       layout
       transition={{ duration: 1.5, type: "spring" }}
-      className="w-full h-full"
+      className="w-full h-full filter grayscale hover:grayscale-0"
       style={{
         backgroundImage: `url(${sq.src})`,
         backgroundSize: "cover",
+        // filter: "grayscale(100%)",
       }}
     ></motion.div>
   ));
