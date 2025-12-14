@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Provider } from "./provider/provider";
 import Footer from "./layout/footer";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
+import { IconHome, IconMessage, IconUser, IconBrandGooglePhotos, IconBriefcase, IconCode, IconFileCv } from "@tabler/icons-react";
 import { Header, NavItems } from "./layout/header";
 
 gsap.registerPlugin(useGSAP);
@@ -28,17 +28,37 @@ export const metadata: Metadata = {
 const navItems: NavItems[] = [
   {
     name: "Home",
-    link: "/",
+    link: "#home",
     icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
     name: "About",
-    link: "/about",
+    link: "#about",
     icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
+    name: "Experience",
+    link: "#experience",
+    icon: <IconFileCv className="h-4 w-4 text-neutral-500 dark:text-white" />,
+  },
+  {
+    name: "Expertise",
+    link: "#expertise",
+    icon: <IconCode className="h-4 w-4 text-neutral-500 dark:text-white" />,
+  },
+  {
+    name: "Projects",
+    link: "#projects",
+    icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
+  },
+  {
+    name: "Gallery",
+    link: "#gallery",
+    icon: <IconBrandGooglePhotos className="h-4 w-4 text-neutral-500 dark:text-white" />,
+  },
+  {
     name: "Contact",
-    link: "/contact",
+    link: "#contact",
     icon: (
       <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
     ),
@@ -56,7 +76,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-max`}
       >
         <Provider>
-          <div className="w-full h-max bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+          <div className="w-full h-max dark:bg-gray-900 transition-colors duration-300">
             <Header navItems={navItems} />
              {children}
           </div>
