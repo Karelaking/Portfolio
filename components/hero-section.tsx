@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import MediaButton, { MediaButtonProps } from "./media-button";
+import { MediaButtonProps } from "./media-button";
 import { IconBrandFacebook, IconBrandLinkedin, IconBrandTwitter, IconBrandInstagram, IconBrandGithub } from "@tabler/icons-react";
 import Link from "next/link";
+import { CircleText } from "./circle-text";
 
 const media: MediaButtonProps[] = [
   {
@@ -39,16 +40,16 @@ const HeroSection = () => {
     <section className="w-full px-8 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto min-h-screen" id="home">
       <div className="">
         <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3 uppercase">
-          Better every day
+          Do better every day
         </span>
-        <h3 className="text-4xl md:text-6xl font-extrabold uppercase">
-          mradul kumar katiyar
+        <h3 className="text-4xl md:text-6xl font-extrabold uppercase md:leading-18">
+          mradul kumar <CircleText text="katiyar" />
         </h3>
         <p className="text-base md:text-xl text-slate-500 my-4 md:my-6 font-semibold">
- full stack web developer | API designer | student passionate about building robust digital experiences.
+          full stack web developer | API designer | student passionate about building robust digital experiences.
         </p>
         <div className="flex flex-wrap gap-6">
-          <Link className="relative" href="#">
+          <Link className="relative" href="https://www.linkedin.com/in/kumar-mradul-katiyar/" target="_blank">
             <span className="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
             <span className="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-indigo-600 hover:text-white">Hire me</span>
           </Link>
