@@ -1,19 +1,41 @@
+import AboutSection from '@/components/about-section'
+import { ContactSection } from '@/components/contact-section'
 import { ExperienceSection } from '@/components/experience-section'
-import ExpertiseCard from '@/components/expertise-card'
 import { ExpertiseSection } from '@/components/expertise-section'
 import { GallerySection } from '@/components/gallery-section'
 import HeroSection from '@/components/hero-section'
 import { ProjectSection } from '@/components/projects-section'
+import ScreenFitText from '@/components/screen-fit-text'
 import React from 'react'
 
 const page = () => {
   return (
-    <div className='w-full h-max bg-gray-100 flex flex-col md:justify-center md:items-center'>
+    <div className='w-full h-max bg-white flex flex-col md:justify-center md:items-center'>
       <HeroSection />
-      <ExpertiseSection />
+      <ScreenFitText>
+        know about me
+      </ScreenFitText>
+      <AboutSection />
+      <ScreenFitText>
+        what I excel at
+      </ScreenFitText>
       <ExperienceSection />
+      <ScreenFitText>
+        what I do best
+      </ScreenFitText>
+      <ExpertiseSection />
+      <ScreenFitText>
+        what I have created
+      </ScreenFitText>
       <ProjectSection />
+      <ScreenFitText>
+        curated moments
+      </ScreenFitText>
       <GallerySection />
+      <ScreenFitText>
+        engage with me
+      </ScreenFitText>
+      <ContactSection />
     </div>
   )
 }
