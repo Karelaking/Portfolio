@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { MapPin, Users, Github } from 'lucide-react'
 import { GithubProfile } from '@/lib/github'
+import Link from 'next/link'
 
 interface ProfileCardProps {
   data: GithubProfile
@@ -11,8 +12,8 @@ interface ProfileCardProps {
 
 export function ProfileCard({ data }: ProfileCardProps) {
   return (
-    <div className="space-y-6">
-      <Card className="overflow-hidden border-border bg-card">
+    <div className="space-y-6 w-full">
+      <Card className="overflow-hidden border-border bg-card max-w-full">
         <div className="h-32 bg-gray-200 dark:bg-gray-800 relative">
           <div className="absolute -bottom-12 left-6">
             <div className="w-24 h-24 rounded-full border-4 border-card bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
@@ -32,7 +33,7 @@ export function ProfileCard({ data }: ProfileCardProps) {
             )}
           </div>
         </div>
-        <CardContent className="pt-14 mt-2">
+        <CardContent className="pt-14 mt-2 px-4 md:px-6">
           <div className="space-y-1">
             <h3 className="font-bold text-2xl">{data.name}</h3>
             <p className="text-muted-foreground text-lg">@{data.login}</p>
@@ -40,9 +41,9 @@ export function ProfileCard({ data }: ProfileCardProps) {
 
           <div className="mt-4">
             <Button className="w-full transition-all" variant="outline" asChild>
-              <a href={data.url} target="_blank" rel="noopener noreferrer">
+              <Link href={data.url} target="_blank" rel="noopener noreferrer" className='w-full'>
                 View GitHub Profile
-              </a>
+              </Link>
             </Button>
           </div>
 

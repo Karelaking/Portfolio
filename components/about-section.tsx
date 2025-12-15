@@ -25,19 +25,19 @@ const AboutSection = async () => {
   const profileData = data as GithubProfile;
   
   return (
-    <SectionContainer id="about">
+    <SectionContainer id="about" className="w-full">
         <SectionHeader 
             title="About Me" 
             description={profileData.bio || "Software engineer with a passion for building beautiful, functional, and scalable web applications."}
             align="left"
         />
 
-        <div className="grid gap-8 lg:grid-cols-[300px_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[300px_1fr] w-full">
           {/* Left Column: Profile Card */}
           <ProfileCard data={profileData} />
 
           {/* Right Column: Readme & Activity */}
-          <div className="space-y-6">
+          <div className="space-y-6 w-full min-w-0">
             <ReadmeViewer data={profileData} />
             <PinnedRepoList data={profileData} />
           </div>
