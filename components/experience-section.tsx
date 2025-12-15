@@ -153,7 +153,7 @@ export function ExperienceSection() {
     },
   ];
   return (
-    <div className="relative w-full overflow-clip min-h-screen">
+    <div className="w-full bg-gray-100 dark:bg-gray-950" id="experience">
       <TimelineComponent data={data} />
     </div>
   );

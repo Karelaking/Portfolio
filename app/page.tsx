@@ -12,7 +12,7 @@ const page = () => {
   return (
     <div className='w-full h-max bg-white flex flex-col md:justify-center md:items-center'>
       <HeroSection />
-      <ScreenFitText>
+      <ScreenFitText className='bg-gray-100'>
         know about me
       </ScreenFitText>
       <AboutSection />
@@ -20,7 +20,7 @@ const page = () => {
         what I excel at
       </ScreenFitText>
       <ExperienceSection />
-      <ScreenFitText>
+      <ScreenFitText className='bg-gray-100'>
         what I do best
       </ScreenFitText>
       <ExpertiseSection />
@@ -28,7 +28,7 @@ const page = () => {
         what I have created
       </ScreenFitText>
       <ProjectSection />
-      <ScreenFitText>
+      <ScreenFitText className='bg-gray-100'>
         curated moments
       </ScreenFitText>
       <GallerySection />

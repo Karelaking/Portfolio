@@ -1,11 +1,14 @@
-import { HoverEffect } from "./ui/card-hover-effect";
 
+import { HoverEffect } from "./ui/card-hover-effect";
+import { SectionContainer } from "./ui/section-container";
+import { SectionHeader } from "./ui/section-header";
 
 export function ProjectSection() {
   return (
-    <div className="max-w-6xl mx-auto px-8 min-h-screen flex flex-col justify-center items-center">
-      <HoverEffect items={projects} />
-    </div>
+    <SectionContainer id="projects" className="bg-white dark:bg-gray-950">
+        <SectionHeader title="Projects" align="center" />
+        <HoverEffect items={projects} />
+    </SectionContainer>
   );
 }
 
