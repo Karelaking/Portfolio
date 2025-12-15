@@ -148,8 +148,8 @@ const squareData: Square[] = [
   },
 ];
 
-const generateSquares = (): React.ReactElement[] => {
-  return shuffle(squareData).map((sq) => (
+const generateSquares = (data: Square[]): React.ReactElement[] => {
+  return data.map((sq) => (
     <motion.div
       key={sq.id}
       layout
@@ -166,7 +166,7 @@ const generateSquares = (): React.ReactElement[] => {
 
 const ShuffleGrid: React.FC = () => {
   const timeoutRef = useRef<number | null>(null);
-  const [squares, setSquares] = useState<React.ReactElement[]>(generateSquares());
+  const [squares, setSquares] = useState(generateSquares(squareData));
 
   useEffect(() => {
     shuffleSquares();
@@ -179,7 +179,7 @@ const ShuffleGrid: React.FC = () => {
   }, []);
 
   const shuffleSquares = () => {
-    setSquares(generateSquares());
+    setSquares(generateSquares(shuffle(squareData)));
 
     timeoutRef.current = window.setTimeout(shuffleSquares, 3000);
   };
