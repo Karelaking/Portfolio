@@ -1,45 +1,47 @@
+import { ProfileCard } from '@/components/about/profile-card';
+import { SectionContainer } from '@/components/ui/section-container';
+import { SectionHeader } from '@/components/ui/section-header';
+import React from 'react';
 
-import React from 'react'
-import { getGithubData, GithubProfile } from '@/lib/github'
-import { SectionContainer } from '@/components/ui/section-container'
-import { SectionHeader } from '@/components/ui/section-header'
-import { ProfileCard } from '@/components/about/profile-card'
-import { ReadmeViewer } from '@/components/about/readme-viewer'
-import { PinnedRepoList } from '@/components/about/pinned-repo-list'
+type Profile = {
+    full_name: string | null
+    email: string | null
+    bio: string | null
+    avatar_url: string | null
+    resume_url: string | null
+}
 
-const AboutSection = async () => {
-  const username = 'karelaking'
-  const data = await getGithubData(username)
-  
-  if (!data || (data as { error?: string }).error) {
-     return (
-        <SectionContainer id="about">
-           <div className="text-center text-muted-foreground">
-              <p>Unable to load GitHub profile.</p>
-              <p className="text-sm mt-2 text-red-500">{(data as { error?: string })?.error || "Please check your connection."}</p>
-           </div>
-        </SectionContainer>
-     )
+const AboutSection = ({ profile }: { profile?: Profile | null }) => {
+  const displayData = {
+      name: profile?.full_name || "Karel Aking",
+      bio: profile?.bio || "Software engineer with a passion for building beautiful, functional, and scalable web applications.",
+      avatar_url: profile?.avatar_url || "https://github.com/karelaking.png",
+      html_url: "https://github.com/karelaking",
+      login: "karelaking", // Added login field
+      location: "Earth",
+      email: profile?.email,
+      followers: { totalCount: 0 },
+      following: { totalCount: 0 },
+      status: { message: "Open to work", emoji: "⚡" }, // Added status
+      url: "https://github.com/karelaking" // Ensure consistent URL field
   }
-
-  const profileData = data as GithubProfile;
   
   return (
     <SectionContainer id="about" className="w-full">
         <SectionHeader 
             title="About Me" 
-            description={profileData.bio || "Software engineer with a passion for building beautiful, functional, and scalable web applications."}
+            description={displayData.bio}
             align="left"
         />
 
         <div className="grid gap-8 lg:grid-cols-[300px_1fr] w-full">
           {/* Left Column: Profile Card */}
-          <ProfileCard data={profileData} />
+          <ProfileCard data={displayData as any} /> 
 
-          {/* Right Column: Readme & Activity */}
           <div className="space-y-6 w-full min-w-0">
-            <ReadmeViewer data={profileData} />
-            <PinnedRepoList data={profileData} />
+             <div className="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
+                <p className="text-center text-gray-500">GitHub activity and pinned repos will appear here (integration pending).</p>
+             </div>
           </div>
         </div>
     </SectionContainer>

@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
 import {
+  IconApi,
   IconBrandDocker,
   IconBrandNextjs,
   IconCloudComputing,
-  IconApi,
+  IconCode,
   IconHtml,
 } from "@tabler/icons-react";
 
@@ -13,49 +14,41 @@ interface Feature {
   icon: React.ReactNode;
 }
 
-export function ExpertiseSection() {
-  const features: Feature[] = [
-    {
-      title: "Frontend Development",
-      description:
-        ["Reactjs", "Nextjs", "Tailwindcss", "Typescript", "Framer motion"],
-      icon: <IconHtml />,
-    },
-    {
-      title: "Backend Development",
-      description:[
-        "Nodejs",
-        "Nestjs",
-        "Prisma",
-        "Postgresql",
-        "Redis",
-        "Docker",
-      ],
-      icon: <IconCloudComputing />,
-    },
-    {
-      title: "Fullstack Development",
-      description: ["Reactjs", "Nextjs", "Tailwindcss", "Typescript"],
-      icon: <IconBrandNextjs />,
-    },
-    {
-      title: "DevOps",
-      description: ["Docker", "Kubernetes", "AWS", "GCP", "Azure"],
-      icon: <IconBrandDocker />,
-    },
-    {
-      title: "API Development",
-      description: ["REST", "GraphQL", "gRPC", "WebSockets"],
-      icon: <IconApi />,
-    },
-  ];
+export function ExpertiseSection({ skills }: { skills: any[] }) {
+  // Group skills by category
+  const categories = skills.reduce((acc: any, skill) => {
+    const cat = skill.category || "Other";
+    if (!acc[cat]) {
+      acc[cat] = [];
+    }
+    acc[cat].push(skill.name);
+    return acc;
+  }, {});
+
+  const features: Feature[] = Object.keys(categories).map(cat => ({
+      title: cat,
+      description: categories[cat],
+      icon: getIconForCategory(cat)
+  }));
+
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto min-h-screen bg-gray-100" id="expertise">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto min-h-screen bg-gray-100 dark:bg-black" id="expertise">
       {features.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
     </div>
   );
+}
+
+function getIconForCategory(category: string) {
+    const cat = category.toLowerCase();
+    if (cat.includes('front')) return <IconHtml />;
+    if (cat.includes('back')) return <IconCloudComputing />;
+    if (cat.includes('devops')) return <IconBrandDocker />;
+    if (cat.includes('api')) return <IconApi />;
+    if (cat.includes('full')) return <IconBrandNextjs />;
+    return <IconCode />;
 }
 
 const Feature = ({
@@ -102,4 +95,3 @@ const Feature = ({
     </div>
   );
 };
-
