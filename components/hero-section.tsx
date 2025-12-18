@@ -1,66 +1,46 @@
-'use client';
+"use client";
 
-import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
-import { MediaButtonProps } from "./media-button";
-import { IconBrandFacebook, IconBrandLinkedin, IconBrandTwitter, IconBrandInstagram, IconBrandGithub } from "@tabler/icons-react";
+import { motion } from "motion/react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { CircleText } from "./circle-text";
-
-const media: MediaButtonProps[] = [
-  {
-    icon: IconBrandTwitter,
-    color: "bg-blue-500 hover:bg-blue-600 text-white",
-    handleClick: () => window.open("https://twitter.com/mradulkatiyar", "_blank"),
-  },
-  {
-    icon: IconBrandLinkedin,
-    color: "bg-blue-700 hover:bg-blue-800 text-white",
-    handleClick: () => window.open("https://www.linkedin.com/in/mradulkatiyar/", "_blank"),
-  },
-  {
-    icon: IconBrandGithub,
-    color: "bg-gray-800 hover:bg-gray-900 text-white",
-    handleClick: () => window.open("  https://github.com/mradulkatiyar", "_blank"),
-  },
-  {
-    icon: IconBrandInstagram,
-    color: "bg-pink-500 hover:bg-pink-600 text-white",
-    handleClick: () => window.open("https://www.instagram.com/mradulkatiyar/", "_blank"),
-  },
-  {
-    icon: IconBrandFacebook,
-    color: "bg-blue-600 hover:bg-blue-700 text-white",
-    handleClick: () => window.open("https://www.facebook.com/mradulkatiyar", "_blank"),
-  },
-]
+import { BackgroundRippleEffect } from "./ui/background-ripple-effect";
+import { SectionContainer } from "./ui/section-container";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 const HeroSection = () => {
   return (
-    <section className="w-full px-8 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto min-h-screen" id="home">
-      <div className="">
-        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3 uppercase">
-          Do better every day
-        </span>
-        <h3 className="text-4xl md:text-6xl font-extrabold uppercase md:leading-18">
-          mradul kumar <CircleText text="katiyar" />
-        </h3>
-        <p className="text-base md:text-xl text-slate-500 my-4 md:my-6 font-semibold">
-          full stack web developer | API designer | student passionate about building robust digital experiences.
-        </p>
-        <div className="flex flex-wrap gap-6">
-          <Link className="relative" href="https://www.linkedin.com/in/kumar-mradul-katiyar/" target="_blank">
-            <span className="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
-            <span className="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-indigo-600 hover:text-white">Hire me</span>
-          </Link>
-          <Link href="#about" className="relative">
-            <span className="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-gray-700"></span>
-            <span className="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-black px-3 py-1 text-base font-bold text-white transition duration-100 hover:bg-white hover:text-indigo-600">Know more</span>
-          </Link>
+    <SectionContainer className="relative">
+      <BackgroundRippleEffect />
+      <section
+        className="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8 mx-auto min-h-dvh"
+        id="home"
+      >
+        <div className="z-10">
+          <span className="block mt-2 mb-2 lg:mt-0 lg:mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3 uppercase">
+            Do better every day
+          </span>
+          <h3 className="text-4xl md:text-6xl font-extrabold uppercase md:leading-18 text-neutral-800 dark:text-neutral-200 derk:text-neutral-200">
+            mradul kumar <CircleText text="katiyar" />
+          </h3>
+          <p className="text-base md:text-xl text-neutral-500 dark:text-neutral-400 my-4 md:my-6 font-semibold capitalize font-jetbrains-mono leading-5.5 lg:leading-relaxed tracking-tighter lg:tracking-tight">
+            full stack web developer | API designer | student passionate about
+            building robust digital experiences.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <HoverBorderGradient>
+              <Link href="https://www.linkedin.com/in/kumar-mradul-katiyar/">
+                Hire me
+              </Link>
+            </HoverBorderGradient>
+            <HoverBorderGradient className="bg-white text-neutral-950 font-extrabold">
+              <Link href="#about">Know More</Link>
+            </HoverBorderGradient>
+          </div>
         </div>
-      </div>
-      <ShuffleGrid />
-    </section>
+        <ShuffleGrid />
+      </section>
+    </SectionContainer>
   );
 };
 
@@ -75,7 +55,10 @@ const shuffle = <T,>(array: T[]): T[] => {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
+    [arr[currentIndex], arr[randomIndex]] = [
+      arr[randomIndex],
+      arr[currentIndex],
+    ];
   }
 
   return arr;
@@ -154,11 +137,10 @@ const generateSquares = (data: Square[]): React.ReactElement[] => {
       key={sq.id}
       layout
       transition={{ duration: 1.5, type: "spring" }}
-      className="w-full h-full filter grayscale hover:grayscale-0"
+      className="w-full h-full fillter grayscale hover:grayscale-0 rounded-md"
       style={{
         backgroundImage: `url(${sq.src})`,
         backgroundSize: "cover",
-        // filter: "grayscale(100%)",
       }}
     ></motion.div>
   ));
@@ -168,6 +150,12 @@ const ShuffleGrid: React.FC = () => {
   const timeoutRef = useRef<number | null>(null);
   const [squares, setSquares] = useState(generateSquares(squareData));
 
+  const shuffleSquares = useCallback(() => {
+    setSquares(generateSquares(shuffle(squareData)));
+
+    timeoutRef.current = window.setTimeout(shuffleSquares, 3000);
+  }, []);
+
   useEffect(() => {
     shuffleSquares();
 
@@ -176,16 +164,10 @@ const ShuffleGrid: React.FC = () => {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, []);
-
-  const shuffleSquares = () => {
-    setSquares(generateSquares(shuffle(squareData)));
-
-    timeoutRef.current = window.setTimeout(shuffleSquares, 3000);
-  };
+  }, [shuffleSquares]);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1 z-10">
       {squares.map((sq) => sq)}
     </div>
   );
