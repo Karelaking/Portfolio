@@ -15,7 +15,7 @@ export async function createClient() {
 
   try {
     new URL(supabaseUrl)
-  } catch (error) {
+  } catch {
     throw new Error(
       `Invalid NEXT_PUBLIC_SUPABASE_URL: ${supabaseUrl}. It must be a valid URL starting with https://`
     )

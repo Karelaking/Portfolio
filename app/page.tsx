@@ -9,7 +9,7 @@ import ScreenFitText from '@/components/screen-fit-text'
 import { createClient } from '@/lib/supabase/server'
 import React from 'react'
 
-const page = async () => {
+const page = async (): Promise<React.JSX.Element> => {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
@@ -77,7 +77,7 @@ const page = async () => {
   return (
     <div className='w-full h-max bg-white flex flex-col md:justify-center md:items-center'>
       <HeroSection />
-      <ScreenFitText className='bg-gray-100'>
+      {/* <ScreenFitText className='bg-neutral-100'>
         know about me
       </ScreenFitText>
       <AboutSection profile={profile} />
@@ -85,7 +85,7 @@ const page = async () => {
         what I excel at
       </ScreenFitText>
       <ExperienceSection experience={experience || []} />
-      <ScreenFitText className='bg-gray-100'>
+      <ScreenFitText className='bg-neutral-100'>
         what I do best
       </ScreenFitText>
       <ExpertiseSection skills={skills || []} />
@@ -93,14 +93,14 @@ const page = async () => {
         what I have created
       </ScreenFitText>
       <ProjectSection projects={projects || []} />
-      <ScreenFitText className='bg-gray-100'>
+      <ScreenFitText className='bg-neutral-100'>
         curated moments
       </ScreenFitText>
       <GallerySection />
       <ScreenFitText>
         engage with me
       </ScreenFitText>
-      <ContactSection />
+      <ContactSection /> */}
     </div>
   )
 }
