@@ -1,21 +1,6 @@
 import { ProfileCard } from '@/components/about/profile-card';
 import { SectionContainer } from '@/components/ui/section-container';
 
-<<<<<<< HEAD
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-import React, { useRef, useEffect } from "react";
-import { CircleText } from "@/components/circle-text";
-import PageLayout from "@/components/page-layout";
-import PageHeader from "./page-header";
-import Heading from "./heading";
-=======
-import React from 'react';
->>>>>>> dev
 
 type Profile = {
     full_name: string | null
