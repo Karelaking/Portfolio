@@ -1,10 +1,7 @@
 
 
-<<<<<<< HEAD
-import PageLayout from '@/components/page-layout'
-=======
+
 import { SectionContainer } from '@/components/ui/section-container'
->>>>>>> dev
 import React from 'react'
 import Heading from './heading';
 
