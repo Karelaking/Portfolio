@@ -3,12 +3,10 @@
 import { gsap } from 'gsap';
 import { Button } from './ui/button';
 import React, { useRef } from 'react';
-import { LucideProps } from 'lucide-react';
+import { Icon, IconProps } from '@tabler/icons-react';
 
 export interface MediaButtonProps {
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<Icon>>;
   color?: string;
   handleClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }

@@ -1,85 +1,108 @@
-"use client";
+import AboutSection from '@/components/about-section'
+import { ContactSection } from '@/components/contact-section'
+import { ExperienceSection } from '@/components/experience-section'
+import { ExpertiseSection } from '@/components/expertise-section'
+import { GallerySection } from '@/components/gallery-section'
+import HeroSection from '@/components/hero-section'
+import { ProjectSection } from '@/components/projects-section'
+import ScreenFitText from '@/components/screen-fit-text'
+import { createClient } from '@/lib/supabase/server'
+import React from 'react'
 
-import { useEffect, useRef } from "react";
-import Hero from "@/components/hero-section";
-import MatrixRain from "@/components/matrix-rain";
-import ScanningLine from "@/components/scanning-line";
-import GridBackground from "@/components/grid-background";
-import AboutSection from "@/components/about-section";
+const page = async (): Promise<React.JSX.Element> => {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
+    // Validation
+    let isValid = true;
+    let errorMessage = "";
 
-export default function Home() {
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+    if (!supabaseUrl || !supabaseKey) {
+        isValid = false;
+        errorMessage = "Missing environment variables.";
+    } else if (!supabaseUrl.startsWith("https://")) {
+        isValid = false;
+        errorMessage = "Invalid Supabase URL. It must start with https://";
+    }
 
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    if (!isValid) {
+        return (
+            <div className='w-full min-h-screen flex flex-col justify-center items-center p-8 text-center'>
+            <h1 className="text-3xl font-bold mb-4">Setup Required</h1>
+            <p className="mb-4 text-lg">Please replace the environment variables in <code className="bg-gray-100 p-1 rounded">.env.local</code> with your Supabase credentials.</p>
+            <p className="text-sm text-red-600 font-medium mb-4">{errorMessage}</p>
+            <p className="text-sm text-gray-500">NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY</p>
+            </div>
+        )
+    }
 
-    sectionsRef.current.forEach((section) => {
-      if (!section) return;
+  const supabase = await createClient()
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("section-visible");
-            }
-          });
-        },
-        {
-          threshold: 0.2,
-          rootMargin: "0px 0px -100px 0px",
-        }
-      );
+  // Fetch featured projects
+  const { data: projects, error: projectsError } = await supabase
+    .from('projects')
+    .select('*')
+    .eq('featured', true)
+    .order('display_order', { ascending: true })
+    .order('created_at', { ascending: false })
 
-      observer.observe(section);
-      observers.push(observer);
-    });
+  if (projectsError) console.error("Error fetching projects:", projectsError)
 
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
-    };
-  }, []);
+  // Fetch experience
+  const { data: experience, error: experienceError } = await supabase
+    .from('experience')
+    .select('*')
+    .order('start_date', { ascending: false })
+  
+  if (experienceError) console.error("Error fetching experience:", experienceError)
+
+  // Fetch skills for expertise
+  const { data: skills, error: skillsError } = await supabase
+    .from('skills')
+    .select('*')
+    .order('display_order', { ascending: true })
+
+  if (skillsError) console.error("Error fetching skills:", skillsError)
+
+  // Fetch profile (assuming single user, get the first one or specific ID if known, but for now we might fetch all and take first)
+  const { data: profiles, error: profileError } = await supabase
+    .from('profiles')
+    .select('*')
+    .limit(1)
+  
+  if (profileError) console.error("Error fetching profile:", profileError)
+  
+  const profile = profiles?.[0] || null
 
   return (
-    <main className="relative w-full min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden scroll-smooth">
-      {/* Fixed Background Layers - Always visible behind */}
-      <div className="fixed inset-0 z-0">
-        <MatrixRain />
-        <ScanningLine />
-        <GridBackground />
-      </div>
-
-      {/* Scrollable Content Container */}
-      <div className="relative z-10">
-        {/* Hero Section - First section, no background overlay */}
-        <section
-          ref={(el) => {
-            sectionsRef.current[0] = el;
-          }}
-          className="min-h-screen flex items-center justify-center md:px-8 lg:px-0 xl:px-16"
-          id="hero"
-        >
-          <Hero />
-        </section>
-        <section
-          ref={(el) => {
-            sectionsRef.current[1] = el;
-          }}
-          className="min-h-screen flex items-center justify-center"
-          id="about"
-        >
-          <AboutSection/>
-        </section>
-        <section
-          ref={(el) => {
-            sectionsRef.current[2] = el;
-          }}
-          className="min-h-screen flex items-center justify-center"
-          id="portfolio"
-        >
-          
-        </section>
-      </div>
-    </main>
-  );
+    <div className='w-full h-max bg-white flex flex-col md:justify-center md:items-center'>
+      <HeroSection />
+      {/* <ScreenFitText className='bg-neutral-100'>
+        know about me
+      </ScreenFitText>
+      <AboutSection profile={profile} />
+      <ScreenFitText>
+        what I excel at
+      </ScreenFitText>
+      <ExperienceSection experience={experience || []} />
+      <ScreenFitText className='bg-neutral-100'>
+        what I do best
+      </ScreenFitText>
+      <ExpertiseSection skills={skills || []} />
+      <ScreenFitText>
+        what I have created
+      </ScreenFitText>
+      <ProjectSection projects={projects || []} />
+      <ScreenFitText className='bg-neutral-100'>
+        curated moments
+      </ScreenFitText>
+      <GallerySection />
+      <ScreenFitText>
+        engage with me
+      </ScreenFitText>
+      <ContactSection /> */}
+    </div>
+  )
 }
+
+export default page
