@@ -2,7 +2,16 @@ import React from "react";
 import { Timeline as TimelineComponent } from "./ui/timeline";
 import { format } from "date-fns";
 
-export function ExperienceSection({ experience }: { experience: any[] }) {
+interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  start_date: string;
+  end_date: string | null;
+  description: string;
+}
+
+export function ExperienceSection({ experience }: { experience: Experience[] }) {
   // Map DB experience to TimelineEntry
   const data = experience.map(exp => ({
     title: format(new Date(exp.start_date), "yyyy"), // Group by Year

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   motion,
   AnimatePresence,
@@ -7,8 +7,8 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import ThemeModeToggleButton from "@/components/theme-toggle-button";
+import { useIconAnimation } from "@/icons/icon-animation-controller";
 
 
 export interface NavItems {
@@ -25,15 +25,16 @@ export const Header = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
+  const { triggerViewportAnimation } = useIconAnimation();
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      const direction = current! - scrollYProgress.getPrevious()!;
+      const direction = current! - scrollYProgress.getPrevious()! - 5;
 
-      if (scrollYProgress.get() < 0.05) {
+      if (scrollYProgress.get() < 0.08) {
         setVisible(false);
       } else {
         if (direction < 0) {
@@ -48,6 +49,7 @@ export const Header = ({
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        ref={headerRef}
         initial={{
           opacity: 1,
           y: -100,
@@ -56,25 +58,41 @@ export const Header = ({
           y: visible ? 0 : -100,
           opacity: visible ? 1 : 0,
         }}
+        onViewportEnter={() => triggerViewportAnimation()}
         transition={{
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/20 rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-5000 pr-2 pl-8 py-2  items-center justify-center space-x-4",
+          "flex max-w-[calc(100%-2rem)] md:max-w-[calc(100%-24rem)] fixed top-6 inset-x-0 mx-auto border border-neutral-50 backdrop-blur-[2px] dark:border-neutral-700 rounded-full dark:bg-black/15 shadow-sm z-5000 px-4  py-2 items-center justify-evenly space-x-4 sm:space-x-8 sm:pr-8 sm:pl-12",
           className
         )}
       >
         {navItems.map((navItem: NavItems, idx: number) => (
-          <Link
+          <motion.a
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-white items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "group relative dark:text-white items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </Link>
+            <motion.span className="block sm:hidden"
+            >{navItem.icon}</motion.span>
+            <motion.span className="hidden sm:block text-sm group-hover:text-primary text-neutral-700 dark:text-neutral-300 text-shadow-2xs"
+              layoutId="navItem"
+              whileHover={
+                {
+                  scale: 1.1,
+                  transition: {
+                    duration: 0.2,
+                    ease: "easeOut"
+                  },
+                  color: "text-primary",
+                  fontWeight: "semiBold",
+                  cursor: "pointer"
+                 }
+            }
+            >{navItem.name}</motion.span>
+          </motion.a>
         ))}
         <ThemeModeToggleButton />
       </motion.div>

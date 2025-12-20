@@ -20,7 +20,7 @@ const HeroSection = () => {
           <span className="block mt-2 mb-2 lg:mt-0 lg:mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3 uppercase">
             Do better every day
           </span>
-          <h3 className="text-4xl md:text-6xl font-extrabold uppercase md:leading-18 text-neutral-800 dark:text-neutral-200 derk:text-neutral-200">
+          <h3 className="text-4xl md:text-7xl font-extrabold uppercase md:leading-18 text-neutral-800 dark:text-neutral-200 derk:text-neutral-200 tracking-tight">
             mradul kumar <CircleText text="katiyar" />
           </h3>
           <p className="text-base md:text-xl text-neutral-500 dark:text-neutral-400 my-4 md:my-6 font-semibold capitalize font-jetbrains-mono leading-5.5 lg:leading-relaxed tracking-tighter lg:tracking-tight">

@@ -1,11 +1,9 @@
 'use server'
 
-import { createClient } from '@/lib/supabase/server'
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
 import { z } from 'zod'
+import { createCRUDItem, updateCRUDItem, deleteCRUDItem, createBaseSchema } from '@/lib/crud-helpers'
 
-const SkillSchema = z.object({
+const SkillSchema = createBaseSchema({
   name: z.string().min(1, 'Name is required'),
   category: z.string().optional(),
   icon: z.string().optional(),
@@ -13,71 +11,20 @@ const SkillSchema = z.object({
   display_order: z.coerce.number().optional(),
 })
 
+const skillConfig = {
+  tableName: 'skills',
+  schema: SkillSchema,
+  redirectPath: '/dashboard/skills'
+}
+
 export async function createSkill(formData: FormData) {
-  const supabase = await createClient()
-
-  const rawData = {
-    name: formData.get('name'),
-    category: formData.get('category'),
-    icon: formData.get('icon'),
-    proficiency: formData.get('proficiency'),
-    display_order: formData.get('display_order'),
-  }
-
-  const parse = SkillSchema.safeParse(rawData)
-
-  if (!parse.success) {
-    return { error: 'Invalid data', details: parse.error.format() }
-  }
-
-  const { error } = await supabase.from('skills').insert(parse.data)
-
-  if (error) {
-    console.error('Error creating skill:', error)
-    return { error: 'Failed to create skill' }
-  }
-
-  revalidatePath('/dashboard/skills')
-  redirect('/dashboard/skills')
+  return createCRUDItem(skillConfig, formData)
 }
 
 export async function updateSkill(id: string, formData: FormData) {
-  const supabase = await createClient()
-
-  const rawData = {
-    name: formData.get('name'),
-    category: formData.get('category'),
-    icon: formData.get('icon'),
-    proficiency: formData.get('proficiency'),
-    display_order: formData.get('display_order'),
-  }
-
-  const parse = SkillSchema.safeParse(rawData)
-
-  if (!parse.success) {
-    return { error: 'Invalid data', details: parse.error.format() }
-  }
-
-  const { error } = await supabase.from('skills').update(parse.data).eq('id', id)
-
-  if (error) {
-    console.error('Error updating skill:', error)
-    return { error: 'Failed to update skill' }
-  }
-
-  revalidatePath('/dashboard/skills')
-  redirect('/dashboard/skills')
+  return updateCRUDItem(skillConfig, id, formData)
 }
 
 export async function deleteSkill(id: string) {
-  const supabase = await createClient()
-
-  const { error } = await supabase.from('skills').delete().eq('id', id)
-
-  if (error) {
-    console.error('Error deleting skill:', error)
-    return { error: 'Failed to delete skill' }
-  }
-
-  revalidatePath('/dashboard/skills')
+  return deleteCRUDItem('skills', id, '/dashboard/skills')
 }

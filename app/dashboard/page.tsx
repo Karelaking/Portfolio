@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 export default async function DashboardPage() {
   const supabase = await createClient()
 
-  const { data: projects } = await supabase.from('projects').select('count', { count: 'exact' })
-  const { data: skills } = await supabase.from('skills').select('count', { count: 'exact' })
+  const { count: projectsCount } = await supabase.from('projects').select('count', { count: 'exact' })
+  const { count: skillsCount } = await supabase.from('skills').select('count', { count: 'exact' })
   
   return (
     <div className="space-y-6">
@@ -17,7 +17,7 @@ export default async function DashboardPage() {
             <CardTitle className="text-sm font-medium">Total Projects</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{projects?.count || 0}</div>
+            <div className="text-2xl font-bold">{projectsCount || 0}</div>
           </CardContent>
         </Card>
         
@@ -26,7 +26,7 @@ export default async function DashboardPage() {
             <CardTitle className="text-sm font-medium">Total Skills</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{skills?.count || 0}</div>
+            <div className="text-2xl font-bold">{skillsCount || 0}</div>
           </CardContent>
         </Card>
       </div>

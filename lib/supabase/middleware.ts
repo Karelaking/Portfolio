@@ -24,7 +24,7 @@ export async function updateSession(request: NextRequest) {
 
   try {
     new URL(supabaseUrl)
-  } catch (error) {
+  } catch {
      console.error(`Middleware: Invalid NEXT_PUBLIC_SUPABASE_URL: ${supabaseUrl}. It must be a valid URL.`)
      return supabaseResponse
   }
@@ -38,8 +38,8 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            request.cookies.set(name, value, options)
+          cookiesToSet.forEach(({ name, value }) =>
+            request.cookies.set(name, value)
           )
           supabaseResponse = NextResponse.next({
             request,

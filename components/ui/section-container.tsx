@@ -16,14 +16,14 @@ export function SectionContainer({
   return (
     <section
       className={cn(
-        "w-full py-12 md:py-16 lg:py-24 bg-gray-50/50 dark:bg-gray-950/50",
+        "w-full min-h-dvh bg-white dark:bg-neutral-950 flex flex-col justify-center items-center",
         className
       )}
       {...props}
     >
       <div
         className={cn(
-          "container px-4 md:px-6 mx-auto",
+          "container px-6 md:px-8 mx-auto h-full",
           width === "default" && "max-w-6xl",
           width === "small" && "max-w-3xl",
           width === "full" && "max-w-full"
