@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cn } from "@/lib/utils";
 
@@ -16,17 +15,17 @@ export function SectionContainer({
   return (
     <section
       className={cn(
-        "w-full min-h-dvh bg-white dark:bg-neutral-950 flex flex-col justify-center items-center",
-        className
+        "flex min-h-dvh w-full flex-col items-center justify-center bg-white dark:bg-neutral-950",
+        className,
       )}
       {...props}
     >
       <div
         className={cn(
-          "container px-6 md:px-8 mx-auto h-full",
+          "container mx-auto h-full px-6 md:px-8",
           width === "default" && "max-w-6xl",
           width === "small" && "max-w-3xl",
-          width === "full" && "max-w-full"
+          width === "full" && "max-w-full",
         )}
       >
         {children}

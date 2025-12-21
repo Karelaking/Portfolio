@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useCallback, useEffect, useRef } from "react";
 
@@ -46,7 +46,10 @@ export const ScreenFitText: React.FC<ScreenFitTextProps> = ({
 
   const handleResize = useCallback(() => {
     if (debounceRef.current !== null) window.clearTimeout(debounceRef.current);
-    debounceRef.current = window.setTimeout(() => resizeText(), 50) as unknown as number;
+    debounceRef.current = window.setTimeout(
+      () => resizeText(),
+      50,
+    ) as unknown as number;
   }, [resizeText]);
 
   useEffect(() => {
@@ -55,7 +58,8 @@ export const ScreenFitText: React.FC<ScreenFitTextProps> = ({
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      if (debounceRef.current !== null) window.clearTimeout(debounceRef.current);
+      if (debounceRef.current !== null)
+        window.clearTimeout(debounceRef.current);
     };
   }, [handleResize, resizeText, text, children]);
 
@@ -66,7 +70,7 @@ export const ScreenFitText: React.FC<ScreenFitTextProps> = ({
     >
       <span
         ref={textRef}
-        className="whitespace-nowrap mx-auto text-center font-bold uppercase text-neutral-600 dark:text-neutral-300 text-shadow-sm dark:text-shadow-neutral-500 dark:text-shadow-md"
+        className="mx-auto text-center font-bold whitespace-nowrap text-neutral-600 uppercase text-shadow-sm dark:text-neutral-300 dark:text-shadow-md dark:text-shadow-neutral-500"
       >
         {text ?? children ?? "Fit text to container"}
       </span>

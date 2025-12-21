@@ -5,7 +5,12 @@ import { useGSAP } from "@gsap/react";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import { Header, NavItems } from "@/components/layout-header";
 import { Provider } from "./provider/provider";
-import { IconMessage, IconBrandGooglePhotos, IconBriefcase, IconCode } from "@tabler/icons-react";
+import {
+  IconMessage,
+  IconBrandGooglePhotos,
+  IconBriefcase,
+  IconCode,
+} from "@tabler/icons-react";
 import { CvIcon, HomeIcon, SingleUserIcon } from "@/icons/icon";
 import { IconAnimationProvider } from "@/icons/icon-animation-controller";
 import Footer from "@/components/layout-footer";
@@ -25,8 +30,8 @@ const geistMono = Geist_Mono({
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: [ "100", "200", "300", "400", "500", "600", "700", "800" ],
-})
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Mradul's | Portfolio",
@@ -57,19 +62,21 @@ const navItems: NavItems[] = [
   {
     name: "Projects",
     link: "#projects",
-    icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: (
+      <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />
+    ),
   },
   {
     name: "Gallery",
     link: "#gallery",
-    icon: <IconBrandGooglePhotos className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: (
+      <IconBrandGooglePhotos className="h-4 w-4 text-neutral-500 dark:text-white" />
+    ),
   },
   {
     name: "Contact",
     link: "#contact",
-    icon: (
-      <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
-    ),
+    icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
 ];
 
@@ -79,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth!">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} antialiased h-max`}
       >
