@@ -3,7 +3,9 @@
 // import { ExperienceSection } from '@/components/experience-section'
 // import { ExpertiseSection } from '@/components/expertise-section'
 // import { GallerySection } from '@/components/gallery-section'
+import AboutSection from '@/components/about-section'
 import HeroSection from '@/components/hero-section'
+import ScreenFitText from '@/components/screen-fit-text'
 // import { ProjectSection } from '@/components/projects-section'
 // import ScreenFitText from '@/components/screen-fit-text'
 import { createClient } from '@/lib/supabase/server'
@@ -77,11 +79,11 @@ const page = async (): Promise<React.JSX.Element> => {
   return (
     <div className='w-full h-max bg-white flex flex-col md:justify-center md:items-center'>
       <HeroSection />
-      {/* <ScreenFitText className='bg-neutral-100'>
+      <ScreenFitText className='bg-neutral-100'>
         know about me
       </ScreenFitText>
       <AboutSection profile={profile} />
-      <ScreenFitText>
+      {/*<ScreenFitText>
         what I excel at
       </ScreenFitText>
       <ExperienceSection experience={experience || []} />

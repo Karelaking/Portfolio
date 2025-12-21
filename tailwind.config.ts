@@ -1,15 +1,23 @@
-import type { Config } from "tailwindcss";
+// import type { Config } from "tailwindcss";
+import fluid, { extract, fontSize, screens } from 'fluid-tailwind'
 
-const config: Config = {
-  content: [
-    "./app/**/*.{ts,tsx,js,jsx}",
-    "./components/**/*.{ts,tsx,js,jsx}",
-    "./pages/**/*.{ts,tsx,js,jsx}",
-  ],
+const config = {
+  content: {
+    files: [
+      "./app/**/*.{ts,tsx,js,jsx}",
+      "./components/**/*.{ts,tsx,js,jsx}",
+      "./pages/**/*.{ts,tsx,js,jsx}",
+    ],
+    extract
+  },
   theme: {
+    screens,
+    fontSize,
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    fluid
+  ],
 };
 
 export default config;

@@ -32,10 +32,6 @@
   transform: translateY(0);
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
 
 /* Custom scrollbar for better aesthetics */
 ::-webkit-scrollbar {
@@ -68,131 +64,8 @@ html {
   background: rgba(255, 255, 255, 0.5);
 }
 
-@keyframes scan {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 100%;
-  }
-}
-
-@keyframes expand {
-  from {
-    width: 0;
-  }
-  to {
-    width: 3rem;
-  }
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-slide-up {
-  opacity: 0;
-  animation: slide-up 0.6s ease-out forwards;
-}
-
-@keyframes grid-flow {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(50px);
-  }
-}
-@keyframes float {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(10px, -10px);
-  }
-  50% {
-    transform: translate(-5px, -20px);
-  }
-  75% {
-    transform: translate(-10px, -5px);
-  }
-}
-@keyframes expand {
-  from {
-    width: 0;
-  }
-  to {
-    width: 3rem;
-  }
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-scan {
-  animation: scan 8s linear infinite;
-}
-.animate-grid-flow {
-  animation: grid-flow 20s linear infinite;
-}
-.animate-expand {
-  animation: expand 0.8s ease-out;
-}
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out;
-}
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out;
-}
 
 @theme inline {
-  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1 var(--delay, 0ms);
-
-  @keyframes cell-ripple {
-    0% {
-      opacity: 0.4;
-    }
-
-    50% {
-      opacity: 0.8;
-    }
-
-    100% {
-      opacity: 0.4;
-    }
-  }
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -313,5 +186,16 @@ html {
   }
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,p, span,
+  div
+   {
+    @apply select-none;
   }
 }

@@ -13,27 +13,29 @@ const HeroSection = () => {
     <SectionContainer className="relative">
       <BackgroundRippleEffect />
       <section
-        className="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8 mx-auto min-h-dvh"
+        className="mx-auto grid min-h-dvh w-full grid-cols-1 items-center gap-8 md:grid-cols-2"
         id="home"
       >
         <div className="z-10">
-          <span className="block mt-2 mb-2 lg:mt-0 lg:mb-4 text-xs md:text-sm text-indigo-500 font-medium border-l-2 border-indigo-500 pl-3 uppercase">
+          <span className="mt-2 mb-2 block border-l-2 border-indigo-500 pl-3 text-xs font-medium text-indigo-500 uppercase md:text-sm lg:mt-0 lg:mb-4 animate-pulse animation-duration-3000">
             Do better every day
           </span>
-          <h3 className="text-4xl md:text-7xl font-extrabold uppercase md:leading-18 text-neutral-800 dark:text-neutral-200 derk:text-neutral-200 tracking-tight">
+          <h3 className="derk:text-neutral-200 text-4xl font-extrabold tracking-tight text-neutral-800 uppercase md:text-7xl md:leading-18 dark:text-neutral-200">
             mradul kumar <CircleText text="katiyar" />
           </h3>
-          <p className="text-base md:text-xl text-neutral-500 dark:text-neutral-400 my-4 md:my-6 font-semibold capitalize font-jetbrains-mono leading-5.5 lg:leading-relaxed tracking-tighter lg:tracking-tight">
+          <p className="font-jetbrains-mono my-4 text-base leading-5.5 font-semibold tracking-tighter text-neutral-500 capitalize md:my-6 md:text-xl lg:leading-relaxed lg:tracking-tight dark:text-neutral-400">
             full stack web developer | API designer | student passionate about
             building robust digital experiences.
           </p>
           <div className="flex flex-wrap gap-2">
+            <div className="animate-bounce">
             <HoverBorderGradient>
               <Link href="https://www.linkedin.com/in/kumar-mradul-katiyar/">
                 Hire me
               </Link>
             </HoverBorderGradient>
-            <HoverBorderGradient className="bg-white text-neutral-950 font-extrabold">
+            </div>
+            <HoverBorderGradient className="bg-white font-extrabold text-neutral-950">
               <Link href="#about">Know More</Link>
             </HoverBorderGradient>
           </div>
@@ -137,7 +139,7 @@ const generateSquares = (data: Square[]): React.ReactElement[] => {
       key={sq.id}
       layout
       transition={{ duration: 1.5, type: "spring" }}
-      className="w-full h-full fillter grayscale hover:grayscale-0 rounded-md"
+      className="fillter h-full w-full rounded-md grayscale hover:grayscale-0"
       style={{
         backgroundImage: `url(${sq.src})`,
         backgroundSize: "cover",
@@ -167,7 +169,7 @@ const ShuffleGrid: React.FC = () => {
   }, [shuffleSquares]);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1 z-10">
+    <div className="z-10 grid h-[450px] grid-cols-4 grid-rows-4 gap-1">
       {squares.map((sq) => sq)}
     </div>
   );
