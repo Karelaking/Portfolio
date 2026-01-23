@@ -19,6 +19,7 @@ import {
   IconCoffee,
   IconBrandSupabase,
 } from "@tabler/icons-react";
+import PageHeading from "./ui/page-heading";
 
 /* =========================
    SKILLS DATA
@@ -265,25 +266,7 @@ export function ExpertiseSection() {
             className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500/5 blur-3xl"
           />
 
-          {/* Title */}
-          <h2 className="font-mea-culpa text-6xl tracking-widest text-neutral-900 dark:text-white md:text-8xl lg:text-9xl">
-            <motion.span
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
-              className="inline-block first-letter:font-extrabold"
-            >
-              Expertise
-            </motion.span>
-          </h2>
-
-          {/* Decorative underline */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-            className="mx-auto mt-4 h-1 w-24 origin-center rounded-full bg-linear-to-r from-green-500 to-emerald-400"
-          />
+<PageHeading>Expertise</PageHeading>
 
           {/* Subtitle */}
           <motion.p
