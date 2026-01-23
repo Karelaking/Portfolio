@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import {
@@ -11,39 +11,60 @@ import {
   IconBrandGithub,
   IconBrandTwitter,
   IconBrandThreads,
-  IconProps
+  IconProps,
 } from "@tabler/icons-react";
 import { useAnimate } from "framer-motion";
 import Link from "next/link";
+import { SectionContainer } from "./ui/section-container";
 
 export const ContactSection = () => {
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center" id="contact">
-      <h1 className="text-4xl font-bold mb-12 uppercase text-center">Find me on social media</h1>
-      <div className="w-full max-w-6xl">
+    <SectionContainer id="contact" className="h-screen w-full">
+      <h1 className="font-mea-culpa text-center text-4xl leading-13 tracking-wide text-neutral-800 first-letter:float-start first-letter:text-5xl first-letter:leading-10 first-letter:font-bold md:text-8xl md:leading-18 md:first-letter:text-9xl dark:text-neutral-200">
+        Find me on social media
+      </h1>
+      <div className="mt-12 md:mt-25 flex w-full items-center justify-center">
         <ClipPathLinks />
       </div>
-    </div>
+    </SectionContainer>
   );
 };
 
 const ClipPathLinks = () => {
   return (
-    <div className="divide-y divide-neutral-900 border border-neutral-900">
-      <div className="grid grid-cols-2 divide-x divide-neutral-900">
-        <LinkBox Icon={IconBrandGoogle} href="#" />
-        <LinkBox Icon={IconBrandGithub} href="#" />
+    <div className="w-full rounded-xl border border-neutral-900 px-2 py-1">
+      <div className="grid grid-cols-2 gap-x-1 py-1">
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandGoogle} href="#" />
+        </div>
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandGithub} href="#" />
+        </div>
       </div>
-      <div className="grid grid-cols-4 divide-x divide-neutral-900">
-        <LinkBox Icon={IconBrandThreads} href="#" />
-        <LinkBox Icon={IconBrandTwitter} href="#" />
-        <LinkBox Icon={IconMailOpened} href="#" />
-        <LinkBox Icon={IconBrandFacebook} href="#" />
+      <div className="grid grid-cols-4 gap-x-1">
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandThreads} href="#" />
+        </div>
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandTwitter} href="#" />
+        </div>
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconMailOpened} href="#" />
+        </div>
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandFacebook} href="#" />
+        </div>
       </div>
-      <div className="grid grid-cols-3 divide-x divide-neutral-900">
-        <LinkBox Icon={IconBrandInstagram} href="#" />
-        <LinkBox Icon={IconBrandSpotify} href="#" />
-        <LinkBox Icon={IconBrandLinkedin} href="#" />
+      <div className="grid grid-cols-3 gap-x-1 py-1">
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandInstagram} href="#" />
+        </div>
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandSpotify} href="#" />
+        </div>
+        <div className="rounded-xl border border-neutral-900">
+          <LinkBox Icon={IconBrandLinkedin} href="#" />
+        </div>
       </div>
     </div>
   );
@@ -118,23 +139,31 @@ const LinkBox = ({ Icon, href }: LinkBoxProps) => {
   const handleMouseEnter = (e: React.MouseEvent) => {
     const side = getNearestSide(e);
 
-    animate(scope.current, {
-      clipPath: ENTRANCE_KEYFRAMES[side],
-    }, {
-      duration: 0.3,
-      ease: "easeOut"
-    });
+    animate(
+      scope.current,
+      {
+        clipPath: ENTRANCE_KEYFRAMES[side],
+      },
+      {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    );
   };
 
   const handleMouseLeave = (e: React.MouseEvent) => {
     const side = getNearestSide(e);
 
-    animate(scope.current, {
-      clipPath: EXIT_KEYFRAMES[side],
-    }, {
-      duration: 0.3,
-      ease: "easeOut"
-    });
+    animate(
+      scope.current,
+      {
+        clipPath: EXIT_KEYFRAMES[side],
+      },
+      {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    );
   };
 
   return (
@@ -158,4 +187,3 @@ const LinkBox = ({ Icon, href }: LinkBoxProps) => {
     </Link>
   );
 };
-

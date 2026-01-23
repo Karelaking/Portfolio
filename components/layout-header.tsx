@@ -32,9 +32,9 @@ export const Header = ({
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      const direction = current! - scrollYProgress.getPrevious()! - 5;
+      const direction = current! - scrollYProgress.getPrevious()! - 1000;
 
-      if (scrollYProgress.get() < 0.08) {
+      if (scrollYProgress.get() < 0.001) {
         setVisible(false);
       } else {
         if (direction < 0) {
@@ -63,10 +63,11 @@ export const Header = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-[calc(100%-2rem)] md:max-w-[calc(100%-24rem)] fixed top-6 inset-x-0 mx-auto border border-neutral-50 backdrop-blur-[2px] dark:border-neutral-700 rounded-full dark:bg-black/15 shadow-sm z-5000 px-4  py-2 items-center justify-evenly space-x-4 sm:space-x-8 sm:pr-8 sm:pl-12",
+          "flex max-w-[calc(100%-2rem)] md:max-w-[calc(100%-24rem)] fixed top-2 inset-x-0 mx-auto border border-neutral-400 backdrop-blur-sm dark:border-neutral-700 rounded-full dark:bg-black/15 shadow-sm z-5000 px-4  py-2 items-center justify-evenly space-x-4 sm:space-x-8 sm:pr-8 sm:pl-12",
           className
         )}
       >
+        <span className="uppercase font-extrabold hidden md:block">M. K. Katiyar</span>
         {navItems.map((navItem: NavItems, idx: number) => (
           <motion.a
             key={`link=${idx}`}

@@ -1,7 +1,7 @@
 import AnimatedIcon, { AnimatedIconProps } from "./animated-icon"
 import AnimatedPath from "./animated-path"
 
-export function CvIcon(props: Partial<AnimatedIconProps>) {
+export function UserIcon(props: Partial<AnimatedIconProps>) {
   return (
     <AnimatedIcon
       {...props}
@@ -11,10 +11,8 @@ export function CvIcon(props: Partial<AnimatedIconProps>) {
       playOnInView={props.playOnInView ?? true}
       staggerChildren={props.staggerChildren ?? 0.06}
     >
-      <AnimatedPath playOnInView d="M14 3v4a1 1 0 0 0 1 1h4" />
-      <AnimatedPath playOnInView d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" />
-      <AnimatedPath playOnInView d="M11 12.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" />
-      <AnimatedPath playOnInView d="M13 11l1.5 6l1.5 -6" />
+      <AnimatedPath playOnInView d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+      <AnimatedPath playOnInView d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
     </AnimatedIcon>
   )
 }
