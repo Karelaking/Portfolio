@@ -44,16 +44,17 @@ const AnimatedLetter = ({
 }) => {
   return (
     <motion.span
-      className="inline-block cursor-default"
-      initial={{ opacity: 0, y: 50, rotateX: -90 }}
-      animate={{ opacity: 1, y: 0, rotateX: 0 }}
+      className="inline-block cursor-default will-change-transform"
+      style={{ transformStyle: "preserve-3d" }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.5,
-        delay: 0.3 + index * 0.05,
+        duration: 0.4,
+        delay: 0.3 + index * 0.04,
         ease: [0.25, 0.4, 0.25, 1],
       }}
       whileHover={{
-        scale: 1.2,
+        scale: 1.1,
         color: "#10b981",
         transition: { duration: 0.15 },
       }}
@@ -112,25 +113,37 @@ const FloatingParticle = ({ delay, size, x, y }: { delay: number; size: number; 
 };
 
 const HeroSection = () => {
-  const name = "Mradul Kumar Katiyar";
+  const nameWords = ["Mradul", "Kumar", "Katiyar"];
   const skills = ["React & Next.js", "Node.js", "TypeScript", "PostgreSQL"];
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Mouse tracking for subtle parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  // Check if mobile/touch device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Mouse tracking for subtle parallax (desktop only)
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
 
   const springConfig = { damping: 25, stiffness: 150 };
-  const x = useSpring(useTransform(mouseX, [0, 1], [-25, 25]), springConfig);
-  const y = useSpring(useTransform(mouseY, [0, 1], [-25, 25]), springConfig);
+  const x = useSpring(useTransform(mouseX, [0, 1], [-15, 15]), springConfig);
+  const y = useSpring(useTransform(mouseY, [0, 1], [-15, 15]), springConfig);
 
   useEffect(() => {
+    if (isMobile) return;
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX / window.innerWidth);
       mouseY.set(e.clientY / window.innerHeight);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isMobile]);
 
   // Typewriter effect for subtitle
   const [displayedText, setDisplayedText] = useState("");
@@ -163,51 +176,51 @@ const HeroSection = () => {
         <FloatingParticle delay={0.5} size={4} x="50%" y="20%" />
 
         <motion.div
-          style={{ x, y }}
-          className="z-10 flex max-w-4xl flex-col items-center text-center"
+          style={isMobile ? {} : { x, y }}
+          className="z-10 flex w-full max-w-6xl flex-col items-center justify-center px-4 text-center"
         >
-          <motion.span
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.1}
-            whileHover={{ scale: 1.05, borderColor: "#10b981" }}
-            className="font-jetbrains-mono mb-4 inline-flex cursor-pointer items-center gap-2 rounded-full border border-neutral-300 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-neutral-500 transition-colors dark:border-neutral-700 dark:text-neutral-400"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-            </span>
-            Available for work
-          </motion.span>
-
-          <h1 className="font-mea-culpa text-6xl tracking-wide text-neutral-900 dark:text-white sm:text-7xl md:text-8xl lg:text-9xl leading-20">
-            {name.split("").map((letter, i) => (
-              <AnimatedLetter key={i} letter={letter} index={i} />
+          <h1 className="font-mea-culpa flex flex-wrap items-center justify-center gap-x-4 text-5xl tracking-wide text-neutral-900 whitespace-nowrap dark:text-white sm:text-6xl md:gap-x-6 md:text-7xl lg:gap-x-8 lg:text-8xl xl:text-9xl leading-15 md:leading-30">
+            {nameWords.map((word, wordIndex) => (
+              <span key={word} className="inline-flex">
+                {word.split("").map((letter, letterIndex) => {
+                  const globalIndex = nameWords
+                    .slice(0, wordIndex)
+                    .reduce((acc, w) => acc + w.length, 0) + letterIndex;
+                  return (
+                    <AnimatedLetter
+                      key={`${word}-${letterIndex}`}
+                      letter={letter}
+                      index={globalIndex}
+                    />
+                  );
+                })}
+              </span>
             ))}
           </h1>
 
-          <motion.p
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.3}
-            className="font-jetbrains-mono mt-2 h-5 text-sm text-neutral-500 dark:text-neutral-500"
-          >
-            {displayedText}
-            <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.5, repeat: Infinity }}
-              className="ml-0.5 inline-block h-4 w-0.5 bg-neutral-500"
-            />
-          </motion.p>
+          <div className="mt-6 md:mt-10 h-6 flex items-center justify-center">
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.3}
+              className="font-jetbrains-mono text-xs md:text-lg text-neutral-500 dark:text-neutral-500"
+            >
+              {displayedText}
+              <motion.span
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.5 }}
+                className="ml-0.5 inline-block h-4 w-0.5 bg-neutral-500"
+              />
+            </motion.p>
+          </div>
 
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
             custom={0.4}
-            className="font-jetbrains-mono mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-lg"
+            className="font-jetbrains-mono mt-6 max-w-2xl md:max-w-5xl leading-relaxed text-neutral-600 dark:text-neutral-400 text-xs md:text-xl"
           >
             Crafting robust digital experiences through clean code and
             thoughtful design. Specialized in building scalable web applications
@@ -215,7 +228,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            className="mt-6 flex flex-wrap items-center justify-center gap-2 font-jetbrains-mono text-xs text-neutral-500 dark:text-neutral-500"
+            className="mt-6 flex flex-wrap items-center justify-center  font-jetbrains-mono text-xs md:text-md text-neutral-500 dark:text-neutral-500"
           >
             {skills.map((skill, i) => (
               <SkillTag key={skill} skill={skill} index={i} />
@@ -227,12 +240,13 @@ const HeroSection = () => {
             initial="hidden"
             animate="visible"
             custom={0.6}
-            className="mt-10 flex flex-wrap justify-center gap-4"
+            className="mt-10 flex flex-wrap justify-center gap-4 text-xs md:text-base"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className=""
             >
               <HoverBorderGradient>
                 <Link href="https://www.linkedin.com/in/kumar-mradul-katiyar/">
@@ -245,7 +259,7 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <HoverBorderGradient className="border border-neutral-300 bg-white text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white">
+              <HoverBorderGradient className="border border-neutral-300 bg-white text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white text-xs md:text-base">
                 <Link href="#about">View Work</Link>
               </HoverBorderGradient>
             </motion.div>
@@ -256,12 +270,12 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-8 z-10 flex flex-col items-center gap-2"
+          className="absolute bottom-0 z-10 flex flex-col items-center gap-2"
         >
           <span
-            className="font-jetbrains-mono cursor-pointer text-[10px] uppercase tracking-widest text-neutral-100 animate-bounce bg-blue-500 size-6 p-1 rounded-full duration-500 ease-in-out md:size-8 shadow-2xs"
+            className="font-jetbrains-mono cursor-pointer uppercase tracking-widest text-neutral-100 animate-bounce bg-blue-500 size-6 p-1 rounded-full duration-500 ease-in-out md:size-8 shadow-2xs flex items-center justify-center"
           >
-            <IconArrowDown className="inline-block mb-1 size-full" />
+            <IconArrowDown className="inline-block size-full" />
           </span>
           <motion.div
             animate={{
