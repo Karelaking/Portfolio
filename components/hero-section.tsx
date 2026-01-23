@@ -120,7 +120,7 @@ const HeroSection = () => {
   const mouseY = useMotionValue(0);
 
   const springConfig = { damping: 25, stiffness: 150 };
-  const x = useSpring(useTransform(mouseX, [0, 1], [-25,25]), springConfig);
+  const x = useSpring(useTransform(mouseX, [0, 1], [-25, 25]), springConfig);
   const y = useSpring(useTransform(mouseY, [0, 1], [-25, 25]), springConfig);
 
   useEffect(() => {
@@ -261,7 +261,7 @@ const HeroSection = () => {
           <span
             className="font-jetbrains-mono cursor-pointer text-[10px] uppercase tracking-widest text-neutral-100 animate-bounce bg-blue-500 size-6 p-1 rounded-full duration-500 ease-in-out md:size-8 shadow-2xs"
           >
-            <IconArrowDown  className="inline-block mb-1 size-full" />
+            <IconArrowDown className="inline-block mb-1 size-full" />
           </span>
           <motion.div
             animate={{
