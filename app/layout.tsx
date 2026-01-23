@@ -2,18 +2,12 @@ import "./globals.css";
 import { gsap } from "gsap";
 import type { Metadata } from "next";
 import { useGSAP } from "@gsap/react";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
-import { Header, NavItems } from "@/components/layout-header";
 import { Provider } from "./provider/provider";
-import {
-  IconMessage,
-  IconBrandGooglePhotos,
-  IconBriefcase,
-  IconCode,
-} from "@tabler/icons-react";
-import { CvIcon, HomeIcon, SingleUserIcon } from "@/icons/icon";
-import { IconAnimationProvider } from "@/icons/icon-animation-controller";
 import Footer from "@/components/layout-footer";
+import { Header, NavItems } from "@/components/layout-header";
+import { Geist, Geist_Mono, JetBrains_Mono, Mea_Culpa } from "next/font/google";
+import { IconAnimationProvider } from "@/icons/icon-animation-controller";
+import { HomeIcon, UserIcon, CvIcon, CodeIcon, BriefcaseIcon, PhotoIcon, MessageIcon } from "@/icons";
 
 gsap.registerPlugin(useGSAP);
 
@@ -33,6 +27,12 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
+const meaCulpa = Mea_Culpa({
+  variable: "--font-mea-culpa",
+  subsets: ["latin"],
+  weight: ["400"]
+})
+
 export const metadata: Metadata = {
   title: "Mradul's | Portfolio",
   description: "this is the mradul kumar's portfolio website.",
@@ -42,41 +42,41 @@ const navItems: NavItems[] = [
   {
     name: "Home",
     link: "#home",
-    icon: <HomeIcon />,
+    icon: <HomeIcon size={16}/>,
   },
   {
     name: "About",
     link: "#about",
-    icon: <SingleUserIcon />,
+    icon: <UserIcon size={16} />,
   },
   {
     name: "Experience",
     link: "#experience",
-    icon: <CvIcon className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: <CvIcon size={16} />,
   },
   {
     name: "Expertise",
     link: "#expertise",
-    icon: <IconCode className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: <CodeIcon size={16} />,
   },
   {
     name: "Projects",
     link: "#projects",
     icon: (
-      <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />
+      <BriefcaseIcon size={16} />
     ),
   },
   {
     name: "Gallery",
     link: "#gallery",
     icon: (
-      <IconBrandGooglePhotos className="h-4 w-4 text-neutral-500 dark:text-white" />
+      <PhotoIcon size={16} />
     ),
   },
   {
     name: "Contact",
     link: "#contact",
-    icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: <MessageIcon size={16} />,
   },
 ];
 
@@ -87,8 +87,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth!">
+      <style>
+        
+      </style>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} antialiased h-max`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} ${meaCulpa.variable} antialiased h-max`}
       >
         <Provider>
           <IconAnimationProvider>

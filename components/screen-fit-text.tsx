@@ -65,12 +65,12 @@ export const ScreenFitText: React.FC<ScreenFitTextProps> = ({
 
   return (
     <div
-      className={`flex w-full items-center overflow-hidden ${className} bg-neutral-100 dark:bg-neutral-800`}
+      className={`flex w-full items-center overflow-hidden ${className} bg-neutral-100 dark:bg-neutral-800 my-5`}
       ref={containerRef}
     >
       <span
         ref={textRef}
-        className="mx-auto text-center font-bold whitespace-nowrap text-neutral-600 uppercase text-shadow-sm dark:text-neutral-300 dark:text-shadow-md dark:text-shadow-neutral-500"
+        className="mx-auto text-center font-extrabold whitespace-nowrap text-neutral-600 uppercase text-shadow-sm dark:text-neutral-300 dark:text-shadow-md dark:text-shadow-neutral-500"
       >
         {text ?? children ?? "Fit text to container"}
       </span>

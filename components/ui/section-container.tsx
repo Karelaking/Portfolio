@@ -15,15 +15,15 @@ export function SectionContainer({
   return (
     <section
       className={cn(
-        "flex min-h-dvh w-full flex-col items-center justify-center bg-white dark:bg-neutral-950",
+        "min-h-dvh w-full flex items-center justify-center bg-white dark:bg-neutral-950 py-10",
         className,
       )}
       {...props}
     >
       <div
         className={cn(
-          "container mx-auto h-full px-6 md:px-8",
-          width === "default" && "max-w-6xl",
+          "container mx-auto h-full w-full px-2 md:px-8 flex flex-col items-center justify-center",
+          width === "default" && "max-w-6xl md:max-w-screen-2xl",
           width === "small" && "max-w-3xl",
           width === "full" && "max-w-full",
         )}
