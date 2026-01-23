@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import { Experience } from "@/types/experience.interface";
 import { SectionContainer } from "./ui/section-container";
 import { motion, useInView, useMotionValue, useSpring } from "motion/react";
+import PageHeading from "./ui/page-heading";
 
 // Animation variants
 const fadeInUp = {
@@ -160,6 +161,17 @@ export function ExperienceSection({
     >
       <div ref={sectionRef} className="flex w-full max-w-7xl flex-col items-center gap-8 px-4 lg:px-16">
         {/* Section Header */}
+
+        <PageHeading>Experience</PageHeading>
+        {/* Decorative underline */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-6 font-jetbrains-mono text-sm text-neutral-500 dark:text-neutral-400 md:text-base"
+        >
+          A journey through my professional milestones
+        </motion.p>
 
 
         {/* Timeline with scroll animation */}
