@@ -4,13 +4,14 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "",
+    "config": "tailwind.config.ts",
     "css": "app/globals.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
   "iconLibrary": "lucide",
+  "rtl": false,
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -19,6 +20,6 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+    "@acme": "https://acme.com/r/{name}.json"
   }
 }
