@@ -1,13 +1,25 @@
-import React, { JSX } from 'react'
+import type { Metadata, Viewport } from 'next';
+import type { ReactNode } from 'react';
+import './globals.css';
+
+export const metadata = {
+  title: 'Portfolio',
+  description: 'Personal portfolio website',
+} satisfies Metadata;
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+} satisfies Viewport;
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: ReactNode;
 }
 
-const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <div>RootLayout</div>
-  )
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }
-
-export default RootLayout
