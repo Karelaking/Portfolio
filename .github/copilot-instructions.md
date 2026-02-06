@@ -18,6 +18,9 @@
 - Always use the consistent naming and casing conventions for variables, functions, and components (e.g., camelCase for variables and functions, PascalCase for components). This improves readability and maintainability across the codebase.
 - For React components, prefer using arrow functions instead of function declarations for better readability and consistency. This also helps to avoid issues with `this` binding in class components.
 - Always use the test drivern development (TDD) approach when writing new features or fixing bugs. This helps to ensure that the code is well-tested and reduces the likelihood of introducing new bugs or regressions.
+- Always write clear and descriptive commit messages that follow the conventional commits format (e.g., `feat: add new feature`, `fix: fix bug`, `docs: update documentation`). This helps to improve the readability and maintainability of the commit history, and makes it easier for other developers to understand the changes that were made.
+- Always keep the codebase clean and organized by following the established file structure and naming conventions. This helps to improve readability and maintainability, and makes it easier for other developers to navigate the codebase.
+- Always write the code for the mobile first and responsive design in mind. This helps to ensure that the application works well on a variety of devices and screen sizes, and provides a better user experience for all users.
 
 ## App Router patterns
 

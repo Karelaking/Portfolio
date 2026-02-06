@@ -1,6 +1,13 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { renderToString } from "react-dom/server";
 import RootLayout, { metadata, viewport } from "../../app/layout";
+
+vi.mock("next/font/google", () => ({
+  Geist: () => ({ variable: "--font-geist-sans" }),
+  Geist_Mono: () => ({ variable: "--font-geist-mono" }),
+  JetBrains_Mono: () => ({ variable: "--font-jetbrains-mono" }),
+  Mea_Culpa: () => ({ variable: "--font-mea-culpa" }),
+}));
 
 describe("RootLayout", (): void => {
   it("renders the html shell with children", (): void => {
@@ -10,12 +17,15 @@ describe("RootLayout", (): void => {
       </RootLayout>
     );
 
-    expect(html).toContain("<html lang=\"en\">");
+    expect(html).toContain("<html lang=\"en\"");
     expect(html).toContain("hello");
   });
 
   it("exposes typed metadata", (): void => {
-    expect(metadata.title).toBe("Portfolio");
+    expect(metadata.title).toEqual({
+      default: "Portfolio",
+      template: "%s | Portfolio",
+    });
     expect(metadata.description).toBe("Personal portfolio website");
   });
 
