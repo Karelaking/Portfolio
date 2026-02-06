@@ -88,10 +88,10 @@ export const GalleryScroll = ({
           pauseOnHover && "hover:paused",
         )}
       >
-        {items.map((item) => (
+        {items.map((item, index) => (
           <li
             className="relative w-[300px] h-[400px] min-h-[400px] aspect-9/16 max-w-full shrink-0 rounded-2xl"
-            key={item.name}
+            key={index}
           >
             <span className="absolute top-0 left-0 w-full h-full">
               <Image
