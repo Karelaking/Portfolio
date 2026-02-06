@@ -6,6 +6,6 @@ describe("Page", (): void => {
   it("renders the page content", (): void => {
     const html = renderToString(<Page />);
 
-    expect(html).toContain("page");
+    expect(html).toContain("Designing expressive interfaces");
   });
 });
