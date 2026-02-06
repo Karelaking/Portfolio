@@ -8,6 +8,7 @@ import { Header, NavItems } from "@/components/layout-header";
 import { Geist, Geist_Mono, JetBrains_Mono, Mea_Culpa } from "next/font/google";
 import { IconAnimationProvider } from "@/icons/icon-animation-controller";
 import { HomeIcon, UserIcon, CvIcon, CodeIcon, BriefcaseIcon, PhotoIcon, MessageIcon } from "@/icons";
+import { Analytics } from "@vercel/analytics/next"
 
 gsap.registerPlugin(useGSAP);
 

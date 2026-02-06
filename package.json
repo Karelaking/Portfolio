@@ -24,6 +24,7 @@
     "@supabase/supabase-js": "^2.87.3",
     "@tabler/icons-react": "^3.35.0",
     "@tailwindcss/postcss": "^4.1.18",
+    "@vercel/analytics": "^1.6.1",
     "bun": "^1.2.23",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
