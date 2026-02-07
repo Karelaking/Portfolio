@@ -13,6 +13,12 @@ const DashboardPage = (): ReactElement => {
       <div className="grid gap-4 md:grid-cols-2">
         <Link
           className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
+          href="/dashboard/projects"
+        >
+          Manage projects
+        </Link>
+        <Link
+          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
           href="/"
         >
           View portfolio

@@ -30,6 +30,11 @@ export interface ExperienceItem {
   highlights: string[];
 }
 
+export interface CurrentFocusItem {
+  id: string;
+  label: string;
+}
+
 export interface ProjectItem {
   id: string;
   name: string;
@@ -43,13 +48,13 @@ export interface ProjectItem {
 export interface SocialLink {
   id: string;
   platform:
-    | "github"
-    | "linkedin"
-    | "instagram"
-    | "email"
-    | "x"
-    | "dribbble"
-    | "behance";
+  | "github"
+  | "linkedin"
+  | "instagram"
+  | "email"
+  | "x"
+  | "dribbble"
+  | "behance";
   label: string;
   href: string;
 }
@@ -66,6 +71,11 @@ export interface GalleryImage {
   id: string;
   src: string;
   alt: string;
+}
+
+export interface PrimaryServiceItem {
+  id: string;
+  label: string;
 }
 
 export interface ContactMessageInput {

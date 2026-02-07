@@ -21,8 +21,8 @@ create table if not exists public.hero (
   location text not null,
   availability text not null,
   metrics jsonb not null default '[]'::jsonb,
-  imageSrc text not null,
-  imageAlt text not null,
+  image_src text not null,
+  image_alt text not null,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -32,7 +32,7 @@ create table if not exists public.expertise (
   title text not null,
   description text not null,
   icon text not null,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -44,7 +44,7 @@ create table if not exists public.experience (
   period text not null,
   summary text not null,
   highlights jsonb not null default '[]'::jsonb,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -54,10 +54,10 @@ create table if not exists public.projects (
   name text not null,
   description text not null,
   tags jsonb not null default '[]'::jsonb,
-  imageSrc text not null,
-  imageAlt text not null,
+  image_src text not null,
+  image_alt text not null,
   href text not null,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -67,7 +67,7 @@ create table if not exists public.social_links (
   platform text not null,
   label text not null,
   href text not null,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -78,7 +78,7 @@ create table if not exists public.blog_posts (
   excerpt text not null,
   date text not null,
   href text not null,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -87,7 +87,7 @@ create table if not exists public.gallery (
   id text primary key,
   src text not null,
   alt text not null,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -95,7 +95,7 @@ create table if not exists public.gallery (
 create table if not exists public.current_focus (
   id text primary key,
   label text not null,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -103,7 +103,7 @@ create table if not exists public.current_focus (
 create table if not exists public.primary_services (
   id text primary key,
   label text not null,
-  orderIndex integer not null default 0,
+  order_index integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -116,14 +116,14 @@ create table if not exists public.contact_messages (
   created_at timestamptz not null default now()
 );
 
-create index if not exists expertise_order_idx on public.expertise (orderIndex);
-create index if not exists experience_order_idx on public.experience (orderIndex);
-create index if not exists projects_order_idx on public.projects (orderIndex);
-create index if not exists social_links_order_idx on public.social_links (orderIndex);
-create index if not exists blog_posts_order_idx on public.blog_posts (orderIndex);
-create index if not exists gallery_order_idx on public.gallery (orderIndex);
-create index if not exists current_focus_order_idx on public.current_focus (orderIndex);
-create index if not exists primary_services_order_idx on public.primary_services (orderIndex);
+create index if not exists expertise_order_idx on public.expertise (order_index);
+create index if not exists experience_order_idx on public.experience (order_index);
+create index if not exists projects_order_idx on public.projects (order_index);
+create index if not exists social_links_order_idx on public.social_links (order_index);
+create index if not exists blog_posts_order_idx on public.blog_posts (order_index);
+create index if not exists gallery_order_idx on public.gallery (order_index);
+create index if not exists current_focus_order_idx on public.current_focus (order_index);
+create index if not exists primary_services_order_idx on public.primary_services (order_index);
 
 create trigger set_hero_updated_at
 before update on public.hero

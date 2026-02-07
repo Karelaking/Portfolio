@@ -6,7 +6,7 @@ describe("Page", (): void => {
   it("renders the page content", async (): Promise<void> => {
     const html = renderToString(await Page());
 
-    expect(html).toContain("Minimal, monochrome");
+    expect(html).toContain("Selected projects");
   });
 
   it("includes all primary sections", async (): Promise<void> => {

@@ -2,7 +2,7 @@
   "servers": {
     "supabase": {
       "type": "http",
-      "url": "https://mcp.supabase.com/mcp?project_ref=pzsaaufikqsgrxxgltus"
+      "url": "https://mcp.supabase.com/mcp?project_ref=pzsaaufikqsgrxxgltus&db=postgresql&schema=public"
     },
     "next-devtools": {
       "command": "npx",

@@ -6,7 +6,7 @@ describe("SiteHeader", (): void => {
   it("renders the primary navigation", (): void => {
     const html = renderToString(<SiteHeader />);
 
-    expect(html).toContain("Portfolio");
+    expect(html).toContain("MRADUL");
     expect(html).toContain("Home");
     expect(html).toContain("About");
     expect(html).toContain("Expertise");
