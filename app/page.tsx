@@ -1,81 +1,375 @@
 import type { ReactElement } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  IconArrowUpRight,
+  IconBrandBehance,
+  IconBrandDribbble,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandX,
+  IconCode,
+  IconLayoutGrid,
+  IconSparkles,
+  IconStack,
+} from "@tabler/icons-react";
+import { FadeIn } from "@/components/motion/fade-in";
+import { AnimatedIcon } from "@/components/motion/animated-icon";
 import { SiteFooter } from "@/components/layouts/site-footer";
 import { SiteHeader } from "@/components/layouts/site-header";
 import { SiteShell } from "@/components/layouts/site-shell";
+import { SectionHeader } from "@/components/sections/section-header";
+import { Hero } from "@/components/sections/hero";
+import { ContactForm } from "@/components/sections/contact-form";
+import { SectionOrnament } from "@/components/visuals/section-ornament";
+import {
+  getBlogPosts,
+  getExperience,
+  getExpertise,
+  getGalleryImages,
+  getHero,
+  getProjects,
+  getSocialLinks,
+} from "@/lib/portfolio/queries";
+import type { ExpertiseItem, SocialLink } from "@/lib/portfolio/types";
 
-const Page = (): ReactElement => {
+const getExpertiseIcon = (icon: ExpertiseItem["icon"]): ReactElement => {
+  switch (icon) {
+    case "strategy":
+      return <IconSparkles size={22} />;
+    case "system":
+      return <IconLayoutGrid size={22} />;
+    case "frontend":
+      return <IconCode size={22} />;
+    case "direction":
+      return <IconStack size={22} />;
+    default:
+      return <IconSparkles size={22} />;
+  }
+};
+
+const getSocialIcon = (platform: SocialLink["platform"]): ReactElement => {
+  switch (platform) {
+    case "github":
+      return <IconBrandGithub size={20} />;
+    case "linkedin":
+      return <IconBrandLinkedin size={20} />;
+    case "x":
+      return <IconBrandX size={20} />;
+    case "dribbble":
+      return <IconBrandDribbble size={20} />;
+    case "behance":
+      return <IconBrandBehance size={20} />;
+    default:
+      return <IconBrandGithub size={20} />;
+  }
+};
+
+const Page = async (): Promise<ReactElement> => {
+  const [hero, expertise, experience, projects, socialLinks, blogPosts, gallery] =
+    await Promise.all([
+      getHero(),
+      getExpertise(),
+      getExperience(),
+      getProjects(),
+      getSocialLinks(),
+      getBlogPosts(),
+      getGalleryImages(),
+    ]);
+
   return (
     <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
-      <section className="flex flex-col gap-6" id="about">
-        <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
-          Portfolio
-        </p>
-        <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-          Designing expressive interfaces for ambitious teams.
-        </h1>
-        <p className="max-w-2xl text-base text-muted-foreground">
-          I craft product experiences that balance clarity, speed, and elegance.
-          From design systems to production-ready builds, I help teams ship with
-          confidence.
-        </p>
-        <div className="flex flex-wrap items-center gap-3">
-          <Link
-            className="rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition hover:opacity-90"
-            href="#work"
-          >
-            View work
-          </Link>
-          <Link
-            className="rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground transition hover:border-foreground"
-            href="#contact"
-          >
-            Let’s talk
-          </Link>
+      <Hero data={hero} />
+
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="about"
+      >
+        <SectionOrnament />
+        <SectionHeader
+          label="About"
+          title="Focused, quiet, and built for momentum."
+          copy="My work combines design leadership with engineering execution. I deliver monochrome systems that help teams ship with confidence and clarity."
+        />
+        <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
+          <FadeIn className="rounded-3xl border border-border/70 bg-card p-6">
+            <p className="text-sm text-muted-foreground">
+              I translate research and product strategy into crisp UI systems,
+              balancing minimalism with functional depth. From brand refreshes
+              to scalable component libraries, my focus is always on clarity
+              and speed.
+            </p>
+          </FadeIn>
+          <FadeIn className="rounded-3xl border border-border/70 bg-card p-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
+              Current focus
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>↳ Design systems + documentation</li>
+              <li>↳ Next.js App Router builds</li>
+              <li>↳ Monochrome visual identity</li>
+            </ul>
+          </FadeIn>
         </div>
       </section>
 
-      <section className="mt-16 grid gap-6 lg:grid-cols-3" id="work">
-        {[
-          {
-            title: "Product Strategy",
-            description:
-              "Translating vision into measurable, human-centered outcomes.",
-          },
-          {
-            title: "Design Systems",
-            description:
-              "Building cohesive libraries that keep teams aligned and fast.",
-          },
-          {
-            title: "Frontend Delivery",
-            description:
-              "Shipping refined interfaces with performance-first engineering.",
-          },
-        ].map((item) => (
-          <div
-            className="rounded-3xl border border-border/60 bg-card p-6 shadow-sm"
-            key={item.title}
-          >
-            <h2 className="text-lg font-semibold">{item.title}</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              {item.description}
-            </p>
-          </div>
-        ))}
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="expertise"
+      >
+        <SectionOrnament className="right-10 top-10" />
+        <SectionHeader
+          label="Expertise"
+          title="Disciplined craft across strategy, design, and code."
+          copy="A focused toolkit for teams who want speed, polish, and clarity."
+        />
+        <div className="grid gap-6 md:grid-cols-2">
+          {expertise.map((item) => (
+            <div
+              className="rounded-3xl border border-border/70 bg-card p-6"
+              key={item.id}
+            >
+              <div className="flex items-center gap-3 text-foreground">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border">
+                  <AnimatedIcon>{getExpertiseIcon(item.icon)}</AnimatedIcon>
+                </span>
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <section className="mt-16 flex flex-col gap-4" id="contact">
-        <h2 className="text-2xl font-semibold">Let’s build your next release.</h2>
-        <p className="max-w-2xl text-sm text-muted-foreground">
-          Reach out for partnerships, product collaborations, or speaking
-          engagements.
-        </p>
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="experience"
+      >
+        <SectionOrnament className="left-6 right-auto" />
+        <SectionHeader
+          label="Experience"
+          title="Monochrome systems in the wild."
+          copy="Product, studio, and engineering roles that refined the craft."
+        />
+        <div className="space-y-6">
+          {experience.map((item) => (
+            <div
+              className="rounded-3xl border border-border/70 bg-card p-6"
+              key={item.id}
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <div>
+                  <p className="text-lg font-semibold">
+                    {item.role}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.company}
+                  </p>
+                </div>
+                <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  {item.period}
+                </span>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                {item.summary}
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {item.highlights.map((highlight) => (
+                  <li key={highlight}>• {highlight}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="projects"
+      >
+        <SectionOrnament className="right-8" />
+        <SectionHeader
+          label="Projects"
+          title="Selected builds in black and white."
+          copy="A snapshot of recent work across product and interface design."
+        />
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((project) => (
+            <article
+              className="rounded-3xl border border-border/70 bg-card p-6"
+              key={project.id}
+            >
+              <Image
+                alt={project.imageAlt}
+                src={project.imageSrc}
+                width={520}
+                height={360}
+                className="h-40 w-full rounded-2xl border border-border bg-background object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+              <div className="mt-4 flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-lg font-semibold">{project.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {project.description}
+                  </p>
+                </div>
+                <a
+                  className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground"
+                  href={project.href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  View
+                  <IconArrowUpRight size={16} />
+                </a>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.25em]"
+                    key={tag}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="social"
+      >
+        <SectionOrnament className="left-8 right-auto" />
+        <SectionHeader
+          label="Social"
+          title="Find me across the monochrome web."
+          copy="Open DMs for collaborations, talks, and product ideas."
+        />
+        <div className="grid gap-4 sm:grid-cols-2">
+          {socialLinks.map((link) => (
+            <a
+              className="flex items-center justify-between rounded-2xl border border-border/70 bg-card px-4 py-4 text-sm"
+              href={link.href}
+              key={link.id}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border">
+                  <AnimatedIcon>
+                    {getSocialIcon(link.platform)}
+                  </AnimatedIcon>
+                </span>
+                <span>{link.label}</span>
+              </div>
+              <IconArrowUpRight size={16} />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="blog"
+      >
+        <SectionOrnament />
+        <SectionHeader
+          label="Blog"
+          title="Writing about quiet product systems."
+          copy="Thoughts on minimalism, systems, and the craft of building."
+        />
+        <div className="space-y-4">
+          {blogPosts.map((post) => (
+            <a
+              className="flex flex-col gap-3 rounded-2xl border border-border/70 bg-card px-5 py-4"
+              href={post.href}
+              key={post.id}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                <span>{post.date}</span>
+                <IconArrowUpRight size={14} />
+              </div>
+              <h3 className="text-lg font-semibold">{post.title}</h3>
+              <p className="text-sm text-muted-foreground">
+                {post.excerpt}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="gallery"
+      >
+        <SectionOrnament className="right-10" />
+        <SectionHeader
+          label="Gallery"
+          title="Minimal frames, maximal focus."
+          copy="Recent explorations in monochrome composition."
+        />
+        <div className="grid gap-4 sm:grid-cols-2">
+          {gallery.map((image) => (
+            <div
+              className="overflow-hidden rounded-2xl border border-border/70"
+              key={image.id}
+            >
+              <Image
+                alt={image.alt}
+                src={image.src}
+                width={520}
+                height={420}
+                className="h-48 w-full object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        id="contact"
+      >
+        <SectionOrnament className="left-8 right-auto" />
+        <SectionHeader
+          label="Contact"
+          title="Let’s craft a minimal presence for your next launch."
+          copy="Reach out for product partnerships, leadership, or speaking opportunities."
+        />
+        <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-3xl border border-border/70 bg-card p-6">
+            <p className="text-sm text-muted-foreground">
+              Send a note with your product goals or upcoming milestones.
+            </p>
+            <ContactForm />
+          </div>
+          <div className="rounded-3xl border border-border/70 bg-card p-6">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              Primary services
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>• Product strategy + discovery</li>
+              <li>• Design systems & component libraries</li>
+              <li>• Next.js + React delivery</li>
+              <li>• Monochrome brand systems</li>
+            </ul>
+          </div>
+        </div>
         <Link
-          className="text-sm font-semibold text-foreground underline-offset-4 hover:underline"
-          href="mailto:hello@portfolio.com"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground"
+          href="#hero"
         >
-          hello@portfolio.com
+          Back to top
+          <IconArrowUpRight size={14} />
         </Link>
       </section>
     </SiteShell>
