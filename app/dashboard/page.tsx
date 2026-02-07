@@ -19,6 +19,12 @@ const DashboardPage = (): ReactElement => {
         </Link>
         <Link
           className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
+          href="/dashboard/hero"
+        >
+          Manage hero section
+        </Link>
+        <Link
+          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
           href="/"
         >
           View portfolio

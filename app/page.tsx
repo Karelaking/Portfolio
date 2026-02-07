@@ -1,4 +1,5 @@
 import type { ReactElement } from "react";
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -22,6 +23,7 @@ import { SiteHeader } from "@/components/layouts/site-header";
 import { SiteShell } from "@/components/layouts/site-shell";
 import { SectionHeader } from "@/components/sections/section-header";
 import { Hero } from "@/components/sections/hero";
+import { HeroSkeleton } from "@/components/sections/hero-skeleton";
 import { ContactForm } from "@/components/sections/contact-form";
 import { SectionOrnament } from "@/components/visuals/section-ornament";
 import {
@@ -77,7 +79,6 @@ const getSocialIcon = (platform: SocialLink["platform"]): ReactElement => {
 
 const Page = async (): Promise<ReactElement> => {
   const [
-    hero,
     expertise,
     experience,
     projects,
@@ -87,7 +88,6 @@ const Page = async (): Promise<ReactElement> => {
     currentFocus,
     primaryServices,
   ] = await Promise.all([
-    getHero(),
     getExpertise(),
     getExperience(),
     getProjects(),
@@ -102,7 +102,9 @@ const Page = async (): Promise<ReactElement> => {
 
   return (
     <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
-      <Hero data={hero} />
+      <Suspense fallback={<HeroSkeleton />}>
+        <HeroSection />
+      </Suspense>
 
       <section
         className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
@@ -409,3 +411,8 @@ const Page = async (): Promise<ReactElement> => {
 };
 
 export default Page;
+
+const HeroSection = async (): Promise<ReactElement> => {
+  const hero = await getHero();
+  return <Hero data={hero} />;
+};

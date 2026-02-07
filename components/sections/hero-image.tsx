@@ -44,7 +44,7 @@ export const HeroImage = ({ imageAlt, imageSrc }: HeroImageProps): ReactElement 
         src={imageSrc}
         width={420}
         height={520}
-        className="relative w-full max-w-sm rounded-[2.5rem] border border-border bg-card p-6"
+        className="relative h-[520px] w-[420px] rounded-[2.5rem] border border-border bg-card object-cover p-6"
         priority
       />
     </motion.div>
