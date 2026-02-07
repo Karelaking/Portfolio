@@ -23,6 +23,7 @@ import { SiteHeader } from "@/components/layouts/site-header";
 import { SiteShell } from "@/components/layouts/site-shell";
 import { SectionHeader } from "@/components/sections/section-header";
 import { Hero } from "@/components/sections/hero";
+import { GalleryImage } from "@/components/sections/gallery-image";
 import { HeroSkeleton } from "@/components/sections/hero-skeleton";
 import { ContactForm } from "@/components/sections/contact-form";
 import { SectionOrnament } from "@/components/visuals/section-ornament";
@@ -99,7 +100,9 @@ const Page = async (): Promise<ReactElement> => {
   ]);
 
   const featuredProjects = projects.slice(0, 4);
-  const featuredGallery = gallery.slice(0, 3);
+  const featuredExperience = experience.slice(0, 3);
+  const hasMoreExperience = experience.length > featuredExperience.length;
+  const featuredGallery = gallery.slice(0, 4);
   const hasMoreGallery = gallery.length > featuredGallery.length;
 
   return (
@@ -180,7 +183,7 @@ const Page = async (): Promise<ReactElement> => {
           copy="Product, studio, and engineering roles that refined the craft."
         />
         <div className="space-y-6">
-          {experience.map((item) => (
+          {featuredExperience.map((item) => (
             <div
               className="rounded-3xl border border-border/70 bg-card p-6"
               key={item.id}
@@ -203,12 +206,23 @@ const Page = async (): Promise<ReactElement> => {
               </p>
               <ul className="mt-4 space-y-2 text-sm">
                 {item.highlights.map((highlight) => (
-                  <li key={highlight}>• {highlight}</li>
+                  <li key={`${item.id}-${highlight}`}>• {highlight}</li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
+        {hasMoreExperience ? (
+          <div className="flex justify-center">
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+              href="/experience"
+            >
+              Show more
+              <IconArrowUpRight size={14} />
+            </Link>
+          </div>
+        ) : null}
       </section>
 
       <section
@@ -355,19 +369,12 @@ const Page = async (): Promise<ReactElement> => {
         />
         <div className="grid gap-4 sm:grid-cols-2">
           {featuredGallery.map((image) => (
-            <div
-              className="overflow-hidden rounded-2xl border border-border/70"
+            <GalleryImage
               key={image.id}
-            >
-              <Image
-                alt={image.alt}
-                src={image.src}
-                width={520}
-                height={420}
-                className="h-48 w-full object-cover"
-                sizes="(min-width: 768px) 50vw, 100vw"
-              />
-            </div>
+              alt={image.alt}
+              src={image.src}
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
           ))}
         </div>
         {hasMoreGallery ? (
