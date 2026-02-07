@@ -23,24 +23,24 @@ const resolveRecipients = (): { from: string; to: string } | null => {
 };
 
 const escapeHtml = (value: string): string => {
-	return value
-		.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;")
-		.replace(/"/g, "&quot;")
-		.replace(/'/g, "&#39;");
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 };
 
 const renderContactEmail = (input: ContactMessageInput): string => {
-	const name = escapeHtml(input.name);
-	const email = escapeHtml(input.email);
-	const message = escapeHtml(input.message).replace(/\n/g, "<br />");
-	const receivedAt = new Date().toLocaleString("en-US", {
-		dateStyle: "medium",
-		timeStyle: "short",
- 	});
+  const name = escapeHtml(input.name);
+  const email = escapeHtml(input.email);
+  const message = escapeHtml(input.message).replace(/\n/g, "<br />");
+  const receivedAt = new Date().toLocaleString("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
 
-	return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
