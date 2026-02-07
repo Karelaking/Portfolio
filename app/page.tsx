@@ -6,10 +6,12 @@ import {
   IconBrandBehance,
   IconBrandDribbble,
   IconBrandGithub,
+  IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandX,
   IconCode,
   IconLayoutGrid,
+  IconMail,
   IconSparkles,
   IconStack,
 } from "@tabler/icons-react";
@@ -60,6 +62,10 @@ const getSocialIcon = (platform: SocialLink["platform"]): ReactElement => {
       return <IconBrandDribbble size={20} />;
     case "behance":
       return <IconBrandBehance size={20} />;
+    case "instagram":
+      return <IconBrandInstagram size={20} />;
+    case "email":
+      return <IconMail size={20} />;
     default:
       return <IconBrandGithub size={20} />;
   }
@@ -88,16 +94,15 @@ const Page = async (): Promise<ReactElement> => {
         <SectionOrnament />
         <SectionHeader
           label="About"
-          title="Focused, quiet, and built for momentum."
-          copy="My work combines design leadership with engineering execution. I deliver monochrome systems that help teams ship with confidence and clarity."
+          title="Focused, detail-driven, and built for scale."
+          copy="I build full stack systems where disciplined UI meets pragmatic backend engineering. The goal is always the same: clean UX, reliable APIs, and long-term maintainability."
         />
         <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
           <FadeIn className="rounded-3xl border border-border/70 bg-card p-6">
             <p className="text-sm text-muted-foreground">
-              I translate research and product strategy into crisp UI systems,
-              balancing minimalism with functional depth. From brand refreshes
-              to scalable component libraries, my focus is always on clarity
-              and speed.
+              I craft monochrome, high-precision experiences that prioritize
+              performance, clarity, and resilience. Every interface I ship is
+              meant to be fast, consistent, and easy to extend.
             </p>
           </FadeIn>
           <FadeIn className="rounded-3xl border border-border/70 bg-card p-6">
@@ -105,9 +110,11 @@ const Page = async (): Promise<ReactElement> => {
               Current focus
             </p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>↳ Design systems + documentation</li>
-              <li>↳ Next.js App Router builds</li>
-              <li>↳ Monochrome visual identity</li>
+              <li>↳ Data structures & algorithms</li>
+              <li>↳ Backend development</li>
+              <li>↳ Full stack delivery</li>
+              <li>↳ AI / ML foundations</li>
+              <li>↳ API design & architecture</li>
             </ul>
           </FadeIn>
         </div>
@@ -357,10 +364,10 @@ const Page = async (): Promise<ReactElement> => {
               Primary services
             </p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>• Product strategy + discovery</li>
-              <li>• Design systems & component libraries</li>
-              <li>• Next.js + React delivery</li>
-              <li>• Monochrome brand systems</li>
+              <li>• Full stack development</li>
+              <li>• API design + documentation</li>
+              <li>• Open source collaborations</li>
+              <li>• Freelancing & product builds</li>
             </ul>
           </div>
         </div>
