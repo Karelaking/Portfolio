@@ -98,6 +98,8 @@ const Page = async (): Promise<ReactElement> => {
     getPrimaryServices(),
   ]);
 
+  const featuredProjects = projects.slice(0, 4);
+
   return (
     <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
       <Hero data={hero} />
@@ -216,7 +218,7 @@ const Page = async (): Promise<ReactElement> => {
           copy="A snapshot of recent work across product and interface design."
         />
         <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <article
               className="rounded-3xl border border-border/70 bg-card p-6"
               key={project.id}
@@ -259,6 +261,17 @@ const Page = async (): Promise<ReactElement> => {
             </article>
           ))}
         </div>
+        {projects.length > featuredProjects.length ? (
+          <div className="flex justify-center">
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+              href="/projects"
+            >
+              Show more
+              <IconArrowUpRight size={14} />
+            </Link>
+          </div>
+        ) : null}
       </section>
 
       <section
