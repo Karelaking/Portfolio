@@ -1,6 +1,5 @@
 "use server";
 
-import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { getSupabaseAdminClient } from "@/lib/supabase/server";
@@ -88,30 +87,46 @@ export const createProject = async (
   _prevState: ActionResult | null,
   formData: FormData,
 ): Promise<ActionResult> => {
-  const client = getSupabaseAdminClient();
-  if (!client) {
-    return { ok: false, error: "Admin client not configured." };
-  }
+  try {
+    console.log("[projects] createProject invoked");
+    const client = getSupabaseAdminClient();
+    if (!client) {
+      console.error("[projects] createProject: admin client missing");
+      return { ok: false, error: "Admin client not configured." };
+    }
 
-  const result = parseProjectForm(formData);
-  if (!result.data) {
-    return { ok: false, error: result.error ?? "Invalid form data." };
-  }
-  const data = toProjectRow(result.data);
-  const payload = {
-    id: crypto.randomUUID(),
-    ...data,
-    order_index: 0,
-  };
+    const result = parseProjectForm(formData);
+    if (!result.data) {
+      console.error("[projects] createProject: invalid form data", result.error);
+      return { ok: false, error: result.error ?? "Invalid form data." };
+    }
+    const data = toProjectRow(result.data);
+    const payload = {
+      id: crypto.randomUUID(),
+      ...data,
+      order_index: 0,
+    };
 
-  const { error } = await client.from("projects").insert(payload);
-  if (error) {
-    return { ok: false, error: error.message };
-  }
+    const { error } = await client.from("projects").insert(payload);
+    if (error) {
+      console.error("[projects] createProject: insert failed", error);
+      return { ok: false, error: error.message || "Failed to create project." };
+    }
 
-  revalidatePath("/dashboard/projects");
-  revalidatePath("/");
-  redirect("/dashboard/projects");
+    revalidatePath("/dashboard/projects");
+    revalidatePath("/");
+    console.log("[projects] createProject: success", payload.id);
+    return { ok: true };
+  } catch (error) {
+    console.error("[projects] createProject: unexpected error", error);
+    return {
+      ok: false,
+      error:
+        error instanceof Error
+          ? error.message
+          : "Unexpected error while creating project.",
+    };
+  }
 };
 
 export const updateProject = async (
@@ -119,24 +134,40 @@ export const updateProject = async (
   _prevState: ActionResult | null,
   formData: FormData,
 ): Promise<ActionResult> => {
-  const client = getSupabaseAdminClient();
-  if (!client) {
-    return { ok: false, error: "Admin client not configured." };
-  }
+  try {
+    console.log("[projects] updateProject invoked", id);
+    const client = getSupabaseAdminClient();
+    if (!client) {
+      console.error("[projects] updateProject: admin client missing");
+      return { ok: false, error: "Admin client not configured." };
+    }
 
-  const result = parseProjectForm(formData);
-  if (!result.data) {
-    return { ok: false, error: result.error ?? "Invalid form data." };
-  }
-  const data = toProjectRow(result.data);
-  const { error } = await client.from("projects").update(data).eq("id", id);
-  if (error) {
-    return { ok: false, error: error.message };
-  }
+    const result = parseProjectForm(formData);
+    if (!result.data) {
+      console.error("[projects] updateProject: invalid form data", result.error);
+      return { ok: false, error: result.error ?? "Invalid form data." };
+    }
+    const data = toProjectRow(result.data);
+    const { error } = await client.from("projects").update(data).eq("id", id);
+    if (error) {
+      console.error("[projects] updateProject: update failed", error);
+      return { ok: false, error: error.message || "Failed to update project." };
+    }
 
-  revalidatePath("/dashboard/projects");
-  revalidatePath("/");
-  redirect("/dashboard/projects");
+    revalidatePath("/dashboard/projects");
+    revalidatePath("/");
+    console.log("[projects] updateProject: success", id);
+    return { ok: true };
+  } catch (error) {
+    console.error("[projects] updateProject: unexpected error", error);
+    return {
+      ok: false,
+      error:
+        error instanceof Error
+          ? error.message
+          : "Unexpected error while updating project.",
+    };
+  }
 };
 
 export const deleteProject = async (id: string): Promise<ActionResult> => {
