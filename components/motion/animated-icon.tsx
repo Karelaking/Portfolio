@@ -16,7 +16,9 @@ export const AnimatedIcon = ({
   return (
     <motion.span
       className={cn("inline-flex", className)}
-      animate={{ y: [0, -3, 0] }}
+      initial={{ y: 0 }}
+      whileInView={{ y: [0, -3, 0] }}
+      viewport={{ once: false, amount: 0.6 }}
       transition={{
         duration: 4,
         repeat: Number.POSITIVE_INFINITY,
