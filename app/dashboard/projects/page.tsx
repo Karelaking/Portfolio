@@ -1,16 +1,18 @@
 import type { ReactElement } from "react";
+import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
 import type { ProjectItem } from "@/lib/portfolio/types";
 import { ProjectDeleteButton } from "@/components/dashboard/project-delete-button";
+import { ProjectsPanelSkeleton } from "@/components/dashboard/projects-panel-skeleton";
 
 interface ProjectFetchResult {
   projects: ProjectItem[];
   error?: string;
 }
 
-const fetchProjects = async (): Promise<ProjectFetchResult> => {
+const fetchProjects = cache(async (): Promise<ProjectFetchResult> => {
   const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
   if (!client) {
     return {
@@ -34,9 +36,9 @@ const fetchProjects = async (): Promise<ProjectFetchResult> => {
 
   const projects = (data as unknown as ProjectItem[]) ?? [];
   return { projects };
-};
+});
 
-const ProjectsPage = async (): Promise<ReactElement> => {
+const ProjectsPanel = async (): Promise<ReactElement> => {
   const { projects, error } = await fetchProjects();
 
   return (
@@ -149,6 +151,14 @@ const ProjectsPage = async (): Promise<ReactElement> => {
         )}
       </div>
     </div>
+  );
+};
+
+const ProjectsPage = (): ReactElement => {
+  return (
+    <Suspense fallback={<ProjectsPanelSkeleton />}>
+      <ProjectsPanel />
+    </Suspense>
   );
 };
 
