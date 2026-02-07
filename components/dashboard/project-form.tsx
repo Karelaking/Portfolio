@@ -147,7 +147,12 @@ export const ProjectForm = ({
     null,
   );
   const [errors, setErrors] = useState<ProjectFormErrors>({});
+  const [uploadPending, setUploadPending] = useState<boolean>(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const formId = useId();
+  const uploadInputId = useId();
+  const imageSrcRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
   const targetUrl = redirectTo ?? "/dashboard/projects";
 
@@ -168,6 +173,21 @@ export const ProjectForm = ({
     toast.error(state.error ?? "Unable to save project.");
   }, [state, router, submitLabel, targetUrl]);
 
+  const isValidUrlOrPath = (value: string): boolean => {
+    if (!value) {
+      return false;
+    }
+    if (value.startsWith("/")) {
+      return true;
+    }
+    try {
+      new URL(value);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   const validateFormData = (formData: FormData): ProjectFormErrors => {
     const name = String(formData.get("name") ?? "").trim();
     const description = String(formData.get("description") ?? "").trim();
@@ -184,12 +204,8 @@ export const ProjectForm = ({
     }
     if (!imageSrc) {
       nextErrors.imageSrc = "Image URL is required.";
-    } else {
-      try {
-        new URL(imageSrc);
-      } catch {
-        nextErrors.imageSrc = "Enter a valid image URL.";
-      }
+    } else if (!isValidUrlOrPath(imageSrc)) {
+      nextErrors.imageSrc = "Enter a valid image URL or path.";
     }
     if (!imageAlt) {
       nextErrors.imageAlt = "Alt text is required.";
@@ -205,6 +221,43 @@ export const ProjectForm = ({
     }
 
     return nextErrors;
+  };
+
+  const handleImageUpload = async (): Promise<void> => {
+    if (!selectedFile) {
+      setUploadError("Select an image to upload.");
+      return;
+    }
+
+    setUploadPending(true);
+    setUploadError(null);
+
+    try {
+      const uploadData = new FormData();
+      uploadData.append("file", selectedFile);
+      uploadData.append("folder", "assets");
+
+      const response = await fetch("/api/uploads", {
+        method: "POST",
+        body: uploadData,
+      });
+
+      const result = (await response.json()) as { ok: boolean; url?: string; error?: string };
+      if (!response.ok || !result.ok || !result.url) {
+        throw new Error(result.error ?? "Upload failed.");
+      }
+
+      if (imageSrcRef.current) {
+        imageSrcRef.current.value = result.url;
+      }
+
+      toast.success("Image uploaded.");
+    } catch (error) {
+      setUploadError(error instanceof Error ? error.message : "Upload failed.");
+      toast.error("Image upload failed.");
+    } finally {
+      setUploadPending(false);
+    }
   };
 
   const applyValidation = (formData: FormData): boolean => {
@@ -311,7 +364,8 @@ export const ProjectForm = ({
           required
           aria-invalid={errors.imageSrc ? true : undefined}
           aria-describedby={errors.imageSrc ? "project-image-src-error" : undefined}
-          type="url"
+          type="text"
+          ref={imageSrcRef}
         />
         {errors.imageSrc ? (
           <span
@@ -320,6 +374,38 @@ export const ProjectForm = ({
           >
             {errors.imageSrc}
           </span>
+        ) : null}
+        <div className="mt-2 flex flex-wrap items-center gap-3 text-xs font-normal normal-case tracking-normal text-muted-foreground">
+          <label className="inline-flex items-center gap-2" htmlFor={uploadInputId}>
+            <span className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-foreground">
+              Choose file
+            </span>
+            <input
+              accept="image/*"
+              className="sr-only"
+              id={uploadInputId}
+              onChange={(event): void => {
+                const file = event.currentTarget.files?.[0] ?? null;
+                setSelectedFile(file);
+              }}
+              type="file"
+            />
+          </label>
+          <span>{selectedFile ? selectedFile.name : "No file selected"}</span>
+          <Button
+            className="rounded-full border border-border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+            type="button"
+            variant="outline"
+            onClick={handleImageUpload}
+            disabled={uploadPending || !selectedFile}
+          >
+            {uploadPending ? "Uploading..." : "Upload"}
+          </Button>
+        </div>
+        {uploadError ? (
+          <p className="text-xs font-normal normal-case tracking-normal text-destructive">
+            {uploadError}
+          </p>
         ) : null}
       </label>
       <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
