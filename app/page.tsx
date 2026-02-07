@@ -99,6 +99,8 @@ const Page = async (): Promise<ReactElement> => {
   ]);
 
   const featuredProjects = projects.slice(0, 4);
+  const featuredGallery = gallery.slice(0, 3);
+  const hasMoreGallery = gallery.length > featuredGallery.length;
 
   return (
     <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
@@ -352,7 +354,7 @@ const Page = async (): Promise<ReactElement> => {
           copy="Recent explorations in monochrome composition."
         />
         <div className="grid gap-4 sm:grid-cols-2">
-          {gallery.map((image) => (
+          {featuredGallery.map((image) => (
             <div
               className="overflow-hidden rounded-2xl border border-border/70"
               key={image.id}
@@ -368,6 +370,17 @@ const Page = async (): Promise<ReactElement> => {
             </div>
           ))}
         </div>
+        {hasMoreGallery ? (
+          <div className="flex justify-center">
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+              href="/gallery"
+            >
+              Show more
+              <IconArrowUpRight size={14} />
+            </Link>
+          </div>
+        ) : null}
       </section>
 
       <section
