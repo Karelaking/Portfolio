@@ -26,14 +26,18 @@ import { ContactForm } from "@/components/sections/contact-form";
 import { SectionOrnament } from "@/components/visuals/section-ornament";
 import {
   getBlogPosts,
+  getCurrentFocus,
   getExperience,
   getExpertise,
   getGalleryImages,
   getHero,
+  getPrimaryServices,
   getProjects,
   getSocialLinks,
 } from "@/lib/portfolio/queries";
 import type { ExpertiseItem, SocialLink } from "@/lib/portfolio/types";
+
+export const revalidate = 0;
 
 const getExpertiseIcon = (icon: ExpertiseItem["icon"]): ReactElement => {
   switch (icon) {
@@ -72,16 +76,27 @@ const getSocialIcon = (platform: SocialLink["platform"]): ReactElement => {
 };
 
 const Page = async (): Promise<ReactElement> => {
-  const [hero, expertise, experience, projects, socialLinks, blogPosts, gallery] =
-    await Promise.all([
-      getHero(),
-      getExpertise(),
-      getExperience(),
-      getProjects(),
-      getSocialLinks(),
-      getBlogPosts(),
-      getGalleryImages(),
-    ]);
+  const [
+    hero,
+    expertise,
+    experience,
+    projects,
+    socialLinks,
+    blogPosts,
+    gallery,
+    currentFocus,
+    primaryServices,
+  ] = await Promise.all([
+    getHero(),
+    getExpertise(),
+    getExperience(),
+    getProjects(),
+    getSocialLinks(),
+    getBlogPosts(),
+    getGalleryImages(),
+    getCurrentFocus(),
+    getPrimaryServices(),
+  ]);
 
   return (
     <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
@@ -110,11 +125,9 @@ const Page = async (): Promise<ReactElement> => {
               Current focus
             </p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>↳ Data structures & algorithms</li>
-              <li>↳ Backend development</li>
-              <li>↳ Full stack delivery</li>
-              <li>↳ AI / ML foundations</li>
-              <li>↳ API design & architecture</li>
+              {currentFocus.map((item) => (
+                <li key={item.id}>↳ {item.label}</li>
+              ))}
             </ul>
           </FadeIn>
         </div>
@@ -364,10 +377,9 @@ const Page = async (): Promise<ReactElement> => {
               Primary services
             </p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>• Full stack development</li>
-              <li>• API design + documentation</li>
-              <li>• Open source collaborations</li>
-              <li>• Freelancing & product builds</li>
+              {primaryServices.map((item) => (
+                <li key={item.id}>• {item.label}</li>
+              ))}
             </ul>
           </div>
         </div>

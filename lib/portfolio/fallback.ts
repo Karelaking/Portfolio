@@ -1,9 +1,11 @@
 import type {
   BlogPost,
+  CurrentFocusItem,
   ExpertiseItem,
   ExperienceItem,
   GalleryImage,
   HeroData,
+  PrimaryServiceItem,
   ProjectItem,
   SocialLink,
 } from "@/lib/portfolio/types";
@@ -155,4 +157,19 @@ export const fallbackGallery: GalleryImage[] = [
   { id: "gallery-02", src: "/images/gallery-02.svg", alt: "Gallery frame two" },
   { id: "gallery-03", src: "/images/gallery-03.svg", alt: "Gallery frame three" },
   { id: "gallery-04", src: "/images/gallery-04.svg", alt: "Gallery frame four" },
+];
+
+export const fallbackCurrentFocus: CurrentFocusItem[] = [
+  { id: "focus-structures", label: "Data structures & algorithms" },
+  { id: "focus-backend", label: "Backend development" },
+  { id: "focus-fullstack", label: "Full stack delivery" },
+  { id: "focus-ai", label: "AI / ML foundations" },
+  { id: "focus-api", label: "API design & architecture" },
+];
+
+export const fallbackPrimaryServices: PrimaryServiceItem[] = [
+  { id: "service-fullstack", label: "Full stack development" },
+  { id: "service-api", label: "API design + documentation" },
+  { id: "service-open-source", label: "Open source collaborations" },
+  { id: "service-freelance", label: "Freelancing & product builds" },
 ];

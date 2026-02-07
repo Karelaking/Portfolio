@@ -1,32 +1,64 @@
 import { cache } from "react";
-import { getSupabaseServerClient } from "@/lib/supabase/server";
+import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
 import {
   fallbackBlog,
+  fallbackCurrentFocus,
   fallbackExperience,
   fallbackExpertise,
   fallbackGallery,
   fallbackHero,
+  fallbackPrimaryServices,
   fallbackProjects,
   fallbackSocial,
 } from "@/lib/portfolio/fallback";
 import type {
   BlogPost,
+  CurrentFocusItem,
   ExpertiseItem,
   ExperienceItem,
   GalleryImage,
   HeroData,
+  PrimaryServiceItem,
   ProjectItem,
   SocialLink,
 } from "@/lib/portfolio/types";
+
+interface HeroRow extends Omit<HeroData, "imageSrc" | "imageAlt"> {
+  image_src: string;
+  image_alt: string;
+}
+
+interface ProjectRow extends Omit<ProjectItem, "imageSrc" | "imageAlt"> {
+  image_src: string;
+  image_alt: string;
+}
+
+const mapHeroRow = (row: HeroRow): HeroData => {
+  return {
+    ...row,
+    imageSrc: row.image_src,
+    imageAlt: row.image_alt,
+  };
+};
+
+const mapProjectRow = (row: ProjectRow): ProjectItem => {
+  return {
+    ...row,
+    tags: Array.isArray(row.tags) ? row.tags : [],
+    imageSrc: row.image_src,
+    imageAlt: row.image_alt,
+  };
+};
 
 const fetchTable = async <T,>(
   table: string,
   select: string,
   order?: string,
 ): Promise<T[] | null> => {
-  const client = getSupabaseServerClient();
+  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
 
   if (!client) {
+    console.warn(`[portfolio] Supabase client missing for ${table}.`);
     return null;
   }
 
@@ -34,6 +66,7 @@ const fetchTable = async <T,>(
   const { data, error } = order ? await query.order(order) : await query;
 
   if (error || !data) {
+    console.error(`[portfolio] Supabase error for ${table}:`, error);
     return null;
   }
 
@@ -41,10 +74,10 @@ const fetchTable = async <T,>(
 };
 
 export const getHero = cache(async (): Promise<HeroData> => {
-  const data = await fetchTable<HeroData>("hero", "*");
+  const data = await fetchTable<HeroRow>("hero", "*");
   const first = data?.[0];
   if (first) {
-    return first;
+    return mapHeroRow(first);
   }
   return fallbackHero;
 });
@@ -74,13 +107,9 @@ export const getExperience = cache(async (): Promise<ExperienceItem[]> => {
 });
 
 export const getProjects = cache(async (): Promise<ProjectItem[]> => {
-  const data = await fetchTable<ProjectItem>(
-    "projects",
-    "id,name,description,tags,imageSrc,imageAlt,href",
-    "id",
-  );
+  const data = await fetchTable<ProjectRow>("projects", "*", "order_index");
   if (data && data.length > 0) {
-    return data;
+    return data.map(mapProjectRow);
   }
   return fallbackProjects;
 });
@@ -115,4 +144,28 @@ export const getGalleryImages = cache(async (): Promise<GalleryImage[]> => {
     return data;
   }
   return fallbackGallery;
+});
+
+export const getCurrentFocus = cache(async (): Promise<CurrentFocusItem[]> => {
+  const data = await fetchTable<CurrentFocusItem>(
+    "current_focus",
+    "id,label",
+    "order_index",
+  );
+  if (data && data.length > 0) {
+    return data;
+  }
+  return fallbackCurrentFocus;
+});
+
+export const getPrimaryServices = cache(async (): Promise<PrimaryServiceItem[]> => {
+  const data = await fetchTable<PrimaryServiceItem>(
+    "primary_services",
+    "id,label",
+    "order_index",
+  );
+  if (data && data.length > 0) {
+    return data;
+  }
+  return fallbackPrimaryServices;
 });

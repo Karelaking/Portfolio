@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { renderToString } from "react-dom/server";
 import RootLayout, { metadata, viewport } from "../../app/layout";
@@ -7,6 +8,10 @@ vi.mock("next/font/google", () => ({
   Geist_Mono: () => ({ variable: "--font-geist-mono" }),
   JetBrains_Mono: () => ({ variable: "--font-jetbrains-mono" }),
   Mea_Culpa: () => ({ variable: "--font-mea-culpa" }),
+}));
+
+vi.mock("@clerk/nextjs", () => ({
+  ClerkProvider: ({ children }: { children: ReactNode }) => <div>{children}</div>,
 }));
 
 describe("RootLayout", (): void => {
