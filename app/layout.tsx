@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactElement, ReactNode } from "react";
 import { Geist, Geist_Mono, JetBrains_Mono, Mea_Culpa } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import "./globals.css";
@@ -42,19 +43,21 @@ export default function RootLayout({
   children,
 }: RootLayoutProps): ReactElement {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn(
-        geistSans.variable,
-        geistMono.variable,
-        jetBrainsMono.variable,
-        meaCulpa.variable
-      )}
-    >
-      <body className="font-sans antialiased">
-        <Providers>{children}</Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang="en"
+        suppressHydrationWarning
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          jetBrainsMono.variable,
+          meaCulpa.variable
+        )}
+      >
+        <body className="font-sans antialiased">
+          <Providers>{children}</Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
