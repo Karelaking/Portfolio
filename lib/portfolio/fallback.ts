@@ -9,11 +9,11 @@ import type {
 } from "@/lib/portfolio/types";
 
 export const fallbackHero: HeroData = {
-  title: "Minimal, monochrome portfolios",
-  subtitle: "Design lead & frontend engineer",
+  title: "Minimal systems make the maximum impact",
+  subtitle: "Full stack web developer · API designer",
   description:
-    "I build black-and-white experiences that feel quiet, confident, and engineered for clarity.",
-  location: "Based in Lagos, working worldwide",
+    "I craft monochrome, high-precision digital experiences where design discipline meets engineering rigor — built for clarity, performance, and long-term scale.",
+  location: "Kanpur, Uttar Pradesh 208015",
   availability: "Open for freelance + collaborations",
   metrics: [
     { label: "Years building", value: "8+" },
@@ -104,25 +104,25 @@ export const fallbackSocial: SocialLink[] = [
     id: "github",
     platform: "github",
     label: "GitHub",
-    href: "https://github.com/",
+    href: "https://github.com/Karelaking",
   },
   {
     id: "linkedin",
     platform: "linkedin",
     label: "LinkedIn",
-    href: "https://linkedin.com/",
+    href: "https://www.linkedin.com/in/kumar-mradul-katiyar",
   },
   {
-    id: "x",
-    platform: "x",
-    label: "X (Twitter)",
-    href: "https://x.com/",
+    id: "instagram",
+    platform: "instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/katiyar.karelaking",
   },
   {
-    id: "dribbble",
-    platform: "dribbble",
-    label: "Dribbble",
-    href: "https://dribbble.com/",
+    id: "email",
+    platform: "email",
+    label: "Email",
+    href: "mailto:karelaking277@gmail.com",
   },
 ];
 
