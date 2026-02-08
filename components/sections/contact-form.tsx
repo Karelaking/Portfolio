@@ -3,8 +3,8 @@
 import type { ReactElement } from "react";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { submitContact } from "@/app/actions/contact";
-import type { ContactMessageInput } from "@/types/portfolio";
+import { submitContact } from "@/actions/contact/submit-contact.action";
+import type { ContactMessageInput } from "@/types/contact-message-input.interface";
 
 interface ContactFormStatus {
   state: "idle" | "success" | "error";

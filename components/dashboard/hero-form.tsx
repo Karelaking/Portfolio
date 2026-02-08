@@ -4,7 +4,7 @@ import type { FormEvent, ReactElement } from "react";
 import { useActionState, useEffect, useId, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,10 +15,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/components/ui";
 import { cn } from "@/lib/utils";
-import type { ActionResult, HeroData, HeroMetric } from "@/types/portfolio";
-import { deleteHeroAction, upsertHeroAction } from "@/app/dashboard/hero/actions";
+import type { ActionResult } from "@/types/action-result.interface";
+import type { HeroData } from "@/types/hero-data.interface";
+import type { HeroMetric } from "@/types/hero-metric.interface";
+import { deleteHeroAction } from "@/actions/dashboard/hero/delete-hero.action";
+import { upsertHeroAction } from "@/actions/dashboard/hero/upsert-hero.action";
 
 interface HeroFormProps {
   initialValues: HeroData;

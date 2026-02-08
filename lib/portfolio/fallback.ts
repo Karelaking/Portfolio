@@ -1,14 +1,12 @@
-import type {
-  BlogPost,
-  CurrentFocusItem,
-  ExpertiseItem,
-  ExperienceItem,
-  GalleryImage,
-  HeroData,
-  PrimaryServiceItem,
-  ProjectItem,
-  SocialLink,
-} from "@/types/portfolio";
+import type { BlogPost } from "@/types/blog-post.interface";
+import type { CurrentFocusItem } from "@/types/current-focus-item.interface";
+import type { ExpertiseItem } from "@/types/expertise-item.interface";
+import type { ExperienceItem } from "@/types/experience-item.interface";
+import type { GalleryImage } from "@/types/gallery-image.interface";
+import type { HeroData } from "@/types/hero-data.interface";
+import type { PrimaryServiceItem } from "@/types/primary-service-item.interface";
+import type { ProjectItem } from "@/types/project-item.interface";
+import type { SocialLink } from "@/types/social-link.interface";
 
 export const fallbackHero: HeroData = {
   title: "Minimal systems make the maximum impact",

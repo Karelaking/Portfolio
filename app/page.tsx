@@ -16,17 +16,11 @@ import {
   IconSparkles,
   IconStack,
 } from "@tabler/icons-react";
-import { FadeIn } from "@/components/motion/fade-in";
-import { AnimatedIcon } from "@/components/motion/animated-icon";
-import { SiteFooter } from "@/components/layouts/site-footer";
-import { SiteHeader } from "@/components/layouts/site-header";
-import { SiteShell } from "@/components/layouts/site-shell";
-import { SectionHeader } from "@/components/sections/section-header";
-import { Hero } from "@/components/sections/hero";
-import { GalleryImage } from "@/components/sections/gallery-image";
-import { HeroSkeleton } from "@/components/sections/hero-skeleton";
-import { ContactForm } from "@/components/sections/contact-form";
-import { SectionOrnament } from "@/components/visuals/section-ornament";
+import { AnimatedIcon, FadeIn } from "@/components/motion";
+import { SiteFooter, SiteHeader, SiteShell } from "@/components/layouts";
+import { ContactForm, GalleryImage, Hero, SectionHeader } from "@/components/sections";
+import { HeroSkeleton } from "@/components/skeletons";
+import { SectionOrnament } from "@/components/visuals";
 import {
   getBlogPosts,
   getCurrentFocus,
@@ -38,7 +32,8 @@ import {
   getProjects,
   getSocialLinks,
 } from "@/lib/portfolio/queries";
-import type { ExpertiseItem, SocialLink } from "@/types/portfolio";
+import type { ExpertiseItem } from "@/types/expertise-item.interface";
+import type { SocialLink } from "@/types/social-link.interface";
 
 export const revalidate = 0;
 

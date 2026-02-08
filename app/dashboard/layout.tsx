@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from "react";
 import Link from "next/link";
-import { SignOutButton } from "@/components/dashboard/sign-out-button";
+import { SignOutButton } from "@/components/dashboard";
 
 interface DashboardLayoutProps {
   children: ReactNode;

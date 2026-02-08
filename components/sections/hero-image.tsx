@@ -3,7 +3,7 @@
 import type { ReactElement } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import type { HeroData } from "@/types/portfolio";
+import type { HeroData } from "@/types/hero-data.interface";
 
 export type HeroImageProps = Pick<HeroData, "imageAlt" | "imageSrc">;
 
@@ -45,7 +45,7 @@ export const HeroImage = ({ imageAlt, imageSrc }: HeroImageProps): ReactElement 
         width={420}
         height={520}
         className="relative h-[520px] w-[420px] rounded-[2.5rem] border border-border bg-card object-cover p-6"
-        priority
+        loading="eager"
       />
     </motion.div>
   );

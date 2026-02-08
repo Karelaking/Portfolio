@@ -1,9 +1,7 @@
-"use server";
-
-import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { getSupabaseAdminClient } from "@/lib/supabase/server";
-import type { ActionResult, HeroMetric } from "@/types/portfolio";
+import type { HeroMetric } from "@/types/hero-metric.interface";
+import type { ParsedHeroInput } from "@/types/parsed-hero-input.interface";
+import type { HeroRowInput } from "@/types/hero-row-input.interface";
 
 const heroSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -15,29 +13,6 @@ const heroSchema = z.object({
   imageAlt: z.string().min(1, "Image alt text is required"),
   metrics: z.string().min(1, "Metrics are required"),
 });
-
-interface ParsedHeroInput {
-  title: string;
-  subtitle: string;
-  description: string;
-  location: string;
-  availability: string;
-  imageSrc: string;
-  imageAlt: string;
-  metrics: HeroMetric[];
-}
-
-interface HeroRowInput {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  location: string;
-  availability: string;
-  image_src: string;
-  image_alt: string;
-  metrics: HeroMetric[];
-}
 
 const parseMetrics = (raw: string): HeroMetric[] => {
   try {
@@ -109,43 +84,4 @@ const toHeroRow = (data: ParsedHeroInput): HeroRowInput => {
   };
 };
 
-export const upsertHeroAction = async (
-  _prevState: ActionResult | null,
-  formData: FormData,
-): Promise<ActionResult> => {
-  const client = getSupabaseAdminClient();
-  if (!client) {
-    return { ok: false, error: "Admin client not configured." };
-  }
-
-  const result = parseHeroForm(formData);
-  if (!result.data) {
-    return { ok: false, error: result.error ?? "Invalid form data." };
-  }
-
-  const payload = toHeroRow(result.data);
-  const { error } = await client.from("hero").upsert(payload, { onConflict: "id" });
-  if (error) {
-    return { ok: false, error: error.message || "Failed to save hero." };
-  }
-
-  revalidatePath("/");
-  revalidatePath("/dashboard/hero");
-  return { ok: true };
-};
-
-export const deleteHeroAction = async (): Promise<ActionResult> => {
-  const client = getSupabaseAdminClient();
-  if (!client) {
-    return { ok: false, error: "Admin client not configured." };
-  }
-
-  const { error } = await client.from("hero").delete().eq("id", "default");
-  if (error) {
-    return { ok: false, error: error.message || "Failed to delete hero." };
-  }
-
-  revalidatePath("/");
-  revalidatePath("/dashboard/hero");
-  return { ok: true };
-};
+export { parseHeroForm, toHeroRow };

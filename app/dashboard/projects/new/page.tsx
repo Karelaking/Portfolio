@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
-import { createProject } from "@/app/dashboard/projects/actions";
-import { ProjectForm } from "@/components/dashboard/project-form";
+import { createProject } from "@/actions/dashboard/projects/create-project.action";
+import { ProjectForm } from "@/components/dashboard";
 
 const NewProjectPage = (): ReactElement => {
   return (

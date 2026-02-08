@@ -2,9 +2,9 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { ProjectItem } from "@/types/portfolio";
-import { updateProject } from "@/app/dashboard/projects/actions";
-import { ProjectForm } from "@/components/dashboard/project-form";
+import type { ProjectItem } from "@/types/project-item.interface";
+import { updateProject } from "@/actions/dashboard/projects/update-project.action";
+import { ProjectForm } from "@/components/dashboard";
 
 interface EditProjectPageProps {
   params: Promise<{ id: string }>;

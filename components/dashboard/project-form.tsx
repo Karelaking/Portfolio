@@ -3,11 +3,11 @@
 import type { FormEvent, ReactElement } from "react";
 import { useActionState, useEffect, useId, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
-import type { createProject } from "@/app/dashboard/projects/actions";
-import type { ActionResult } from "@/types/portfolio";
+import type { createProject } from "@/actions/dashboard/projects/create-project.action";
+import type { ActionResult } from "@/types/action-result.interface";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import {
   AlertDialog,
@@ -19,7 +19,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/components/ui";
 
 export interface ProjectFormValues {
   name: string;

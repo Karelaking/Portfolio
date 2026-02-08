@@ -23,11 +23,7 @@ export const HeroSkeleton = (): ReactElement => {
           <SkeletonBlock className="h-10 w-44" />
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
-          {[
-            "hero-metric-1",
-            "hero-metric-2",
-            "hero-metric-3",
-          ].map((key) => (
+          {["hero-metric-1", "hero-metric-2", "hero-metric-3"].map((key) => (
             <div className="rounded-2xl border border-border/70 bg-card px-4 py-3" key={key}>
               <SkeletonBlock className="h-6 w-16" />
               <SkeletonBlock className="mt-2 h-3 w-20" />

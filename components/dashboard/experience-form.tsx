@@ -5,10 +5,10 @@ import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
-import type { createExperience } from "@/app/dashboard/experience/actions";
-import type { ActionResult } from "@/types/portfolio";
+import type { createExperience } from "@/actions/dashboard/experience/create-experience.action";
+import type { ActionResult } from "@/types/action-result.interface";
 
 export interface ExperienceFormValues {
   role: string;

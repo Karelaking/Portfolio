@@ -11,27 +11,17 @@ import {
   fallbackProjects,
   fallbackSocial,
 } from "@/lib/portfolio/fallback";
-import type {
-  BlogPost,
-  CurrentFocusItem,
-  ExpertiseItem,
-  ExperienceItem,
-  GalleryImage,
-  HeroData,
-  PrimaryServiceItem,
-  ProjectItem,
-  SocialLink,
-} from "@/types/portfolio";
-
-interface HeroRow extends Omit<HeroData, "imageSrc" | "imageAlt"> {
-  image_src: string;
-  image_alt: string;
-}
-
-interface ProjectRow extends Omit<ProjectItem, "imageSrc" | "imageAlt"> {
-  image_src: string;
-  image_alt: string;
-}
+import type { BlogPost } from "@/types/blog-post.interface";
+import type { CurrentFocusItem } from "@/types/current-focus-item.interface";
+import type { ExpertiseItem } from "@/types/expertise-item.interface";
+import type { ExperienceItem } from "@/types/experience-item.interface";
+import type { GalleryImage } from "@/types/gallery-image.interface";
+import type { HeroData } from "@/types/hero-data.interface";
+import type { HeroRow } from "@/types/hero-row.interface";
+import type { PrimaryServiceItem } from "@/types/primary-service-item.interface";
+import type { ProjectItem } from "@/types/project-item.interface";
+import type { ProjectRow } from "@/types/project-row.interface";
+import type { SocialLink } from "@/types/social-link.interface";
 
 const mapHeroRow = (row: HeroRow): HeroData => {
   return {
