@@ -3,9 +3,9 @@ import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { ProjectItem } from "@/types/portfolio";
-import { ProjectDeleteButton } from "@/components/dashboard/project-delete-button";
-import { ProjectsPanelSkeleton } from "@/components/dashboard/projects-panel-skeleton";
+import type { ProjectItem } from "@/types";
+import { ProjectDeleteButton } from "@/components/dashboard";
+import { ProjectsPanelSkeleton } from "@/components/skeletons";
 
 interface ProjectFetchResult {
   projects: ProjectItem[];

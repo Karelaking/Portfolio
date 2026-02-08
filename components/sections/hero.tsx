@@ -2,9 +2,9 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import type { HeroData } from "@/types/portfolio";
-import { CountUpValue } from "@/components/metrics/count-up-value";
-import { FadeIn } from "@/components/motion/fade-in";
+import type { HeroData } from "@/types/hero-data.interface";
+import { CountUpValue } from "@/components/metrics";
+import { FadeIn } from "@/components/motion";
 import { HeroImage } from "@/components/sections/hero-image";
 
 export interface HeroProps {

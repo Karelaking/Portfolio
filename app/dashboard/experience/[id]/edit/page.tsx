@@ -2,9 +2,9 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { ExperienceItem } from "@/types/portfolio";
-import { updateExperience } from "@/app/dashboard/experience/actions";
-import { ExperienceForm } from "@/components/dashboard/experience-form";
+import type { ExperienceItem } from "@/types/experience-item.interface";
+import { updateExperience } from "@/actions/dashboard/experience/update-experience.action";
+import { ExperienceForm } from "@/components/dashboard";
 
 interface EditExperiencePageProps {
   params: Promise<{ id: string }>;

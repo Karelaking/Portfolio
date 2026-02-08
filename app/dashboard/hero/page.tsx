@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import { getHero } from "@/lib/portfolio/queries";
-import { HeroForm } from "@/components/dashboard/hero-form";
+import { HeroForm } from "@/components/dashboard";
 
 const HeroDashboardPage = async (): Promise<ReactElement> => {
   const hero = await getHero();

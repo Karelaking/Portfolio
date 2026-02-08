@@ -5,10 +5,10 @@ import { useActionState, useEffect, useId, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
-import type { createGalleryImage } from "@/app/dashboard/gallery/actions";
-import type { ActionResult } from "@/types/portfolio";
+import type { createGalleryImage } from "@/actions/dashboard/gallery/create-gallery-image.action";
+import type { ActionResult } from "@/types/action-result.interface";
 
 export interface GalleryFormValues {
   src: string;

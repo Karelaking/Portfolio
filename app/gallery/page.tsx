@@ -3,11 +3,9 @@ import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { SiteFooter } from "@/components/layouts/site-footer";
-import { SiteHeader } from "@/components/layouts/site-header";
-import { SiteShell } from "@/components/layouts/site-shell";
-import { SectionHeader } from "@/components/sections/section-header";
-import { SectionOrnament } from "@/components/visuals/section-ornament";
+import { SiteFooter, SiteHeader, SiteShell } from "@/components/layouts";
+import { SectionHeader } from "@/components/sections";
+import { SectionOrnament } from "@/components/visuals";
 import { getGalleryImages } from "@/lib/portfolio/queries";
 
 export const revalidate = 0;

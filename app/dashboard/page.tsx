@@ -1,6 +1,20 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 
+type DashboardLinkItem = {
+  label: string;
+  href: string;
+};
+
+const dashboardLinks: DashboardLinkItem[] = [
+  { label: "Manage projects", href: "/dashboard/projects" },
+  { label: "Manage hero section", href: "/dashboard/hero" },
+  { label: "Manage experience", href: "/dashboard/experience" },
+  { label: "Manage gallery", href: "/dashboard/gallery" },
+  { label: "View portfolio", href: "/" },
+  { label: "Auth settings", href: "/login" },
+];
+
 const DashboardPage = (): ReactElement => {
   return (
     <div className="space-y-6">
@@ -11,42 +25,15 @@ const DashboardPage = (): ReactElement => {
         </p>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
-        <Link
-          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
-          href="/dashboard/projects"
-        >
-          Manage projects
-        </Link>
-        <Link
-          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
-          href="/dashboard/hero"
-        >
-          Manage hero section
-        </Link>
-        <Link
-          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
-          href="/dashboard/experience"
-        >
-          Manage experience
-        </Link>
-        <Link
-          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
-          href="/dashboard/gallery"
-        >
-          Manage gallery
-        </Link>
-        <Link
-          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
-          href="/"
-        >
-          View portfolio
-        </Link>
-        <Link
-          className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
-          href="/login"
-        >
-          Auth settings
-        </Link>
+        {dashboardLinks.map((link) => (
+          <Link
+            className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
+            href={link.href}
+            key={link.href}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
       <p className="text-xs text-muted-foreground">
         Tell me which CRUD sections you want and I’ll add them here.

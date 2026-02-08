@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { deleteGalleryImageAction } from "@/app/dashboard/gallery/actions";
+import { deleteGalleryImageAction } from "@/actions/dashboard/gallery/delete-gallery-image.action";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,8 +15,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui";
+import { Button } from "@/components/ui";
 
 export interface GalleryDeleteButtonProps {
   imageId: string;

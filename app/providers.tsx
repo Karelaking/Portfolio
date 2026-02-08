@@ -3,14 +3,12 @@
 import dynamic from "next/dynamic";
 import type { ReactElement, ReactNode } from "react";
 import { Toaster } from "sonner";
-import { AppThemeProvider } from "@/components/providers/theme-provider";
+import { AppThemeProvider } from "@/components/providers";
 import { useMounted } from "@/hooks/use-mounted";
 
 const LazyAnalyticsProvider = dynamic(
   () =>
-    import("@/components/providers/analytics-provider").then(
-      (mod) => mod.AnalyticsProvider,
-    ),
+    import("@/components/providers").then((mod) => mod.AnalyticsProvider),
   {
     ssr: false,
   },

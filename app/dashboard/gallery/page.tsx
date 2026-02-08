@@ -2,8 +2,8 @@ import type { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { GalleryImage } from "@/types/portfolio";
-import { GalleryDeleteButton } from "@/components/dashboard/gallery-delete-button";
+import type { GalleryImage } from "@/types/gallery-image.interface";
+import { GalleryDeleteButton } from "@/components/dashboard";
 
 interface GalleryFetchResult {
   images: GalleryImage[];
