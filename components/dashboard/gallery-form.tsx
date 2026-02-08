@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { createGalleryImage } from "@/app/dashboard/gallery/actions";
-import type { ActionResult } from "@/lib/portfolio/types";
+import type { ActionResult } from "@/types/portfolio";
 
 export interface GalleryFormValues {
   src: string;

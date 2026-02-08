@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { ExperienceItem } from "@/lib/portfolio/types";
+import type { ExperienceItem } from "@/types/portfolio";
 import { updateExperience } from "@/app/dashboard/experience/actions";
 import { ExperienceForm } from "@/components/dashboard/experience-form";
 

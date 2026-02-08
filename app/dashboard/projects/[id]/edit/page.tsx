@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { ProjectItem } from "@/lib/portfolio/types";
+import type { ProjectItem } from "@/types/portfolio";
 import { updateProject } from "@/app/dashboard/projects/actions";
 import { ProjectForm } from "@/components/dashboard/project-form";
 

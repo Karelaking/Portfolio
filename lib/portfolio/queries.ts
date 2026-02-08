@@ -21,7 +21,7 @@ import type {
   PrimaryServiceItem,
   ProjectItem,
   SocialLink,
-} from "@/lib/portfolio/types";
+} from "@/types/portfolio";
 
 interface HeroRow extends Omit<HeroData, "imageSrc" | "imageAlt"> {
   image_src: string;

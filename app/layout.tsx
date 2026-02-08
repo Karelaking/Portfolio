@@ -43,21 +43,21 @@ export default function RootLayout({
   children,
 }: RootLayoutProps): ReactElement {
   return (
-    <ClerkProvider>
-      <html
-        lang="en"
-        suppressHydrationWarning
-        className={cn(
-          geistSans.variable,
-          geistMono.variable,
-          jetBrainsMono.variable,
-          meaCulpa.variable
-        )}
-      >
-        <body className="font-sans antialiased">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(
+        geistSans.variable,
+        geistMono.variable,
+        jetBrainsMono.variable,
+        meaCulpa.variable
+      )}
+    >
+      <body className="font-sans antialiased">
+        <ClerkProvider>
           <Providers>{children}</Providers>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }

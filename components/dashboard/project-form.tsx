@@ -4,7 +4,7 @@ import type { FormEvent, ReactElement } from "react";
 import { useActionState, useEffect, useId, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import type { createProject } from "@/app/dashboard/projects/actions";
-import type { ActionResult } from "@/lib/portfolio/types";
+import type { ActionResult } from "@/types/portfolio";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";

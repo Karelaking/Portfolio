@@ -38,7 +38,7 @@ import {
   getProjects,
   getSocialLinks,
 } from "@/lib/portfolio/queries";
-import type { ExpertiseItem, SocialLink } from "@/lib/portfolio/types";
+import type { ExpertiseItem, SocialLink } from "@/types/portfolio";
 
 export const revalidate = 0;
 

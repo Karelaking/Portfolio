@@ -3,7 +3,7 @@
 import type { ReactElement } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import type { HeroData } from "@/lib/portfolio/types";
+import type { HeroData } from "@/types/portfolio";
 
 export type HeroImageProps = Pick<HeroData, "imageAlt" | "imageSrc">;
 

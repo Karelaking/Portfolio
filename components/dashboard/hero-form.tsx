@@ -17,7 +17,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { cn } from "@/lib/utils";
-import type { ActionResult, HeroData, HeroMetric } from "@/lib/portfolio/types";
+import type { ActionResult, HeroData, HeroMetric } from "@/types/portfolio";
 import { deleteHeroAction, upsertHeroAction } from "@/app/dashboard/hero/actions";
 
 interface HeroFormProps {
