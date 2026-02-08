@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { createExperience } from "@/app/dashboard/experience/actions";
-import type { ActionResult } from "@/lib/portfolio/types";
+import type { ActionResult } from "@/types/portfolio";
 
 export interface ExperienceFormValues {
   role: string;

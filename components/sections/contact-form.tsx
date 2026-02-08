@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { submitContact } from "@/app/actions/contact";
-import type { ContactMessageInput } from "@/lib/portfolio/types";
+import type { ContactMessageInput } from "@/types/portfolio";
 
 interface ContactFormStatus {
   state: "idle" | "success" | "error";

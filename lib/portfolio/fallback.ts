@@ -8,7 +8,7 @@ import type {
   PrimaryServiceItem,
   ProjectItem,
   SocialLink,
-} from "@/lib/portfolio/types";
+} from "@/types/portfolio";
 
 export const fallbackHero: HeroData = {
   title: "Minimal systems make the maximum impact",

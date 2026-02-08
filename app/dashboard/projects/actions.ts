@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { getSupabaseAdminClient } from "@/lib/supabase/server";
-import type { ActionResult } from "@/lib/portfolio/types";
+import type { ActionResult } from "@/types/portfolio";
 
 const projectSchema = z.object({
   name: z.string().min(1, "Name is required"),

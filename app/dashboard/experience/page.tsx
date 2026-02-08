@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { ExperienceItem } from "@/lib/portfolio/types";
+import type { ExperienceItem } from "@/types/portfolio";
 import { ExperienceDeleteButton } from "@/components/dashboard/experience-delete-button";
 
 interface ExperienceFetchResult {

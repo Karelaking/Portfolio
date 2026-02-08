@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { getSupabaseAdminClient } from "@/lib/supabase/server";
-import type { ActionResult, HeroMetric } from "@/lib/portfolio/types";
+import type { ActionResult, HeroMetric } from "@/types/portfolio";
 
 const heroSchema = z.object({
   title: z.string().min(1, "Title is required"),

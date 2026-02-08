@@ -36,7 +36,7 @@ export const GalleryImage = ({
         height={height}
         className={cn("h-48 w-full object-cover", className, !loaded ? "opacity-0" : null)}
         sizes={sizes}
-        onLoadingComplete={(): void => {
+        onLoad={(): void => {
           setLoaded(true);
         }}
       />

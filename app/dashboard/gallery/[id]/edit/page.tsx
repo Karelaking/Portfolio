@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { GalleryImage } from "@/lib/portfolio/types";
+import type { GalleryImage } from "@/types/portfolio";
 import { updateGalleryImage } from "@/app/dashboard/gallery/actions";
 import { GalleryForm } from "@/components/dashboard/gallery-form";
 

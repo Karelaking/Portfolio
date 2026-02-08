@@ -12,7 +12,7 @@ import type {
   HeroData,
   ProjectItem,
   SocialLink,
-} from "@/lib/portfolio/types";
+} from "@/types/portfolio";
 
 const getAdminClient = (): SupabaseClient | null => {
   return getSupabaseAdminClient();

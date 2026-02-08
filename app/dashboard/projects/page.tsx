@@ -3,7 +3,7 @@ import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
-import type { ProjectItem } from "@/lib/portfolio/types";
+import type { ProjectItem } from "@/types/portfolio";
 import { ProjectDeleteButton } from "@/components/dashboard/project-delete-button";
 import { ProjectsPanelSkeleton } from "@/components/dashboard/projects-panel-skeleton";
 

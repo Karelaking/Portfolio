@@ -5,7 +5,7 @@ import {
   getSupabaseAdminClient,
   getSupabaseServerClient,
 } from "@/lib/supabase/server";
-import type { ActionResult, ContactMessageInput } from "@/lib/portfolio/types";
+import type { ActionResult, ContactMessageInput } from "@/types/portfolio";
 
 const isValidEmail = (email: string): boolean => {
   return /\S+@\S+\.\S+/.test(email);

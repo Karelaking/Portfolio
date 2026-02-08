@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import type { HeroData } from "@/lib/portfolio/types";
+import type { HeroData } from "@/types/portfolio";
 import { CountUpValue } from "@/components/metrics/count-up-value";
 import { FadeIn } from "@/components/motion/fade-in";
 import { HeroImage } from "@/components/sections/hero-image";
