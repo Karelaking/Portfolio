@@ -1,5 +1,7 @@
 export { cn } from "./utils";
 
+export { createScopedLogger, logger } from "./logging";
+
 export { getSupabaseAdminClient, getSupabaseServerClient } from "./supabase";
 
 export {
