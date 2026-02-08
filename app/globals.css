@@ -23,6 +23,17 @@
   animation: ping-slow 4s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Scroll section animations */
 .scroll-section {
   opacity: 0;
