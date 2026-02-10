@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { Writable } from "node:stream";
 import pino from "pino";
+type Level = "fatal" | "error" | "warn" | "info" | "debug" | "trace";
 
 const isEdgeRuntime = process.env.NEXT_RUNTIME === "edge";
 const isServerRuntime = typeof window === "undefined" && !isEdgeRuntime;
@@ -60,7 +61,7 @@ const createLogger = (): pino.Logger => {
 
   const streams: pino.StreamEntry[] = [
     {
-      level: process.env.LOG_LEVEL ?? "info",
+      level: (process.env.LOG_LEVEL as Level) ?? "info",
       stream: createRotatingFileStream(),
     },
   ];
@@ -71,7 +72,7 @@ const createLogger = (): pino.Logger => {
 
   return pino(
     {
-      level: process.env.LOG_LEVEL ?? "info",
+      level: (process.env.LOG_LEVEL as Level) ?? "info",
       timestamp: pino.stdTimeFunctions.isoTime,
       base: { service: "portfolio" },
     },
