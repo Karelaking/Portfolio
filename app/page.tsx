@@ -18,7 +18,7 @@ import {
 } from "@tabler/icons-react";
 import { AnimatedIcon, FadeIn } from "@/components/motion";
 import { SiteFooter, SiteHeader, SiteShell } from "@/components/layouts";
-import { ContactForm, GalleryImage, Hero, SectionHeader } from "@/components/sections";
+import { BlogGrid, ContactForm, GalleryImage, Hero, SectionHeader } from "@/components/sections";
 import { HeroSkeleton } from "@/components/skeletons";
 import { SectionOrnament } from "@/components/visuals";
 import {
@@ -174,7 +174,7 @@ const Page = async (): Promise<ReactElement> => {
         <SectionOrnament className="left-6 right-auto" />
         <SectionHeader
           label="Experience"
-          title="Monochrome systems in the wild."
+          title="Prove of my tech life journey"
           copy="Product, studio, and engineering roles that refined the craft."
         />
         <div className="space-y-6">
@@ -227,7 +227,7 @@ const Page = async (): Promise<ReactElement> => {
         <SectionOrnament className="right-8" />
         <SectionHeader
           label="Projects"
-          title="Selected builds in black and white."
+          title="Love to work with different tech"
           copy="A snapshot of recent work across product and interface design."
         />
         <div className="grid gap-6 md:grid-cols-2">
@@ -330,26 +330,7 @@ const Page = async (): Promise<ReactElement> => {
           title="Writing about quiet product systems."
           copy="Thoughts on minimalism, systems, and the craft of building."
         />
-        <div className="space-y-4">
-          {blogPosts.map((post) => (
-            <a
-              className="flex flex-col gap-3 rounded-2xl border border-border/70 bg-card px-5 py-4"
-              href={post.href}
-              key={post.id}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                <span>{post.date}</span>
-                <IconArrowUpRight size={14} />
-              </div>
-              <h3 className="text-lg font-semibold">{post.title}</h3>
-              <p className="text-sm text-muted-foreground">
-                {post.excerpt}
-              </p>
-            </a>
-          ))}
-        </div>
+        <BlogGrid posts={blogPosts} />
       </section>
 
       <section

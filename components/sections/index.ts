@@ -1,5 +1,7 @@
 export { ContactForm } from "./contact-form";
 
+export { BlogGrid } from "./blog-grid";
+
 export { GalleryImage } from "./gallery-image";
 export type { GalleryImageProps } from "./gallery-image";
 

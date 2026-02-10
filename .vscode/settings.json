@@ -19,6 +19,6 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "docwriter.style": "Auto-detect",
-  "editor.fontFamily": "JetBrains Mono",
+  // "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true
 }

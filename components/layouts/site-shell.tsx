@@ -15,9 +15,9 @@ export const SiteShell = ({
   className,
 }: SiteShellProps): ReactElement => {
   return (
-    <div className={cn("min-h-dvh bg-background text-foreground", className)}>
+    <div className={cn("bg-background text-foreground min-h-dvh", className)}>
       {header}
-      <main className="mx-auto w-full max-w-5xl px-4 py-12 sm:px-6 lg:px-8 border-x">
+      <main className="mx-auto w-full max-w-5xl border-x px-4 pt-28 pb-12 sm:px-6 sm:pt-32 lg:px-8">
         {children}
       </main>
       {footer}
