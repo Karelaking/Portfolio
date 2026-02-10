@@ -51,6 +51,8 @@ if (supabaseHostname) {
 
 const nextConfig: NextConfig = {
   images: remotePatterns,
+  experimental: {
+  },
 };
 
 export default nextConfig;

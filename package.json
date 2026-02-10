@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev && next-devtools-mcp",
-    "build": "next build",
-    "start": "next start",
+    "dev": "next dev --webpack && next-devtools-mcp",
+    "build": "next build --webpack",
+    "start": "next start --webpack",
     "lint": "eslint",
     "test": "vitest"
   },
@@ -45,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^8.50.0",
     "@typescript-eslint/parser": "^8.50.0",
     "autoprefixer": "^10.4.19",
+    "baseline-browser-mapping": "^2.9.19",
     "eslint": "^9",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
