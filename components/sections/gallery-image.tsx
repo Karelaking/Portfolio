@@ -87,7 +87,7 @@ export const GalleryImage = ({
               onClick={(): void => setIsOpen(false)}
               aria-label="Close image"
             />
-            <div className="relative z-10 w-full md:w-auto">
+            <div className="relative z-10 w-fit md:w-auto">
               <motion.div
                 layoutId={layoutId}
                 className="overflow-hidden rounded-3xl border border-border/70 bg-card p-3"
@@ -102,7 +102,7 @@ export const GalleryImage = ({
                   src={src}
                   width={width}
                   height={height}
-                  className="h-auto max-h-[80vh] w-full rounded-2xl object-contain md:max-h-none"
+                  className="h-auto max-h-[80vh] w-fit rounded-2xl object-contain md:max-h-none"
                   style={{ maxHeight: `${height}px` }}
                   sizes="100vw"
                   priority

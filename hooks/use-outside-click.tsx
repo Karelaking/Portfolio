@@ -1,15 +1,30 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import type { RefObject } from "react";
+
+// eslint-disable-next-line no-unused-vars -- event type is part of the callback contract.
+type OutsideClickCallback = (event: MouseEvent | TouchEvent) => void;
 
 export const useOutsideClick = (
-  ref: React.RefObject<HTMLDivElement>,
-  callback: Function
-) => {
+  ref: RefObject<HTMLDivElement | null>,
+  callback: OutsideClickCallback,
+): void => {
   useEffect(() => {
-    const listener = (event: any) => {
-      // DO NOTHING if the element being clicked is the target element or their children
-      if (!ref.current || ref.current.contains(event.target)) {
+    const listener = (event: MouseEvent | TouchEvent): void => {
+      const target = event.target;
+
+      if (!ref.current) {
         return;
       }
+
+      if (!target || !(target instanceof Node)) {
+        return;
+      }
+
+      // DO NOTHING if the element being clicked is the target element or their children
+      if (ref.current.contains(target)) {
+        return;
+      }
+
       callback(event);
     };
 
