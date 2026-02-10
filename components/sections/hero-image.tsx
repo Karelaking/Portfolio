@@ -1,23 +1,55 @@
 "use client";
 
-import type { ReactElement } from "react";
+import type { CSSProperties, ReactElement } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import type { HeroData } from "@/types/hero-data.interface";
 import { PixelatedCanvas } from "../ui/pixelated-canvas";
 
 export type HeroImageProps = Pick<HeroData, "imageAlt" | "imageSrc">;
 
-export const HeroImage = ({ imageAlt, imageSrc }: HeroImageProps): ReactElement => {
+const clampValue = (value: number, min: number, max: number): number => {
+  return Math.min(Math.max(value, min), max);
+};
+
+export const HeroImage = ({
+  imageAlt,
+  imageSrc,
+}: HeroImageProps): ReactElement => {
+  const [viewportWidth, setViewportWidth] = useState<number>(1024);
+
+  useEffect((): (() => void) => {
+    const updateViewportWidth = (): void => {
+      setViewportWidth(window.innerWidth);
+    };
+
+    updateViewportWidth();
+    window.addEventListener("resize", updateViewportWidth, { passive: true });
+
+    return (): void => {
+      window.removeEventListener("resize", updateViewportWidth);
+    };
+  }, []);
+
+  const padding = viewportWidth < 640 ? 16 : 24;
+  const containerWidth = clampValue(viewportWidth * 0.9, 280, 420);
+  const canvasWidth = Math.max(containerWidth - padding * 2, 200);
+  const canvasHeight = Math.round((canvasWidth * 26) / 21);
+
+  const containerStyle = useMemo((): CSSProperties => {
+    return { width: `${containerWidth}px` };
+  }, [containerWidth]);
+
   return (
     <motion.div
-      className="relative flex h-full items-center justify-center"
+      className="relative flex w-full items-center justify-center overflow-x-hidden"
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false, amount: 0.4 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
     >
       <motion.div
-        className="absolute -left-6 top-6 h-24 w-24 rounded-full border border-border"
+        className="border-border absolute top-6 left-2 h-24 w-24 rounded-full border sm:-left-6"
         initial={{ y: 0 }}
         whileInView={{ y: [0, -6, 0] }}
         viewport={{ once: false, amount: 0.4 }}
@@ -28,7 +60,7 @@ export const HeroImage = ({ imageAlt, imageSrc }: HeroImageProps): ReactElement 
         }}
       />
       <motion.div
-        className="absolute bottom-6 right-4 h-16 w-16 rounded-full border border-border"
+        className="border-border absolute right-2 bottom-6 h-16 w-16 rounded-full border sm:right-4"
         initial={{ y: 0 }}
         whileInView={{ y: [0, 5, 0] }}
         viewport={{ once: false, amount: 0.4 }}
@@ -38,7 +70,7 @@ export const HeroImage = ({ imageAlt, imageSrc }: HeroImageProps): ReactElement 
           ease: "easeInOut",
         }}
       />
-      <div className="pointer-events-none absolute left-1/2 top-4 h-px w-32 -translate-x-1/2 bg-border/60" />
+      <div className="bg-border/60 pointer-events-none absolute top-4 left-1/2 h-px w-32 -translate-x-1/2" />
       {/* <Image
         alt={imageAlt}
         src={imageSrc}
@@ -47,11 +79,14 @@ export const HeroImage = ({ imageAlt, imageSrc }: HeroImageProps): ReactElement 
         className="relative h-[520px] w-[420px] rounded-[2.5rem] border border-border bg-card object-cover p-6"
         loading="eager"
       /> */}
-      <div className="relative h-[520px] w-[420px] rounded-[2.5rem] border border-border bg-card p-6">
+      <div
+        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-[2.5rem] border p-4 ring-1 sm:p-6"
+        style={containerStyle}
+      >
         <PixelatedCanvas
           src={imageSrc}
-          width={372}
-          height={472}
+          width={canvasWidth}
+          height={canvasHeight}
           cellSize={2}
           dotScale={0.8}
           shape="square"

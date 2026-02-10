@@ -111,7 +111,7 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
   const activityRef = React.useRef<number>(0);
   const activityTargetRef = React.useRef<number>(0);
   const altRef = React.useRef<string>(alt);
-
+    
   React.useEffect(() => {
     let isCancelled = false;
     const canvas = canvasRef.current;

@@ -123,7 +123,7 @@ export const SiteHeader = ({ className }: SiteHeaderProps): ReactElement => {
   return (
     <header
       className={cn(
-        "border-border/60 bg-background/90 fixed top-0 z-40 w-full border-b backdrop-blur",
+        "border-border/60 bg-background/90 w-full border-b backdrop-blur max-w-full sticky top-0 z-50",
         className,
       )}
     >
@@ -163,7 +163,7 @@ export const SiteHeader = ({ className }: SiteHeaderProps): ReactElement => {
         <AnimatePresence>
           {isMenuOpen ? (
             <motion.div
-              className="bg-background/95 fixed inset-0 z-50 flex h-dvh flex-col overflow-y-auto backdrop-blur md:hidden"
+              className="bg-background fixed inset-0 z-50 flex h-dvh flex-col overflow-y-auto backdrop-blur md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -189,7 +189,7 @@ export const SiteHeader = ({ className }: SiteHeaderProps): ReactElement => {
               </div>
               <nav
                 aria-label="Mobile"
-                className="text-muted-foreground flex flex-1 flex-col gap-5 px-4 py-6 text-sm tracking-[0.18em] uppercase sm:px-6 sm:tracking-[0.3em]"
+                className="text-muted-foreground flex flex-1 flex-col gap-5 px-4 py-6 text-sm tracking-[0.18em] uppercase sm:px-6 sm:tracking-[0.3em] items-center justify-center"
               >
                 {navLinks.map((link) => (
                   <Link
