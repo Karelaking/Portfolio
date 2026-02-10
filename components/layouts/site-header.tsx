@@ -103,14 +103,31 @@ export const SiteHeader = ({ className }: SiteHeaderProps): ReactElement => {
     };
   }, [isMenuOpen]);
 
+  useEffect((): (() => void) => {
+    if (!isMenuOpen) {
+      return () => undefined;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    const originalTouchAction = document.body.style.touchAction;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+
+    return (): void => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.touchAction = originalTouchAction;
+    };
+  }, [isMenuOpen]);
+
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur",
-        className
+        "border-border/60 bg-background/90 fixed top-0 z-40 w-full border-b backdrop-blur",
+        className,
       )}
     >
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-0">
         <div className="flex items-center justify-between gap-4 py-5">
           <Link href="/" className="text-lg font-semibold tracking-tight">
             MRADUL
@@ -118,15 +135,16 @@ export const SiteHeader = ({ className }: SiteHeaderProps): ReactElement => {
           <div className="flex items-center gap-3">
             <nav
               aria-label="Primary"
-              className="hidden items-center gap-4 text-xs uppercase tracking-[0.3em] text-muted-foreground md:flex"
+              className="text-muted-foreground hidden items-center gap-4 text-xs tracking-[0.3em] uppercase md:flex"
             >
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  className="transition-colors hover:text-foreground"
+                  className="group hover:text-foreground focus-visible:text-foreground relative inline-flex items-center justify-center transition-colors"
                   href={link.href}
                 >
-                  {link.label}
+                  <span className="relative z-10">{link.label}</span>
+                  <span className="bg-foreground absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100" />
                 </Link>
               ))}
             </nav>
@@ -134,7 +152,7 @@ export const SiteHeader = ({ className }: SiteHeaderProps): ReactElement => {
             <button
               aria-expanded={isMenuOpen}
               aria-label="Toggle navigation"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 text-foreground transition hover:border-foreground md:hidden"
+              className="border-border/70 text-foreground hover:border-foreground inline-flex h-10 w-10 items-center justify-center rounded-full border transition md:hidden"
               onClick={handleToggleMenu}
               type="button"
             >
@@ -144,41 +162,48 @@ export const SiteHeader = ({ className }: SiteHeaderProps): ReactElement => {
         </div>
         <AnimatePresence>
           {isMenuOpen ? (
-            <>
-              <motion.button
-                aria-label="Close navigation"
-                className="fixed inset-0 z-30 bg-background/70 md:hidden"
-                onClick={handleNavClick}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                type="button"
-              />
-              <motion.div
-                className="relative z-40 border-t border-border/60 bg-background/95 pb-6 pt-4 md:hidden"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                ref={mobileMenuRef}
-              >
-                <nav
-                  aria-label="Mobile"
-                  className="flex flex-col gap-3 text-xs uppercase tracking-[0.3em] text-muted-foreground"
+            <motion.div
+              className="bg-background/95 fixed inset-0 z-50 flex h-dvh flex-col overflow-y-auto backdrop-blur md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              ref={mobileMenuRef}
+            >
+              <div className="border-border/60 flex items-center justify-between gap-4 border-b px-4 py-5 sm:px-6">
+                <Link
+                  href="/"
+                  className="text-lg font-semibold tracking-tight"
+                  onClick={handleNavClick}
                 >
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      className="transition-colors hover:text-foreground"
-                      href={link.href}
-                      onClick={handleNavClick}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-              </motion.div>
-            </>
+                  MRADUL
+                </Link>
+                <button
+                  aria-label="Close navigation"
+                  className="border-border/70 text-foreground hover:border-foreground inline-flex h-10 w-10 items-center justify-center rounded-full border transition"
+                  onClick={handleNavClick}
+                  type="button"
+                >
+                  <IconX size={18} />
+                </button>
+              </div>
+              <nav
+                aria-label="Mobile"
+                className="text-muted-foreground flex flex-1 flex-col gap-5 px-4 py-6 text-sm tracking-[0.18em] uppercase sm:px-6 sm:tracking-[0.3em]"
+              >
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    className="group hover:text-foreground focus-visible:text-foreground relative inline-flex w-fit items-center wrap-break-word transition-colors"
+                    href={link.href}
+                    onClick={handleNavClick}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    <span className="bg-foreground absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100" />
+                  </Link>
+                ))}
+              </nav>
+            </motion.div>
           ) : null}
         </AnimatePresence>
       </div>

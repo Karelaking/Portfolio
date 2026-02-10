@@ -1,10 +1,9 @@
 import type { ReactElement } from "react";
 import { Suspense, cache } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { SiteFooter, SiteHeader, SiteShell } from "@/components/layouts";
-import { SectionHeader } from "@/components/sections";
+import { GalleryImage, SectionHeader } from "@/components/sections";
 import { SectionOrnament } from "@/components/visuals";
 import { getGalleryImages } from "@/lib/portfolio/queries";
 
@@ -18,7 +17,7 @@ const GalleryContent = async (): Promise<ReactElement> => {
   const images = await fetchGallery();
 
   return (
-    <section className="relative flex flex-col gap-8 border-t border-border/70 pt-12">
+    <section className="relative flex flex-col gap-8 border-t border-border/70 pt-12 min-h-dvh">
       <SectionOrnament className="right-8" />
       <SectionHeader
         label="Gallery"
@@ -27,19 +26,13 @@ const GalleryContent = async (): Promise<ReactElement> => {
       />
       <div className="grid gap-4 sm:grid-cols-2">
         {images.map((image) => (
-          <div
-            className="overflow-hidden rounded-2xl border border-border/70"
+          <GalleryImage
             key={image.id}
-          >
-            <Image
-              alt={image.alt}
-              src={image.src}
-              width={520}
-              height={420}
-              className="h-56 w-full object-cover"
-              sizes="(min-width: 768px) 50vw, 100vw"
-            />
-          </div>
+            alt={image.alt}
+            src={image.src}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="h-56"
+          />
         ))}
       </div>
       <Link
