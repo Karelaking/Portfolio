@@ -1,104 +1,62 @@
+import type { Metadata, Viewport } from "next";
+import type { ReactElement, ReactNode } from "react";
+import { Geist, Geist_Mono, JetBrains_Mono, Mea_Culpa } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import { cn } from "@/lib/utils";
+import { Providers } from "./providers";
 import "./globals.css";
-import { gsap } from "gsap";
-import type { Metadata } from "next";
-import { useGSAP } from "@gsap/react";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
-import { Header, NavItems } from "@/components/layout-header";
-import { Provider } from "./provider/provider";
-import {
-  IconMessage,
-  IconBrandGooglePhotos,
-  IconBriefcase,
-  IconCode,
-} from "@tabler/icons-react";
-import { CvIcon, HomeIcon, SingleUserIcon } from "@/icons/icon";
-import { IconAnimationProvider } from "@/icons/icon-animation-controller";
-import Footer from "@/components/layout-footer";
 
-gsap.registerPlugin(useGSAP);
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({
+  subsets: ["latin"],
   variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
-
 const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetbrains-mono",
+});
+const meaCulpa = Mea_Culpa({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-mea-culpa",
 });
 
-export const metadata: Metadata = {
-  title: "Mradul's | Portfolio",
-  description: "this is the mradul kumar's portfolio website.",
-};
+export const metadata = {
+  title: {
+    default: "Portfolio",
+    template: "%s | Portfolio",
+  },
+  description: "Personal portfolio website",
+  applicationName: "Portfolio",
+} satisfies Metadata;
 
-const navItems: NavItems[] = [
-  {
-    name: "Home",
-    link: "#home",
-    icon: <HomeIcon />,
-  },
-  {
-    name: "About",
-    link: "#about",
-    icon: <SingleUserIcon />,
-  },
-  {
-    name: "Experience",
-    link: "#experience",
-    icon: <CvIcon className="h-4 w-4 text-neutral-500 dark:text-white" />,
-  },
-  {
-    name: "Expertise",
-    link: "#expertise",
-    icon: <IconCode className="h-4 w-4 text-neutral-500 dark:text-white" />,
-  },
-  {
-    name: "Projects",
-    link: "#projects",
-    icon: (
-      <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />
-    ),
-  },
-  {
-    name: "Gallery",
-    link: "#gallery",
-    icon: (
-      <IconBrandGooglePhotos className="h-4 w-4 text-neutral-500 dark:text-white" />
-    ),
-  },
-  {
-    name: "Contact",
-    link: "#contact",
-    icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
-  },
-];
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+} satisfies Viewport;
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: RootLayoutProps):ReactElement {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth!">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} antialiased h-max`}
-      >
-        <Provider>
-          <IconAnimationProvider>
-            <div className="w-full h-full dark:bg-gray-900 transition-colors duration-300 font-jetbrains-mono">
-              <Header navItems={navItems} />
-              {children}
-            </div>
-            <Footer />
-          </IconAnimationProvider>
-        </Provider>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(
+        geistSans.variable,
+        geistMono.variable,
+        jetBrainsMono.variable,
+        meaCulpa.variable
+      )}
+    >
+      <body className="font-sans antialiased">
+        <ClerkProvider>
+          <Providers>{children}</Providers>
+        </ClerkProvider>
       </body>
     </html>
   );

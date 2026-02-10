@@ -1,35 +1,45 @@
-import { createClient } from '@/lib/supabase/server'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import type { ReactElement } from "react";
+import Link from "next/link";
 
-export default async function DashboardPage() {
-  const supabase = await createClient()
+type DashboardLinkItem = {
+  label: string;
+  href: string;
+};
 
-  const { count: projectsCount } = await supabase.from('projects').select('count', { count: 'exact' })
-  const { count: skillsCount } = await supabase.from('skills').select('count', { count: 'exact' })
-  
+const dashboardLinks: DashboardLinkItem[] = [
+  { label: "Manage projects", href: "/dashboard/projects" },
+  { label: "Manage hero section", href: "/dashboard/hero" },
+  { label: "Manage experience", href: "/dashboard/experience" },
+  { label: "Manage gallery", href: "/dashboard/gallery" },
+  { label: "View portfolio", href: "/" },
+  { label: "Auth settings", href: "/login" },
+];
+
+const DashboardPage = (): ReactElement => {
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Dashboard Overview</h1>
-      
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Projects</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{projectsCount || 0}</div>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Skills</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{skillsCount || 0}</div>
-          </CardContent>
-        </Card>
+      <div>
+        <h1 className="text-3xl font-semibold">Dashboard</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Manage your portfolio data from one place.
+        </p>
       </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        {dashboardLinks.map((link) => (
+          <Link
+            className="rounded-2xl border border-border/70 bg-card p-5 text-sm transition hover:border-foreground"
+            href={link.href}
+            key={link.href}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+      <p className="text-xs text-muted-foreground">
+        Tell me which CRUD sections you want and I’ll add them here.
+      </p>
     </div>
-  )
-}
+  );
+};
+
+export default DashboardPage;
