@@ -48,3 +48,7 @@ cosmos
 =======
 pnpm-lock.yaml
 >>>>>>> 00bc145 (bug fix)
+
+# clerk configuration (can include secrets)
+/.clerk/
+/logs

@@ -1,26 +1,12 @@
-'use client'
+"use client";
 
-import { createClient } from '@/lib/supabase/client'
-import { useRouter } from 'next/navigation'
-import { LogOut } from 'lucide-react'
+import type { ReactElement } from "react";
+import { UserButton } from "@clerk/nextjs";
 
-export function SignOutButton() {
-  const router = useRouter()
-  const supabase = createClient()
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    router.push('/login')
-    router.refresh()
-  }
-
+export const SignOutButton = (): ReactElement => {
   return (
-    <button
-      onClick={handleSignOut}
-      className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
-    >
-      <LogOut className="h-4 w-4" />
-      Sign Out
-    </button>
-  )
-}
+    <div className="rounded-full border border-border px-2 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground">
+      <UserButton afterSignOutUrl="/login" />
+    </div>
+  );
+};
