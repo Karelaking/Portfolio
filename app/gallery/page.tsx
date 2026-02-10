@@ -9,15 +9,17 @@ import { getGalleryImages } from "@/lib/portfolio/queries";
 
 export const revalidate = 0;
 
-const fetchGallery = cache(async (): Promise<Awaited<ReturnType<typeof getGalleryImages>>> => {
-  return getGalleryImages();
-});
+const fetchGallery = cache(
+  async (): Promise<Awaited<ReturnType<typeof getGalleryImages>>> => {
+    return getGalleryImages();
+  },
+);
 
 const GalleryContent = async (): Promise<ReactElement> => {
   const images = await fetchGallery();
 
   return (
-    <section className="relative flex flex-col gap-8 border-t border-border/70 pt-12 min-h-dvh">
+    <section className="border-border/70 relative flex min-h-dvh flex-col gap-8 border-t pt-12">
       <SectionOrnament className="right-8" />
       <SectionHeader
         label="Gallery"
@@ -36,7 +38,7 @@ const GalleryContent = async (): Promise<ReactElement> => {
         ))}
       </div>
       <Link
-        className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground"
+        className="text-muted-foreground inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase"
         href="/"
       >
         Back to home
@@ -46,10 +48,14 @@ const GalleryContent = async (): Promise<ReactElement> => {
   );
 };
 
-export const GalleryPage = (): ReactElement => {
+const GalleryPage = (): ReactElement => {
   return (
     <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
-      <Suspense fallback={<div className="h-40 rounded-3xl border border-border/70 bg-card" /> }>
+      <Suspense
+        fallback={
+          <div className="border-border/70 bg-card h-40 rounded-3xl border" />
+        }
+      >
         <GalleryContent />
       </Suspense>
     </SiteShell>

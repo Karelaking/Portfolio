@@ -1,20 +1,23 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactElement, ReactNode } from "react";
 import { Geist, Geist_Mono, JetBrains_Mono, Mea_Culpa } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
 import "./globals.css";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
 });
+
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
 });
+
 const meaCulpa = Mea_Culpa({
   subsets: ["latin"],
   weight: "400",

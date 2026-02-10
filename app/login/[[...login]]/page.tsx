@@ -7,14 +7,14 @@ import * as SignIn from "@clerk/elements/sign-in";
 
 const LoginPage = (): ReactElement => {
   return (
-    <main className="min-h-screen bg-background px-6 py-12">
-      <div className="mx-auto w-full max-w-2xl h-dvh">
-        <section className="rounded-3xl border border-border/70 bg-card p-8 shadow-sm">
-          <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
+    <main className="bg-background min-h-screen px-6 py-12">
+      <div className="mx-auto h-dvh w-full max-w-2xl">
+        <section className="border-border/70 bg-card rounded-3xl border p-8 shadow-sm">
+          <p className="text-muted-foreground text-xs tracking-[0.4em] uppercase">
             Admin access
           </p>
           <h1 className="mt-3 text-3xl font-semibold">Sign in</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="text-muted-foreground mt-2 text-sm">
             Use your email or a social provider to access the dashboard.
           </p>
           <SignIn.Root path="/login" routing="path">
@@ -23,14 +23,14 @@ const LoginPage = (): ReactElement => {
             <SignIn.Step name="start" className="mt-6 space-y-4">
               <div className="grid gap-3 sm:grid-cols-2">
                 <Clerk.Connection
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-foreground"
+                  className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition"
                   name="google"
                 >
                   <Clerk.Icon className="size-4" />
                   Google
                 </Clerk.Connection>
                 <Clerk.Connection
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-foreground"
+                  className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition"
                   name="github"
                 >
                   <Clerk.Icon className="size-4" />
@@ -38,39 +38,39 @@ const LoginPage = (): ReactElement => {
                 </Clerk.Connection>
               </div>
 
-              <div className="flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                <span className="h-px flex-1 bg-border" />
+              <div className="text-muted-foreground flex items-center gap-4 text-xs tracking-[0.3em] uppercase">
+                <span className="bg-border h-px flex-1" />
                 or
-                <span className="h-px flex-1 bg-border" />
+                <span className="bg-border h-px flex-1" />
               </div>
 
               <Clerk.Field name="identifier" className="space-y-2">
-                <Clerk.Label className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                <Clerk.Label className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                   Email
                 </Clerk.Label>
                 <Clerk.Input
-                  className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground"
+                  className="border-border bg-background text-foreground w-full rounded-2xl border px-4 py-3 text-sm"
                   type="email"
                 />
                 <Clerk.FieldError className="text-xs text-red-500" />
               </Clerk.Field>
 
               <SignIn.Action
-                className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
+                className="bg-foreground text-background inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition hover:opacity-90"
                 submit
               >
                 Continue
               </SignIn.Action>
 
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
+              <div className="text-muted-foreground flex items-center justify-between text-xs">
                 <SignIn.Action
-                  className="uppercase tracking-[0.3em] hover:text-foreground"
+                  className="hover:text-foreground tracking-[0.3em] uppercase"
                   navigate="forgot-password"
                 >
                   Forgot password?
                 </SignIn.Action>
                 <Clerk.Link
-                  className="uppercase tracking-[0.3em] hover:text-foreground"
+                  className="hover:text-foreground tracking-[0.3em] uppercase"
                   navigate="sign-up"
                 >
                   Create account
@@ -80,28 +80,28 @@ const LoginPage = (): ReactElement => {
 
             <SignIn.Step name="verifications" className="mt-6 space-y-4">
               <SignIn.Strategy name="password">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   Welcome back, <SignIn.Salutation />. Enter your password to
                   continue.
                 </p>
                 <Clerk.Field name="password" className="space-y-2">
-                  <Clerk.Label className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  <Clerk.Label className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                     Password
                   </Clerk.Label>
                   <Clerk.Input
-                    className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground"
+                    className="border-border bg-background text-foreground w-full rounded-2xl border px-4 py-3 text-sm"
                     type="password"
                   />
                   <Clerk.FieldError className="text-xs text-red-500" />
                 </Clerk.Field>
                 <SignIn.Action
-                  className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
+                  className="bg-foreground text-background inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition hover:opacity-90"
                   submit
                 >
                   Sign in
                 </SignIn.Action>
                 <SignIn.Action
-                  className="text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground text-xs tracking-[0.3em] uppercase"
                   navigate="forgot-password"
                 >
                   Forgot password?
@@ -109,27 +109,27 @@ const LoginPage = (): ReactElement => {
               </SignIn.Strategy>
 
               <SignIn.Strategy name="email_code">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   We sent a code to <SignIn.SafeIdentifier />.
                 </p>
                 <Clerk.Field name="code" className="space-y-2">
-                  <Clerk.Label className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  <Clerk.Label className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                     Email code
                   </Clerk.Label>
                   <Clerk.Input
-                    className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-center text-sm text-foreground tracking-[0.4em]"
+                    className="border-border bg-background text-foreground w-full rounded-2xl border px-4 py-3 text-center text-sm tracking-[0.4em]"
                     type="otp"
                   />
                   <Clerk.FieldError className="text-xs text-red-500" />
                 </Clerk.Field>
                 <SignIn.Action
-                  className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
+                  className="bg-foreground text-background inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition hover:opacity-90"
                   submit
                 >
                   Verify
                 </SignIn.Action>
                 <SignIn.Action
-                  className="text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground text-xs tracking-[0.3em] uppercase"
                   resend
                   fallback={({ resendableAfter }) => (
                     <span>Resend in {resendableAfter}s</span>
@@ -140,21 +140,21 @@ const LoginPage = (): ReactElement => {
               </SignIn.Strategy>
 
               <SignIn.Strategy name="reset_password_email_code">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   Reset code sent to <SignIn.SafeIdentifier />.
                 </p>
                 <Clerk.Field name="code" className="space-y-2">
-                  <Clerk.Label className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  <Clerk.Label className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                     Reset code
                   </Clerk.Label>
                   <Clerk.Input
-                    className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-center text-sm text-foreground tracking-[0.4em]"
+                    className="border-border bg-background text-foreground w-full rounded-2xl border px-4 py-3 text-center text-sm tracking-[0.4em]"
                     type="otp"
                   />
                   <Clerk.FieldError className="text-xs text-red-500" />
                 </Clerk.Field>
                 <SignIn.Action
-                  className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
+                  className="bg-foreground text-background inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition hover:opacity-90"
                   submit
                 >
                   Continue
@@ -163,17 +163,14 @@ const LoginPage = (): ReactElement => {
             </SignIn.Step>
 
             <SignIn.Step name="forgot-password" className="mt-6 space-y-4">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Choose a reset method to recover your account.
               </p>
-              <SignIn.SupportedStrategy
-                className="inline-flex w-full items-center justify-center rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-foreground"
-                name="reset_password_email_code"
-              >
+              <SignIn.SupportedStrategy name="reset_password_email_code">
                 Reset via email code
               </SignIn.SupportedStrategy>
               <SignIn.Action
-                className="text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground text-xs tracking-[0.3em] uppercase"
                 navigate="previous"
               >
                 Go back
@@ -181,31 +178,31 @@ const LoginPage = (): ReactElement => {
             </SignIn.Step>
 
             <SignIn.Step name="reset-password" className="mt-6 space-y-4">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Set a new password to finish resetting your account.
               </p>
               <Clerk.Field name="password" className="space-y-2">
-                <Clerk.Label className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                <Clerk.Label className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                   New password
                 </Clerk.Label>
                 <Clerk.Input
-                  className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground"
+                  className="border-border bg-background text-foreground w-full rounded-2xl border px-4 py-3 text-sm"
                   type="password"
                 />
                 <Clerk.FieldError className="text-xs text-red-500" />
               </Clerk.Field>
               <Clerk.Field name="confirmPassword" className="space-y-2">
-                <Clerk.Label className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                <Clerk.Label className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                   Confirm password
                 </Clerk.Label>
                 <Clerk.Input
-                  className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground"
+                  className="border-border bg-background text-foreground w-full rounded-2xl border px-4 py-3 text-sm"
                   type="password"
                 />
                 <Clerk.FieldError className="text-xs text-red-500" />
               </Clerk.Field>
               <SignIn.Action
-                className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
+                className="bg-foreground text-background inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition hover:opacity-90"
                 submit
               >
                 Update password
@@ -213,14 +210,13 @@ const LoginPage = (): ReactElement => {
             </SignIn.Step>
           </SignIn.Root>
 
-          <p className="mt-6 text-xs text-muted-foreground">
+          <p className="text-muted-foreground mt-6 text-xs">
             Back to the portfolio?{" "}
             <Link className="underline underline-offset-4" href="/">
               Go home
             </Link>
           </p>
         </section>
-
       </div>
     </main>
   );
