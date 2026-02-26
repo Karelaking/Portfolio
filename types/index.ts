@@ -20,3 +20,5 @@ export type { ProjectItem } from "./project-item.interface";
 export type { ProjectRowInput } from "./project-row-input.interface";
 export type { ProjectRow } from "./project-row.interface";
 export type { SocialLink } from "./social-link.interface";
+export type { NavigationBarProps, NavLink } from "@/types/layouts/header.interface";
+export type { FooterProps, FooterLink } from "@/types/layouts/footer.interface";
