@@ -17,7 +17,6 @@ import {
   IconStack,
 } from "@tabler/icons-react";
 import { AnimatedIcon, FadeIn } from "@/components/motion";
-import { SiteFooter, SiteHeader, SiteShell } from "@/components/layouts";
 import { BlogGrid, ContactForm, GalleryImage, Hero, SectionHeader } from "@/components/sections";
 import { HeroSkeleton } from "@/components/skeletons";
 import { SectionOrnament } from "@/components/visuals";
@@ -34,6 +33,8 @@ import {
 } from "@/lib/portfolio/queries";
 import type { ExpertiseItem } from "@/types/expertise-item.interface";
 import type { SocialLink } from "@/types/social-link.interface";
+import { RootProvider } from "@/components/providers";
+import { Container } from "@/components/layouts";
 
 export const revalidate = 0;
 
@@ -101,13 +102,13 @@ const Page = async (): Promise<ReactElement> => {
   const hasMoreGallery = gallery.length > featuredGallery.length;
 
   return (
-    <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
+    <RootProvider>
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSection />
       </Suspense>
 
       <section
-        className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
+        className="relative mt-20 flex flex-col gap-8 pt-12"
         id="about"
       >
         <SectionOrnament />
@@ -137,7 +138,7 @@ const Page = async (): Promise<ReactElement> => {
         </div>
       </section>
 
-      <section
+      <Container
         className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
         id="expertise"
       >
@@ -165,7 +166,7 @@ const Page = async (): Promise<ReactElement> => {
             </div>
           ))}
         </div>
-      </section>
+      </Container>
 
       <section
         className="relative mt-20 flex flex-col gap-8 border-t border-border/70 pt-12"
@@ -402,7 +403,7 @@ const Page = async (): Promise<ReactElement> => {
           <IconArrowUpRight size={14} />
         </Link>
       </section>
-    </SiteShell>
+    </RootProvider>
   );
 };
 

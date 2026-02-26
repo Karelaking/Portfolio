@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import MobileMenu from "./MobileMenu";
+import {MobileMenu} from "./MobileMenu";
 import type { ReactElement } from "react";
 import { NavigationBarProps } from "@/types";
 import { ThemeToggle } from "@/components/theme";

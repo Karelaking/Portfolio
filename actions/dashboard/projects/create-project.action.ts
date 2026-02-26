@@ -2,27 +2,27 @@
 
 import { revalidatePath } from "next/cache";
 import { getSupabaseAdminClient } from "@/lib/supabase/server";
-import { createScopedLogger } from "@/lib/logging";
+// logger removed
 import type { ActionResult } from "@/types/action-result.interface";
 import { parseProjectForm, toProjectRow } from "./project-form";
 
-const logger = createScopedLogger("projects");
+// logger removed
 
 export const createProject = async (
   _prevState: ActionResult | null,
   formData: FormData,
 ): Promise<ActionResult> => {
   try {
-    logger.info("createProject invoked");
+    // logger removed
     const client = getSupabaseAdminClient();
     if (!client) {
-      logger.error("createProject: admin client missing");
+      // logger removed
       return { ok: false, error: "Admin client not configured." };
     }
 
     const result = parseProjectForm(formData);
     if (!result.data) {
-      logger.warn({ error: result.error }, "createProject: invalid form data");
+      // logger removed
       return { ok: false, error: result.error ?? "Invalid form data." };
     }
 
@@ -35,16 +35,16 @@ export const createProject = async (
 
     const { error } = await client.from("projects").insert(payload);
     if (error) {
-      logger.error({ error }, "createProject: insert failed");
+      // logger removed
       return { ok: false, error: error.message || "Failed to create project." };
     }
 
     revalidatePath("/dashboard/projects");
     revalidatePath("/");
-    logger.info({ id: payload.id }, "createProject: success");
+    // logger removed
     return { ok: true };
   } catch (error) {
-    logger.error({ error }, "createProject: unexpected error");
+    // logger removed
     return {
       ok: false,
       error:
