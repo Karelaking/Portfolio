@@ -51,6 +51,7 @@ if (supabaseHostname) {
 
 const nextConfig: NextConfig = {
   images: remotePatterns,
+  outputFileTracingRoot: "./",
   experimental: {
   },
 };

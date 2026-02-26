@@ -24,14 +24,14 @@ const meaCulpa = Mea_Culpa({
   variable: "--font-mea-culpa",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: "Portfolio",
+    default: "MK Katiyar | Portfolio",
     template: "%s | Portfolio",
   },
   description: "Personal portfolio website",
-  applicationName: "Portfolio",
-} satisfies Metadata;
+  applicationName: "Mradul's Portfolio",
+};
 
 export const viewport = {
   width: "device-width",
@@ -53,8 +53,9 @@ export default function RootLayout({
         geistSans.variable,
         geistMono.variable,
         jetBrainsMono.variable,
-        meaCulpa.variable
+        meaCulpa.variable,
       )}
+      data-scroll-behavior="smooth"
     >
       <body className="font-sans antialiased">
         <ClerkProvider>

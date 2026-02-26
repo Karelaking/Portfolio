@@ -20,5 +20,6 @@
   },
   "docwriter.style": "Auto-detect",
   // "editor.fontFamily": "JetBrains Mono",
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
