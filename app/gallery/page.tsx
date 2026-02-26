@@ -2,10 +2,10 @@ import type { ReactElement } from "react";
 import { Suspense, cache } from "react";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { SiteFooter, SiteHeader, SiteShell } from "@/components/layouts";
 import { GalleryImage, SectionHeader } from "@/components/sections";
 import { SectionOrnament } from "@/components/visuals";
 import { getGalleryImages } from "@/lib/portfolio/queries";
+import { RootProvider } from "@/components/providers";
 
 export const revalidate = 0;
 
@@ -50,7 +50,7 @@ const GalleryContent = async (): Promise<ReactElement> => {
 
 const GalleryPage = (): ReactElement => {
   return (
-    <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
+    <RootProvider>
       <Suspense
         fallback={
           <div className="border-border/70 bg-card h-40 rounded-3xl border" />
@@ -58,7 +58,7 @@ const GalleryPage = (): ReactElement => {
       >
         <GalleryContent />
       </Suspense>
-    </SiteShell>
+    </RootProvider>
   );
 };
 
