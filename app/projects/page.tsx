@@ -3,11 +3,11 @@ import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { SiteFooter, SiteHeader, SiteShell } from "@/components/layouts";
 import { SectionHeader } from "@/components/sections";
 import { SectionOrnament } from "@/components/visuals";
 import { getProjects } from "@/lib/portfolio/queries";
 import { ProjectsPageSkeleton } from "@/components/skeletons";
+import { RootProvider } from "@/components/providers";
 
 export const revalidate = 0;
 
@@ -85,11 +85,11 @@ const ProjectsContent = async (): Promise<ReactElement> => {
 
 const ProjectsPage = (): ReactElement => {
   return (
-    <SiteShell header={<SiteHeader />} footer={<SiteFooter />}>
+    <RootProvider>
       <Suspense fallback={<ProjectsPageSkeleton />}>
         <ProjectsContent />
       </Suspense>
-    </SiteShell>
+    </RootProvider>
   );
 };
 
