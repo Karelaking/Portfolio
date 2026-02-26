@@ -2,11 +2,11 @@
 
 import { revalidatePath } from "next/cache";
 import { getSupabaseAdminClient } from "@/lib/supabase/server";
-import { createScopedLogger } from "@/lib/logging";
+// logger removed
 import type { ActionResult } from "@/types/action-result.interface";
 import { parseProjectForm, toProjectRow } from "./project-form";
 
-const logger = createScopedLogger("projects");
+// logger removed
 
 export const updateProject = async (
   id: string,
@@ -14,32 +14,32 @@ export const updateProject = async (
   formData: FormData,
 ): Promise<ActionResult> => {
   try {
-    logger.info({ id }, "updateProject invoked");
+    // logger removed
     const client = getSupabaseAdminClient();
     if (!client) {
-      logger.error("updateProject: admin client missing");
+      // logger removed
       return { ok: false, error: "Admin client not configured." };
     }
 
     const result = parseProjectForm(formData);
     if (!result.data) {
-      logger.warn({ error: result.error }, "updateProject: invalid form data");
+      // logger removed
       return { ok: false, error: result.error ?? "Invalid form data." };
     }
 
     const data = toProjectRow(result.data);
     const { error } = await client.from("projects").update(data).eq("id", id);
     if (error) {
-      logger.error({ error }, "updateProject: update failed");
+      // logger removed
       return { ok: false, error: error.message || "Failed to update project." };
     }
 
     revalidatePath("/dashboard/projects");
     revalidatePath("/");
-    logger.info({ id }, "updateProject: success");
+    // logger removed
     return { ok: true };
   } catch (error) {
-    logger.error({ error }, "updateProject: unexpected error");
+    // logger removed
     return {
       ok: false,
       error:

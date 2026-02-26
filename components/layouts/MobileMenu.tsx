@@ -8,7 +8,7 @@ import { IconMenu2, IconX } from '@tabler/icons-react';
 import { NavLink } from '@/types/layouts/header.interface';
 import { Sheet, SheetTrigger, SheetClose, SheetContent, SheetTitle } from '../ui/sheet';
 
-const MobileMenu = ({navLinks}: { navLinks: NavLink[] }): ReactElement => {
+export const MobileMenu = ({navLinks}: { navLinks: NavLink[] }): ReactElement => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const handleToggleMenu = (): void => {
     setIsMenuOpen((prev) => !prev);
@@ -65,5 +65,3 @@ const MobileMenu = ({navLinks}: { navLinks: NavLink[] }): ReactElement => {
     </div>
   );
 }
-
-export default MobileMenu
