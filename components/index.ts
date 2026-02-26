@@ -14,12 +14,6 @@ export type { ExperienceFormProps, ExperienceFormValues } from "./dashboard";
 export { ExperienceDeleteButton } from "./dashboard";
 export type { ExperienceDeleteButtonProps } from "./dashboard";
 
-export { SiteFooter } from "./layouts";
-export type { SiteFooterProps } from "./layouts";
-export { SiteHeader } from "./layouts";
-export type { SiteHeaderProps } from "./layouts";
-export { SiteShell } from "./layouts";
-export type { SiteShellProps } from "./layouts";
 
 export { CountUpValue } from "./metrics";
 export type { CountUpValueProps } from "./metrics";
