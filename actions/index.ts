@@ -18,3 +18,11 @@ export { createProject } from "./dashboard/projects/create-project.action";
 export { deleteProjectAction } from "./dashboard/projects/delete-project.action";
 export { updateProject } from "./dashboard/projects/update-project.action";
 export { parseProjectForm, toProjectRow } from "./dashboard/projects/project-form";
+
+export { getGalleryImagesAction } from "./dashboard/gallery/get-gallery-images.action";
+export { getPrimaryServicesAction } from "./contact/get-primary-service.action";
+export { getBlogPostsAction } from "./blog/get-blog-post.action";
+export { getSocialLinksAction } from "./social/get-social-links.action";
+export { getExpertiseAction } from "./expertise/get-expertise.action";
+export { getCurrentFocusAction } from './about/get-current-focus.action';
+export { getHeroAction } from "./dashboard/hero/get-hero.action";
