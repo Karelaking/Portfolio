@@ -16,3 +16,5 @@ export { createProject } from "./projects/create-project.action";
 export { deleteProjectAction } from "./projects/delete-project.action";
 export { updateProject } from "./projects/update-project.action";
 export { parseProjectForm, toProjectRow } from "./projects/project-form";
+export { getProjectsAction } from "./projects/get-projects.action";
+export { getExperienceAction } from "./experience/get-experience.action";
