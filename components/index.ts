@@ -32,8 +32,6 @@ export type { AppThemeProviderProps } from "./providers";
 export { ContactForm } from "./sections";
 export { GalleryImage } from "./sections";
 export type { GalleryImageProps } from "./sections";
-export { Hero } from "./sections";
-export type { HeroProps } from "./sections";
 export { HeroImage } from "./sections";
 export type { HeroImageProps } from "./sections";
 export { HeroSkeleton } from "./skeletons";

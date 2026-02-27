@@ -1,0 +1,9 @@
+export { ContactPage } from "./ContactPage";
+export { GalleryPage } from "./GalleryPage";
+export { BlogPage } from "./BlogPage";
+export { SocialPage } from "./SocialPage";
+export { ProjectsPage } from "./ProjectsPage";
+export { ExperiencePage } from "./ExperiencePage";
+export { ExpertisePage } from "./ExpertisePage";
+export { AboutPage } from "./AboutPage";
+export { HeroPage } from "./HeroPage";

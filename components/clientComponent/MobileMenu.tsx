@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { Logo } from './NavigationBar';
 import { ThemeToggle } from '../theme';
 import { ReactElement, useState } from 'react';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import { NavLink } from '@/types/layouts/header.interface';
 import { Sheet, SheetTrigger, SheetClose, SheetContent, SheetTitle } from '../ui/sheet';
+import { Logo } from '../serverComponent/NavigationBar';
 
 export const MobileMenu = ({navLinks}: { navLinks: NavLink[] }): ReactElement => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -59,7 +59,7 @@ export const MobileMenu = ({navLinks}: { navLinks: NavLink[] }): ReactElement =>
               </Link>
             ))}
           </nav>
-          <ThemeToggle className="flex justify-center pb-6" />
+          <ThemeToggle className="flex justify-center mb-6 ml-4" />
         </SheetContent>
       </Sheet>
     </div>

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import {MobileMenu} from "./MobileMenu";
 import type { ReactElement } from "react";
 import { NavigationBarProps } from "@/types";
 import { ThemeToggle } from "@/components/theme";
 import { navLinks } from "@/data/NavigationLinks";
+import { MobileMenu } from "../clientComponent";
 
 export const Logo = (): ReactElement => {
   return (
