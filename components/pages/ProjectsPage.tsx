@@ -1,11 +1,9 @@
 import { IconArrowUpRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import React from 'react'
-import { SectionHeader } from '../sections';
-import { SectionOrnament } from '../visuals';
 import Image from 'next/image';
 import { getProjectsAction } from '@/actions/dashboard';
-import { Container } from '../serverComponent';
+import { Container, SectionHeader, SectionOrnament } from '../serverComponent';
 
 const projects = await getProjectsAction();
 const featuredProjects = projects.slice(0, 4);

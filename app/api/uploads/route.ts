@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getSupabaseAdminClient } from "@/lib/supabase/server";
+import { getSupabaseAdminClient } from "@/lib/server";
 
 const MAX_FILE_SIZE_BYTES = 8 * 1024 * 1024;
 

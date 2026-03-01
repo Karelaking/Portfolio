@@ -1,10 +1,8 @@
 import React from "react";
-import { Container } from "../serverComponent";
+import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import Link from "next/link";
-import { SectionHeader } from "../sections";
-import { SectionOrnament } from "../visuals";
 import { getExperienceAction } from "@/actions/dashboard";
+import Link from "next/link";
 
 const experience = await getExperienceAction();
 

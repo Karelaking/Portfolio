@@ -1,18 +1,28 @@
 export {
   AlertDialog,
+  AlertDialogTitle,
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogOverlay,
   AlertDialogPortal,
-  AlertDialogTitle,
   AlertDialogTrigger,
+  AlertDialogOverlay,
+  AlertDialogDescription,
 } from "./alert-dialog";
-
-export { Button, buttonVariants } from "./button";
-export type { ButtonProps } from "./button";
-
+export {
+  Sheet,
+  SheetTitle,
+  SheetClose,
+  SheetFooter,
+  SheetHeader,
+  SheetPortal,
+  SheetOverlay,
+  SheetTrigger,
+  SheetContent,
+  SheetDescription,
+} from "./sheet";
 export { Toaster } from "./sonner";
+export { PixelatedCanvas } from "./pixelated-canvas";
+export { Button, buttonVariants, type ButtonProps } from "./button";
