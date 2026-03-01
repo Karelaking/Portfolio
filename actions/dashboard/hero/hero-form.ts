@@ -1,7 +1,7 @@
 import { z } from "zod";
-import type { HeroMetric } from "@/types/hero-metric.interface";
-import type { ParsedHeroInput } from "@/types/parsed-hero-input.interface";
-import type { HeroRowInput } from "@/types/hero-row-input.interface";
+import type { HeroMetric } from "@/types/hero/hero-metric.interface";
+import type { ParsedHeroInput } from "@/types/hero/parsed-hero-input.interface";
+import type { HeroRowInput } from "@/types/hero/hero-row-input.interface";
 
 const heroSchema = z.object({
   title: z.string().min(1, "Title is required"),

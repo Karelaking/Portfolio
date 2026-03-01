@@ -1,8 +1,7 @@
 import React from 'react'
-import { BlogGrid, SectionHeader } from '../sections';
-import { SectionOrnament } from '../visuals';
-import { Container } from '../serverComponent';
+import { Container, SectionHeader, SectionOrnament } from '../serverComponent';
 import { getBlogPostsAction } from '@/actions';
+import { BlogGrid } from '../clientComponent';
 
 
 const blogPosts = await getBlogPostsAction();

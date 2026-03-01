@@ -4,9 +4,8 @@ import { IconArrowUpRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import { getHeroAction } from '@/actions';
 import { FadeIn } from '../motion';
-import { CountUpValue } from '../metrics';
-import { HeroImage } from '../sections';
 import { Container } from '../serverComponent';
+import { CountUpValue, HeroImage } from '../clientComponent';
 
 const heroData = await getHeroAction();
 

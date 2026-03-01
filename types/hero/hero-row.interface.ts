@@ -1,4 +1,4 @@
-import type { HeroData } from "@/types/hero-data.interface";
+import type { HeroData } from "@/types/hero/hero-data.interface";
 
 export interface HeroRow extends Omit<HeroData, "imageSrc" | "imageAlt"> {
   image_src: string;
