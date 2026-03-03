@@ -4,10 +4,9 @@ import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { getGalleryImages } from "@/lib/portfolio/queries";
 import { RootProvider } from "@/components/providers";
-import { SectionHeader, SectionOrnament } from "@/components/serverComponent";
+import { Container, SectionHeader, SectionOrnament } from "@/components/serverComponent";
 import { GalleryImage } from "@/components/clientComponent";
 
-export const revalidate = 0;
 
 const fetchGallery = cache(
   async (): Promise<Awaited<ReturnType<typeof getGalleryImages>>> => {
@@ -19,7 +18,7 @@ const GalleryContent = async (): Promise<ReactElement> => {
   const images = await fetchGallery();
 
   return (
-    <section className="border-border/70 relative flex min-h-dvh flex-col gap-8 border-t pt-12">
+    <Container className="border-border/70 relative flex min-h-dvh flex-col gap-8 border-t pt-12">
       <SectionOrnament className="right-8" />
       <SectionHeader
         label="Gallery"
@@ -44,7 +43,7 @@ const GalleryContent = async (): Promise<ReactElement> => {
         Back to home
         <IconArrowUpRight size={14} />
       </Link>
-    </section>
+    </Container>
   );
 };
 
