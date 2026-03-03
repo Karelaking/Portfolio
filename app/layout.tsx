@@ -57,7 +57,7 @@ export default function RootLayout({
       )}
       data-scroll-behavior="smooth"
     >
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-neutral-50 dark:bg-neutral-950 ">
         <ClerkProvider>
           <Providers>{children}</Providers>
         </ClerkProvider>

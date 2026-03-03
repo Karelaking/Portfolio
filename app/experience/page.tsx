@@ -4,7 +4,7 @@ import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { getExperience } from "@/lib/portfolio/queries";
 import { RootProvider } from "@/components/providers";
-import { SectionHeader, SectionOrnament } from "@/components/serverComponent";
+import { Container, SectionHeader, SectionOrnament } from "@/components/serverComponent";
 
 export const revalidate = 0;
 
@@ -18,7 +18,7 @@ const ExperienceContent = async (): Promise<ReactElement> => {
   const items = await fetchExperience();
 
   return (
-    <section className="border-border/70 relative flex flex-col gap-8 border-t pt-12">
+    <Container className="border-border/70 relative flex flex-col gap-8 border-t pt-12">
       <SectionOrnament className="right-auto left-6" />
       <SectionHeader
         label="Experience"
@@ -56,7 +56,7 @@ const ExperienceContent = async (): Promise<ReactElement> => {
         Back to home
         <IconArrowUpRight size={14} />
       </Link>
-    </section>
+    </Container>
   );
 };
 

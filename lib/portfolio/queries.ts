@@ -52,15 +52,20 @@ const fetchTable = async <T,>(
     return null;
   }
 
-  const query = client.from(table).select(select);
-  const { data, error } = order ? await query.order(order) : await query;
+  try {
+    const query = client.from(table).select(select);
+    const { data, error } = order ? await query.order(order) : await query;
 
-  if (error || !data) {
-    console.error(`[portfolio] Supabase error for ${table}:`, error);
+    if (error || !data) {
+      console.error(`[portfolio] Supabase error for ${table}:`, error);
+      return null;
+    }
+
+    return data as T[];
+  } catch (error: unknown) {
+    console.error(`[portfolio] Supabase request failed for ${table}:`, error);
     return null;
   }
-
-  return data as T[];
 };
 
 export const getHero = cache(async (): Promise<HeroData> => {
