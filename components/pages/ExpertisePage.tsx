@@ -1,10 +1,9 @@
-import React from 'react'
-import { Container } from '../serverComponent';
-import { getExpertiseIcon } from '@/data/Expertise';
-import { getExpertiseAction } from '@/actions';
-import { SectionOrnament } from '../visuals/section-ornament';
-import { SectionHeader } from '../sections';
-import { AnimatedIcon } from '../motion';
+import React from "react";
+import { Container, SectionHeader } from "../serverComponent";
+import { getExpertiseIcon } from "@/data/Expertise";
+import { getExpertiseAction } from "@/actions";
+import { SectionOrnament } from "../serverComponent/section-ornament";
+import { AnimatedIcon } from "../motion";
 
 const expertise = await getExpertiseAction();
 
@@ -40,4 +39,4 @@ export const ExpertisePage = (): React.ReactElement => {
       </div>
     </Container>
   );
-}
+};

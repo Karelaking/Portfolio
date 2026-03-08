@@ -1,10 +1,8 @@
 import { IconArrowUpRight } from '@tabler/icons-react';
 import React from 'react'
 import { AnimatedIcon } from '../motion';
-import { SectionHeader } from '../sections';
-import { SectionOrnament } from '../visuals';
 import { getSocialLinksAction } from '@/actions';
-import { Container } from '../serverComponent';
+import { Container, SectionHeader, SectionOrnament } from '../serverComponent';
 import { getSocialIcon } from '@/data/SocialIcons';
 
 const socialLinks = await getSocialLinksAction();

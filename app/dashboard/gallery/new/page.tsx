@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { createGalleryImage } from "@/actions/dashboard/gallery/create-gallery-image.action";
-import { GalleryForm } from "@/components/dashboard";
+import { GalleryForm } from "@/components/clientComponent";
 
 const NewGalleryImagePage = (): ReactElement => {
   return (

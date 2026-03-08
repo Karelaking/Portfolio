@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { createExperience } from "@/actions/dashboard/experience/create-experience.action";
-import { ExperienceForm } from "@/components/dashboard";
+import { ExperienceForm } from "@/components/clientComponent";
 
 const NewExperiencePage = (): ReactElement => {
   return (

@@ -1,9 +1,8 @@
-import { IconArrowUpRight } from '@tabler/icons-react';
 import Link from 'next/link';
-import { SectionHeader, ContactForm } from '../sections';
-import { SectionOrnament } from '../visuals';
-import { Container } from '../serverComponent';
+import { Container, SectionHeader, SectionOrnament } from '../serverComponent';
 import { getPrimaryServicesAction } from '@/actions';
+import { IconArrowUpRight } from '@tabler/icons-react';
+import { ContactForm } from '../clientComponent';
 
 const primaryServices = await getPrimaryServicesAction();
 
