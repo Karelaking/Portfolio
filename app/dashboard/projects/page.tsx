@@ -2,10 +2,10 @@ import type { ReactElement } from "react";
 import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
+import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
 import type { ProjectItem } from "@/types";
-import { ProjectDeleteButton } from "@/components/dashboard";
-import { ProjectsPanelSkeleton } from "@/components/skeletons";
+import { ProjectsPanelSkeleton } from "@/components/serverComponent/skeletons";
+import { ProjectDeleteButton } from "@/components/clientComponent";
 
 interface ProjectFetchResult {
   projects: ProjectItem[];
@@ -24,7 +24,9 @@ const fetchProjects = cache(async (): Promise<ProjectFetchResult> => {
 
   const { data, error } = await client
     .from("projects")
-    .select("id,name,description,tags,imageSrc:image_src,imageAlt:image_alt,href")
+    .select(
+      "id,name,description,tags,imageSrc:image_src,imageAlt:image_alt,href",
+    )
     .order("order_index", { ascending: true });
 
   if (error) {
@@ -47,16 +49,17 @@ const ProjectsPanel = async (): Promise<ReactElement> => {
         <div className="space-y-2">
           <div className="flex flex-wrap items-center gap-3">
             <h1 className="text-3xl font-semibold">Projects</h1>
-            <span className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
+            <span className="border-border/70 text-muted-foreground rounded-full border px-3 py-1 text-[11px] tracking-[0.35em] uppercase">
               {projects.length} total
             </span>
           </div>
-          <p className="text-sm text-muted-foreground">
-            Manage your portfolio projects with quick edits, previews, and cleanup.
+          <p className="text-muted-foreground text-sm">
+            Manage your portfolio projects with quick edits, previews, and
+            cleanup.
           </p>
         </div>
         <Link
-          className="inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+          className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center rounded-full border px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase transition"
           href="/dashboard/projects/new"
         >
           New project
@@ -65,18 +68,19 @@ const ProjectsPanel = async (): Promise<ReactElement> => {
 
       <div className="space-y-4">
         {error ? (
-          <div className="rounded-3xl border border-red-500/40 bg-card p-6 text-sm text-red-500">
+          <div className="bg-card rounded-3xl border border-red-500/40 p-6 text-sm text-red-500">
             {error}
           </div>
         ) : null}
         {projects.length === 0 ? (
-          <div className="rounded-3xl border border-dashed border-border/70 bg-card p-6">
+          <div className="border-border/70 bg-card rounded-3xl border border-dashed p-6">
             <div className="space-y-3">
-              <p className="text-sm text-muted-foreground">
-                No projects yet. Add your first project to start building your portfolio.
+              <p className="text-muted-foreground text-sm">
+                No projects yet. Add your first project to start building your
+                portfolio.
               </p>
               <Link
-                className="inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+                className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center rounded-full border px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase transition"
                 href="/dashboard/projects/new"
               >
                 Create project
@@ -87,11 +91,11 @@ const ProjectsPanel = async (): Promise<ReactElement> => {
           <div className="flex flex-col gap-4">
             {projects.map((project) => (
               <article
-                className="group flex flex-col gap-4 rounded-3xl border border-border/70 bg-card p-5"
+                className="group border-border/70 bg-card flex flex-col gap-4 rounded-3xl border p-5"
                 key={project.id}
               >
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <div className="relative h-32 w-full overflow-hidden rounded-2xl border border-border/70 bg-background sm:h-28 sm:w-44">
+                  <div className="border-border/70 bg-background relative h-32 w-full overflow-hidden rounded-2xl border sm:h-28 sm:w-44">
                     <Image
                       alt={project.imageAlt}
                       className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
@@ -104,13 +108,13 @@ const ProjectsPanel = async (): Promise<ReactElement> => {
                   <div className="flex-1 space-y-3">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div className="space-y-1">
-                        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                        <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                           Project
                         </p>
                         <p className="text-lg font-semibold">{project.name}</p>
                       </div>
                       <a
-                        className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-foreground transition hover:text-muted-foreground"
+                        className="text-foreground hover:text-muted-foreground inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] uppercase transition"
                         href={project.href}
                         rel="noreferrer"
                         target="_blank"
@@ -119,14 +123,14 @@ const ProjectsPanel = async (): Promise<ReactElement> => {
                         <span aria-hidden="true">↗</span>
                       </a>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {project.description}
                     </p>
                     {project.tags.length > 0 ? (
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <span
-                            className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.25em]"
+                            className="border-border/70 rounded-full border px-3 py-1 text-[11px] tracking-[0.25em] uppercase"
                             key={tag}
                           >
                             {tag}
@@ -138,7 +142,7 @@ const ProjectsPanel = async (): Promise<ReactElement> => {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <Link
-                    className="rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+                    className="border-border text-foreground hover:border-foreground rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase transition"
                     href={`/dashboard/projects/${project.id}/edit`}
                   >
                     Edit

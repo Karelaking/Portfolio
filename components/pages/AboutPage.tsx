@@ -1,9 +1,7 @@
 import { ReactElement } from 'react'
 import { FadeIn } from '../motion';
-import { SectionHeader } from '../sections';
-import { SectionOrnament } from '../visuals';
+import { Container, SectionHeader, SectionOrnament } from '../serverComponent';
 import { getCurrentFocusAction } from '@/actions';
-import { Container } from '../serverComponent';
 
 const currentFocus = await getCurrentFocusAction();
 

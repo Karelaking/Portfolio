@@ -1,17 +1,18 @@
 "use client";
 
-import type { ReactElement } from "react";
-import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { IconArrowUpRight } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import type { ReactElement } from "react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 import type { BlogPost } from "@/types/blog-post.interface";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 interface BlogGridProps {
 	posts: BlogPost[];
 }
 
 export const BlogGrid = ({ posts }: BlogGridProps): ReactElement => {
+	
 	const [activeIndex, setActiveIndex] = useState<number | null>(null);
 	const shouldReduceMotion = useReducedMotion();
 
