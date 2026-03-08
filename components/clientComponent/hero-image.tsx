@@ -3,7 +3,7 @@
 import type { CSSProperties, ReactElement } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import type { HeroData } from "@/types/hero-data.interface";
+import type { HeroData } from "@/types/hero/hero-data.interface";
 import { PixelatedCanvas } from "../ui/pixelated-canvas";
 
 export type HeroImageProps = Pick<HeroData, "imageAlt" | "imageSrc">;
@@ -71,14 +71,6 @@ export const HeroImage = ({
         }}
       />
       <div className="bg-border/60 pointer-events-none absolute top-4 left-1/2 h-px w-32 -translate-x-1/2" />
-      {/* <Image
-        alt={imageAlt}
-        src={imageSrc}
-        width={420}
-        height={520}
-        className="relative h-[520px] w-[420px] rounded-[2.5rem] border border-border bg-card object-cover p-6"
-        loading="eager"
-      /> */}
       <div
         className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-[2.5rem] border p-4 ring-1 sm:p-6"
         style={containerStyle}

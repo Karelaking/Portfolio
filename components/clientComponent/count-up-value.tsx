@@ -3,7 +3,7 @@
 import type { ReactElement } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-interface ParsedMetric {
+export interface ParsedMetric {
   value: number | null;
   decimals: number;
   suffix: string;

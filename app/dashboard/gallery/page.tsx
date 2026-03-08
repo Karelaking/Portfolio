@@ -1,9 +1,9 @@
 import type { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
+import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
 import type { GalleryImage } from "@/types/gallery-image.interface";
-import { GalleryDeleteButton } from "@/components/dashboard";
+import { GalleryDeleteButton } from "@/components/clientComponent";
 
 interface GalleryFetchResult {
   images: GalleryImage[];
@@ -44,16 +44,16 @@ const GalleryPage = async (): Promise<ReactElement> => {
         <div className="space-y-2">
           <div className="flex flex-wrap items-center gap-3">
             <h1 className="text-3xl font-semibold">Gallery</h1>
-            <span className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
+            <span className="border-border/70 text-muted-foreground rounded-full border px-3 py-1 text-[11px] tracking-[0.35em] uppercase">
               {images.length} total
             </span>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             Manage the gallery images shown on your portfolio.
           </p>
         </div>
         <Link
-          className="inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+          className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center rounded-full border px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase transition"
           href="/dashboard/gallery/new"
         >
           New image
@@ -61,19 +61,19 @@ const GalleryPage = async (): Promise<ReactElement> => {
       </div>
 
       {error ? (
-        <div className="rounded-3xl border border-red-500/40 bg-card p-6 text-sm text-red-500">
+        <div className="bg-card rounded-3xl border border-red-500/40 p-6 text-sm text-red-500">
           {error}
         </div>
       ) : null}
 
       {images.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-border/70 bg-card p-6">
+        <div className="border-border/70 bg-card rounded-3xl border border-dashed p-6">
           <div className="space-y-3">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               No gallery images yet. Add your first image to get started.
             </p>
             <Link
-              className="inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+              className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center rounded-full border px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase transition"
               href="/dashboard/gallery/new"
             >
               Add image
@@ -84,10 +84,10 @@ const GalleryPage = async (): Promise<ReactElement> => {
         <div className="grid gap-4 sm:grid-cols-2">
           {images.map((image) => (
             <article
-              className="rounded-3xl border border-border/70 bg-card p-4"
+              className="border-border/70 bg-card rounded-3xl border p-4"
               key={image.id}
             >
-              <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-border/70 bg-background">
+              <div className="border-border/70 bg-background relative h-48 w-full overflow-hidden rounded-2xl border">
                 <Image
                   alt={image.alt}
                   className="h-full w-full object-cover"
@@ -98,14 +98,14 @@ const GalleryPage = async (): Promise<ReactElement> => {
                 />
               </div>
               <div className="mt-4 space-y-2">
-                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
                   Alt text
                 </p>
-                <p className="text-sm text-foreground">{image.alt}</p>
+                <p className="text-foreground text-sm">{image.alt}</p>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Link
-                  className="rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-foreground"
+                  className="border-border text-foreground hover:border-foreground rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase transition"
                   href={`/dashboard/gallery/${image.id}/edit`}
                 >
                   Edit

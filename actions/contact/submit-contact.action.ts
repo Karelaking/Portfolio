@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import {
   getSupabaseAdminClient,
   getSupabaseServerClient,
-} from "@/lib/supabase/server";
+} from "@/lib/server";
 import type { ActionResult } from "@/types/action-result.interface";
 import type { ContactMessageInput } from "@/types/contact-message-input.interface";
 

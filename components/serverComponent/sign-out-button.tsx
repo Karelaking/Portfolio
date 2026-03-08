@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactElement } from "react";
 import { UserButton } from "@clerk/nextjs";
 

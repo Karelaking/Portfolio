@@ -1,4 +1,4 @@
-import type { HeroMetric } from "@/types/hero-metric.interface";
+import type { HeroMetric } from "@/types/hero/hero-metric.interface";
 
 export interface HeroRowInput {
   id: string;
