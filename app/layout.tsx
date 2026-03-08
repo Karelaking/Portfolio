@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactElement, ReactNode } from "react";
-import { Geist, Geist_Mono, JetBrains_Mono, Mea_Culpa } from "next/font/google";
+import { Geist, Instrument_Serif } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
@@ -8,20 +8,7 @@ import "./globals.css";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-});
-
-const meaCulpa = Mea_Culpa({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-mea-culpa",
+const instrument_Serif = Instrument_Serif({ subsets: ["latin"], variable: "--font-instrument-sans", weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -51,9 +38,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         geistSans.variable,
-        geistMono.variable,
-        jetBrainsMono.variable,
-        meaCulpa.variable,
+        instrument_Serif.variable,
       )}
       data-scroll-behavior="smooth"
     >
