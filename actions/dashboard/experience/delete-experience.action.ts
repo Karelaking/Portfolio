@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { getSupabaseAdminClient } from "@/lib/supabase/server";
+import { getSupabaseAdminClient } from "@/lib/server";
 import type { ActionResult } from "@/types/action-result.interface";
 
 const deleteExperience = async (id: string): Promise<ActionResult> => {

@@ -1,10 +1,9 @@
 import { IconArrowUpRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import React from 'react'
-import { SectionHeader, GalleryImage } from '../sections';
-import { SectionOrnament } from '../visuals';
-import { Container } from '../serverComponent';
+import { Container, SectionHeader, SectionOrnament } from '../serverComponent';
 import { getGalleryImagesAction } from '@/actions';
+import { GalleryImage } from '../clientComponent';
 
 const gallery = await getGalleryImagesAction();
 

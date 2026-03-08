@@ -1,27 +1,27 @@
 import { cache } from "react";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/supabase/server";
 import {
   fallbackBlog,
-  fallbackCurrentFocus,
-  fallbackExperience,
-  fallbackExpertise,
-  fallbackGallery,
   fallbackHero,
-  fallbackPrimaryServices,
-  fallbackProjects,
   fallbackSocial,
+  fallbackGallery,
+  fallbackProjects,
+  fallbackExpertise,
+  fallbackExperience,
+  fallbackCurrentFocus,
+  fallbackPrimaryServices,
 } from "@/lib/portfolio/fallback";
+import type { HeroRow } from "@/types/hero/hero-row.interface";
 import type { BlogPost } from "@/types/blog-post.interface";
-import type { CurrentFocusItem } from "@/types/current-focus-item.interface";
-import type { ExpertiseItem } from "@/types/expertise-item.interface";
-import type { ExperienceItem } from "@/types/experience-item.interface";
-import type { GalleryImage } from "@/types/gallery-image.interface";
-import type { HeroData } from "@/types/hero-data.interface";
-import type { HeroRow } from "@/types/hero-row.interface";
-import type { PrimaryServiceItem } from "@/types/primary-service-item.interface";
-import type { ProjectItem } from "@/types/project-item.interface";
+import type { HeroData } from "@/types/hero/hero-data.interface";
 import type { ProjectRow } from "@/types/project-row.interface";
 import type { SocialLink } from "@/types/social-link.interface";
+import type { ProjectItem } from "@/types/project-item.interface";
+import type { GalleryImage } from "@/types/gallery-image.interface";
+import type { ExpertiseItem } from "@/types/expertise-item.interface";
+import type { ExperienceItem } from "@/types/experience-item.interface";
+import type { CurrentFocusItem } from "@/types/current-focus-item.interface";
+import type { PrimaryServiceItem } from "@/types/primary-service-item.interface";
+import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
 
 const mapHeroRow = (row: HeroRow): HeroData => {
   return {
@@ -52,15 +52,20 @@ const fetchTable = async <T,>(
     return null;
   }
 
-  const query = client.from(table).select(select);
-  const { data, error } = order ? await query.order(order) : await query;
+  try {
+    const query = client.from(table).select(select);
+    const { data, error } = order ? await query.order(order) : await query;
 
-  if (error || !data) {
-    console.error(`[portfolio] Supabase error for ${table}:`, error);
+    if (error || !data) {
+      console.error(`[portfolio] Supabase error for ${table}:`, error);
+      return null;
+    }
+
+    return data as T[];
+  } catch (error: unknown) {
+    console.error(`[portfolio] Supabase request failed for ${table}:`, error);
     return null;
   }
-
-  return data as T[];
 };
 
 export const getHero = cache(async (): Promise<HeroData> => {

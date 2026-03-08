@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Suspense } from "react";
 import { Footer, NavigationBar } from "../serverComponent";
+import { FooterSkeleton } from "../serverComponent/skeletons";
 
 const RootProvider = ({
   children,
@@ -8,11 +9,13 @@ const RootProvider = ({
 }): React.ReactElement => {
   return (
     <Fragment>
-      <NavigationBar />
-      <main className="mx-auto w-full">
+        <NavigationBar />
+      <main className="mx-auto w-full relative">
         {children}
       </main>
-      <Footer />
+      <Suspense fallback={<FooterSkeleton />}>
+        <Footer />
+      </Suspense>
     </Fragment>
   );
 };

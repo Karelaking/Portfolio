@@ -3,11 +3,10 @@ import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { SectionHeader } from "@/components/sections";
-import { SectionOrnament } from "@/components/visuals";
 import { getProjects } from "@/lib/portfolio/queries";
-import { ProjectsPageSkeleton } from "@/components/skeletons";
+import { ProjectsPageSkeleton } from "@/components/serverComponent/skeletons";
 import { RootProvider } from "@/components/providers";
+import { SectionHeader, SectionOrnament } from "@/components/serverComponent";
 
 export const revalidate = 0;
 
