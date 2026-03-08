@@ -5,9 +5,15 @@ const config = {
 		"./pages/**/*.{ts,tsx,js,jsx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				'instrument-sans': ["var(--font-instrument-sans)", "sans-serif"],
+				'geist-sans': ["var(--font-geist-sans)", "sans-serif"],
+			},
+		},
+		plugins: [],
 	},
-	plugins: [],
+
 };
 
 export default config;

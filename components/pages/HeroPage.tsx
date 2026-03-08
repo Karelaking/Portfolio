@@ -11,31 +11,34 @@ const heroData = await getHeroAction();
 
 export const HeroPage = (): React.ReactElement => {
   return (
-    <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] py-12" id="hero">
+    <Container
+      className="grid gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] relative"
+      id="hero"
+    >
       <div className="flex flex-col gap-6">
         <FadeIn>
-          <p className="text-neutral-800 text-xs tracking-[0.4em] uppercase">
+          <p className="text-xs font-bold tracking-[0.4em] text-neutral-800 uppercase dark:text-neutral-50">
             Portfolio
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h1 className="text-4xl leading-tight font-semibold sm:text-5xl text-neutral-800">
+          <h1 className="leading-tighter font-instrument-sans text-6xl font-extrabold text-neutral-600 sm:text-6xl dark:text-neutral-200 ">
             {heroData.title}
           </h1>
         </FadeIn>
-        <p className="text-neutral-800 max-w-xl text-base">
+        <p className="max-w-xl text-base text-neutral-400 dark:text-neutral-400 font-sans">
           {heroData.description}
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <span className="border-foreground rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase">
+          <span className="border-foreground rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase font-sans">
             {heroData.subtitle}
           </span>
-          <span className="text-neutral-800 text-xs">{heroData.location}</span>
+          {/* <span className="text-neutral-800 text-xs">{heroData.location}</span> */}
         </div>
-        <p className="text-neutral-800 text-sm">{heroData.availability}</p>
+        {/* <p className="text-neutral-800 text-sm">{heroData.availability}</p> */}
         <div className="flex flex-wrap items-center gap-3">
           <Link
-            className="group bg-foreground text-background inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition hover:opacity-90"
+            className="group bg-foreground text-background hover:text-foreground border-foreground inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-medium transition hover:bg-transparent hover:opacity-90"
             href="#projects"
           >
             Selected projects
@@ -55,7 +58,7 @@ export const HeroPage = (): React.ReactElement => {
             <div
               className={cn(
                 "border-border/70 rounded-2xl border px-4 py-3",
-                "bg-card",
+                "bg-card cursor-pointer transition-transform duration-100 hover:scale-105",
               )}
               key={metric.label}
             >

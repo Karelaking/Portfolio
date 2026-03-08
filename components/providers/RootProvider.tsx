@@ -10,7 +10,9 @@ const RootProvider = ({
   return (
     <Fragment>
         <NavigationBar />
-      <main className="mx-auto w-full">{children}</main>
+      <main className="mx-auto w-full relative">
+        {children}
+      </main>
       <Suspense fallback={<FooterSkeleton />}>
         <Footer />
       </Suspense>
