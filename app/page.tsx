@@ -4,29 +4,28 @@ import {
   ExperiencePage,
   ProjectsPage,
   SocialPage,
-  BlogPage,
+  WritingPage,
   GalleryPage,
   ContactPage,
   HeroPage,
 } from "@/components/pages";
-import { RootProvider } from "@/components/providers";
-import { ReactElement } from "react";
+import { Fragment, ReactElement } from "react";
 
 export const revalidate = 0;
 
 const Page = (): ReactElement => {
   return (
-    <RootProvider>
+    <Fragment>
       <HeroPage />
       <AboutPage />
       <ExpertisePage />
       <ExperiencePage />
       <ProjectsPage />
       <SocialPage />
-      <BlogPage />
+      <WritingPage />
       <GalleryPage />
       <ContactPage />
-    </RootProvider>
+    </Fragment>
   );
 };
 
