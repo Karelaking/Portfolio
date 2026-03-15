@@ -20,8 +20,8 @@ export const GalleryPage = ():React.ReactNode => {
       <SectionOrnament className="right-10" />
       <SectionHeader
         label="Gallery"
-        title="Minimal frames, maximal focus."
-        copy="Recent explorations in monochrome composition."
+        title="Beautiful Motion, Creatively Captured."
+        copy="A curated portfolio of dynamic moments captured through my camera with a creative perspective."
       />
       <div className="grid gap-4 sm:grid-cols-2">
         {featuredGallery.map((image) => (

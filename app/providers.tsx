@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import type { ReactElement, ReactNode } from "react";
 import { Toaster } from "sonner";
 import { AppThemeProvider } from "@/components/providers/theme-provider";
+import { CursorFollower } from "@/components/clientComponent/cursor-follower";
 import { useMounted } from "@/hooks/use-mounted";
 
 const LazyAnalyticsProvider = dynamic(
@@ -30,6 +31,7 @@ export const Providers = ({ children }: ProvidersProps): ReactElement => {
       enableSystem
       disableTransitionOnChange
     >
+      <CursorFollower />
       {children}
       {mounted ? <LazyAnalyticsProvider /> : null}
       {mounted ? <Toaster richColors closeButton /> : null}

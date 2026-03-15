@@ -13,7 +13,7 @@ export const Footer = async ({
 
   return (
     <footer className={cn("border-border/60 border-t", className)}>
-      <div className="mx-auto w-full max-w-5xl py-12 sm:border-x sm:border-dashed">
+      <div className="mx-auto w-full max-w-6xl py-12 sm:border-x sm:border-dashed">
         <div className="grid gap-8 px-4 text-center sm:grid-cols-2 sm:px-6 md:text-left lg:px-8">
           <div className="space-y-4">
             <p className="text-muted-foreground text-xs tracking-[0.25em] uppercase sm:tracking-[0.4em]">

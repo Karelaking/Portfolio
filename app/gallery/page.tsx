@@ -5,7 +5,6 @@ import {
 } from "@/components/serverComponent";
 import { Suspense, cache } from "react";
 import type { ReactElement } from "react";
-import { RootProvider } from "@/components/providers";
 import { getGalleryImages } from "@/lib/portfolio/queries";
 import { GalleryImage } from "@/components/clientComponent";
 
@@ -45,7 +44,7 @@ const GalleryContent = async (): Promise<ReactElement> => {
 
 const GalleryPage = (): ReactElement => {
   return (
-    <RootProvider>
+    <>
       <Suspense
         fallback={
           <Container className="border-border/70 relative flex min-h-dvh flex-col gap-8 border-t px-4 pt-12 sm:px-8">
@@ -68,7 +67,7 @@ const GalleryPage = (): ReactElement => {
       >
         <GalleryContent />
       </Suspense>
-    </RootProvider>
+    </>
   );
 };
 
