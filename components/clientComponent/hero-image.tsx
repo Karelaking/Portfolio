@@ -6,6 +6,61 @@ import { motion } from "framer-motion";
 import type { HeroData } from "@/types/hero/hero-data.interface";
 import { PixelatedCanvas } from "../ui/pixelated-canvas";
 
+// Generates a random smooth polygon clip-path string with rounded corners
+const generateSmoothPolygonClipPath = (
+  points = 7,
+  radius = 45,
+  roundness = 18,
+): string => {
+  const cx = 50;
+  const cy = 50;
+  const angleStep = (2 * Math.PI) / points;
+  const mainCoords: { x: number; y: number }[] = [];
+  for (let i = 0; i < points; i++) {
+    const angle = i * angleStep;
+    const r = radius + Math.random() * roundness - roundness / 2;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    mainCoords.push({ x, y });
+  }
+
+  // Interpolate between points to create smooth corners
+  const smoothCoords: { x: number; y: number }[] = [];
+  const interpolationSteps = 4; // More steps = smoother curves
+  for (let i = 0; i < mainCoords.length; i++) {
+    const curr = mainCoords[i];
+    const next = mainCoords[(i + 1) % mainCoords.length];
+    const prev = mainCoords[i > 0 ? i - 1 : mainCoords.length - 1];
+
+    smoothCoords.push(curr);
+
+    // Add interpolated points between current and next
+    for (let t = 0; t < interpolationSteps; t++) {
+      const step = (t + 1) / (interpolationSteps + 1);
+      // Quadratic Bézier interpolation
+      const cpX = curr.x + (next.x - prev.x) * 0.25;
+      const cpY = curr.y + (next.y - prev.y) * 0.25;
+      const x =
+        Math.pow(1 - step, 2) * curr.x +
+        2 * (1 - step) * step * cpX +
+        Math.pow(step, 2) * next.x;
+      const y =
+        Math.pow(1 - step, 2) * curr.y +
+        2 * (1 - step) * step * cpY +
+        Math.pow(step, 2) * next.y;
+      smoothCoords.push({ x, y });
+    }
+  }
+
+  return (
+    "polygon(" +
+    smoothCoords
+      .map(({ x, y }) => `${Math.round(x)}% ${Math.round(y)}%`)
+      .join(", ") +
+    ")"
+  );
+};
+
 export type HeroImageProps = Pick<HeroData, "imageAlt" | "imageSrc">;
 
 const clampValue = (value: number, min: number, max: number): number => {
@@ -42,7 +97,7 @@ export const HeroImage = ({
 
   return (
     <motion.div
-      className="relative flex w-full items-center justify-center overflow-x-hidden"
+      className="relative mx-auto flex w-full max-w-105 items-center justify-center overflow-x-hidden"
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false, amount: 0.4 }}
@@ -51,7 +106,7 @@ export const HeroImage = ({
       <motion.div
         className="border-border absolute top-6 left-2 h-24 w-24 rounded-full border sm:-left-6"
         initial={{ y: 0 }}
-        whileInView={{ y: [0, -6, 0] }}
+        whileInView={{ y: [0, 6, 0] }}
         viewport={{ once: false, amount: 0.4 }}
         transition={{
           duration: 6,
@@ -72,8 +127,11 @@ export const HeroImage = ({
       />
       <div className="bg-border/60 pointer-events-none absolute top-4 left-1/2 h-px w-32 -translate-x-1/2" />
       <div
-        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-[2.5rem] border p-4 ring-1 sm:p-6"
-        style={containerStyle}
+        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden border p-4 ring-1 sm:p-6"
+        style={{
+          ...containerStyle,
+          clipPath: generateSmoothPolygonClipPath(7, 45, 18),
+        }}
       >
         <PixelatedCanvas
           src={imageSrc}
@@ -93,7 +151,7 @@ export const HeroImage = ({
           jitterSpeed={1}
           sampleAverage
           alt={imageAlt}
-          className="h-full w-full rounded-[2rem] object-cover brightness-140"
+          className="h-full w-full object-cover brightness-140"
         />
       </div>
     </motion.div>

@@ -19,7 +19,7 @@ export const Container = ({
         <Scales className="" />
         <div
           className={cn(
-            "bg-background mx-auto flex h-full min-h-dvh w-full max-w-5xl flex-col justify-center px-4 sm:min-h-full sm:px-6 lg:px-8 shadow rounded-2xl",
+            "bg-background mx-auto flex h-full min-h-dvh w-full max-w-5xl flex-col justify-center px-8 sm:min-h-full shadow-lg rounded-2xl",
             className,
           )}
         >

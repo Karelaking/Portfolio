@@ -1,12 +1,13 @@
-import type { ReactElement } from "react";
+import {
+  Container,
+  SectionHeader,
+  SectionOrnament,
+} from "@/components/serverComponent";
 import { Suspense, cache } from "react";
-import Link from "next/link";
-import { IconArrowUpRight } from "@tabler/icons-react";
-import { getGalleryImages } from "@/lib/portfolio/queries";
+import type { ReactElement } from "react";
 import { RootProvider } from "@/components/providers";
-import { Container, SectionHeader, SectionOrnament } from "@/components/serverComponent";
+import { getGalleryImages } from "@/lib/portfolio/queries";
 import { GalleryImage } from "@/components/clientComponent";
-
 
 const fetchGallery = cache(
   async (): Promise<Awaited<ReturnType<typeof getGalleryImages>>> => {
@@ -18,31 +19,26 @@ const GalleryContent = async (): Promise<ReactElement> => {
   const images = await fetchGallery();
 
   return (
-    <Container className="border-border/70 relative flex min-h-dvh flex-col gap-8 border-t pt-12">
+    <Container className="border-border/70 relative flex min-h-dvh flex-col gap-8 border-t px-4 py-8 sm:px-8 sm:py-12">
       <SectionOrnament className="right-8" />
       <SectionHeader
         label="Gallery"
-        title="The full monochrome archive."
-        copy="Every captured frame, from quiet studies to complete systems."
+        title="Beautiful Motion, Creatively Captured"
+        copy="A curated portfolio of dynamic moments captured through my camera with a creative perspective."
       />
-      <div className="grid gap-4 sm:grid-cols-2">
-        {images.map((image) => (
+      <div className="grid gap-4 sm:mt-12 sm:grid-cols-2">
+        {images.map((image, index) => (
           <GalleryImage
             key={image.id}
             alt={image.alt}
             src={image.src}
             sizes="(min-width: 768px) 50vw, 100vw"
             className="h-56"
+            priority={index < 4}
+            loading={index < 4 ? "eager" : "lazy"}
           />
         ))}
       </div>
-      <Link
-        className="text-muted-foreground inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase"
-        href="/"
-      >
-        Back to home
-        <IconArrowUpRight size={14} />
-      </Link>
     </Container>
   );
 };
@@ -52,7 +48,22 @@ const GalleryPage = (): ReactElement => {
     <RootProvider>
       <Suspense
         fallback={
-          <div className="border-border/70 bg-card h-40 rounded-3xl border" />
+          <Container className="border-border/70 relative flex min-h-dvh flex-col gap-8 border-t px-4 pt-12 sm:px-8">
+            <SectionOrnament className="right-8" />
+            <div className="space-y-4">
+              <div className="bg-muted/60 h-8 w-32 animate-pulse rounded" />
+              <div className="bg-muted/60 h-12 w-3/4 animate-pulse rounded" />
+              <div className="bg-muted/60 h-6 w-full max-w-2xl animate-pulse rounded" />
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="border-border/70 bg-muted/60 h-56 animate-pulse rounded-2xl border"
+                />
+              ))}
+            </div>
+          </Container>
         }
       >
         <GalleryContent />
