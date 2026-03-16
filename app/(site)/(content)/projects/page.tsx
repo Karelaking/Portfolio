@@ -5,7 +5,6 @@ import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { getProjects } from "@/lib/portfolio/queries";
 import { ProjectsPageSkeleton } from "@/components/serverComponent/skeletons";
-import { RootProvider } from "@/components/providers";
 import { SectionHeader, SectionOrnament } from "@/components/serverComponent";
 
 export const revalidate = 0;
@@ -84,11 +83,9 @@ const ProjectsContent = async (): Promise<ReactElement> => {
 
 const ProjectsPage = (): ReactElement => {
   return (
-    <RootProvider>
-      <Suspense fallback={<ProjectsPageSkeleton />}>
-        <ProjectsContent />
-      </Suspense>
-    </RootProvider>
+    <Suspense fallback={<ProjectsPageSkeleton />}>
+      <ProjectsContent />
+    </Suspense>
   );
 };
 

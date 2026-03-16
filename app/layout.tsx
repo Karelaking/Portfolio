@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
 import "./globals.css";
-import { RootProvider } from "@/components/providers";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
@@ -46,9 +45,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-neutral-50 dark:bg-neutral-950 ">
         <ClerkProvider>
           <Providers>
-            <RootProvider>
             {children}
-            </RootProvider>
           </Providers>
         </ClerkProvider>
       </body>

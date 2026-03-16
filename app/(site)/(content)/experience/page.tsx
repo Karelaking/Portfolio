@@ -3,7 +3,6 @@ import { Suspense, cache } from "react";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { getExperience } from "@/lib/portfolio/queries";
-import { RootProvider } from "@/components/providers";
 import { Container, SectionHeader, SectionOrnament } from "@/components/serverComponent";
 
 export const revalidate = 0;
@@ -62,15 +61,13 @@ const ExperienceContent = async (): Promise<ReactElement> => {
 
 const ExperiencePage = (): ReactElement => {
   return (
-    <RootProvider>
-      <Suspense
-        fallback={
-          <div className="border-border/70 bg-card h-40 rounded-3xl border" />
-        }
-      >
-        <ExperienceContent />
-      </Suspense>
-    </RootProvider>
+    <Suspense
+      fallback={
+        <div className="border-border/70 bg-card h-40 rounded-3xl border" />
+      }
+    >
+      <ExperienceContent />
+    </Suspense>
   );
 };
 
