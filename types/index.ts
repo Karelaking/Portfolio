@@ -20,6 +20,8 @@ export type { ProjectItem } from "./project-item.interface";
 export type { ProjectRowInput } from "./project-row-input.interface";
 export type { ProjectRow } from "./project-row.interface";
 export type { SocialLink } from "./social-link.interface";
+export type { TechnologyItem } from "./technology-item.interface";
+export type { TechnologyRow, ProjectTechnologyRow } from "./technology-row.interface";
 export type { WritingPost } from "./writing-post.interface";
 export type { NavigationBarProps, NavLink } from "@/types/layouts/header.interface";
 export type { FooterProps, FooterLink } from "@/types/layouts/footer.interface";

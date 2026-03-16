@@ -5,6 +5,7 @@ import { getSupabaseAdminClient } from "@/lib/server";
 // logger removed
 import type { ActionResult } from "@/types/action-result.interface";
 import { parseProjectForm, toProjectRow } from "./project-form";
+import { syncProjectTechnologies } from "./sync-project-technologies";
 
 // logger removed
 
@@ -32,6 +33,11 @@ export const updateProject = async (
     if (error) {
       // logger removed
       return { ok: false, error: error.message || "Failed to update project." };
+    }
+
+    const relationError = await syncProjectTechnologies(client, id, data.tags);
+    if (relationError) {
+      return { ok: false, error: relationError };
     }
 
     revalidatePath("/dashboard/projects");

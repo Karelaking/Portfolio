@@ -3,7 +3,12 @@ import { Suspense, cache } from "react";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { getExperience } from "@/lib/portfolio/queries";
-import { Container, SectionHeader, SectionOrnament } from "@/components/serverComponent";
+import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
+import {
+  Container,
+  SectionHeader,
+  SectionOrnament,
+} from "@/components/serverComponent";
 
 export const revalidate = 0;
 
@@ -25,28 +30,48 @@ const ExperienceContent = async (): Promise<ReactElement> => {
         copy="Every studio, product, and engineering role that shaped the craft."
       />
       <div className="space-y-6">
-        {items.map((item) => (
-          <div
-            className="border-border/70 bg-card rounded-3xl border p-6"
-            key={item.id}
-          >
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <div>
-                <p className="text-lg font-semibold">{item.role}</p>
-                <p className="text-muted-foreground text-sm">{item.company}</p>
+        {items.map((item) => {
+          const parsedHighlights = splitExperienceHighlights(item.highlights);
+
+          return (
+            <div
+              className="border-border/70 bg-card rounded-3xl border p-6"
+              key={item.id}
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <div>
+                  <p className="text-lg font-semibold">{item.role}</p>
+                  <p className="text-muted-foreground text-sm">
+                    {item.company}
+                  </p>
+                </div>
+                <span className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
+                  {item.period}
+                </span>
               </div>
-              <span className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
-                {item.period}
-              </span>
+              <p className="text-muted-foreground mt-3 text-sm">
+                {item.summary}
+              </p>
+              {parsedHighlights.coreTech.length > 0 ? (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {parsedHighlights.coreTech.map((tech) => (
+                    <span
+                      className="bg-primary/10 text-primary rounded-full px-3 py-1 text-[10px] font-semibold tracking-[0.2em] uppercase"
+                      key={`${item.id}-core-${tech}`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+              <ul className="mt-4 space-y-2 text-sm">
+                {parsedHighlights.highlights.map((highlight) => (
+                  <li key={`${item.id}-${highlight}`}>• {highlight}</li>
+                ))}
+              </ul>
             </div>
-            <p className="text-muted-foreground mt-3 text-sm">{item.summary}</p>
-            <ul className="mt-4 space-y-2 text-sm">
-              {item.highlights.map((highlight) => (
-                <li key={`${item.id}-${highlight}`}>• {highlight}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <Link
         className="text-muted-foreground inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase"

@@ -8,6 +8,7 @@ export {
   getCurrentFocus,
   getGalleryImages,
   getPrimaryServices,
+  getTechnologies,
 } from "./queries";
 
 export {
@@ -20,4 +21,5 @@ export {
   fallbackExperience,
   fallbackCurrentFocus,
   fallbackPrimaryServices,
+  fallbackTechnologies,
 } from "./fallback";

@@ -12,6 +12,7 @@ export {
   getPrimaryServices,
   getProjects,
   getSocialLinks,
+  getTechnologies,
 } from "./portfolio";
 
 export {
@@ -24,4 +25,5 @@ export {
   fallbackPrimaryServices,
   fallbackProjects,
   fallbackSocial,
+  fallbackTechnologies,
 } from "./portfolio";

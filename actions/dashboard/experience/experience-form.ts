@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { serializeExperienceHighlights } from "@/lib/portfolio/experience-tech";
 import type { ParsedExperienceInput } from "@/types/parsed-experience-input.interface";
 import type { ExperienceRowInput } from "@/types/experience-row-input.interface";
 
@@ -8,9 +9,10 @@ const experienceSchema = z.object({
   period: z.string().min(1, "Period is required"),
   summary: z.string().min(1, "Summary is required"),
   highlights: z.string().min(1, "Highlights are required"),
+  coreTech: z.string().optional().default(""),
 });
 
-const parseHighlights = (raw: string): string[] => {
+const parseList = (raw: string): string[] => {
   return raw
     .split(/\r?\n|,/)
     .map((item) => item.trim())
@@ -26,6 +28,7 @@ const parseExperienceForm = (
     period: String(formData.get("period") ?? ""),
     summary: String(formData.get("summary") ?? ""),
     highlights: String(formData.get("highlights") ?? ""),
+    coreTech: String(formData.get("coreTech") ?? ""),
   };
 
   const parsed = experienceSchema.safeParse(raw);
@@ -34,10 +37,12 @@ const parseExperienceForm = (
     return { error: message };
   }
 
-  const highlights = parseHighlights(parsed.data.highlights);
+  const highlights = parseList(parsed.data.highlights);
   if (highlights.length === 0) {
     return { error: "Add at least one highlight." };
   }
+
+  const coreTech = parseList(parsed.data.coreTech);
 
   return {
     data: {
@@ -46,6 +51,7 @@ const parseExperienceForm = (
       period: parsed.data.period,
       summary: parsed.data.summary,
       highlights,
+      coreTech,
     },
   };
 };
@@ -56,7 +62,7 @@ const toExperienceRow = (data: ParsedExperienceInput): ExperienceRowInput => {
     company: data.company,
     period: data.period,
     summary: data.summary,
-    highlights: data.highlights,
+    highlights: serializeExperienceHighlights(data.highlights, data.coreTech),
   };
 };
 

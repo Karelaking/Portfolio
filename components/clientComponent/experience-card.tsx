@@ -2,6 +2,7 @@
 
 import type { ReactElement } from "react";
 import { motion } from "framer-motion";
+import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
 import type { ExperienceItem } from "@/types";
 
 export interface ExperienceCardProps {
@@ -13,6 +14,8 @@ export const ExperienceCard = ({
   item,
   index = 0,
 }: ExperienceCardProps): ReactElement => {
+  const parsedHighlights = splitExperienceHighlights(item.highlights);
+
   return (
     <motion.div
       className="border-border/40 bg-card/95 dark:bg-card/80 hover:border-border/60 dark:hover:bg-card/95 group relative overflow-hidden rounded-2xl border p-5 shadow-sm transition-all duration-300"
@@ -68,9 +71,22 @@ export const ExperienceCard = ({
         {/* Divider */}
         <div className="bg-border/20 dark:bg-border/30 my-3 h-px w-8" />
 
+        {parsedHighlights.coreTech.length > 0 ? (
+          <div className="mb-3 flex flex-wrap gap-1.5">
+            {parsedHighlights.coreTech.slice(0, 3).map((tech) => (
+              <span
+                className="bg-primary/10 text-primary rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] uppercase"
+                key={`${item.id}-core-${tech}`}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        ) : null}
+
         {/* Highlights - Enhanced Typography */}
         <motion.ul className="space-y-2">
-          {item.highlights.slice(0, 2).map((highlight, i) => (
+          {parsedHighlights.highlights.slice(0, 2).map((highlight, i) => (
             <motion.li
               key={`${item.id}-${highlight}`}
               className="text-foreground/70 dark:text-foreground/65 flex items-start gap-2.5 text-sm leading-relaxed"
@@ -92,14 +108,14 @@ export const ExperienceCard = ({
               <span className="font-500 line-clamp-1">{highlight}</span>
             </motion.li>
           ))}
-          {item.highlights.length > 2 && (
+          {parsedHighlights.highlights.length > 2 && (
             <motion.li
               className="text-muted-foreground/70 dark:text-muted-foreground/60 font-600 tracking-0.5 pt-1 text-xs uppercase"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: (index ?? 0) * 0.1 + 0.15 }}
             >
-              +{item.highlights.length - 2} more skills
+              +{parsedHighlights.highlights.length - 2} more skills
             </motion.li>
           )}
         </motion.ul>
