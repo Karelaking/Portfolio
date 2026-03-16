@@ -15,6 +15,7 @@ export interface ExperienceFormValues {
   company: string;
   period: string;
   summary: string;
+  coreTech: string;
   highlights: string;
 }
 
@@ -44,7 +45,7 @@ const SubmitButton = ({ label }: SubmitButtonProps): ReactElement => {
 
   return (
     <Button
-      className="rounded-full bg-foreground px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-background"
+      className="bg-foreground text-background rounded-full px-5 py-3 text-xs font-semibold tracking-[0.3em] uppercase"
       type="submit"
       disabled={pending}
     >
@@ -135,12 +136,17 @@ export const ExperienceForm = ({
   };
 
   return (
-    <form action={formAction} className="grid gap-4" noValidate onSubmit={handleSubmit}>
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+    <form
+      action={formAction}
+      className="grid gap-4"
+      noValidate
+      onSubmit={handleSubmit}
+    >
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Role
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.role ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.role ?? ""}
@@ -151,29 +157,34 @@ export const ExperienceForm = ({
           type="text"
         />
         {errors.role ? (
-          <span className="text-xs font-normal normal-case tracking-normal text-destructive" id="experience-role-error">
+          <span
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
+            id="experience-role-error"
+          >
             {errors.role}
           </span>
         ) : null}
       </label>
 
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Company
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.company ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.company ?? ""}
           name="company"
           required
           aria-invalid={errors.company ? true : undefined}
-          aria-describedby={errors.company ? "experience-company-error" : undefined}
+          aria-describedby={
+            errors.company ? "experience-company-error" : undefined
+          }
           type="text"
         />
         {errors.company ? (
           <span
-            className="text-xs font-normal normal-case tracking-normal text-destructive"
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
             id="experience-company-error"
           >
             {errors.company}
@@ -181,23 +192,25 @@ export const ExperienceForm = ({
         ) : null}
       </label>
 
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Period
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.period ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.period ?? ""}
           name="period"
           required
           aria-invalid={errors.period ? true : undefined}
-          aria-describedby={errors.period ? "experience-period-error" : undefined}
+          aria-describedby={
+            errors.period ? "experience-period-error" : undefined
+          }
           type="text"
         />
         {errors.period ? (
           <span
-            className="text-xs font-normal normal-case tracking-normal text-destructive"
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
             id="experience-period-error"
           >
             {errors.period}
@@ -205,22 +218,24 @@ export const ExperienceForm = ({
         ) : null}
       </label>
 
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Summary
         <textarea
           className={cn(
-            "min-h-[120px] rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground min-h-30 rounded-2xl border px-4 py-3 text-sm",
             errors.summary ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.summary ?? ""}
           name="summary"
           required
           aria-invalid={errors.summary ? true : undefined}
-          aria-describedby={errors.summary ? "experience-summary-error" : undefined}
+          aria-describedby={
+            errors.summary ? "experience-summary-error" : undefined
+          }
         />
         {errors.summary ? (
           <span
-            className="text-xs font-normal normal-case tracking-normal text-destructive"
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
             id="experience-summary-error"
           >
             {errors.summary}
@@ -228,22 +243,34 @@ export const ExperienceForm = ({
         ) : null}
       </label>
 
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
+        Core tech (one per line)
+        <textarea
+          className="border-border bg-background text-foreground min-h-27.5 rounded-2xl border px-4 py-3 text-sm"
+          defaultValue={defaultValues?.coreTech ?? ""}
+          name="coreTech"
+          placeholder="React\nNext.js\nTypeScript"
+        />
+      </label>
+
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Highlights (one per line)
         <textarea
           className={cn(
-            "min-h-[140px] rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground min-h-35 rounded-2xl border px-4 py-3 text-sm",
             errors.highlights ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.highlights ?? ""}
           name="highlights"
           required
           aria-invalid={errors.highlights ? true : undefined}
-          aria-describedby={errors.highlights ? "experience-highlights-error" : undefined}
+          aria-describedby={
+            errors.highlights ? "experience-highlights-error" : undefined
+          }
         />
         {errors.highlights ? (
           <span
-            className="text-xs font-normal normal-case tracking-normal text-destructive"
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
             id="experience-highlights-error"
           >
             {errors.highlights}
@@ -252,7 +279,7 @@ export const ExperienceForm = ({
       </label>
 
       {state?.error ? (
-        <p className="text-sm text-destructive">{state.error}</p>
+        <p className="text-destructive text-sm">{state.error}</p>
       ) : null}
 
       <SubmitButton label={submitLabel} />

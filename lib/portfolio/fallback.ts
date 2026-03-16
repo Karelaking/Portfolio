@@ -7,6 +7,7 @@ import type { ExpertiseItem } from "@/types/expertise-item.interface";
 import type { ExperienceItem } from "@/types/experience-item.interface";
 import type { CurrentFocusItem } from "@/types/current-focus-item.interface";
 import type { PrimaryServiceItem } from "@/types/primary-service-item.interface";
+import type { TechnologyItem } from "@/types/technology-item.interface";
 
 export const fallbackHero: HeroData = {
   title: "Minimal systems make the maximum impact",
@@ -171,3 +172,5 @@ export const fallbackPrimaryServices: PrimaryServiceItem[] = [
   { id: "service-open-source", label: "Open source collaborations" },
   { id: "service-freelance", label: "Freelancing & product builds" },
 ];
+
+export const fallbackTechnologies: TechnologyItem[] = [];

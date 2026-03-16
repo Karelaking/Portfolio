@@ -24,5 +24,6 @@ export { getPrimaryServicesAction } from "./contact/get-primary-service.action";
 export { getBlogPostsAction } from "./blog/get-blog-post.action";
 export { getSocialLinksAction } from "./social/get-social-links.action";
 export { getExpertiseAction } from "./expertise/get-expertise.action";
+export { getTechnologiesAction } from "./technology/get-technologies.action";
 export { getCurrentFocusAction } from './about/get-current-focus.action';
 export { getHeroAction } from "./dashboard/hero/get-hero.action";

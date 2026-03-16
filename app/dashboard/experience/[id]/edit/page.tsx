@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
+import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
 import type { ExperienceItem } from "@/types/experience-item.interface";
 import { updateExperience } from "@/actions/dashboard/experience/update-experience.action";
 import { ExperienceForm } from "@/components/clientComponent";
@@ -35,6 +36,8 @@ const EditExperiencePage = async ({
     notFound();
   }
 
+  const parsedHighlights = splitExperienceHighlights(experience.highlights);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -59,7 +62,8 @@ const EditExperiencePage = async ({
             company: experience.company,
             period: experience.period,
             summary: experience.summary,
-            highlights: experience.highlights.join("\n"),
+            coreTech: parsedHighlights.coreTech.join("\n"),
+            highlights: parsedHighlights.highlights.join("\n"),
           }}
           submitLabel="Save changes"
         />

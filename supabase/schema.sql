@@ -62,6 +62,34 @@ create table if not exists public.projects (
   updated_at timestamptz not null default now()
 );
 
+create table if not exists public.technologies (
+  id text primary key,
+  name text not null,
+  slug text not null unique,
+  description text not null,
+  website_url text not null,
+  logo_key text not null,
+  order_index integer not null default 0,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint technologies_website_url_check check (website_url ~ '^https?://')
+);
+
+create table if not exists public.project_technologies (
+  project_id text not null,
+  technology_id text not null,
+  created_at timestamptz not null default now(),
+  primary key (project_id, technology_id),
+  constraint project_technologies_project_id_fkey
+    foreign key (project_id)
+    references public.projects (id)
+    on delete cascade,
+  constraint project_technologies_technology_id_fkey
+    foreign key (technology_id)
+    references public.technologies (id)
+    on delete cascade
+);
+
 create table if not exists public.social_links (
   id text primary key,
   platform text not null,
@@ -119,6 +147,9 @@ create table if not exists public.contact_messages (
 create index if not exists expertise_order_idx on public.expertise (order_index);
 create index if not exists experience_order_idx on public.experience (order_index);
 create index if not exists projects_order_idx on public.projects (order_index);
+create index if not exists technologies_order_idx on public.technologies (order_index);
+create index if not exists project_technologies_technology_idx on public.project_technologies (technology_id);
+create index if not exists project_technologies_project_idx on public.project_technologies (project_id);
 create index if not exists social_links_order_idx on public.social_links (order_index);
 create index if not exists blog_posts_order_idx on public.blog_posts (order_index);
 create index if not exists gallery_order_idx on public.gallery (order_index);
@@ -142,6 +173,11 @@ execute function public.set_updated_at();
 
 create trigger set_projects_updated_at
 before update on public.projects
+for each row
+execute function public.set_updated_at();
+
+create trigger set_technologies_updated_at
+before update on public.technologies
 for each row
 execute function public.set_updated_at();
 

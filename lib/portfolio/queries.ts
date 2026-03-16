@@ -9,6 +9,7 @@ import {
   fallbackExperience,
   fallbackCurrentFocus,
   fallbackPrimaryServices,
+  fallbackTechnologies,
 } from "@/lib/portfolio/fallback";
 import type { HeroRow } from "@/types/hero/hero-row.interface";
 import type { BlogPost } from "@/types/blog-post.interface";
@@ -21,6 +22,8 @@ import type { ExpertiseItem } from "@/types/expertise-item.interface";
 import type { ExperienceItem } from "@/types/experience-item.interface";
 import type { CurrentFocusItem } from "@/types/current-focus-item.interface";
 import type { PrimaryServiceItem } from "@/types/primary-service-item.interface";
+import type { TechnologyRow } from "@/types/technology-row.interface";
+import type { TechnologyItem } from "@/types/technology-item.interface";
 import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
 
 const mapHeroRow = (row: HeroRow): HeroData => {
@@ -163,4 +166,37 @@ export const getPrimaryServices = cache(async (): Promise<PrimaryServiceItem[]> 
     return data;
   }
   return fallbackPrimaryServices;
+});
+
+const mapTechnologyRow = (row: TechnologyRow): TechnologyItem => {
+  const relatedProjects = Array.isArray(row.project_technologies)
+    ? row.project_technologies
+      .map((relation) => relation.projects)
+      .filter((project): project is ProjectRow => project !== null)
+      .map(mapProjectRow)
+    : [];
+
+  return {
+    id: row.id,
+    name: row.name,
+    slug: row.slug,
+    description: row.description,
+    websiteUrl: row.website_url,
+    logoKey: row.logo_key,
+    relatedProjects,
+  };
+};
+
+export const getTechnologies = cache(async (): Promise<TechnologyItem[]> => {
+  const data = await fetchTable<TechnologyRow>(
+    "technologies",
+    "id,name,slug,description,website_url,logo_key,project_technologies(project_id,projects(*))",
+    "order_index",
+  );
+
+  if (data && data.length > 0) {
+    return data.map(mapTechnologyRow);
+  }
+
+  return fallbackTechnologies;
 });

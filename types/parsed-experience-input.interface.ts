@@ -4,4 +4,5 @@ export interface ParsedExperienceInput {
   period: string;
   summary: string;
   highlights: string[];
+  coreTech: string[];
 }

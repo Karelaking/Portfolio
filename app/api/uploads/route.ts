@@ -1,10 +1,29 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdminClient } from "@/lib/server";
 
+export const runtime = "nodejs";
+
 const MAX_FILE_SIZE_BYTES = 8 * 1024 * 1024;
 
 const getBucketName = (): string => {
   return process.env.SUPABASE_STORAGE_BUCKET ?? "media";
+};
+
+const getMissingSupabaseConfig = (): string[] => {
+  const missing: string[] = [];
+
+  const hasUrl = Boolean(process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL);
+  const hasServiceRole = Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY);
+
+  if (!hasUrl) {
+    missing.push("SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL)");
+  }
+
+  if (!hasServiceRole) {
+    missing.push("SUPABASE_SERVICE_ROLE_KEY");
+  }
+
+  return missing;
 };
 
 const sanitizeFolder = (value: string): string => {
@@ -38,8 +57,15 @@ export const POST = async (request: Request): Promise<Response> => {
 
     const client = getSupabaseAdminClient();
     if (!client) {
+      const missingConfig = getMissingSupabaseConfig();
       return NextResponse.json(
-        { ok: false, error: "Admin client not configured." },
+        {
+          ok: false,
+          error:
+            missingConfig.length > 0
+              ? `Missing Supabase config: ${missingConfig.join(", ")}.`
+              : "Admin client not configured.",
+        },
         { status: 500 },
       );
     }
@@ -49,15 +75,17 @@ export const POST = async (request: Request): Promise<Response> => {
     const filename = `${Date.now()}-${file.name.replace(/\s+/g, "-")}`;
     const path = `${folder}/${filename}`;
 
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-
     const { error } = await client.storage
       .from(bucket)
-      .upload(path, buffer, { contentType: file.type, upsert: true });
+      .upload(path, file, { contentType: file.type, upsert: true });
 
     if (error) {
-      return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+      const isMissingBucket = /bucket.*not.*found/i.test(error.message);
+      const message = isMissingBucket
+        ? `Storage bucket "${bucket}" was not found. Set SUPABASE_STORAGE_BUCKET to an existing bucket name.`
+        : error.message;
+
+      return NextResponse.json({ ok: false, error: message }, { status: 500 });
     }
 
     const { data } = client.storage.from(bucket).getPublicUrl(path);
