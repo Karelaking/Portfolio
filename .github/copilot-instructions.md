@@ -13,6 +13,7 @@
 - Formatting is driven by Biome: tabs for indent and double quotes (see `biome.json`).
 - Always use explicit imports (no `export * from` or barrel files) to keep tree-shaking effective and avoid circular dependencies.
 - Always use `export const` for components and functions (no default exports) to improve readability and maintainability.
+- Always use `React.FC` for defining React components to provide better type inference and readability. This also allows you to take advantage of the built-in props types (e.g., `children`) and improves consistency across the codebase.
 - Alwyas use the explicit input and output types for functions, even if they can be inferred. This improves readability and maintainability, especially in a React codebase where props and state types are important.
 - For React components, prefer defining props types with `interface` instead of `type` for better readability and consistency. Use `type` for other type definitions (e.g., utility types, union types).
 - Always use the consistent naming and casing conventions for variables, functions, and components (e.g., camelCase for variables and functions, PascalCase for components). This improves readability and maintainability across the codebase.
@@ -21,6 +22,10 @@
 - Always write clear and descriptive commit messages that follow the conventional commits format (e.g., `feat: add new feature`, `fix: fix bug`, `docs: update documentation`). This helps to improve the readability and maintainability of the commit history, and makes it easier for other developers to understand the changes that were made.
 - Always keep the codebase clean and organized by following the established file structure and naming conventions. This helps to improve readability and maintainability, and makes it easier for other developers to navigate the codebase.
 - Always write the code for the mobile first and responsive design in mind. This helps to ensure that the application works well on a variety of devices and screen sizes, and provides a better user experience for all users.
+- Always use the built-in features of Next.js and React for routing, data fetching, and state management before considering external libraries. This helps to keep the codebase simpler and more maintainable, and allows you to take full advantage of the capabilities of Next.js and React.
+- Always prefer the built-in features of Tailwind CSS for styling, and avoid creating custom CSS
+- classes or using inline styles unless necessary for specific cases (e.g., complex animations, third-party library overrides). This helps to keep the styling consistent and maintainable across the codebase, and allows you to take full advantage of the utility-first approach of Tailwind CSS.
+- Always try to make a standardized and reusable component for any UI element that is used in multiple places across the application. This helps to improve consistency and maintainability, and allows you to take advantage of the benefits of component-based architecture in React.
 
 ## App Router patterns
 
@@ -50,3 +55,11 @@
 - `pnpm dev` runs `next dev` then `next-devtools-mcp` (two-step dev workflow).
 - `pnpm build`, `pnpm start`, `pnpm lint` for build/run/lint.
 - Path alias `@/*` maps to the repo root (see `tsconfig.json`).
+- Use `next-devtools-mcp` for a better development experience with Next.js 16 and React 19 (see `devtools/` for custom panels).
+- Use Biome for code formatting and linting (see `biome.json`).
+- Use `@/components/ui` for shadcn/ui components, and `@/lib/utils` for utility functions (e.g., `cn`).
+- Use `@/app/providers` for shared providers (e.g., `RootProvider`), and `@/app/globals.css` for global styles and theme tokens.
+- Always write clear and descriptive commit messages that follow the conventional commits format (e.g., `feat: add new feature`, `fix: fix bug`, `docs: update documentation`). This helps to improve the readability and maintainability of the commit history, and makes it easier for other developers to understand the changes that were made.
+- Always keep the codebase clean and organized by following the established file structure and naming conventions. This helps to improve readability and maintainability, and makes it easier for other developers to navigate the codebase.
+- Always write the code for the mobile first and responsive design in mind. This helps to ensure that the application works well on a variety of devices and screen sizes, and provides a better user experience for all users.
+- use llm.md file to get the context of the nextjs code and example code snippets for the project. This file contains a snapshot of the project structure, code style, and conventions, as well as patterns for using the Next.js App Router and other features. Refer to this file when writing new code or making changes to ensure consistency and maintainability across the codebase.
