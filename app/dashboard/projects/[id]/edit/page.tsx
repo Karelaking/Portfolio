@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
+import { getProjectRepository } from "@/lib/repositories/projects/get-project-repository";
 import type { ProjectItem } from "@/types/project-item.interface";
 import { updateProject } from "@/actions/dashboard/projects/update-project.action";
 import { ProjectForm } from "@/components/clientComponent";
@@ -11,20 +11,8 @@ interface EditProjectPageProps {
 }
 
 const fetchProject = async (id: string): Promise<ProjectItem | null> => {
-  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
-  if (!client) {
-    return null;
-  }
-
-  const { data } = await client
-    .from("projects")
-    .select(
-      "id,name,description,tags,imageSrc:image_src,imageAlt:image_alt,href",
-    )
-    .eq("id", id)
-    .single();
-
-  return (data as ProjectItem) ?? null;
+  const repository = getProjectRepository();
+  return repository.getById(id);
 };
 
 const EditProjectPage = async ({
