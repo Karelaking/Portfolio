@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const supabaseUrl =
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL ?? "";
@@ -51,7 +52,7 @@ if (supabaseHostname) {
 
 const nextConfig: NextConfig = {
   images: remotePatterns,
-  outputFileTracingRoot: "./",
+  outputFileTracingRoot: path.resolve(process.cwd()),
   experimental: {
   },
 };
