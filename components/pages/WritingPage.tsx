@@ -1,9 +1,5 @@
-import type { ReactElement } from "react";
-import { writingPosts } from "@/data/WritingPosts";
-import { WritingPostsGrid } from "../clientComponent/writing-posts-grid";
-import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
-
-export const WritingPage = (): ReactElement => {
+export const WritingPage = async (): Promise<ReactElement> => {
+  const posts = await getWritingPosts();
   return (
     <Container
       className="border-border/70 relative flex flex-col gap-8 py-12"
@@ -15,7 +11,11 @@ export const WritingPage = (): ReactElement => {
         title="Shayari, poems, and stories from my notebook."
         copy="A complete writing section with cover image, title, tags, and full expandable content for each post."
       />
-      <WritingPostsGrid posts={writingPosts} />
+      <WritingPostsGrid posts={posts} />
     </Container>
   );
 };
+import type { ReactElement } from "react";
+import { getWritingPosts } from "@/lib";
+import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
+import { WritingPostsGrid } from "../clientComponent/writing-posts-grid";

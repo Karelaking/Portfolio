@@ -9,6 +9,7 @@ export {
   getGalleryImages,
   getPrimaryServices,
   getTechnologies,
+  getWritingPosts, // Exporting getWritingPosts
 } from "./queries";
 
 export {
