@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent, ReactElement } from "react";
-import { useActionState, useEffect, useId, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import type { createProject } from "@/actions/dashboard/projects/create-project.action";
 import type { ActionResult } from "@/types/action-result.interface";
@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { ImageKitUpload } from "./imagekit-upload";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -47,7 +48,11 @@ interface SubmitButtonProps {
 
 type ProjectFormErrors = Partial<Record<keyof ProjectFormValues, string>>;
 
-const SubmitButton = ({ label, formId, onValidate }: SubmitButtonProps): ReactElement => {
+const SubmitButton = ({
+  label,
+  formId,
+  onValidate,
+}: SubmitButtonProps): ReactElement => {
   const { pending } = useFormStatus();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const confirmRef = useRef<HTMLButtonElement | null>(null);
@@ -74,7 +79,7 @@ const SubmitButton = ({ label, formId, onValidate }: SubmitButtonProps): ReactEl
     <AlertDialog open={open} onOpenChange={handleOpenChange}>
       <AlertDialogTrigger asChild>
         <button
-          className="inline-flex items-center justify-center rounded-full bg-foreground px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+          className="bg-foreground text-background inline-flex items-center justify-center rounded-full px-5 py-3 text-xs font-semibold tracking-[0.3em] uppercase transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
           type="button"
           disabled={pending}
           ref={triggerRef}
@@ -106,14 +111,15 @@ const SubmitButton = ({ label, formId, onValidate }: SubmitButtonProps): ReactEl
         <AlertDialogHeader>
           <AlertDialogTitle>Confirm {label.toLowerCase()}</AlertDialogTitle>
           <AlertDialogDescription>
-            This will {label.toLowerCase()} the project changes. You can update it again later.
+            This will {label.toLowerCase()} the project changes. You can update
+            it again later.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction asChild>
             <Button
-              className="inline-flex items-center justify-center rounded-full bg-foreground px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+              className="bg-foreground text-background inline-flex items-center justify-center rounded-full px-5 py-3 text-xs font-semibold tracking-[0.3em] uppercase transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
               disabled={pending}
               form={formId}
               onClick={(): void => {
@@ -147,11 +153,8 @@ export const ProjectForm = ({
     null,
   );
   const [errors, setErrors] = useState<ProjectFormErrors>({});
-  const [uploadPending, setUploadPending] = useState<boolean>(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const formId = useId();
-  const uploadInputId = useId();
+  const formId = `project-form-${Date.now()}`;
   const imageSrcRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
   const targetUrl = redirectTo ?? "/dashboard/projects";
@@ -223,43 +226,6 @@ export const ProjectForm = ({
     return nextErrors;
   };
 
-  const handleImageUpload = async (): Promise<void> => {
-    if (!selectedFile) {
-      setUploadError("Select an image to upload.");
-      return;
-    }
-
-    setUploadPending(true);
-    setUploadError(null);
-
-    try {
-      const uploadData = new FormData();
-      uploadData.append("file", selectedFile);
-      uploadData.append("folder", "assets");
-
-      const response = await fetch("/api/uploads", {
-        method: "POST",
-        body: uploadData,
-      });
-
-      const result = (await response.json()) as { ok: boolean; url?: string; error?: string };
-      if (!response.ok || !result.ok || !result.url) {
-        throw new Error(result.error ?? "Upload failed.");
-      }
-
-      if (imageSrcRef.current) {
-        imageSrcRef.current.value = result.url;
-      }
-
-      toast.success("Image uploaded.");
-    } catch (error) {
-      setUploadError(error instanceof Error ? error.message : "Upload failed.");
-      toast.error("Image upload failed.");
-    } finally {
-      setUploadPending(false);
-    }
-  };
-
   const applyValidation = (formData: FormData): boolean => {
     const nextErrors = validateFormData(formData);
     const hasErrors = Object.keys(nextErrors).length > 0;
@@ -300,11 +266,11 @@ export const ProjectForm = ({
       noValidate
       onSubmit={handleSubmit}
     >
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Name
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.name ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.name ?? ""}
@@ -315,127 +281,125 @@ export const ProjectForm = ({
           type="text"
         />
         {errors.name ? (
-          <span className="text-xs font-normal normal-case tracking-normal text-destructive" id="project-name-error">
+          <span
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
+            id="project-name-error"
+          >
             {errors.name}
           </span>
         ) : null}
       </label>
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Description
         <textarea
           className={cn(
-            "min-h-[120px] rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground min-h-30 rounded-2xl border px-4 py-3 text-sm",
             errors.description ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.description ?? ""}
           name="description"
           required
           aria-invalid={errors.description ? true : undefined}
-          aria-describedby={errors.description ? "project-description-error" : undefined}
+          aria-describedby={
+            errors.description ? "project-description-error" : undefined
+          }
         />
         {errors.description ? (
           <span
-            className="text-xs font-normal normal-case tracking-normal text-destructive"
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
             id="project-description-error"
           >
             {errors.description}
           </span>
         ) : null}
       </label>
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Tags (comma separated)
         <input
-          className="rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground"
+          className="border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm"
           defaultValue={defaultValues?.tags ?? ""}
           name="tags"
           placeholder="Design System, Next.js"
           type="text"
         />
       </label>
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Image URL
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.imageSrc ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.imageSrc ?? ""}
           name="imageSrc"
           required
           aria-invalid={errors.imageSrc ? true : undefined}
-          aria-describedby={errors.imageSrc ? "project-image-src-error" : undefined}
+          aria-describedby={
+            errors.imageSrc ? "project-image-src-error" : undefined
+          }
           type="text"
           ref={imageSrcRef}
         />
         {errors.imageSrc ? (
           <span
-            className="text-xs font-normal normal-case tracking-normal text-destructive"
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
             id="project-image-src-error"
           >
             {errors.imageSrc}
           </span>
         ) : null}
-        <div className="mt-2 flex flex-wrap items-center gap-3 text-xs font-normal normal-case tracking-normal text-muted-foreground">
-          <label className="inline-flex items-center gap-2" htmlFor={uploadInputId}>
-            <span className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-foreground">
-              Choose file
-            </span>
-            <input
-              accept="image/*"
-              className="sr-only"
-              id={uploadInputId}
-              onChange={(event): void => {
-                const file = event.currentTarget.files?.[0] ?? null;
-                setSelectedFile(file);
-              }}
-              type="file"
-            />
-          </label>
-          <span>{selectedFile ? selectedFile.name : "No file selected"}</span>
-          <Button
-            className="rounded-full border border-border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
-            type="button"
-            variant="outline"
-            onClick={handleImageUpload}
-            disabled={uploadPending || !selectedFile}
-          >
-            {uploadPending ? "Uploading..." : "Upload"}
-          </Button>
+        <div className="mt-2">
+          <ImageKitUpload
+            folder="projects"
+            onUploadSuccess={(url) => {
+              if (imageSrcRef.current) {
+                imageSrcRef.current.value = url;
+              }
+              setUploadError(null);
+              toast.success("Image uploaded.");
+            }}
+            onUploadError={(error) => {
+              setUploadError(error);
+              toast.error("Image upload failed.");
+            }}
+          />
         </div>
         {uploadError ? (
-          <p className="text-xs font-normal normal-case tracking-normal text-destructive">
+          <p className="text-destructive text-xs font-normal tracking-normal normal-case">
             {uploadError}
           </p>
         ) : null}
       </label>
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Image alt text
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.imageAlt ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.imageAlt ?? ""}
           name="imageAlt"
           required
           aria-invalid={errors.imageAlt ? true : undefined}
-          aria-describedby={errors.imageAlt ? "project-image-alt-error" : undefined}
+          aria-describedby={
+            errors.imageAlt ? "project-image-alt-error" : undefined
+          }
           type="text"
         />
         {errors.imageAlt ? (
           <span
-            className="text-xs font-normal normal-case tracking-normal text-destructive"
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
             id="project-image-alt-error"
           >
             {errors.imageAlt}
           </span>
         ) : null}
       </label>
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Project URL
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.href ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.href ?? ""}
@@ -446,15 +410,22 @@ export const ProjectForm = ({
           type="url"
         />
         {errors.href ? (
-          <span className="text-xs font-normal normal-case tracking-normal text-destructive" id="project-href-error">
+          <span
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
+            id="project-href-error"
+          >
             {errors.href}
           </span>
         ) : null}
       </label>
       {state?.error ? (
-        <p className="text-sm text-destructive">{state.error}</p>
+        <p className="text-destructive text-sm">{state.error}</p>
       ) : null}
-      <SubmitButton label={submitLabel} formId={formId} onValidate={handleValidateBeforeConfirm} />
+      <SubmitButton
+        label={submitLabel}
+        formId={formId}
+        onValidate={handleValidateBeforeConfirm}
+      />
     </form>
   );
 };

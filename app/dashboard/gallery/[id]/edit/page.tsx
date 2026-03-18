@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
+import { getGalleryImages } from "@/lib/portfolio/queries";
 import type { GalleryImage } from "@/types/gallery-image.interface";
 import { updateGalleryImage } from "@/actions/dashboard/gallery/update-gallery-image.action";
 import { GalleryForm } from "@/components/clientComponent";
@@ -11,17 +11,8 @@ interface EditGalleryImagePageProps {
 }
 
 const fetchGalleryImage = async (id: string): Promise<GalleryImage | null> => {
-  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
-  if (!client) {
-    return null;
-  }
-
-  const { data } = await client
-    .from("gallery")
-    .select("id,src,alt")
-    .eq("id", id)
-    .single();
-  return (data as GalleryImage) ?? null;
+  const images = await getGalleryImages();
+  return images.find((image) => image.id === id) ?? null;
 };
 
 const EditGalleryImagePage = async ({

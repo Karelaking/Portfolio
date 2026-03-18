@@ -1,12 +1,13 @@
 "use client";
 
 import type { FormEvent, ReactElement } from "react";
-import { useActionState, useEffect, useId, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { ImageKitUpload } from "./imagekit-upload";
 import type { createGalleryImage } from "@/actions/dashboard/gallery/create-gallery-image.action";
 import type { ActionResult } from "@/types/action-result.interface";
 
@@ -38,7 +39,7 @@ const SubmitButton = ({ label }: SubmitButtonProps): ReactElement => {
 
   return (
     <Button
-      className="rounded-full bg-foreground px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-background"
+      className="bg-foreground text-background rounded-full px-5 py-3 text-xs font-semibold tracking-[0.3em] uppercase"
       type="submit"
       disabled={pending}
     >
@@ -73,12 +74,9 @@ export const GalleryForm = ({
     null,
   );
   const [errors, setErrors] = useState<GalleryFormErrors>({});
-  const [uploadPending, setUploadPending] = useState<boolean>(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const router = useRouter();
   const targetUrl = redirectTo ?? "/dashboard/gallery";
-  const uploadInputId = useId();
   const imageSrcRef = useRef<HTMLInputElement | null>(null);
 
   useEffect((): void => {
@@ -128,50 +126,18 @@ export const GalleryForm = ({
     setErrors({});
   };
 
-  const handleImageUpload = async (): Promise<void> => {
-    if (!selectedFile) {
-      setUploadError("Select an image to upload.");
-      return;
-    }
-
-    setUploadPending(true);
-    setUploadError(null);
-
-    try {
-      const uploadData = new FormData();
-      uploadData.append("file", selectedFile);
-      uploadData.append("folder", "assets");
-
-      const response = await fetch("/api/uploads", {
-        method: "POST",
-        body: uploadData,
-      });
-
-      const result = (await response.json()) as { ok: boolean; url?: string; error?: string };
-      if (!response.ok || !result.ok || !result.url) {
-        throw new Error(result.error ?? "Upload failed.");
-      }
-
-      if (imageSrcRef.current) {
-        imageSrcRef.current.value = result.url;
-      }
-
-      toast.success("Image uploaded.");
-    } catch (error) {
-      setUploadError(error instanceof Error ? error.message : "Upload failed.");
-      toast.error("Image upload failed.");
-    } finally {
-      setUploadPending(false);
-    }
-  };
-
   return (
-    <form action={formAction} className="grid gap-4" noValidate onSubmit={handleSubmit}>
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+    <form
+      action={formAction}
+      className="grid gap-4"
+      noValidate
+      onSubmit={handleSubmit}
+    >
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Image URL
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.src ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.src ?? ""}
@@ -183,49 +149,41 @@ export const GalleryForm = ({
           ref={imageSrcRef}
         />
         {errors.src ? (
-          <span className="text-xs font-normal normal-case tracking-normal text-destructive" id="gallery-src-error">
+          <span
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
+            id="gallery-src-error"
+          >
             {errors.src}
           </span>
         ) : null}
-        <div className="mt-2 flex flex-wrap items-center gap-3 text-xs font-normal normal-case tracking-normal text-muted-foreground">
-          <label className="inline-flex items-center gap-2" htmlFor={uploadInputId}>
-            <span className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-foreground">
-              Choose file
-            </span>
-            <input
-              accept="image/*"
-              className="sr-only"
-              id={uploadInputId}
-              onChange={(event): void => {
-                const file = event.currentTarget.files?.[0] ?? null;
-                setSelectedFile(file);
-              }}
-              type="file"
-            />
-          </label>
-          <span>{selectedFile ? selectedFile.name : "No file selected"}</span>
-          <Button
-            className="rounded-full border border-border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
-            type="button"
-            variant="outline"
-            onClick={handleImageUpload}
-            disabled={uploadPending || !selectedFile}
-          >
-            {uploadPending ? "Uploading..." : "Upload"}
-          </Button>
+        <div className="mt-2">
+          <ImageKitUpload
+            folder="gallery"
+            onUploadSuccess={(url) => {
+              if (imageSrcRef.current) {
+                imageSrcRef.current.value = url;
+              }
+              setUploadError(null);
+              toast.success("Image uploaded.");
+            }}
+            onUploadError={(error) => {
+              setUploadError(error);
+              toast.error("Image upload failed.");
+            }}
+          />
         </div>
         {uploadError ? (
-          <p className="text-xs font-normal normal-case tracking-normal text-destructive">
+          <p className="text-destructive text-xs font-normal tracking-normal normal-case">
             {uploadError}
           </p>
         ) : null}
       </label>
 
-      <label className="grid gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Alt text
         <input
           className={cn(
-            "rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground",
+            "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.alt ? "border-destructive" : null,
           )}
           defaultValue={defaultValues?.alt ?? ""}
@@ -236,14 +194,17 @@ export const GalleryForm = ({
           type="text"
         />
         {errors.alt ? (
-          <span className="text-xs font-normal normal-case tracking-normal text-destructive" id="gallery-alt-error">
+          <span
+            className="text-destructive text-xs font-normal tracking-normal normal-case"
+            id="gallery-alt-error"
+          >
             {errors.alt}
           </span>
         ) : null}
       </label>
 
       {state?.error ? (
-        <p className="text-sm text-destructive">{state.error}</p>
+        <p className="text-destructive text-sm">{state.error}</p>
       ) : null}
 
       <SubmitButton label={submitLabel} />

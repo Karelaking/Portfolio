@@ -1,42 +1,21 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
+import { getExperience } from "@/lib/portfolio/queries";
 import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
 import type { ExperienceItem } from "@/types/experience-item.interface";
 import { ExperienceDeleteButton } from "@/components/clientComponent";
 
 interface ExperienceFetchResult {
   items: ExperienceItem[];
-  error?: string;
 }
 
 const fetchExperience = async (): Promise<ExperienceFetchResult> => {
-  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
-  if (!client) {
-    return {
-      items: [],
-      error:
-        "Supabase client not configured. Check SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local, then restart the dev server.",
-    };
-  }
-
-  const { data, error } = await client
-    .from("experience")
-    .select("id,role,company,period,summary,highlights")
-    .order("order_index", { ascending: true });
-
-  if (error) {
-    return {
-      items: [],
-      error: `Supabase error: ${error.message}`,
-    };
-  }
-
-  return { items: (data as ExperienceItem[]) ?? [] };
+  const items = await getExperience();
+  return { items };
 };
 
 const ExperiencePage = async (): Promise<ReactElement> => {
-  const { items, error } = await fetchExperience();
+  const { items } = await fetchExperience();
 
   return (
     <div className="space-y-6">
@@ -59,12 +38,6 @@ const ExperiencePage = async (): Promise<ReactElement> => {
           New experience
         </Link>
       </div>
-
-      {error ? (
-        <div className="bg-card rounded-3xl border border-red-500/40 p-6 text-sm text-red-500">
-          {error}
-        </div>
-      ) : null}
 
       {items.length === 0 ? (
         <div className="border-border/70 bg-card rounded-3xl border border-dashed p-6">

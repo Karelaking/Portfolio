@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
+import { getExperience } from "@/lib/portfolio/queries";
 import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
 import type { ExperienceItem } from "@/types/experience-item.interface";
 import { updateExperience } from "@/actions/dashboard/experience/update-experience.action";
@@ -12,18 +12,8 @@ interface EditExperiencePageProps {
 }
 
 const fetchExperience = async (id: string): Promise<ExperienceItem | null> => {
-  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
-  if (!client) {
-    return null;
-  }
-
-  const { data } = await client
-    .from("experience")
-    .select("id,role,company,period,summary,highlights")
-    .eq("id", id)
-    .single();
-
-  return (data as ExperienceItem) ?? null;
+  const items = await getExperience();
+  return items.find((item) => item.id === id) ?? null;
 };
 
 const EditExperiencePage = async ({

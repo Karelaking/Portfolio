@@ -1,7 +1,5 @@
 export { cn } from "./utils";
 
-export { getSupabaseAdminClient, getSupabaseServerClient } from "./server";
-
 export {
   getBlogPosts,
   getCurrentFocus,

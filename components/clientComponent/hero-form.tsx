@@ -1,14 +1,7 @@
 "use client";
 
 import type { FormEvent, ReactElement } from "react";
-import {
-  useActionState,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useActionState, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@/components/ui";
@@ -24,6 +17,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { ImageKitUpload } from "./imagekit-upload";
 import type { ActionResult } from "@/types/action-result.interface";
 import type { HeroData } from "@/types/hero/hero-data.interface";
 import type { HeroMetric } from "@/types/hero/hero-metric.interface";
@@ -77,9 +71,7 @@ export const HeroForm = ({ initialValues }: HeroFormProps): ReactElement => {
     null,
   );
   const [errors, setErrors] = useState<HeroFormErrors>({});
-  const [uploadPending, setUploadPending] = useState<boolean>(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [metrics, setMetrics] = useState<HeroMetricEntry[]>(() => {
     if (initialValues.metrics.length > 0) {
       return initialValues.metrics.map((metric) => ({
@@ -92,7 +84,6 @@ export const HeroForm = ({ initialValues }: HeroFormProps): ReactElement => {
   const [deleteOpen, setDeleteOpen] = useState<boolean>(false);
   const [deletePending, setDeletePending] = useState<boolean>(false);
   const router = useRouter();
-  const uploadInputId = useId();
   const imageSrcRef = useRef<HTMLInputElement | null>(null);
 
   const metricsJson = useMemo<string>(() => {
@@ -203,47 +194,6 @@ export const HeroForm = ({ initialValues }: HeroFormProps): ReactElement => {
     setErrors({});
   };
 
-  const handleImageUpload = async (): Promise<void> => {
-    if (!selectedFile) {
-      setUploadError("Select an image to upload.");
-      return;
-    }
-
-    setUploadPending(true);
-    setUploadError(null);
-
-    try {
-      const uploadData = new FormData();
-      uploadData.append("file", selectedFile);
-      uploadData.append("folder", "assets");
-
-      const response = await fetch("/api/uploads", {
-        method: "POST",
-        body: uploadData,
-      });
-
-      const result = (await response.json()) as {
-        ok: boolean;
-        url?: string;
-        error?: string;
-      };
-      if (!response.ok || !result.ok || !result.url) {
-        throw new Error(result.error ?? "Upload failed.");
-      }
-
-      if (imageSrcRef.current) {
-        imageSrcRef.current.value = result.url;
-      }
-
-      toast.success("Image uploaded.");
-    } catch (error) {
-      setUploadError(error instanceof Error ? error.message : "Upload failed.");
-      toast.error("Image upload failed.");
-    } finally {
-      setUploadPending(false);
-    }
-  };
-
   const handleDelete = async (): Promise<void> => {
     try {
       setDeletePending(true);
@@ -326,7 +276,7 @@ export const HeroForm = ({ initialValues }: HeroFormProps): ReactElement => {
           Description
           <textarea
             className={cn(
-              "border-border bg-background text-foreground min-h-[120px] rounded-2xl border px-4 py-3 text-sm",
+              "border-border bg-background text-foreground min-h-30 rounded-2xl border px-4 py-3 text-sm",
               errors.description ? "border-destructive" : null,
             )}
             defaultValue={initialValues.description}
@@ -427,37 +377,21 @@ export const HeroForm = ({ initialValues }: HeroFormProps): ReactElement => {
                 {errors.imageSrc}
               </span>
             ) : null}
-            <div className="text-muted-foreground mt-2 flex flex-wrap items-center gap-3 text-xs font-normal tracking-normal normal-case">
-              <label
-                className="inline-flex items-center gap-2"
-                htmlFor={uploadInputId}
-              >
-                <span className="border-border/70 text-foreground rounded-full border px-3 py-1 text-[11px] tracking-[0.2em] uppercase">
-                  Choose file
-                </span>
-                <input
-                  accept="image/*"
-                  className="sr-only"
-                  id={uploadInputId}
-                  onChange={(event): void => {
-                    const file = event.currentTarget.files?.[0] ?? null;
-                    setSelectedFile(file);
-                  }}
-                  type="file"
-                />
-              </label>
-              <span>
-                {selectedFile ? selectedFile.name : "No file selected"}
-              </span>
-              <Button
-                className="border-border rounded-full border px-3 py-1 text-[11px] font-semibold tracking-[0.2em] uppercase"
-                type="button"
-                variant="outline"
-                onClick={handleImageUpload}
-                disabled={uploadPending || !selectedFile}
-              >
-                {uploadPending ? "Uploading..." : "Upload"}
-              </Button>
+            <div className="mt-2">
+              <ImageKitUpload
+                folder="hero"
+                onUploadSuccess={(url) => {
+                  if (imageSrcRef.current) {
+                    imageSrcRef.current.value = url;
+                  }
+                  setUploadError(null);
+                  toast.success("Image uploaded.");
+                }}
+                onUploadError={(error) => {
+                  setUploadError(error);
+                  toast.error("Image upload failed.");
+                }}
+              />
             </div>
             {uploadError ? (
               <p className="text-destructive text-xs font-normal tracking-normal normal-case">
