@@ -7,8 +7,9 @@ import {
   ImageKitServerError,
   ImageKitUploadNetworkError,
 } from "@imagekit/next";
+import Image from "next/image";
 import type { ReactElement } from "react";
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Button } from "@/components/ui";
 
 export interface ImageKitUploadProps {
@@ -17,19 +18,39 @@ export interface ImageKitUploadProps {
   // eslint-disable-next-line no-unused-vars
   readonly onUploadError: (...args: [string]) => void;
   readonly folder?: string;
+  readonly existingImageUrl?: string;
+  readonly existingImageAlt?: string;
 }
 
 export const ImageKitUpload = ({
   onUploadSuccess,
   onUploadError,
   folder = "portfolio",
+  existingImageUrl,
+  existingImageAlt,
 }: ImageKitUploadProps): ReactElement => {
   const [isUploading, setIsUploading] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
   const uploadInputId = useId();
+
+  useEffect((): (() => void) => {
+    if (!selectedFile) {
+      setPreviewUrl(null);
+      return () => {};
+    }
+
+    const nextPreviewUrl = URL.createObjectURL(selectedFile);
+    setPreviewUrl(nextPreviewUrl);
+
+    return () => {
+      URL.revokeObjectURL(nextPreviewUrl);
+    };
+  }, [selectedFile]);
 
   const getAuthenticator = async (): Promise<{
     signature: string;
@@ -90,6 +111,7 @@ export const ImageKitUpload = ({
         throw new Error("Upload succeeded but no URL returned");
       }
       onUploadSuccess(response.url);
+      setUploadedImageUrl(response.url);
       setSelectedFile(null);
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
@@ -124,6 +146,11 @@ export const ImageKitUpload = ({
     setIsUploading(false);
     setUploadProgress(0);
   };
+
+  const resolvedPreviewUrl =
+    previewUrl ?? uploadedImageUrl ?? existingImageUrl ?? null;
+  const resolvedPreviewAlt =
+    selectedFile?.name ?? existingImageAlt ?? "Image preview";
 
   return (
     <div className="grid gap-3">
@@ -173,6 +200,19 @@ export const ImageKitUpload = ({
           </Button>
         )}
       </div>
+
+      {resolvedPreviewUrl ? (
+        <div className="border-border/70 bg-background relative h-44 w-full overflow-hidden rounded-2xl border">
+          <Image
+            alt={resolvedPreviewAlt}
+            className="h-full w-full object-cover"
+            fill
+            src={resolvedPreviewUrl}
+            unoptimized
+            sizes="(min-width: 768px) 480px, 100vw"
+          />
+        </div>
+      ) : null}
 
       {isUploading && (
         <div className="bg-border h-1 w-full overflow-hidden rounded-full">

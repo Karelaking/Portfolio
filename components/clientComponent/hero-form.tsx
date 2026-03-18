@@ -380,6 +380,8 @@ export const HeroForm = ({ initialValues }: HeroFormProps): ReactElement => {
             <div className="mt-2">
               <ImageKitUpload
                 folder="hero"
+                existingImageUrl={initialValues.imageSrc}
+                existingImageAlt={initialValues.imageAlt}
                 onUploadSuccess={(url) => {
                   if (imageSrcRef.current) {
                     imageSrcRef.current.value = url;
