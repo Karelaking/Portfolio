@@ -1,3 +1,43 @@
+import type { WritingPost } from "@/types/writing-post.interface";
+import type { WritingRow } from "@/types/writing-row.interface";
+
+const mapWritingRow = (row: WritingRow): WritingPost => {
+  return {
+    id: row.id,
+    title: row.title,
+    coverImageSrc: row.cover_image_src,
+    coverImageAlt: row.cover_image_alt,
+    content: row.content,
+    tags: Array.isArray(row.tags) ? row.tags : [],
+    publishedAt: row.published_at,
+  };
+};
+
+export const getWritingPosts = cache(async (): Promise<WritingPost[]> => {
+  const data = await fetchCollection<WritingRow>("writing_posts", {
+    sort: { order_index: 1, id: 1 },
+    projection: {
+      _id: 0,
+      id: 1,
+      title: 1,
+      cover_image_src: 1,
+      cover_image_alt: 1,
+      content: 1,
+      tags: 1,
+      published_at: 1,
+    },
+  });
+  if (data && data.length > 0) {
+    return data.map(mapWritingRow);
+  }
+  // fallback: import from data/WritingPosts if needed
+  try {
+    const { writingPosts } = await import("@/data/WritingPosts");
+    return writingPosts;
+  } catch {
+    return [];
+  }
+});
 import { cache } from "react";
 import mongoose from "mongoose";
 import {

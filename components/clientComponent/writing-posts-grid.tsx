@@ -120,9 +120,10 @@ export const WritingPostsGrid = ({
                 </div>
 
                 <div className="text-muted-foreground min-h-0 flex-1 space-y-4 overflow-y-auto pr-1 text-sm leading-relaxed">
-                  {activePost.content.split("\n\n").map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+                  {/* Render content as HTML for formatted display */}
+                  <div
+                    dangerouslySetInnerHTML={{ __html: activePost.content }}
+                  />
                 </div>
               </div>
             </motion.div>
@@ -162,9 +163,12 @@ export const WritingPostsGrid = ({
                 >
                   {post.title}
                 </motion.h3>
-                <p className="text-muted-foreground [display:-webkit-box] min-h-16 overflow-hidden text-sm leading-relaxed [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
-                  {buildPreview(post.content)}
-                </p>
+                <div
+                  className="text-muted-foreground [display:-webkit-box] min-h-16 overflow-hidden text-sm leading-relaxed [-webkit-box-orient:vertical] [-webkit-line-clamp:3]"
+                  dangerouslySetInnerHTML={{
+                    __html: buildPreview(post.content),
+                  }}
+                />
 
                 <div className="mt-auto min-h-14 overflow-hidden">
                   <div className="flex flex-wrap gap-2">

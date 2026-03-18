@@ -1,6 +1,7 @@
 export { cn } from "./utils";
 
 export {
+  getWritingPosts,
   getBlogPosts,
   getCurrentFocus,
   getExperience,
