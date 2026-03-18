@@ -1,7 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { getSupabaseAdminClient } from "@/lib/server";
+import mongoose from "mongoose";
+import { connectMongo } from "@/lib/database/mongodb";
 import type { ActionResult } from "@/types/action-result.interface";
 import { parseExperienceForm, toExperienceRow } from "./experience-form";
 
@@ -9,25 +10,33 @@ export const createExperience = async (
   _prevState: ActionResult | null,
   formData: FormData,
 ): Promise<ActionResult> => {
-  const client = getSupabaseAdminClient();
-  if (!client) {
-    return { ok: false, error: "Admin client not configured." };
-  }
-
   const result = parseExperienceForm(formData);
   if (!result.data) {
     return { ok: false, error: result.error ?? "Invalid form data." };
   }
 
-  const payload = {
-    id: crypto.randomUUID(),
-    ...toExperienceRow(result.data),
-    order_index: 0,
-  };
+  try {
+    await connectMongo();
+    const db = mongoose.connection.db;
 
-  const { error } = await client.from("experience").insert(payload);
-  if (error) {
-    return { ok: false, error: error.message || "Failed to add experience." };
+    if (!db) {
+      return { ok: false, error: "MongoDB is not connected." };
+    }
+
+    const payload = {
+      id: crypto.randomUUID(),
+      ...toExperienceRow(result.data),
+      order_index: 0,
+      created_at: new Date(),
+      updated_at: new Date(),
+    };
+
+    await db.collection("experience").insertOne(payload);
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : "Failed to add experience.",
+    };
   }
 
   revalidatePath("/");

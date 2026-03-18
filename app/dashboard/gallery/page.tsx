@@ -1,42 +1,21 @@
 import type { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
+import { getGalleryImages } from "@/lib/portfolio/queries";
 import type { GalleryImage } from "@/types/gallery-image.interface";
 import { GalleryDeleteButton } from "@/components/clientComponent";
 
 interface GalleryFetchResult {
   images: GalleryImage[];
-  error?: string;
 }
 
 const fetchGallery = async (): Promise<GalleryFetchResult> => {
-  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
-  if (!client) {
-    return {
-      images: [],
-      error:
-        "Supabase client not configured. Check SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local, then restart the dev server.",
-    };
-  }
-
-  const { data, error } = await client
-    .from("gallery")
-    .select("id,src,alt")
-    .order("order_index", { ascending: true });
-
-  if (error) {
-    return {
-      images: [],
-      error: `Supabase error: ${error.message}`,
-    };
-  }
-
-  return { images: (data as GalleryImage[]) ?? [] };
+  const images = await getGalleryImages();
+  return { images };
 };
 
 const GalleryPage = async (): Promise<ReactElement> => {
-  const { images, error } = await fetchGallery();
+  const { images } = await fetchGallery();
 
   return (
     <div className="space-y-6">
@@ -59,12 +38,6 @@ const GalleryPage = async (): Promise<ReactElement> => {
           New image
         </Link>
       </div>
-
-      {error ? (
-        <div className="bg-card rounded-3xl border border-red-500/40 p-6 text-sm text-red-500">
-          {error}
-        </div>
-      ) : null}
 
       {images.length === 0 ? (
         <div className="border-border/70 bg-card rounded-3xl border border-dashed p-6">

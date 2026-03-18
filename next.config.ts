@@ -1,21 +1,12 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
-const supabaseUrl =
-  process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL ?? "";
-const supabaseHostname = (() => {
-  if (!supabaseUrl) {
-    return null;
-  }
-  try {
-    return new URL(supabaseUrl).hostname;
-  } catch {
-    return null;
-  }
-})();
-
 const remotePatterns: NextConfig["images"] = {
   remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "ik.imagekit.io",
+    },
     {
       protocol: "https",
       hostname: "www.instagram.com",
@@ -43,18 +34,10 @@ const remotePatterns: NextConfig["images"] = {
   ],
 };
 
-if (supabaseHostname) {
-  remotePatterns.remotePatterns?.push({
-    protocol: "https",
-    hostname: supabaseHostname,
-  });
-}
-
 const nextConfig: NextConfig = {
   images: remotePatterns,
   outputFileTracingRoot: path.resolve(process.cwd()),
-  experimental: {
-  },
+  experimental: {},
 };
 
 export default nextConfig;
