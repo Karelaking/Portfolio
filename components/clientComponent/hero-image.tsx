@@ -42,7 +42,7 @@ export const HeroImage = ({
 
   return (
     <motion.div
-      className="relative flex w-full items-center justify-center overflow-x-hidden"
+      className="relative mx-auto flex w-full max-w-105 items-center justify-center overflow-x-hidden"
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false, amount: 0.4 }}
@@ -51,7 +51,7 @@ export const HeroImage = ({
       <motion.div
         className="border-border absolute top-6 left-2 h-24 w-24 rounded-full border sm:-left-6"
         initial={{ y: 0 }}
-        whileInView={{ y: [0, -6, 0] }}
+        whileInView={{ y: [0, 6, 0] }}
         viewport={{ once: false, amount: 0.4 }}
         transition={{
           duration: 6,
@@ -72,7 +72,7 @@ export const HeroImage = ({
       />
       <div className="bg-border/60 pointer-events-none absolute top-4 left-1/2 h-px w-32 -translate-x-1/2" />
       <div
-        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-[2.5rem] border p-4 ring-1 sm:p-6"
+        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-3xl border p-4 ring-1 sm:p-6"
         style={containerStyle}
       >
         <PixelatedCanvas
@@ -93,7 +93,7 @@ export const HeroImage = ({
           jitterSpeed={1}
           sampleAverage
           alt={imageAlt}
-          className="h-full w-full rounded-[2rem] object-cover brightness-140"
+          className="h-full w-full rounded-2xl object-cover brightness-140"
         />
       </div>
     </motion.div>

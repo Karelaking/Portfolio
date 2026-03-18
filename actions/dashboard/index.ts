@@ -18,3 +18,8 @@ export { updateProject } from "./projects/update-project.action";
 export { parseProjectForm, toProjectRow } from "./projects/project-form";
 export { getProjectsAction } from "./projects/get-projects.action";
 export { getExperienceAction } from "./experience/get-experience.action";
+
+export { createWritingPost } from "./writing/create-writing-post.action";
+export { deleteWritingPostAction } from "./writing/delete-writing-post.action";
+export { updateWritingPost } from "./writing/update-writing-post.action";
+export { parseWritingForm, toWritingRow } from "./writing/writing-form";

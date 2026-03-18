@@ -1,10 +1,8 @@
 "use server";
 
 import { Resend } from "resend";
-import {
-  getSupabaseAdminClient,
-  getSupabaseServerClient,
-} from "@/lib/server";
+import mongoose from "mongoose";
+import { connectMongo } from "@/lib/database/mongodb";
 import type { ActionResult } from "@/types/action-result.interface";
 import type { ContactMessageInput } from "@/types/contact-message-input.interface";
 
@@ -136,17 +134,26 @@ const sendContactEmail = async (
 const storeContactMessage = async (
   input: ContactMessageInput,
 ): Promise<ActionResult> => {
-  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
-  if (!client) {
+  try {
+    await connectMongo();
+    const db = mongoose.connection.db;
+
+    if (!db) {
+      return { ok: false, error: "MongoDB is not connected." };
+    }
+
+    await db.collection("contact_messages").insertOne({
+      ...input,
+      created_at: new Date(),
+    });
+
     return { ok: true };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : "Failed to store message.",
+    };
   }
-
-  const { error } = await client.from("contact_messages").insert(input);
-  if (error) {
-    return { ok: false, error: error.message };
-  }
-
-  return { ok: true };
 };
 
 export const submitContact = async (

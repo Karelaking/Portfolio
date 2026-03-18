@@ -13,6 +13,8 @@ export interface GalleryImageProps {
   width?: number;
   height?: number;
   className?: string;
+  priority?: boolean;
+  loading?: "lazy" | "eager";
 }
 
 export const GalleryImage = ({
@@ -22,10 +24,11 @@ export const GalleryImage = ({
   width = 520,
   height = 420,
   className,
+  priority = false,
+  loading = "lazy",
 }: GalleryImageProps): ReactElement => {
   const [loaded, setLoaded] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const layoutId = `gallery-image-${src}`;
 
   useEffect((): (() => void) => {
     if (!isOpen) {
@@ -48,24 +51,34 @@ export const GalleryImage = ({
     <>
       <button
         type="button"
-        className="w-full text-left"
+        className="block w-full p-0 text-left"
         onClick={(): void => setIsOpen(true)}
         aria-label={`Open ${alt}`}
       >
         <motion.div
-          layoutId={layoutId}
-          className="relative overflow-hidden rounded-2xl border border-border/70"
+          className="border-border/70 relative overflow-hidden rounded-2xl border"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
         >
           {!loaded ? (
-            <div className="absolute inset-0 animate-pulse bg-muted/60" />
+            <div className="bg-muted/60 absolute inset-0 animate-pulse" />
           ) : null}
           <Image
             alt={alt}
             src={src}
             width={width}
             height={height}
-            className={cn("h-48 w-full object-cover", className, !loaded ? "opacity-0" : null)}
+            className={cn(
+              "h-48 w-full object-cover",
+              className,
+              !loaded ? "opacity-0" : null,
+            )}
             sizes={sizes}
+            priority={priority}
+            loading={loading}
+            quality={priority ? 85 : 75}
             onLoad={(): void => {
               setLoaded(true);
             }}
@@ -80,22 +93,22 @@ export const GalleryImage = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
           >
             <motion.button
               type="button"
-              className="absolute inset-0 bg-background/80 backdrop-blur"
+              className="bg-background/80 absolute inset-0 backdrop-blur"
               onClick={(): void => setIsOpen(false)}
               aria-label="Close image"
             />
             <div className="relative z-10 w-fit md:w-auto">
               <motion.div
-                layoutId={layoutId}
-                className="overflow-hidden rounded-3xl border border-border/70 bg-card p-3"
+                className="border-border/70 bg-card overflow-hidden rounded-3xl border p-3"
                 style={{ maxWidth: `${width}px` }}
-                initial={{ scale: 0.98 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
               >
                 <Image
                   alt={alt}
@@ -106,9 +119,10 @@ export const GalleryImage = ({
                   style={{ maxHeight: `${height}px` }}
                   sizes="100vw"
                   priority
+                  quality={90}
                 />
               </motion.div>
-              <div className="mt-4 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              <div className="text-muted-foreground mt-4 flex items-center justify-between text-xs tracking-[0.3em] uppercase">
                 <span>{alt}</span>
                 <span>Esc to close</span>
               </div>
