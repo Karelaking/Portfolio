@@ -159,6 +159,8 @@ export const GalleryForm = ({
         <div className="mt-2">
           <ImageKitUpload
             folder="gallery"
+            existingImageUrl={defaultValues?.src ?? undefined}
+            existingImageAlt={defaultValues?.alt ?? undefined}
             onUploadSuccess={(url) => {
               if (imageSrcRef.current) {
                 imageSrcRef.current.value = url;

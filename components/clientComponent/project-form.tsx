@@ -351,6 +351,8 @@ export const ProjectForm = ({
         <div className="mt-2">
           <ImageKitUpload
             folder="projects"
+            existingImageUrl={defaultValues?.imageSrc ?? undefined}
+            existingImageAlt={defaultValues?.imageAlt ?? undefined}
             onUploadSuccess={(url) => {
               if (imageSrcRef.current) {
                 imageSrcRef.current.value = url;
