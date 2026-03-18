@@ -12,3 +12,8 @@ export { ProjectForm, type ProjectFormProps, type ProjectFormValues } from "./pr
 export { ProjectDeleteButton, type ProjectDeleteButtonProps } from "./project-delete-button";
 export { GalleryDeleteButton, type GalleryDeleteButtonProps } from "./gallery-delete-button";
 export { ExperienceDeleteButton, type ExperienceDeleteButtonProps } from "./experience-delete-button";
+export { ExperienceCard, type ExperienceCardProps } from "./experience-card";
+export { SocialLink, type SocialLinkProps } from "./social-link";
+export { NovelTextEditor, type NovelTextEditorProps } from "./novel-text-editor";
+export { WritingForm, type WritingFormProps, type WritingFormValues } from "./writing-form";
+export { WritingDeleteButton, type WritingDeleteButtonProps } from "./writing-delete-button";

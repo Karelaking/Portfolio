@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import { Suspense, cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getSupabaseAdminClient, getSupabaseServerClient } from "@/lib/server";
+import { getProjectRepository } from "@/lib/repositories/projects/get-project-repository";
 import type { ProjectItem } from "@/types";
 import { ProjectsPanelSkeleton } from "@/components/serverComponent/skeletons";
 import { ProjectDeleteButton } from "@/components/clientComponent";
@@ -13,31 +13,13 @@ interface ProjectFetchResult {
 }
 
 const fetchProjects = cache(async (): Promise<ProjectFetchResult> => {
-  const client = getSupabaseAdminClient() ?? getSupabaseServerClient();
-  if (!client) {
-    return {
-      projects: [],
-      error:
-        "Supabase client not configured. Check SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local, then restart the dev server.",
-    };
-  }
+  const repository = getProjectRepository();
+  const result = await repository.getAll();
 
-  const { data, error } = await client
-    .from("projects")
-    .select(
-      "id,name,description,tags,imageSrc:image_src,imageAlt:image_alt,href",
-    )
-    .order("order_index", { ascending: true });
-
-  if (error) {
-    return {
-      projects: [],
-      error: `Supabase error: ${error.message}`,
-    };
-  }
-
-  const projects = (data as unknown as ProjectItem[]) ?? [];
-  return { projects };
+  return {
+    projects: result.projects,
+    error: result.error,
+  };
 });
 
 const ProjectsPanel = async (): Promise<ReactElement> => {

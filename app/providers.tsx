@@ -1,38 +1,47 @@
-"use client";
-
-import dynamic from "next/dynamic";
+import { ThemeProvider } from "next-themes";
 import type { ReactElement, ReactNode } from "react";
+import { Suspense } from "react";
 import { Toaster } from "sonner";
-import { AppThemeProvider } from "@/components/providers/theme-provider";
-import { useMounted } from "@/hooks/use-mounted";
-
-const LazyAnalyticsProvider = dynamic(
-  () =>
-    import("@/components/providers/analytics-provider").then(
-      (mod) => mod.AnalyticsProvider,
-    ),
-  {
-    ssr: false,
-  },
-);
+import { Analytics } from "@vercel/analytics/react";
+import { ImageKitProvider } from "@/components/providers/imagekit-provider";
+import { CursorFollower } from "@/components/clientComponent/cursor-follower";
+import { Footer, NavigationBar } from "@/components/serverComponent";
+import { FooterSkeleton } from "@/components/serverComponent/skeletons";
 
 export interface ProvidersProps {
   children: ReactNode;
 }
 
 export const Providers = ({ children }: ProvidersProps): ReactElement => {
-  const mounted = useMounted();
-
   return (
-    <AppThemeProvider
+    <ThemeProvider
       attribute="class"
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
     >
-      {children}
-      {mounted ? <LazyAnalyticsProvider /> : null}
-      {mounted ? <Toaster richColors closeButton /> : null}
-    </AppThemeProvider>
+      <ImageKitProvider>
+        <CursorFollower />
+        {children}
+        <Analytics />
+        <Toaster richColors closeButton />
+      </ImageKitProvider>
+    </ThemeProvider>
+  );
+};
+
+export interface RootProviderProps {
+  children: ReactNode;
+}
+
+export const RootProvider = ({ children }: RootProviderProps): ReactElement => {
+  return (
+    <>
+      <NavigationBar />
+      <main className="relative mx-auto w-full">{children}</main>
+      <Suspense fallback={<FooterSkeleton />}>
+        <Footer />
+      </Suspense>
+    </>
   );
 };

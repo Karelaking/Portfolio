@@ -12,7 +12,7 @@ export const ContactPage = ():React.ReactNode => {
       className="border-border/70 relative flex flex-col gap-8 py-12"
       id="contact"
     >
-      <SectionOrnament className="right-auto left-8" />
+      <SectionOrnament className="right-6" />
       <SectionHeader
         label="Contact"
         title="Let’s craft a minimal presence for your next launch."

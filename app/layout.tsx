@@ -44,7 +44,9 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased bg-neutral-50 dark:bg-neutral-950 ">
         <ClerkProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+          </Providers>
         </ClerkProvider>
       </body>
     </html>
