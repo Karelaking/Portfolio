@@ -2,7 +2,9 @@ import React from "react";
 import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { getExperienceAction } from "@/actions/dashboard";
+import { ExperienceCard } from "../clientComponent";
 import Link from "next/link";
+import type { ExperienceItem } from "@/types";
 
 const experience = await getExperienceAction();
 
@@ -15,34 +17,15 @@ export const ExperiencePage = (): React.ReactElement => {
       className="border-border/70 relative flex flex-col gap-8 py-12"
       id="experience"
     >
-      <SectionOrnament className="right-auto left-6" />
+      <SectionOrnament className="right-auto right-6" />
       <SectionHeader
         label="Experience"
         title="Prove of my tech life journey"
         copy="Product, studio, and engineering roles that refined the craft."
       />
-      <div className="space-y-6">
-        {featuredExperience.map((item) => (
-          <div
-            className="border-border/70 bg-card rounded-3xl border p-6"
-            key={item.id}
-          >
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <div>
-                <p className="text-lg font-semibold">{item.role}</p>
-                <p className="text-muted-foreground text-sm">{item.company}</p>
-              </div>
-              <span className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
-                {item.period}
-              </span>
-            </div>
-            <p className="text-muted-foreground mt-3 text-sm">{item.summary}</p>
-            <ul className="mt-4 space-y-2 text-sm">
-              {item.highlights.map((highlight) => (
-                <li key={`${item.id}-${highlight}`}>• {highlight}</li>
-              ))}
-            </ul>
-          </div>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {featuredExperience.map((item: ExperienceItem, index: number) => (
+          <ExperienceCard key={item.id} item={item} index={index} />
         ))}
       </div>
       {hasMoreExperience ? (

@@ -1,8 +1,7 @@
 export { cn } from "./utils";
 
-export { getSupabaseAdminClient, getSupabaseServerClient } from "./server";
-
 export {
+  getWritingPosts,
   getBlogPosts,
   getCurrentFocus,
   getExperience,
@@ -12,6 +11,7 @@ export {
   getPrimaryServices,
   getProjects,
   getSocialLinks,
+  getTechnologies,
 } from "./portfolio";
 
 export {
@@ -24,4 +24,5 @@ export {
   fallbackPrimaryServices,
   fallbackProjects,
   fallbackSocial,
+  fallbackTechnologies,
 } from "./portfolio";

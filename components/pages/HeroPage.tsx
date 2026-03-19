@@ -22,7 +22,7 @@ export const HeroPage = (): React.ReactElement => {
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h1 className="leading-tighter font-instrument-sans text-6xl font-extrabold text-neutral-600 sm:text-6xl dark:text-neutral-200 ">
+          <h1 className="leading-16 font-instrument-sans text-6xl font-extrabold text-neutral-600 sm:text-7xl dark:text-neutral-200 ">
             {heroData.title}
           </h1>
         </FadeIn>
@@ -30,7 +30,7 @@ export const HeroPage = (): React.ReactElement => {
           {heroData.description}
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <span className="border-foreground rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase font-sans">
+          <span className="border-foreground rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase font-sans font-neutral-600 dark:text-neutral-200">
             {heroData.subtitle}
           </span>
           {/* <span className="text-neutral-800 text-xs">{heroData.location}</span> */}
@@ -38,11 +38,11 @@ export const HeroPage = (): React.ReactElement => {
         {/* <p className="text-neutral-800 text-sm">{heroData.availability}</p> */}
         <div className="flex flex-wrap items-center gap-3">
           <Link
-            className="group bg-foreground text-background hover:text-foreground border-foreground inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-medium transition hover:bg-transparent hover:opacity-90"
+            className="group bg-neutral-600 dark:bg-transparent dark:text-white text-background hover:text-foreground border-neutral-700 inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-medium transition hover:bg-transparent hover:opacity-90"
             href="#projects"
           >
             Selected projects
-            <span className="inline-flex transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5">
+            <span className="inline-flex transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
               <IconArrowUpRight size={16} />
             </span>
           </Link>
@@ -58,11 +58,11 @@ export const HeroPage = (): React.ReactElement => {
             <div
               className={cn(
                 "border-border/70 rounded-2xl border px-4 py-3",
-                "bg-card cursor-pointer transition-transform duration-100 hover:scale-105",
+                "bg-card cursor-pointer transition-transform duration-100 hover:scale-105 hover:shadow hover:border-foreground/20 hover:bg-background/80 flex gap-6 text-end",
               )}
               key={metric.label}
             >
-              <p className="text-lg font-semibold">
+              <p className="text-lg font-semibold text-neutral-600">
                 <CountUpValue value={metric.value} />
               </p>
               <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase">

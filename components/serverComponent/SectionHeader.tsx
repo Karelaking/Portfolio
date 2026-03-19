@@ -16,9 +16,9 @@ export const SectionHeader = ({
       <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
         {label}
       </p>
-      <h2 className="text-2xl font-semibold sm:text-3xl">{title}</h2>
+      <h2 className="text-3xl font-extrabold text-neutral-600 dark:text-neutral-200 font-instrument-sans sm:text-6xl tracking-wider sm:tracking-wide leading-8 sm:leading-14">{title}</h2>
       {copy ? (
-        <p className="max-w-2xl text-sm text-muted-foreground">{copy}</p>
+        <p className="max-w-2xl text-sm sm:text-base text-neutral-400 font-sans">{copy}</p>
       ) : null}
     </div>
   );
