@@ -31,9 +31,14 @@ export const HeroImage = ({
     };
   }, []);
 
-  const padding = viewportWidth < 640 ? 16 : 24;
-  const containerWidth = clampValue(viewportWidth * 0.9, 280, 420);
-  const canvasWidth = Math.max(containerWidth - padding * 2, 200);
+  // Tighter spacing for mobile
+  const padding = viewportWidth < 640 ? 6 : 24;
+  const containerWidth = clampValue(
+    viewportWidth < 640 ? viewportWidth * 0.98 : viewportWidth * 0.9,
+    220,
+    420,
+  );
+  const canvasWidth = Math.max(containerWidth - padding * 2, 160);
   const canvasHeight = Math.round((canvasWidth * 26) / 21);
 
   const containerStyle = useMemo((): CSSProperties => {
@@ -42,7 +47,7 @@ export const HeroImage = ({
 
   return (
     <motion.div
-      className="relative flex w-full items-center justify-center overflow-x-hidden"
+      className="relative flex w-full items-center justify-center overflow-x-hidden px-1 py-2 sm:px-0 sm:py-0"
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false, amount: 0.4 }}
@@ -72,7 +77,7 @@ export const HeroImage = ({
       />
       <div className="bg-border/60 pointer-events-none absolute top-4 left-1/2 h-px w-32 -translate-x-1/2" />
       <div
-        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-[2.5rem] border p-4 ring-1 sm:p-6"
+        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-2xl border p-2 sm:p-6"
         style={containerStyle}
       >
         <PixelatedCanvas
