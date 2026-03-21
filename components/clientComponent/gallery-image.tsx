@@ -78,7 +78,7 @@ export const GalleryImage = ({
             sizes={sizes}
             priority={priority}
             loading={loading}
-            quality={priority ? 85 : 75}
+            quality={priority ? 95 : 75}
             onLoad={(): void => {
               setLoaded(true);
             }}
@@ -116,7 +116,11 @@ export const GalleryImage = ({
                   width={width}
                   height={height}
                   className="h-auto max-h-[80vh] w-fit rounded-2xl object-contain md:max-h-none"
-                  style={{ maxHeight: `${height}px` }}
+                  style={{
+                    maxHeight: `${height}px`,
+                    width: "auto",
+                    height: "auto",
+                  }}
                   sizes="100vw"
                   priority
                   quality={90}
