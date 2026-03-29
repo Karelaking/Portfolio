@@ -15,8 +15,8 @@ export const SocialPage = (): React.ReactElement => {
       <SectionOrnament className="right-6" />
       <SectionHeader
         label="Social"
-        title="Find me across the monochrome web."
-        copy="Open DMs for collaborations, talks, and product ideas."
+        title="Find me across the digital word."
+        copy="Open DMs for collaborations, talks, discussions and product ideas."
       />
       <div className="grid gap-4 sm:grid-cols-2">
         {socialLinks.map((link: SocialLinkType, index: number) => (

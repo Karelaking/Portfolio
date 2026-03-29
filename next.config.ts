@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
-
+// Removed the CustomNextConfig interface and cleaned up the configuration
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -15,19 +15,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
         hostname: "github.com",
       },
       {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
-      },
-      {
-        protocol: "https",
-        hostname: "example.com",
       },
       {
         protocol: "https",
@@ -40,9 +32,10 @@ const nextConfig: NextConfig = {
   logging: {
     browserToTerminal: true,
   },
-  experimental: {
-    
+  reactCompiler: {
+    compilationMode: "annotation",
   },
+  experimental: {},
 };
 
 export default nextConfig;

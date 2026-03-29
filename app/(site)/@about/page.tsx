@@ -1,2 +1,0 @@
-import { AboutPage } from "@/components/pages";
-export default AboutPage;

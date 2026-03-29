@@ -7,8 +7,8 @@ import * as SignIn from "@clerk/elements/sign-in";
 
 const LoginPage = (): ReactElement => {
   return (
-    <main className="bg-background min-h-screen px-6 py-12">
-      <div className="mx-auto h-dvh w-full max-w-2xl">
+    <main className="bg-background min-h-dvh flex flex-col justify-center items-center px-6 py-12">
+      <div className="mx-auto w-full max-w-2xl text-center">
         <section className="border-border/70 bg-card rounded-3xl border p-8 shadow-sm">
           <p className="text-muted-foreground text-xs tracking-[0.4em] uppercase">
             Admin access

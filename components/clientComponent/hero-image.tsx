@@ -34,12 +34,12 @@ export const HeroImage = ({
   // Tighter spacing for mobile
   const padding = viewportWidth < 640 ? 6 : 24;
   const containerWidth = clampValue(
-    viewportWidth < 640 ? viewportWidth * 0.98 : viewportWidth * 0.9,
-    220,
-    420,
+    viewportWidth < 640 ? viewportWidth * 0.95 : viewportWidth * 0.9,
+    200, // Reduced minimum width for better mobile scaling
+    400, // Adjusted maximum width for consistency
   );
-  const canvasWidth = Math.max(containerWidth - padding * 2, 160);
-  const canvasHeight = Math.round((canvasWidth * 26) / 21);
+  const canvasWidth = Math.max(containerWidth - padding * 2, 140); // Reduced minimum canvas width
+  const canvasHeight = Math.round((canvasWidth * 26) / 21); // Maintain aspect ratio
 
   const containerStyle = useMemo((): CSSProperties => {
     return { width: `${containerWidth}px` };
