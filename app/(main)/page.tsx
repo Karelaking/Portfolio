@@ -3,6 +3,7 @@ import {
   AboutPage,
   ContactPage,
   ExperiencePage,
+  ExpertisePage,
   GalleryPage,
   HeroPage,
   ProjectsPage,
@@ -14,7 +15,7 @@ const page = (): React.JSX.Element => {
     <div className="bg-transparent px-0">
       <HeroPage />
       <AboutPage />
-      <ExperiencePage />
+      <ExpertisePage />
       <ExperiencePage />
       <ProjectsPage />
       <WritingPage />
