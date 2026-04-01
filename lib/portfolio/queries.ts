@@ -99,6 +99,22 @@ const mapProjectRow = (row: ProjectRow): ProjectItem => {
   };
 };
 
+interface GalleryRow {
+  id: string;
+  src: string;
+  alt: string;
+  image_file_id?: string;
+}
+
+const mapGalleryRow = (row: GalleryRow): GalleryImage => {
+  return {
+    id: row.id,
+    src: row.src,
+    alt: row.alt,
+    imageFileId: row.image_file_id,
+  };
+};
+
 const fetchCollection = async <T,>(
   collectionName: string,
   options?: {
@@ -231,12 +247,12 @@ export const getBlogPosts = cache(async (): Promise<BlogPost[]> => {
 });
 
 export const getGalleryImages = cache(async (): Promise<GalleryImage[]> => {
-  const data = await fetchCollection<GalleryImage>("gallery", {
+  const data = await fetchCollection<GalleryRow>("gallery", {
     sort: { order_index: 1, id: 1 },
-    projection: { _id: 0, id: 1, src: 1, alt: 1 },
+    projection: { _id: 0, id: 1, src: 1, alt: 1, image_file_id: 1 },
   });
   if (data && data.length > 0) {
-    return data;
+    return data.map(mapGalleryRow);
   }
   return fallbackGallery;
 });

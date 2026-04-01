@@ -14,7 +14,7 @@ import { Button } from "@/components/ui";
 
 export interface ImageKitUploadProps {
   // eslint-disable-next-line no-unused-vars
-  readonly onUploadSuccess: (...args: [string]) => void;
+  readonly onUploadSuccess: (...args: [string, string?]) => void;
   // eslint-disable-next-line no-unused-vars
   readonly onUploadError: (...args: [string]) => void;
   readonly folder?: string;
@@ -110,7 +110,7 @@ export const ImageKitUpload = ({
       if (!response.url) {
         throw new Error("Upload succeeded but no URL returned");
       }
-      onUploadSuccess(response.url);
+      onUploadSuccess(response.url, response.fileId);
       setUploadedImageUrl(response.url);
       setSelectedFile(null);
       if (fileInputRef.current) {

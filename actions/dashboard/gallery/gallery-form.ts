@@ -10,6 +10,8 @@ const gallerySchema = z.object({
 const parseGalleryForm = (
   formData: FormData,
 ): { data?: ParsedGalleryInput; error?: string } => {
+  const imageFileId = String(formData.get("imageFileId") ?? "").trim();
+
   const raw = {
     src: String(formData.get("src") ?? ""),
     alt: String(formData.get("alt") ?? ""),
@@ -25,6 +27,7 @@ const parseGalleryForm = (
     data: {
       src: parsed.data.src,
       alt: parsed.data.alt,
+      imageFileId: imageFileId || undefined,
     },
   };
 };
@@ -33,6 +36,7 @@ const toGalleryRow = (data: ParsedGalleryInput): GalleryRowInput => {
   return {
     src: data.src,
     alt: data.alt,
+    image_file_id: data.imageFileId,
   };
 };
 

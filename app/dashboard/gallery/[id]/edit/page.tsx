@@ -44,7 +44,11 @@ const EditGalleryImagePage = async ({
       <div className="border-border/70 bg-card rounded-3xl border p-6">
         <GalleryForm
           action={updateGalleryImage.bind(null, image.id)}
-          defaultValues={{ src: image.src, alt: image.alt }}
+          defaultValues={{
+            src: image.src,
+            alt: image.alt,
+            imageFileId: image.imageFileId,
+          }}
           submitLabel="Save changes"
         />
       </div>

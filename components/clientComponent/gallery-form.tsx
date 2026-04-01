@@ -14,6 +14,7 @@ import type { ActionResult } from "@/types/action-result.interface";
 export interface GalleryFormValues {
   src: string;
   alt: string;
+  imageFileId?: string;
 }
 
 type GalleryFormAction = typeof createGalleryImage;
@@ -78,6 +79,7 @@ export const GalleryForm = ({
   const router = useRouter();
   const targetUrl = redirectTo ?? "/dashboard/gallery";
   const imageSrcRef = useRef<HTMLInputElement | null>(null);
+  const imageFileIdRef = useRef<HTMLInputElement | null>(null);
 
   useEffect((): void => {
     if (!state) {
@@ -136,6 +138,12 @@ export const GalleryForm = ({
       <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
         Image URL
         <input
+          defaultValue={defaultValues?.imageFileId ?? ""}
+          name="imageFileId"
+          ref={imageFileIdRef}
+          type="hidden"
+        />
+        <input
           className={cn(
             "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
             errors.src ? "border-destructive" : null,
@@ -161,9 +169,12 @@ export const GalleryForm = ({
             folder="gallery"
             existingImageUrl={defaultValues?.src ?? undefined}
             existingImageAlt={defaultValues?.alt ?? undefined}
-            onUploadSuccess={(url) => {
+            onUploadSuccess={(url, fileId) => {
               if (imageSrcRef.current) {
                 imageSrcRef.current.value = url;
+              }
+              if (imageFileIdRef.current) {
+                imageFileIdRef.current.value = fileId ?? "";
               }
               setUploadError(null);
               toast.success("Image uploaded.");
