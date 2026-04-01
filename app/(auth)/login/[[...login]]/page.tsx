@@ -7,7 +7,7 @@ import * as SignIn from "@clerk/elements/sign-in";
 
 const LoginPage = (): ReactElement => {
   return (
-    <main className="bg-background min-h-dvh flex flex-col justify-center items-center px-6 py-12">
+    <main className="bg-background flex min-h-dvh flex-col items-center justify-center px-6 py-12">
       <div className="mx-auto w-full max-w-2xl text-center">
         <section className="border-border/70 bg-card rounded-3xl border p-8 shadow-sm">
           <p className="text-muted-foreground text-xs tracking-[0.4em] uppercase">
@@ -21,20 +21,13 @@ const LoginPage = (): ReactElement => {
             <Clerk.GlobalError className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-2 text-xs text-red-400" />
 
             <SignIn.Step name="start" className="mt-6 space-y-4">
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-3">
                 <Clerk.Connection
                   className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition"
                   name="google"
                 >
                   <Clerk.Icon className="size-4" />
                   Google
-                </Clerk.Connection>
-                <Clerk.Connection
-                  className="border-border text-foreground hover:border-foreground inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition"
-                  name="github"
-                >
-                  <Clerk.Icon className="size-4" />
-                  GitHub
                 </Clerk.Connection>
               </div>
 

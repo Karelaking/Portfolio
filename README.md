@@ -1,50 +1,32 @@
-# React + TypeScript + Vite
+# Portfolio (Next.js 16)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Environment setup
 
-Currently, two official plugins are available:
+This project now uses dedicated env files per runtime environment:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `.env` → shared non-secret defaults
+- `.env.development` → development defaults
+- `.env.test` → test defaults
+- `.env.production` → production defaults (non-secret placeholders)
+- `.env.local` / `.env.development.local` / `.env.test.local` / `.env.production.local` → machine-local secrets (gitignored)
 
-## Expanding the ESLint configuration
+### First-time setup
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Copy `.env.example` to `.env.local`.
+2. Fill in real secret values in `.env.local` (or environment-specific `*.local` files).
+3. Keep committed env files free of secrets.
 
-- Configure the top-level `parserOptions` property like this:
+### Recommended usage
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Local dev: keep secrets in `.env.development.local`
+- Automated tests: use `.env.test` defaults, override in CI as needed
+- Production: set secrets in your deployment provider or `.env.production.local`
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Variables used by this app
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- `NEXT_PUBLIC_SITE_URL`
+- Clerk auth keys (`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, auth URL vars)
+- ImageKit keys (`NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY`, `IMAGEKIT_PUBLIC_KEY`, `IMAGEKIT_PRIVATE_KEY`, `NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT`)
+- MongoDB (`MONGODB_URI`, `MONGODB_DB_NAME`)
+- Email delivery (`RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`)
+- Optional integrations (`LINGODOTDEV_API_KEY`, `GITHUB_TOKEN`)

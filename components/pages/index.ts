@@ -1,7 +1,6 @@
 export { ContactPage } from "./ContactPage";
 export { GalleryPage } from "./GalleryPage";
 export { WritingPage } from "./WritingPage";
-export { SocialPage } from "./SocialPage";
 export { ProjectsPage } from "./ProjectsPage";
 export { ExperiencePage } from "./ExperiencePage";
 export { ExpertisePage } from "./ExpertisePage";

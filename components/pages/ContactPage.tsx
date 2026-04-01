@@ -50,7 +50,7 @@ export const ContactPage = (): React.ReactNode => {
       <div className="my-4 flex w-full justify-center">
         <Link
           className="border-border text-foreground hover:border-foreground inline-flex w-max items-center gap-2 rounded-full border px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase transition"
-          href="/"
+          href="/#"
         >
           Back to the top
           <IconArrowUpRight size={14} />

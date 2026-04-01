@@ -3,6 +3,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+!.env.example
 
 # Logs
 logs
@@ -35,3 +36,5 @@ build
 # clerk configuration (can include secrets)
 /.clerk/
 .env
+.env.production
+.env.development

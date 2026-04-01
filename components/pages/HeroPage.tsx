@@ -13,7 +13,7 @@ export const HeroPage = (): React.ReactElement => {
   return (
     <Container
       className="grid gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] relative"
-      id="hero"
+      id="#"
     >
       <div className="flex flex-col gap-6">
         <FadeIn>

@@ -17,7 +17,7 @@ export const ExperiencePage = (): React.ReactElement => {
       className="border-border/70 relative flex flex-col gap-8 py-12"
       id="experience"
     >
-      <SectionOrnament className="right-auto right-6" />
+      <SectionOrnament className="right-6" />
       <SectionHeader
         label="Experience"
         title="Prove of my tech life journey"

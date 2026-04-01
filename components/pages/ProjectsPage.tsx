@@ -27,7 +27,7 @@ export const ProjectsPage = (): React.ReactElement => {
             key={project.id}
           >
             <Image
-              alt={project.imageAlt}
+              alt={project.imageAlt?.trim() || `${project.name} project preview`}
               src={project.imageSrc}
               width={520}
               height={360}
