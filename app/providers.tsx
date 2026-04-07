@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { ImageKitProvider } from "@/components/providers/imagekit-provider";
-import { CursorFollower } from "@/components/clientComponent/cursor-follower";
 import { Footer, NavigationBar } from "@/components/serverComponent";
 import { FooterSkeleton } from "@/components/serverComponent/skeletons";
 
@@ -21,7 +20,6 @@ export const Providers = ({ children }: ProvidersProps): ReactElement => {
       disableTransitionOnChange
     >
       <ImageKitProvider>
-        <CursorFollower />
         {children}
         <Analytics />
         <Toaster richColors closeButton />

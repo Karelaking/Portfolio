@@ -2,9 +2,9 @@
 
 import type { CSSProperties, ReactElement } from "react";
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { HeroData } from "@/types/hero/hero-data.interface";
-import { PixelatedCanvas } from "../ui/pixelated-canvas";
 
 export type HeroImageProps = Pick<HeroData, "imageAlt" | "imageSrc">;
 
@@ -17,6 +17,7 @@ export const HeroImage = ({
   imageSrc,
 }: HeroImageProps): ReactElement => {
   const [viewportWidth, setViewportWidth] = useState<number>(1024);
+  const isMobile = viewportWidth < 640;
 
   useEffect((): (() => void) => {
     const updateViewportWidth = (): void => {
@@ -31,74 +32,35 @@ export const HeroImage = ({
     };
   }, []);
 
-  // Tighter spacing for mobile
-  const padding = viewportWidth < 640 ? 6 : 24;
-  const containerWidth = clampValue(
-    viewportWidth < 640 ? viewportWidth * 0.95 : viewportWidth * 0.9,
-    200, // Reduced minimum width for better mobile scaling
-    400, // Adjusted maximum width for consistency
-  );
-  const canvasWidth = Math.max(containerWidth - padding * 2, 140); // Reduced minimum canvas width
-  const canvasHeight = Math.round((canvasWidth * 26) / 21); // Maintain aspect ratio
+  // Tighter footprint on mobile while preserving desktop composition
+  const containerWidth = clampValue(viewportWidth * 0.9, 220, 400);
 
   const containerStyle = useMemo((): CSSProperties => {
+    if (isMobile) {
+      return { width: "100%" };
+    }
+
     return { width: `${containerWidth}px` };
-  }, [containerWidth]);
+  }, [containerWidth, isMobile]);
 
   return (
     <motion.div
-      className="relative mx-auto flex w-full max-w-105 items-center justify-center overflow-x-hidden"
+      className="relative mx-auto flex w-full h-full max-w-full items-center justify-center overflow-x-hidden sm:max-w-96 md:max-w-104"
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false, amount: 0.4 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
     >
-      <motion.div
-        className="border-border absolute top-6 left-2 h-24 w-24 rounded-full border sm:-left-6"
-        initial={{ y: 0 }}
-        whileInView={{ y: [0, 6, 0] }}
-        viewport={{ once: false, amount: 0.4 }}
-        transition={{
-          duration: 6,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="border-border absolute right-2 bottom-6 h-16 w-16 rounded-full border sm:right-4"
-        initial={{ y: 0 }}
-        whileInView={{ y: [0, 5, 0] }}
-        viewport={{ once: false, amount: 0.4 }}
-        transition={{
-          duration: 5,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-      <div className="bg-border/60 pointer-events-none absolute top-4 left-1/2 h-px w-32 -translate-x-1/2" />
       <div
-        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-3xl border p-4 ring-1 sm:p-6"
+        className="border-border bg-card ring-border/60 relative box-border aspect-21/26 overflow-hidden rounded-3xl border p-3 ring-1 sm:p-6 h-full w-full"
         style={containerStyle}
       >
-        <PixelatedCanvas
-          src={imageSrc}
-          width={canvasWidth}
-          height={canvasHeight}
-          cellSize={2}
-          dotScale={0.8}
-          shape="square"
-          backgroundColor="#000000"
-          dropoutStrength={0}
-          interactive
-          distortionStrength={0.1}
-          distortionRadius={200}
-          distortionMode="repel"
-          followSpeed={0.2}
-          jitterStrength={4}
-          jitterSpeed={1}
-          sampleAverage
+        <Image
           alt={imageAlt}
-          className="h-full w-full rounded-2xl object-cover brightness-140"
+          src={imageSrc}
+          fill
+          sizes="(max-width: 639px) 100vw, (min-width: 768px) 26rem, 24rem"
+          className="h-full w-full rounded-2xl object-cover"
         />
       </div>
     </motion.div>

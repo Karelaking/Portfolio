@@ -10,6 +10,11 @@ import { CountUpValue, HeroImage } from '../clientComponent';
 const heroData = await getHeroAction();
 
 export const HeroPage = (): React.ReactElement => {
+  const subtitleItems: string[] = heroData.subtitle
+    .split(/[.·•]/)
+    .map((item: string): string => item.trim())
+    .filter((item: string): boolean => item.length > 0);
+
   return (
     <Container
       className="grid gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] relative"
@@ -22,7 +27,7 @@ export const HeroPage = (): React.ReactElement => {
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h1 className="leading-16 font-instrument-sans text-6xl font-extrabold text-neutral-600 sm:text-7xl dark:text-neutral-200 ">
+          <h1 className="leading-18 font-instrument-sans text-6xl font-extrabold text-neutral-600 sm:text-7xl dark:text-neutral-200 ">
             {heroData.title}
           </h1>
         </FadeIn>
@@ -30,12 +35,15 @@ export const HeroPage = (): React.ReactElement => {
           {heroData.description}
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <span className="border-foreground rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase font-sans font-neutral-600 dark:text-neutral-200">
-            {heroData.subtitle}
-          </span>
-          {/* <span className="text-neutral-800 text-xs">{heroData.location}</span> */}
+          {subtitleItems.map((item: string): React.ReactElement => (
+            <span
+              className="border-border bg-muted/40 text-foreground/80 dark:bg-muted/20 inline-flex items-center rounded-full border px-3 py-1 text-[10px] font-semibold tracking-[0.22em] leading-5 uppercase sm:text-xs"
+              key={item}
+            >
+              {item}
+            </span>
+          ))}
         </div>
-        {/* <p className="text-neutral-800 text-sm">{heroData.availability}</p> */}
         <div className="flex flex-wrap items-center gap-3">
           <Link
             className="group bg-neutral-600 dark:bg-transparent dark:text-white text-background hover:text-foreground border-neutral-700 inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-medium transition hover:bg-transparent hover:opacity-90"
@@ -58,7 +66,7 @@ export const HeroPage = (): React.ReactElement => {
             <div
               className={cn(
                 "border-border/70 rounded-2xl border px-4 py-3",
-                "bg-card cursor-pointer transition-transform duration-100 hover:scale-105 hover:shadow hover:border-foreground/20 hover:bg-background/80 flex gap-6 text-end",
+                "bg-card cursor-pointer transition-transform duration-100 hover:scale-105 hover:shadow hover:border-foreground/20 hover:bg-background/80 flex gap-6 text-end justify-center items-center sm:flex-col sm:text-center sm:gap-2",
               )}
               key={metric.label}
             >

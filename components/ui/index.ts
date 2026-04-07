@@ -24,5 +24,4 @@ export {
   SheetDescription,
 } from "./sheet";
 export { Toaster } from "./sonner";
-export { PixelatedCanvas } from "./pixelated-canvas";
 export { Button, buttonVariants, type ButtonProps } from "./button";

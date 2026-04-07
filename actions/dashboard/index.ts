@@ -2,6 +2,10 @@ export { createExperience } from "./experience/create-experience.action";
 export { deleteExperienceAction } from "./experience/delete-experience.action";
 export { updateExperience } from "./experience/update-experience.action";
 export { parseExperienceForm, toExperienceRow } from "./experience/experience-form";
+export { createExpertise } from "./expertise/create-expertise.action";
+export { deleteExpertiseAction } from "./expertise/delete-expertise.action";
+export { updateExpertise } from "./expertise/update-expertise.action";
+export { parseExpertiseForm, toExpertiseRow } from "./expertise/expertise-form";
 
 export { createGalleryImage } from "./gallery/create-gallery-image.action";
 export { deleteGalleryImageAction } from "./gallery/delete-gallery-image.action";

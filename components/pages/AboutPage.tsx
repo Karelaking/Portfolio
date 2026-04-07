@@ -2,6 +2,7 @@ import { ReactElement } from 'react'
 import { FadeIn } from '../motion';
 import { Container, SectionHeader, SectionOrnament } from '../serverComponent';
 import { getCurrentFocusAction } from '@/actions';
+import { IconArrowMoveRight } from '@tabler/icons-react';
 
 const currentFocus = await getCurrentFocusAction();
 
@@ -16,19 +17,22 @@ export const AboutPage = (): ReactElement => {
       />
       <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
         <FadeIn className="border-border/70 bg-card rounded-3xl border p-6">
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground">
             I craft monochrome, high-precision experiences that prioritize
             performance, clarity, and resilience. Every interface I ship is
             meant to be fast, consistent, and easy to extend.
           </p>
         </FadeIn>
         <FadeIn className="border-border/70 bg-card rounded-3xl border p-6">
-          <p className="text-muted-foreground text-xs tracking-[0.4em] uppercase">
+          <p className="text-gray-600 text-xs tracking-[0.4em] uppercase font-bold">
             Current focus
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             {currentFocus.map((item) => (
-              <li key={item.id}>↳ {item.label}</li>
+              <li key={item.id} className='text-gray-500'>
+                <IconArrowMoveRight className="inline-block mr-2 text-gray-900" />
+                {item.label}
+              </li>
             ))}
           </ul>
         </FadeIn>
