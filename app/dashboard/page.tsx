@@ -23,6 +23,7 @@ const dashboardLinks: DashboardLinkItem[] = [
   { label: "Manage hero section", href: "/dashboard/hero" },
   { label: "Manage experience", href: "/dashboard/experience" },
   { label: "Manage expertise", href: "/dashboard/expertise" },
+  { label: "Manage technologies", href: "/dashboard/technologies" },
   { label: "Manage gallery", href: "/dashboard/gallery" },
   { label: "Manage writing", href: "/dashboard/writing" },
   { label: "View portfolio", href: "/" },

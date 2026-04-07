@@ -21,6 +21,11 @@ export { deleteProjectAction } from "./projects/delete-project.action";
 export { updateProject } from "./projects/update-project.action";
 export { parseProjectForm, toProjectRow } from "./projects/project-form";
 export { getProjectsAction } from "./projects/get-projects.action";
+export { createTechnology } from "./technologies/create-technology.action";
+export { deleteTechnologyAction } from "./technologies/delete-technology.action";
+export { updateTechnology } from "./technologies/update-technology.action";
+export { parseTechnologyForm, toTechnologyRow } from "./technologies/technology-form";
+export { getTechnologiesAction } from "./technologies/get-technologies.action";
 export { getExperienceAction } from "./experience/get-experience.action";
 
 export { createWritingPost } from "./writing/create-writing-post.action";

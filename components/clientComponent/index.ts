@@ -10,7 +10,16 @@ export { ExperienceForm, type ExperienceFormValues } from "./experience-form";
 export { ExpertiseForm, type ExpertiseFormValues } from "./expertise-form";
 export { GalleryForm, type GalleryFormProps, type GalleryFormValues } from "./gallery-form";
 export { ProjectForm, type ProjectFormProps, type ProjectFormValues } from "./project-form";
+export {
+  TechnologyForm,
+  type TechnologyFormProps,
+  type TechnologyFormValues,
+} from "./technology-form";
 export { ProjectDeleteButton, type ProjectDeleteButtonProps } from "./project-delete-button";
+export {
+  TechnologyDeleteButton,
+  type TechnologyDeleteButtonProps,
+} from "./technology-delete-button";
 export { GalleryDeleteButton, type GalleryDeleteButtonProps } from "./gallery-delete-button";
 export { ExperienceDeleteButton, type ExperienceDeleteButtonProps } from "./experience-delete-button";
 export { ExpertiseDeleteButton, type ExpertiseDeleteButtonProps } from "./expertise-delete-button";

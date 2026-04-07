@@ -173,4 +173,35 @@ export const fallbackPrimaryServices: PrimaryServiceItem[] = [
   { id: "service-freelance", label: "Freelancing & product builds" },
 ];
 
-export const fallbackTechnologies: TechnologyItem[] = [];
+export const fallbackTechnologies: TechnologyItem[] = [
+  {
+    id: "tech-nextjs",
+    name: "Next.js",
+    slug: "nextjs",
+    description:
+      "App Router-first React framework for production-grade, performant web apps.",
+    websiteUrl: "https://nextjs.org",
+    logoKey: "nextjs",
+    relatedProjects: [fallbackProjects[0]],
+  },
+  {
+    id: "tech-react",
+    name: "React",
+    slug: "react",
+    description:
+      "Component-driven UI library used to build scalable interfaces and design systems.",
+    websiteUrl: "https://react.dev",
+    logoKey: "react",
+    relatedProjects: [fallbackProjects[0], fallbackProjects[1]],
+  },
+  {
+    id: "tech-tailwindcss",
+    name: "Tailwind CSS",
+    slug: "tailwindcss",
+    description:
+      "Utility-first styling workflow for fast, consistent, and responsive UI development.",
+    websiteUrl: "https://tailwindcss.com",
+    logoKey: "tailwindcss",
+    relatedProjects: [fallbackProjects[0]],
+  },
+];

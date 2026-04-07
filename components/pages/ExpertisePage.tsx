@@ -1,13 +1,13 @@
 import React from "react";
 import { Container, SectionHeader } from "../serverComponent";
-import { getExpertiseIcon } from "@/data/Expertise";
+// import { getExpertiseIcon } from "@/data/Expertise";
 import { getTechnologyLogo } from "@/data/Technology";
-import { getExpertiseAction, getTechnologiesAction } from "@/actions";
+import { getTechnologiesAction } from "@/actions";
 import { SectionOrnament } from "../serverComponent/section-ornament";
-import { AnimatedIcon } from "../motion";
+// import { AnimatedIcon } from "../motion";
 import type { TechnologyItem } from "@/types/technology-item.interface";
 
-const expertise = await getExpertiseAction();
+// const expertise = await getExpertiseAction();
 const technologies = await getTechnologiesAction();
 
 const getWebsiteLabel = (websiteUrl: string): string => {
@@ -19,7 +19,6 @@ const getRelatedProjectTags = (technology: TechnologyItem): string[] => {
     .flatMap((project) => project.tags)
     .map((tag) => tag.trim())
     .filter((tag) => tag.length > 0);
-
   return Array.from(new Set(relatedTags)).slice(0, 8);
 };
 
@@ -30,31 +29,6 @@ export const ExpertisePage = (): React.ReactElement => {
       id="expertise"
     >
       <SectionOrnament className="top-10 right-10" />
-
-      <SectionHeader
-        label="Expertise"
-        title="Disciplined craft across strategy, design, and code."
-        copy="A focused toolkit for teams who want speed, polish, and clarity."
-      />
-
-      <div className="grid gap-6 md:grid-cols-2">
-        {expertise.map((item) => (
-          <div
-            className="border-border/70 bg-card rounded-3xl border p-6"
-            key={item.id}
-          >
-            <div className="text-foreground flex items-center gap-3">
-              <span className="border-border flex h-10 w-10 items-center justify-center rounded-full border">
-                <AnimatedIcon>{getExpertiseIcon(item.icon)}</AnimatedIcon>
-              </span>
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-            </div>
-            <p className="text-muted-foreground mt-3 text-sm">
-              {item.description}
-            </p>
-          </div>
-        ))}
-      </div>
 
       <div className="mt-4 space-y-4">
         <SectionHeader
@@ -144,7 +118,7 @@ export const ExpertisePage = (): React.ReactElement => {
                     <p className="text-muted-foreground text-sm">
                       No related projects found yet.
                     </p>
-                  )}
+                  )}  
                 </div>
               </article>
             );
