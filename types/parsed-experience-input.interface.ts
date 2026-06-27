@@ -1,8 +1,8 @@
 export interface ParsedExperienceInput {
-  role: string;
-  company: string;
-  period: string;
-  summary: string;
-  highlights: string[];
-  coreTech: string[];
+	company: string;
+	coreTech: string[];
+	highlights: string[];
+	period: string;
+	role: string;
+	summary: string;
 }

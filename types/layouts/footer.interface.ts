@@ -1,8 +1,8 @@
 export interface FooterProps {
-  className?: string;
+	className?: string;
 }
 
 export interface FooterLink {
-  href: string;
-  label: string;
+	href: string;
+	label: string;
 }

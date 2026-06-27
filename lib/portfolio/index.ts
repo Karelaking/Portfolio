@@ -1,26 +1,25 @@
 export {
-  getHero,
-  getProjects,
-  getBlogPosts,
-  getExpertise,
-  getExperience,
-  getSocialLinks,
-  getCurrentFocus,
-  getGalleryImages,
-  getPrimaryServices,
-  getTechnologies,
-  getWritingPosts, // Exporting getWritingPosts
-} from "./queries";
-
-export {
-  fallbackBlog,
-  fallbackHero,
-  fallbackSocial,
-  fallbackGallery,
-  fallbackProjects,
-  fallbackExpertise,
-  fallbackExperience,
-  fallbackCurrentFocus,
-  fallbackPrimaryServices,
-  fallbackTechnologies,
+	fallbackBlog,
+	fallbackCurrentFocus,
+	fallbackExperience,
+	fallbackExpertise,
+	fallbackGallery,
+	fallbackHero,
+	fallbackPrimaryServices,
+	fallbackProjects,
+	fallbackSocial,
+	fallbackTechnologies,
 } from "./fallback";
+export {
+	getBlogPosts,
+	getCurrentFocus,
+	getExperience,
+	getExpertise,
+	getGalleryImages,
+	getHero,
+	getPrimaryServices,
+	getProjects,
+	getSocialLinks,
+	getTechnologies,
+	getWritingPosts, // Exporting getWritingPosts
+} from "./queries";

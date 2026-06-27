@@ -1,10 +1,10 @@
-import React from 'react'
-import { RootProvider } from '../providers'
+import type React from "react";
+import { RootProvider } from "../providers";
 
-const layout = ({ children }: { children: React.ReactNode }): React.ReactNode => {
-  return (
-    <RootProvider>{children}</RootProvider>
-  )
-}
+const layout = ({
+	children,
+}: {
+	children: React.ReactNode;
+}): React.ReactNode => <RootProvider>{children}</RootProvider>;
 
-export default layout
+export default layout;

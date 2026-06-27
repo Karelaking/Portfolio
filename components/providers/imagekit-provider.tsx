@@ -4,17 +4,17 @@ import { ImageKitProvider as IKProvider } from "@imagekit/next";
 import type { ReactElement, ReactNode } from "react";
 
 interface ImageKitProviderComponentProps {
-  readonly children: ReactNode;
+	readonly children: ReactNode;
 }
 
 export const ImageKitProvider = ({
-  children,
+	children,
 }: ImageKitProviderComponentProps): ReactElement => {
-  const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
+	const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
 
-  if (!urlEndpoint) {
-    return <>{children}</>;
-  }
+	if (!urlEndpoint) {
+		return <>{children}</>;
+	}
 
-  return <IKProvider urlEndpoint={urlEndpoint}>{children}</IKProvider>;
+	return <IKProvider urlEndpoint={urlEndpoint}>{children}</IKProvider>;
 };

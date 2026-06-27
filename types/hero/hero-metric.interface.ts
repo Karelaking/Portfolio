@@ -1,4 +1,4 @@
 export interface HeroMetric {
-  label: string;
-  value: string;
+	label: string;
+	value: string;
 }

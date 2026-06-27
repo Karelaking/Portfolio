@@ -1,7 +1,7 @@
 export interface ParsedTechnologyInput {
-  name: string;
-  description: string;
-  websiteUrl: string;
-  logoKey: string;
-  projectIds: string[];
+	description: string;
+	logoKey: string;
+	name: string;
+	projectIds: string[];
+	websiteUrl: string;
 }

@@ -1,7 +1,7 @@
 import { permanentRedirect } from "next/navigation";
 
 const ExpertiseLegacyRoutePage = (): never => {
-  permanentRedirect("/expertise");
+	permanentRedirect("/expertise");
 };
 
 export default ExpertiseLegacyRoutePage;

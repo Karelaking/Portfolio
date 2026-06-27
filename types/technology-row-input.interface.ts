@@ -1,7 +1,7 @@
 export interface TechnologyRowInput {
-  name: string;
-  slug: string;
-  description: string;
-  website_url: string;
-  logo_key: string;
+	description: string;
+	logo_key: string;
+	name: string;
+	slug: string;
+	website_url: string;
 }

@@ -1,15 +1,4 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev && next-devtools-mcp",
-    "prod": "next build && next start",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "test": "vitest"
-  },
   "dependencies": {
     "@clerk/elements": "^0.24.7",
     "@clerk/nextjs": "^6.10.2",
@@ -44,6 +33,7 @@
     "zod": "^4.2.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.15",
     "@eslint/js": "^9.39.2",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^25.0.2",
@@ -58,14 +48,30 @@
     "eslint": "^9",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
+    "husky": "^9.1.7",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "shadcn": "^3.8.4",
+    "shadcn": "^4.11.0",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "ultracite": "7.7.0",
     "vitest": "^2.1.9",
     "webpack-dev-middleware": "^8.0.2"
   },
+  "name": "portfolio",
+  "scripts": {
+    "dev": "next dev && next-devtools-mcp",
+    "prod": "next build && next start",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest",
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "prepare": "husky"
+  },
+  "version": "0.1.0",
+  "private": true,
   "pnpm": {
     "overrides": {
       "@types/react": "19.2.14",

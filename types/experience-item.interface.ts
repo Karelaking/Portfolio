@@ -1,8 +1,8 @@
 export interface ExperienceItem {
-  id: string;
-  role: string;
-  company: string;
-  period: string;
-  summary: string;
-  highlights: string[];
+	company: string;
+	highlights: string[];
+	id: string;
+	period: string;
+	role: string;
+	summary: string;
 }

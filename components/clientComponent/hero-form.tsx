@@ -1,567 +1,569 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import type { FormEvent, ReactElement } from "react";
 import { useActionState, useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Button } from "@/components/ui";
+import { deleteHeroAction } from "@/actions/dashboard/hero/delete-hero.action";
+import { upsertHeroAction } from "@/actions/dashboard/hero/upsert-hero.action";
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+	Button,
 } from "@/components/ui";
 import { cn } from "@/lib/utils";
-import { ImageKitUpload } from "./imagekit-upload";
 import type { ActionResult } from "@/types/action-result.interface";
 import type { HeroData } from "@/types/hero/hero-data.interface";
 import type { HeroMetric } from "@/types/hero/hero-metric.interface";
-import { deleteHeroAction } from "@/actions/dashboard/hero/delete-hero.action";
-import { upsertHeroAction } from "@/actions/dashboard/hero/upsert-hero.action";
+import { ImageKitUpload } from "./imagekit-upload";
 
 interface HeroFormProps {
-  initialValues: HeroData;
+	initialValues: HeroData;
 }
 
 interface HeroFormErrors {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  location?: string;
-  availability?: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  metrics?: string;
+	availability?: string;
+	description?: string;
+	imageAlt?: string;
+	imageSrc?: string;
+	location?: string;
+	metrics?: string;
+	subtitle?: string;
+	title?: string;
 }
 
 interface HeroMetricEntry extends HeroMetric {
-  id: string;
+	id: string;
 }
 
 const isValidUrlOrPath = (value: string): boolean => {
-  if (!value) {
-    return false;
-  }
-  if (value.startsWith("/")) {
-    return true;
-  }
-  try {
-    new URL(value);
-    return true;
-  } catch {
-    return false;
-  }
+	if (!value) {
+		return false;
+	}
+	if (value.startsWith("/")) {
+		return true;
+	}
+	try {
+		new URL(value);
+		return true;
+	} catch {
+		return false;
+	}
 };
 
 const createMetricId = (): string => {
-  if (typeof globalThis.crypto?.randomUUID === "function") {
-    return globalThis.crypto.randomUUID();
-  }
-  return `metric-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+	if (typeof globalThis.crypto?.randomUUID === "function") {
+		return globalThis.crypto.randomUUID();
+	}
+	return `metric-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 };
 
 export const HeroForm = ({ initialValues }: HeroFormProps): ReactElement => {
-  const [state, formAction] = useActionState<ActionResult | null, FormData>(
-    upsertHeroAction,
-    null,
-  );
-  const [errors, setErrors] = useState<HeroFormErrors>({});
-  const [uploadError, setUploadError] = useState<string | null>(null);
-  const [metrics, setMetrics] = useState<HeroMetricEntry[]>(() => {
-    if (initialValues.metrics.length > 0) {
-      return initialValues.metrics.map((metric) => ({
-        ...metric,
-        id: createMetricId(),
-      }));
-    }
-    return [{ label: "", value: "", id: createMetricId() }];
-  });
-  const [deleteOpen, setDeleteOpen] = useState<boolean>(false);
-  const [deletePending, setDeletePending] = useState<boolean>(false);
-  const router = useRouter();
-  const imageSrcRef = useRef<HTMLInputElement | null>(null);
+	const [state, formAction] = useActionState<ActionResult | null, FormData>(
+		upsertHeroAction,
+		null
+	);
+	const [errors, setErrors] = useState<HeroFormErrors>({});
+	const [uploadError, setUploadError] = useState<string | null>(null);
+	const [metrics, setMetrics] = useState<HeroMetricEntry[]>(() => {
+		if (initialValues.metrics.length > 0) {
+			return initialValues.metrics.map((metric) => ({
+				...metric,
+				id: createMetricId(),
+			}));
+		}
+		return [{ label: "", value: "", id: createMetricId() }];
+	});
+	const [deleteOpen, setDeleteOpen] = useState<boolean>(false);
+	const [deletePending, setDeletePending] = useState<boolean>(false);
+	const router = useRouter();
+	const imageSrcRef = useRef<HTMLInputElement | null>(null);
 
-  const metricsJson = useMemo<string>(() => {
-    return JSON.stringify(
-      metrics.map((metric) => ({ label: metric.label, value: metric.value })),
-    );
-  }, [metrics]);
+	const metricsJson = useMemo<string>(
+		() =>
+			JSON.stringify(
+				metrics.map((metric) => ({ label: metric.label, value: metric.value }))
+			),
+		[metrics]
+	);
 
-  useEffect((): void => {
-    if (!state) {
-      return;
-    }
+	useEffect((): void => {
+		if (!state) {
+			return;
+		}
 
-    if (state.ok) {
-      toast.success("Hero updated.");
-      setErrors({});
-      router.refresh();
-      return;
-    }
+		if (state.ok) {
+			toast.success("Hero updated.");
+			setErrors({});
+			router.refresh();
+			return;
+		}
 
-    toast.error(state.error ?? "Unable to update hero.");
-  }, [router, state]);
+		toast.error(state.error ?? "Unable to update hero.");
+	}, [router, state]);
 
-  const updateMetric = (
-    index: number,
-    key: keyof HeroMetric,
-    value: string,
-  ): void => {
-    setMetrics((current) =>
-      current.map((metric, metricIndex) =>
-        metricIndex === index ? { ...metric, [key]: value } : metric,
-      ),
-    );
-  };
+	const updateMetric = (
+		index: number,
+		key: keyof HeroMetric,
+		value: string
+	): void => {
+		setMetrics((current) =>
+			current.map((metric, metricIndex) =>
+				metricIndex === index ? { ...metric, [key]: value } : metric
+			)
+		);
+	};
 
-  const handleAddMetric = (): void => {
-    setMetrics((current) => [
-      ...current,
-      { label: "", value: "", id: createMetricId() },
-    ]);
-  };
+	const handleAddMetric = (): void => {
+		setMetrics((current) => [
+			...current,
+			{ label: "", value: "", id: createMetricId() },
+		]);
+	};
 
-  const handleRemoveMetric = (index: number): void => {
-    setMetrics((current) =>
-      current.filter((_, metricIndex) => metricIndex !== index),
-    );
-  };
+	const handleRemoveMetric = (index: number): void => {
+		setMetrics((current) =>
+			current.filter((_, metricIndex) => metricIndex !== index)
+		);
+	};
 
-  const validateFormData = (formData: FormData): HeroFormErrors => {
-    const title = String(formData.get("title") ?? "").trim();
-    const subtitle = String(formData.get("subtitle") ?? "").trim();
-    const description = String(formData.get("description") ?? "").trim();
-    const location = String(formData.get("location") ?? "").trim();
-    const availability = String(formData.get("availability") ?? "").trim();
-    const imageSrc = String(formData.get("imageSrc") ?? "").trim();
-    const imageAlt = String(formData.get("imageAlt") ?? "").trim();
+	const validateFormData = (formData: FormData): HeroFormErrors => {
+		const title = String(formData.get("title") ?? "").trim();
+		const subtitle = String(formData.get("subtitle") ?? "").trim();
+		const description = String(formData.get("description") ?? "").trim();
+		const location = String(formData.get("location") ?? "").trim();
+		const availability = String(formData.get("availability") ?? "").trim();
+		const imageSrc = String(formData.get("imageSrc") ?? "").trim();
+		const imageAlt = String(formData.get("imageAlt") ?? "").trim();
 
-    const nextErrors: HeroFormErrors = {};
+		const nextErrors: HeroFormErrors = {};
 
-    if (!title) {
-      nextErrors.title = "Title is required.";
-    }
-    if (!subtitle) {
-      nextErrors.subtitle = "Subtitle is required.";
-    }
-    if (!description) {
-      nextErrors.description = "Description is required.";
-    }
-    if (!location) {
-      nextErrors.location = "Location is required.";
-    }
-    if (!availability) {
-      nextErrors.availability = "Availability is required.";
-    }
-    if (!imageSrc) {
-      nextErrors.imageSrc = "Image URL is required.";
-    } else if (!isValidUrlOrPath(imageSrc)) {
-      nextErrors.imageSrc =
-        "Enter a valid URL or path (e.g. /images/hero.svg).";
-    }
-    if (!imageAlt) {
-      nextErrors.imageAlt = "Image alt text is required.";
-    }
+		if (!title) {
+			nextErrors.title = "Title is required.";
+		}
+		if (!subtitle) {
+			nextErrors.subtitle = "Subtitle is required.";
+		}
+		if (!description) {
+			nextErrors.description = "Description is required.";
+		}
+		if (!location) {
+			nextErrors.location = "Location is required.";
+		}
+		if (!availability) {
+			nextErrors.availability = "Availability is required.";
+		}
+		if (!imageSrc) {
+			nextErrors.imageSrc = "Image URL is required.";
+		} else if (!isValidUrlOrPath(imageSrc)) {
+			nextErrors.imageSrc =
+				"Enter a valid URL or path (e.g. /images/hero.svg).";
+		}
+		if (!imageAlt) {
+			nextErrors.imageAlt = "Image alt text is required.";
+		}
 
-    const hasInvalidMetric = metrics.some(
-      (metric) =>
-        metric.label.trim().length === 0 || metric.value.trim().length === 0,
-    );
-    if (metrics.length === 0 || hasInvalidMetric) {
-      nextErrors.metrics = "Add at least one metric with a label and value.";
-    }
+		const hasInvalidMetric = metrics.some(
+			(metric) =>
+				metric.label.trim().length === 0 || metric.value.trim().length === 0
+		);
+		if (metrics.length === 0 || hasInvalidMetric) {
+			nextErrors.metrics = "Add at least one metric with a label and value.";
+		}
 
-    return nextErrors;
-  };
+		return nextErrors;
+	};
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
-    const formData = new FormData(event.currentTarget);
-    const nextErrors = validateFormData(formData);
-    const hasErrors = Object.keys(nextErrors).length > 0;
+	const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+		const formData = new FormData(event.currentTarget);
+		const nextErrors = validateFormData(formData);
+		const hasErrors = Object.keys(nextErrors).length > 0;
 
-    if (hasErrors) {
-      event.preventDefault();
-      setErrors(nextErrors);
-      toast.error("Please fix the highlighted fields.");
-      return;
-    }
+		if (hasErrors) {
+			event.preventDefault();
+			setErrors(nextErrors);
+			toast.error("Please fix the highlighted fields.");
+			return;
+		}
 
-    setErrors({});
-  };
+		setErrors({});
+	};
 
-  const handleDelete = async (): Promise<void> => {
-    try {
-      setDeletePending(true);
-      const result = await deleteHeroAction();
-      if (result.ok) {
-        toast.success("Hero deleted. Using fallback content now.");
-        setDeleteOpen(false);
-        router.refresh();
-        return;
-      }
-      toast.error(result.error ?? "Unable to delete hero.");
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : "Unable to delete hero.",
-      );
-    } finally {
-      setDeletePending(false);
-    }
-  };
+	const handleDelete = async (): Promise<void> => {
+		try {
+			setDeletePending(true);
+			const result = await deleteHeroAction();
+			if (result.ok) {
+				toast.success("Hero deleted. Using fallback content now.");
+				setDeleteOpen(false);
+				router.refresh();
+				return;
+			}
+			toast.error(result.error ?? "Unable to delete hero.");
+		} catch (error) {
+			toast.error(
+				error instanceof Error ? error.message : "Unable to delete hero."
+			);
+		} finally {
+			setDeletePending(false);
+		}
+	};
 
-  return (
-    <div className="space-y-6">
-      <form
-        action={formAction}
-        className="grid gap-4"
-        noValidate
-        onSubmit={handleSubmit}
-      >
-        <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
-          Title
-          <input
-            className={cn(
-              "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-              errors.title ? "border-destructive" : null,
-            )}
-            defaultValue={initialValues.title}
-            name="title"
-            required
-            aria-invalid={errors.title ? true : undefined}
-            aria-describedby={errors.title ? "hero-title-error" : undefined}
-            type="text"
-          />
-          {errors.title ? (
-            <span
-              className="text-destructive text-xs font-normal tracking-normal normal-case"
-              id="hero-title-error"
-            >
-              {errors.title}
-            </span>
-          ) : null}
-        </label>
+	return (
+		<div className="space-y-6">
+			<form
+				action={formAction}
+				className="grid gap-4"
+				noValidate
+				onSubmit={handleSubmit}
+			>
+				<label className="grid gap-2 text-muted-foreground text-xs uppercase tracking-[0.3em]">
+					Title
+					<input
+						aria-describedby={errors.title ? "hero-title-error" : undefined}
+						aria-invalid={errors.title ? true : undefined}
+						className={cn(
+							"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+							errors.title ? "border-destructive" : null
+						)}
+						defaultValue={initialValues.title}
+						name="title"
+						required
+						type="text"
+					/>
+					{errors.title ? (
+						<span
+							className="font-normal text-destructive text-xs normal-case tracking-normal"
+							id="hero-title-error"
+						>
+							{errors.title}
+						</span>
+					) : null}
+				</label>
 
-        <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
-          Subtitle
-          <input
-            className={cn(
-              "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-              errors.subtitle ? "border-destructive" : null,
-            )}
-            defaultValue={initialValues.subtitle}
-            name="subtitle"
-            required
-            aria-invalid={errors.subtitle ? true : undefined}
-            aria-describedby={
-              errors.subtitle ? "hero-subtitle-error" : undefined
-            }
-            type="text"
-          />
-          {errors.subtitle ? (
-            <span
-              className="text-destructive text-xs font-normal tracking-normal normal-case"
-              id="hero-subtitle-error"
-            >
-              {errors.subtitle}
-            </span>
-          ) : null}
-        </label>
+				<label className="grid gap-2 text-muted-foreground text-xs uppercase tracking-[0.3em]">
+					Subtitle
+					<input
+						aria-describedby={
+							errors.subtitle ? "hero-subtitle-error" : undefined
+						}
+						aria-invalid={errors.subtitle ? true : undefined}
+						className={cn(
+							"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+							errors.subtitle ? "border-destructive" : null
+						)}
+						defaultValue={initialValues.subtitle}
+						name="subtitle"
+						required
+						type="text"
+					/>
+					{errors.subtitle ? (
+						<span
+							className="font-normal text-destructive text-xs normal-case tracking-normal"
+							id="hero-subtitle-error"
+						>
+							{errors.subtitle}
+						</span>
+					) : null}
+				</label>
 
-        <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
-          Description
-          <textarea
-            className={cn(
-              "border-border bg-background text-foreground min-h-30 rounded-2xl border px-4 py-3 text-sm",
-              errors.description ? "border-destructive" : null,
-            )}
-            defaultValue={initialValues.description}
-            name="description"
-            required
-            aria-invalid={errors.description ? true : undefined}
-            aria-describedby={
-              errors.description ? "hero-description-error" : undefined
-            }
-          />
-          {errors.description ? (
-            <span
-              className="text-destructive text-xs font-normal tracking-normal normal-case"
-              id="hero-description-error"
-            >
-              {errors.description}
-            </span>
-          ) : null}
-        </label>
+				<label className="grid gap-2 text-muted-foreground text-xs uppercase tracking-[0.3em]">
+					Description
+					<textarea
+						aria-describedby={
+							errors.description ? "hero-description-error" : undefined
+						}
+						aria-invalid={errors.description ? true : undefined}
+						className={cn(
+							"min-h-30 rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+							errors.description ? "border-destructive" : null
+						)}
+						defaultValue={initialValues.description}
+						name="description"
+						required
+					/>
+					{errors.description ? (
+						<span
+							className="font-normal text-destructive text-xs normal-case tracking-normal"
+							id="hero-description-error"
+						>
+							{errors.description}
+						</span>
+					) : null}
+				</label>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
-            Location
-            <input
-              className={cn(
-                "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-                errors.location ? "border-destructive" : null,
-              )}
-              defaultValue={initialValues.location}
-              name="location"
-              required
-              aria-invalid={errors.location ? true : undefined}
-              aria-describedby={
-                errors.location ? "hero-location-error" : undefined
-              }
-              type="text"
-            />
-            {errors.location ? (
-              <span
-                className="text-destructive text-xs font-normal tracking-normal normal-case"
-                id="hero-location-error"
-              >
-                {errors.location}
-              </span>
-            ) : null}
-          </label>
+				<div className="grid gap-4 sm:grid-cols-2">
+					<label className="grid gap-2 text-muted-foreground text-xs uppercase tracking-[0.3em]">
+						Location
+						<input
+							aria-describedby={
+								errors.location ? "hero-location-error" : undefined
+							}
+							aria-invalid={errors.location ? true : undefined}
+							className={cn(
+								"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+								errors.location ? "border-destructive" : null
+							)}
+							defaultValue={initialValues.location}
+							name="location"
+							required
+							type="text"
+						/>
+						{errors.location ? (
+							<span
+								className="font-normal text-destructive text-xs normal-case tracking-normal"
+								id="hero-location-error"
+							>
+								{errors.location}
+							</span>
+						) : null}
+					</label>
 
-          <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
-            Availability
-            <input
-              className={cn(
-                "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-                errors.availability ? "border-destructive" : null,
-              )}
-              defaultValue={initialValues.availability}
-              name="availability"
-              required
-              aria-invalid={errors.availability ? true : undefined}
-              aria-describedby={
-                errors.availability ? "hero-availability-error" : undefined
-              }
-              type="text"
-            />
-            {errors.availability ? (
-              <span
-                className="text-destructive text-xs font-normal tracking-normal normal-case"
-                id="hero-availability-error"
-              >
-                {errors.availability}
-              </span>
-            ) : null}
-          </label>
-        </div>
+					<label className="grid gap-2 text-muted-foreground text-xs uppercase tracking-[0.3em]">
+						Availability
+						<input
+							aria-describedby={
+								errors.availability ? "hero-availability-error" : undefined
+							}
+							aria-invalid={errors.availability ? true : undefined}
+							className={cn(
+								"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+								errors.availability ? "border-destructive" : null
+							)}
+							defaultValue={initialValues.availability}
+							name="availability"
+							required
+							type="text"
+						/>
+						{errors.availability ? (
+							<span
+								className="font-normal text-destructive text-xs normal-case tracking-normal"
+								id="hero-availability-error"
+							>
+								{errors.availability}
+							</span>
+						) : null}
+					</label>
+				</div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
-            Image URL
-            <input
-              className={cn(
-                "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-                errors.imageSrc ? "border-destructive" : null,
-              )}
-              defaultValue={initialValues.imageSrc}
-              name="imageSrc"
-              required
-              aria-invalid={errors.imageSrc ? true : undefined}
-              aria-describedby={
-                errors.imageSrc ? "hero-image-src-error" : undefined
-              }
-              type="text"
-              ref={imageSrcRef}
-            />
-            {errors.imageSrc ? (
-              <span
-                className="text-destructive text-xs font-normal tracking-normal normal-case"
-                id="hero-image-src-error"
-              >
-                {errors.imageSrc}
-              </span>
-            ) : null}
-            <div className="mt-2">
-              <ImageKitUpload
-                folder="hero"
-                existingImageUrl={initialValues.imageSrc}
-                existingImageAlt={initialValues.imageAlt}
-                onUploadSuccess={(url) => {
-                  if (imageSrcRef.current) {
-                    imageSrcRef.current.value = url;
-                  }
-                  setUploadError(null);
-                  toast.success("Image uploaded.");
-                }}
-                onUploadError={(error) => {
-                  setUploadError(error);
-                  toast.error("Image upload failed.");
-                }}
-              />
-            </div>
-            {uploadError ? (
-              <p className="text-destructive text-xs font-normal tracking-normal normal-case">
-                {uploadError}
-              </p>
-            ) : null}
-          </label>
+				<div className="grid gap-4 sm:grid-cols-2">
+					<label className="grid gap-2 text-muted-foreground text-xs uppercase tracking-[0.3em]">
+						Image URL
+						<input
+							aria-describedby={
+								errors.imageSrc ? "hero-image-src-error" : undefined
+							}
+							aria-invalid={errors.imageSrc ? true : undefined}
+							className={cn(
+								"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+								errors.imageSrc ? "border-destructive" : null
+							)}
+							defaultValue={initialValues.imageSrc}
+							name="imageSrc"
+							ref={imageSrcRef}
+							required
+							type="text"
+						/>
+						{errors.imageSrc ? (
+							<span
+								className="font-normal text-destructive text-xs normal-case tracking-normal"
+								id="hero-image-src-error"
+							>
+								{errors.imageSrc}
+							</span>
+						) : null}
+						<div className="mt-2">
+							<ImageKitUpload
+								existingImageAlt={initialValues.imageAlt}
+								existingImageUrl={initialValues.imageSrc}
+								folder="hero"
+								onUploadError={(error) => {
+									setUploadError(error);
+									toast.error("Image upload failed.");
+								}}
+								onUploadSuccess={(url) => {
+									if (imageSrcRef.current) {
+										imageSrcRef.current.value = url;
+									}
+									setUploadError(null);
+									toast.success("Image uploaded.");
+								}}
+							/>
+						</div>
+						{uploadError ? (
+							<p className="font-normal text-destructive text-xs normal-case tracking-normal">
+								{uploadError}
+							</p>
+						) : null}
+					</label>
 
-          <label className="text-muted-foreground grid gap-2 text-xs tracking-[0.3em] uppercase">
-            Image alt text
-            <input
-              className={cn(
-                "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-                errors.imageAlt ? "border-destructive" : null,
-              )}
-              defaultValue={initialValues.imageAlt}
-              name="imageAlt"
-              required
-              aria-invalid={errors.imageAlt ? true : undefined}
-              aria-describedby={
-                errors.imageAlt ? "hero-image-alt-error" : undefined
-              }
-              type="text"
-            />
-            {errors.imageAlt ? (
-              <span
-                className="text-destructive text-xs font-normal tracking-normal normal-case"
-                id="hero-image-alt-error"
-              >
-                {errors.imageAlt}
-              </span>
-            ) : null}
-          </label>
-        </div>
+					<label className="grid gap-2 text-muted-foreground text-xs uppercase tracking-[0.3em]">
+						Image alt text
+						<input
+							aria-describedby={
+								errors.imageAlt ? "hero-image-alt-error" : undefined
+							}
+							aria-invalid={errors.imageAlt ? true : undefined}
+							className={cn(
+								"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+								errors.imageAlt ? "border-destructive" : null
+							)}
+							defaultValue={initialValues.imageAlt}
+							name="imageAlt"
+							required
+							type="text"
+						/>
+						{errors.imageAlt ? (
+							<span
+								className="font-normal text-destructive text-xs normal-case tracking-normal"
+								id="hero-image-alt-error"
+							>
+								{errors.imageAlt}
+							</span>
+						) : null}
+					</label>
+				</div>
 
-        <div className="border-border/70 bg-card space-y-3 rounded-3xl border p-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
-                Metrics
-              </p>
-              <p className="text-muted-foreground text-sm">
-                Update the quick stats shown beneath the hero headline.
-              </p>
-            </div>
-            <Button
-              className="border-border rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase"
-              type="button"
-              variant="outline"
-              onClick={handleAddMetric}
-            >
-              Add metric
-            </Button>
-          </div>
+				<div className="space-y-3 rounded-3xl border border-border/70 bg-card p-4">
+					<div className="flex flex-wrap items-center justify-between gap-3">
+						<div>
+							<p className="text-muted-foreground text-xs uppercase tracking-[0.3em]">
+								Metrics
+							</p>
+							<p className="text-muted-foreground text-sm">
+								Update the quick stats shown beneath the hero headline.
+							</p>
+						</div>
+						<Button
+							className="rounded-full border border-border px-4 py-2 font-semibold text-xs uppercase tracking-[0.2em]"
+							onClick={handleAddMetric}
+							type="button"
+							variant="outline"
+						>
+							Add metric
+						</Button>
+					</div>
 
-          <div className="space-y-3">
-            {metrics.map((metric, index) => {
-              const metricInvalid =
-                Boolean(errors.metrics) &&
-                (metric.label.trim().length === 0 ||
-                  metric.value.trim().length === 0);
+					<div className="space-y-3">
+						{metrics.map((metric, index) => {
+							const metricInvalid =
+								Boolean(errors.metrics) &&
+								(metric.label.trim().length === 0 ||
+									metric.value.trim().length === 0);
 
-              return (
-                <div
-                  className="grid gap-3 sm:grid-cols-[1.2fr_1fr_auto]"
-                  key={metric.id}
-                >
-                  <input
-                    className={cn(
-                      "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-                      metricInvalid ? "border-destructive" : null,
-                    )}
-                    placeholder="Label"
-                    value={metric.label}
-                    onChange={(event): void =>
-                      updateMetric(index, "label", event.target.value)
-                    }
-                    type="text"
-                  />
-                  <input
-                    className={cn(
-                      "border-border bg-background text-foreground rounded-2xl border px-4 py-3 text-sm",
-                      metricInvalid ? "border-destructive" : null,
-                    )}
-                    placeholder="Value"
-                    value={metric.value}
-                    onChange={(event): void =>
-                      updateMetric(index, "value", event.target.value)
-                    }
-                    type="text"
-                  />
-                  <Button
-                    className="border-border rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase"
-                    type="button"
-                    variant="outline"
-                    onClick={(): void => handleRemoveMetric(index)}
-                    disabled={metrics.length <= 1}
-                  >
-                    Remove
-                  </Button>
-                </div>
-              );
-            })}
-          </div>
+							return (
+								<div
+									className="grid gap-3 sm:grid-cols-[1.2fr_1fr_auto]"
+									key={metric.id}
+								>
+									<input
+										className={cn(
+											"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+											metricInvalid ? "border-destructive" : null
+										)}
+										onChange={(event): void =>
+											updateMetric(index, "label", event.target.value)
+										}
+										placeholder="Label"
+										type="text"
+										value={metric.label}
+									/>
+									<input
+										className={cn(
+											"rounded-2xl border border-border bg-background px-4 py-3 text-foreground text-sm",
+											metricInvalid ? "border-destructive" : null
+										)}
+										onChange={(event): void =>
+											updateMetric(index, "value", event.target.value)
+										}
+										placeholder="Value"
+										type="text"
+										value={metric.value}
+									/>
+									<Button
+										className="rounded-full border border-border px-4 py-2 font-semibold text-xs uppercase tracking-[0.2em]"
+										disabled={metrics.length <= 1}
+										onClick={(): void => handleRemoveMetric(index)}
+										type="button"
+										variant="outline"
+									>
+										Remove
+									</Button>
+								</div>
+							);
+						})}
+					</div>
 
-          {errors.metrics ? (
-            <p className="text-destructive text-xs font-normal tracking-normal normal-case">
-              {errors.metrics}
-            </p>
-          ) : null}
-        </div>
+					{errors.metrics ? (
+						<p className="font-normal text-destructive text-xs normal-case tracking-normal">
+							{errors.metrics}
+						</p>
+					) : null}
+				</div>
 
-        <input name="metrics" type="hidden" value={metricsJson} />
+				<input name="metrics" type="hidden" value={metricsJson} />
 
-        <div className="flex flex-wrap items-center gap-3">
-          <Button
-            className="bg-foreground text-background rounded-full px-5 py-3 text-xs font-semibold tracking-[0.3em] uppercase"
-            type="submit"
-          >
-            Save hero
-          </Button>
-        </div>
-      </form>
+				<div className="flex flex-wrap items-center gap-3">
+					<Button
+						className="rounded-full bg-foreground px-5 py-3 font-semibold text-background text-xs uppercase tracking-[0.3em]"
+						type="submit"
+					>
+						Save hero
+					</Button>
+				</div>
+			</form>
 
-      <div className="border-border/70 bg-card rounded-3xl border p-5">
-        <div className="space-y-3">
-          <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase">
-            Danger zone
-          </p>
-          <p className="text-muted-foreground text-sm">
-            Removing the hero entry will fall back to the default placeholder
-            content.
-          </p>
-          <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>
-            <AlertDialogTrigger asChild>
-              <Button
-                className="border-destructive/60 text-destructive rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase"
-                type="button"
-                variant="outline"
-              >
-                Delete hero data
-              </Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Delete hero content?</AlertDialogTitle>
-                <AlertDialogDescription>
-                  This will remove the stored hero data and restore the fallback
-                  copy.
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction asChild>
-                  <Button
-                    className="bg-destructive text-destructive-foreground rounded-full px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase"
-                    type="button"
-                    onClick={handleDelete}
-                    disabled={deletePending}
-                  >
-                    {deletePending ? "Deleting..." : "Delete"}
-                  </Button>
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
-        </div>
-      </div>
-    </div>
-  );
+			<div className="rounded-3xl border border-border/70 bg-card p-5">
+				<div className="space-y-3">
+					<p className="text-muted-foreground text-xs uppercase tracking-[0.3em]">
+						Danger zone
+					</p>
+					<p className="text-muted-foreground text-sm">
+						Removing the hero entry will fall back to the default placeholder
+						content.
+					</p>
+					<AlertDialog onOpenChange={setDeleteOpen} open={deleteOpen}>
+						<AlertDialogTrigger asChild>
+							<Button
+								className="rounded-full border border-destructive/60 px-4 py-2 font-semibold text-destructive text-xs uppercase tracking-[0.2em]"
+								type="button"
+								variant="outline"
+							>
+								Delete hero data
+							</Button>
+						</AlertDialogTrigger>
+						<AlertDialogContent>
+							<AlertDialogHeader>
+								<AlertDialogTitle>Delete hero content?</AlertDialogTitle>
+								<AlertDialogDescription>
+									This will remove the stored hero data and restore the fallback
+									copy.
+								</AlertDialogDescription>
+							</AlertDialogHeader>
+							<AlertDialogFooter>
+								<AlertDialogCancel>Cancel</AlertDialogCancel>
+								<AlertDialogAction asChild>
+									<Button
+										className="rounded-full bg-destructive px-4 py-2 font-semibold text-destructive-foreground text-xs uppercase tracking-[0.2em]"
+										disabled={deletePending}
+										onClick={handleDelete}
+										type="button"
+									>
+										{deletePending ? "Deleting..." : "Delete"}
+									</Button>
+								</AlertDialogAction>
+							</AlertDialogFooter>
+						</AlertDialogContent>
+					</AlertDialog>
+				</div>
+			</div>
+		</div>
+	);
 };

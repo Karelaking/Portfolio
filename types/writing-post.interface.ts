@@ -1,9 +1,9 @@
 export interface WritingPost {
-  id: string;
-  title: string;
-  coverImageSrc: string;
-  coverImageAlt: string;
-  content: string;
-  tags: string[];
-  publishedAt: string;
+	content: string;
+	coverImageAlt: string;
+	coverImageSrc: string;
+	id: string;
+	publishedAt: string;
+	tags: string[];
+	title: string;
 }

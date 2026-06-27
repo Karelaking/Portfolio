@@ -1,4 +1,4 @@
 export interface PrimaryServiceItem {
-  id: string;
-  label: string;
+	id: string;
+	label: string;
 }

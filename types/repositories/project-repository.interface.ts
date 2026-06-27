@@ -3,28 +3,28 @@ import type { ProjectItem } from "@/types/project-item.interface";
 import type { ProjectRowInput } from "@/types/project-row-input.interface";
 
 export interface CreateProjectInput {
-  id: string;
-  data: ProjectRowInput;
+	data: ProjectRowInput;
+	id: string;
 }
 
 export interface UpdateProjectInput {
-  id: string;
-  data: ProjectRowInput;
+	data: ProjectRowInput;
+	id: string;
 }
 
 export interface DeleteProjectInput {
-  id: string;
+	id: string;
 }
 
 export interface ProjectFetchAllResult {
-  projects: ProjectItem[];
-  error?: string;
+	error?: string;
+	projects: ProjectItem[];
 }
 
 export interface ProjectRepository {
-  getAll(): Promise<ProjectFetchAllResult>;
-  getById(id: string): Promise<ProjectItem | null>;
-  create(input: CreateProjectInput): Promise<ActionResult>;
-  update(input: UpdateProjectInput): Promise<ActionResult>;
-  delete(input: DeleteProjectInput): Promise<ActionResult>;
+	create(input: CreateProjectInput): Promise<ActionResult>;
+	delete(input: DeleteProjectInput): Promise<ActionResult>;
+	getAll(): Promise<ProjectFetchAllResult>;
+	getById(id: string): Promise<ProjectItem | null>;
+	update(input: UpdateProjectInput): Promise<ActionResult>;
 }

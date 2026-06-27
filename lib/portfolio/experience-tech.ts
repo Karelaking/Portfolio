@@ -1,54 +1,53 @@
 export interface ParsedExperienceHighlights {
-  highlights: string[];
-  coreTech: string[];
+	coreTech: string[];
+	highlights: string[];
 }
 
 const CORE_TECH_PREFIX = "__core-tech__:";
 
-const stripPrefix = (value: string): string => {
-  return value.replace(CORE_TECH_PREFIX, "").trim();
-};
+const stripPrefix = (value: string): string =>
+	value.replace(CORE_TECH_PREFIX, "").trim();
 
 export const splitExperienceHighlights = (
-  highlights: string[],
+	highlights: string[]
 ): ParsedExperienceHighlights => {
-  const parsed: ParsedExperienceHighlights = {
-    highlights: [],
-    coreTech: [],
-  };
+	const parsed: ParsedExperienceHighlights = {
+		highlights: [],
+		coreTech: [],
+	};
 
-  for (const item of highlights) {
-    const normalized = item.trim();
-    if (!normalized) {
-      continue;
-    }
+	for (const item of highlights) {
+		const normalized = item.trim();
+		if (!normalized) {
+			continue;
+		}
 
-    if (normalized.startsWith(CORE_TECH_PREFIX)) {
-      const tech = stripPrefix(normalized);
-      if (tech.length > 0) {
-        parsed.coreTech.push(tech);
-      }
-      continue;
-    }
+		if (normalized.startsWith(CORE_TECH_PREFIX)) {
+			const tech = stripPrefix(normalized);
+			if (tech.length > 0) {
+				parsed.coreTech.push(tech);
+			}
+			continue;
+		}
 
-    parsed.highlights.push(normalized);
-  }
+		parsed.highlights.push(normalized);
+	}
 
-  return parsed;
+	return parsed;
 };
 
 export const serializeExperienceHighlights = (
-  highlights: string[],
-  coreTech: string[],
+	highlights: string[],
+	coreTech: string[]
 ): string[] => {
-  const normalizedHighlights = highlights
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
+	const normalizedHighlights = highlights
+		.map((item) => item.trim())
+		.filter((item) => item.length > 0);
 
-  const normalizedCoreTech = coreTech
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0)
-    .map((item) => `${CORE_TECH_PREFIX}${item}`);
+	const normalizedCoreTech = coreTech
+		.map((item) => item.trim())
+		.filter((item) => item.length > 0)
+		.map((item) => `${CORE_TECH_PREFIX}${item}`);
 
-  return [...normalizedHighlights, ...normalizedCoreTech];
+	return [...normalizedHighlights, ...normalizedCoreTech];
 };

@@ -1,6 +1,6 @@
 export interface GalleryImage {
-  id: string;
-  src: string;
-  alt: string;
-  imageFileId?: string;
+	alt: string;
+	id: string;
+	imageFileId?: string;
+	src: string;
 }

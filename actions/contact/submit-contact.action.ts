@@ -1,45 +1,42 @@
 "use server";
 
-import { Resend } from "resend";
 import mongoose from "mongoose";
+import { Resend } from "resend";
 import { connectMongo } from "@/lib/database/mongodb";
 import type { ActionResult } from "@/types/action-result.interface";
 import type { ContactMessageInput } from "@/types/contact-message-input.interface";
 
-const isValidEmail = (email: string): boolean => {
-  return /\S+@\S+\.\S+/.test(email);
-};
+const isValidEmail = (email: string): boolean => /\S+@\S+\.\S+/.test(email);
 
 const resolveRecipients = (): { from: string; to: string } | null => {
-  const from = process.env.RESEND_FROM ?? "";
-  const to = process.env.RESEND_TO ?? "";
+	const from = process.env.RESEND_FROM ?? "";
+	const to = process.env.RESEND_TO ?? "";
 
-  if (!from || !to) {
-    return null;
-  }
+	if (!(from && to)) {
+		return null;
+	}
 
-  return { from, to };
+	return { from, to };
 };
 
-const escapeHtml = (value: string): string => {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-};
+const escapeHtml = (value: string): string =>
+	value
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#39;");
 
 const renderContactEmail = (input: ContactMessageInput): string => {
-  const name = escapeHtml(input.name);
-  const email = escapeHtml(input.email);
-  const message = escapeHtml(input.message).replace(/\n/g, "<br />");
-  const receivedAt = new Date().toLocaleString("en-US", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  });
+	const name = escapeHtml(input.name);
+	const email = escapeHtml(input.email);
+	const message = escapeHtml(input.message).replace(/\n/g, "<br />");
+	const receivedAt = new Date().toLocaleString("en-US", {
+		dateStyle: "medium",
+		timeStyle: "short",
+	});
 
-  return `<!DOCTYPE html>
+	return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -99,86 +96,90 @@ const renderContactEmail = (input: ContactMessageInput): string => {
 };
 
 const sendContactEmail = async (
-  input: ContactMessageInput,
+	input: ContactMessageInput
 ): Promise<ActionResult> => {
-  const apiKey = process.env.RESEND_API_KEY ?? "";
-  if (!apiKey) {
-    return { ok: false, error: "Email service not configured." };
-  }
+	const apiKey = process.env.RESEND_API_KEY ?? "";
+	if (!apiKey) {
+		return { ok: false, error: "Email service not configured." };
+	}
 
-  const recipients = resolveRecipients();
-  if (!recipients) {
-    return { ok: false, error: "Email recipients not configured." };
-  }
+	const recipients = resolveRecipients();
+	if (!recipients) {
+		return { ok: false, error: "Email recipients not configured." };
+	}
 
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from: recipients.from,
-    to: recipients.to,
-    subject: `New portfolio inquiry from ${input.name}`,
-    replyTo: input.email,
-    text: `Name: ${input.name}\nEmail: ${input.email}\nReceived: ${new Date().toLocaleString("en-US", {
-      dateStyle: "medium",
-      timeStyle: "short",
-    })}\n\n${input.message}`,
-    html: renderContactEmail(input),
-  });
+	const resend = new Resend(apiKey);
+	const { error } = await resend.emails.send({
+		from: recipients.from,
+		to: recipients.to,
+		subject: `New portfolio inquiry from ${input.name}`,
+		replyTo: input.email,
+		text: `Name: ${input.name}\nEmail: ${input.email}\nReceived: ${new Date().toLocaleString(
+			"en-US",
+			{
+				dateStyle: "medium",
+				timeStyle: "short",
+			}
+		)}\n\n${input.message}`,
+		html: renderContactEmail(input),
+	});
 
-  if (error) {
-    return { ok: false, error: error.message };
-  }
+	if (error) {
+		return { ok: false, error: error.message };
+	}
 
-  return { ok: true };
+	return { ok: true };
 };
 
 const storeContactMessage = async (
-  input: ContactMessageInput,
+	input: ContactMessageInput
 ): Promise<ActionResult> => {
-  try {
-    await connectMongo();
-    const db = mongoose.connection.db;
+	try {
+		await connectMongo();
+		const db = mongoose.connection.db;
 
-    if (!db) {
-      return { ok: false, error: "MongoDB is not connected." };
-    }
+		if (!db) {
+			return { ok: false, error: "MongoDB is not connected." };
+		}
 
-    await db.collection("contact_messages").insertOne({
-      ...input,
-      created_at: new Date(),
-    });
+		await db.collection("contact_messages").insertOne({
+			...input,
+			created_at: new Date(),
+		});
 
-    return { ok: true };
-  } catch (error) {
-    return {
-      ok: false,
-      error: error instanceof Error ? error.message : "Failed to store message.",
-    };
-  }
+		return { ok: true };
+	} catch (error) {
+		return {
+			ok: false,
+			error:
+				error instanceof Error ? error.message : "Failed to store message.",
+		};
+	}
 };
 
 export const submitContact = async (
-  input: ContactMessageInput,
+	input: ContactMessageInput
 ): Promise<ActionResult> => {
-  if (!input.name || !input.email || !input.message) {
-    return { ok: false, error: "Please complete all fields." };
-  }
+	if (!(input.name && input.email && input.message)) {
+		return { ok: false, error: "Please complete all fields." };
+	}
 
-  if (!isValidEmail(input.email)) {
-    return { ok: false, error: "Please enter a valid email." };
-  }
+	if (!isValidEmail(input.email)) {
+		return { ok: false, error: "Please enter a valid email." };
+	}
 
-  const [emailResult, storeResult] = await Promise.all([
-    sendContactEmail(input),
-    storeContactMessage(input),
-  ]);
+	const [emailResult, storeResult] = await Promise.all([
+		sendContactEmail(input),
+		storeContactMessage(input),
+	]);
 
-  if (!emailResult.ok) {
-    return emailResult;
-  }
+	if (!emailResult.ok) {
+		return emailResult;
+	}
 
-  if (!storeResult.ok) {
-    return { ok: true, error: "Message sent, storage pending." };
-  }
+	if (!storeResult.ok) {
+		return { ok: true, error: "Message sent, storage pending." };
+	}
 
-  return { ok: true };
+	return { ok: true };
 };

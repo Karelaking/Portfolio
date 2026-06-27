@@ -1,12 +1,12 @@
 import type { HeroMetric } from "@/types/hero/hero-metric.interface";
 
 export interface ParsedHeroInput {
-  title: string;
-  subtitle: string;
-  description: string;
-  location: string;
-  availability: string;
-  imageSrc: string;
-  imageAlt: string;
-  metrics: HeroMetric[];
+	availability: string;
+	description: string;
+	imageAlt: string;
+	imageSrc: string;
+	location: string;
+	metrics: HeroMetric[];
+	subtitle: string;
+	title: string;
 }

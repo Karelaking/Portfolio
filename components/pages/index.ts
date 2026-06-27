@@ -1,8 +1,8 @@
+export { AboutPage } from "./AboutPage";
 export { ContactPage } from "./ContactPage";
-export { GalleryPage } from "./GalleryPage";
-export { WritingPage } from "./WritingPage";
-export { ProjectsPage } from "./ProjectsPage";
 export { ExperiencePage } from "./ExperiencePage";
 export { ExpertisePage } from "./ExpertisePage";
-export { AboutPage } from "./AboutPage";
+export { GalleryPage } from "./GalleryPage";
 export { HeroPage } from "./HeroPage";
+export { ProjectsPage } from "./ProjectsPage";
+export { WritingPage } from "./WritingPage";

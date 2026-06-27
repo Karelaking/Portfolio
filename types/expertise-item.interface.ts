@@ -1,6 +1,6 @@
 export interface ExpertiseItem {
-  id: string;
-  title: string;
-  description: string;
-  icon: "strategy" | "system" | "frontend" | "direction";
+	description: string;
+	icon: "strategy" | "system" | "frontend" | "direction";
+	id: string;
+	title: string;
 }

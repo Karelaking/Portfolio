@@ -1,7 +1,7 @@
 export interface ExperienceRowInput {
-  role: string;
-  company: string;
-  period: string;
-  summary: string;
-  highlights: string[];
+	company: string;
+	highlights: string[];
+	period: string;
+	role: string;
+	summary: string;
 }

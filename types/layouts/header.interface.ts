@@ -1,8 +1,8 @@
 export interface NavLink {
-  href: string;
-  label: string;
+	href: string;
+	label: string;
 }
 
 export interface NavigationBarProps {
-  className?: string;
+	className?: string;
 }

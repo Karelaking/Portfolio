@@ -1,7 +1,7 @@
 export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  href: string;
+	date: string;
+	excerpt: string;
+	href: string;
+	id: string;
+	title: string;
 }

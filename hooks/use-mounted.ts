@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 export const useMounted = (): boolean => {
-  const [mounted, setMounted] = useState<boolean>(false);
+	const [mounted, setMounted] = useState<boolean>(false);
 
-  useEffect((): void => {
-    setMounted(true);
-  }, []);
+	useEffect((): void => {
+		setMounted(true);
+	}, []);
 
-  return mounted;
+	return mounted;
 };

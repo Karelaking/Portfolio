@@ -1,8 +1,6 @@
 const fallbackSiteUrl = "https://example.com";
 
-const normalizeUrl = (url: string): string => {
-	return url.replace(/\/+$/, "");
-};
+const normalizeUrl = (url: string): string => url.replace(/\/+$/, "");
 
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
@@ -20,6 +18,5 @@ export const siteConfig = {
 
 export const siteUrl = new URL(siteConfig.url);
 
-export const toAbsoluteUrl = (path: string): string => {
-	return new URL(path, siteUrl).toString();
-};
+export const toAbsoluteUrl = (path: string): string =>
+	new URL(path, siteUrl).toString();

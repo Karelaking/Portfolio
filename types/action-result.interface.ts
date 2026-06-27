@@ -1,4 +1,4 @@
 export interface ActionResult {
-  ok: boolean;
-  error?: string;
+	error?: string;
+	ok: boolean;
 }

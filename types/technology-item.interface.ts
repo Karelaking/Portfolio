@@ -1,11 +1,11 @@
 import type { ProjectItem } from "./project-item.interface";
 
 export interface TechnologyItem {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  websiteUrl: string;
-  logoKey: string;
-  relatedProjects: ProjectItem[];
+	description: string;
+	id: string;
+	logoKey: string;
+	name: string;
+	relatedProjects: ProjectItem[];
+	slug: string;
+	websiteUrl: string;
 }

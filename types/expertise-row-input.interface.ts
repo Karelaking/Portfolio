@@ -1,5 +1,5 @@
 export interface ExpertiseRowInput {
-  title: string;
-  description: string;
-  icon: "strategy" | "system" | "frontend" | "direction";
+	description: string;
+	icon: "strategy" | "system" | "frontend" | "direction";
+	title: string;
 }

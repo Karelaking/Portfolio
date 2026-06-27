@@ -7,13 +7,12 @@ const config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				'instrument-sans': ["var(--font-instrument-sans)", "sans-serif"],
-				'geist-sans': ["var(--font-geist-sans)", "sans-serif"],
+				"instrument-sans": ["var(--font-instrument-sans)", "sans-serif"],
+				"geist-sans": ["var(--font-geist-sans)", "sans-serif"],
 			},
 		},
 		plugins: [],
 	},
-
 };
 
 export default config;

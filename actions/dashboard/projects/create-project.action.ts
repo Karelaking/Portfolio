@@ -6,37 +6,37 @@ import type { ActionResult } from "@/types/action-result.interface";
 import { parseProjectForm, toProjectRow } from "./project-form";
 
 export const createProject = async (
-  _prevState: ActionResult | null,
-  formData: FormData,
+	_prevState: ActionResult | null,
+	formData: FormData
 ): Promise<ActionResult> => {
-  try {
-    const repository = getProjectRepository();
+	try {
+		const repository = getProjectRepository();
 
-    const result = parseProjectForm(formData);
-    if (!result.data) {
-      return { ok: false, error: result.error ?? "Invalid form data." };
-    }
+		const result = parseProjectForm(formData);
+		if (!result.data) {
+			return { ok: false, error: result.error ?? "Invalid form data." };
+		}
 
-    const data = toProjectRow(result.data);
-    const createResult = await repository.create({
-      id: crypto.randomUUID(),
-      data,
-    });
+		const data = toProjectRow(result.data);
+		const createResult = await repository.create({
+			id: crypto.randomUUID(),
+			data,
+		});
 
-    if (!createResult.ok) {
-      return createResult;
-    }
+		if (!createResult.ok) {
+			return createResult;
+		}
 
-    revalidatePath("/dashboard/projects");
-    revalidatePath("/");
-    return { ok: true };
-  } catch (error) {
-    return {
-      ok: false,
-      error:
-        error instanceof Error
-          ? error.message
-          : "Unexpected error while creating project.",
-    };
-  }
+		revalidatePath("/dashboard/projects");
+		revalidatePath("/");
+		return { ok: true };
+	} catch (error) {
+		return {
+			ok: false,
+			error:
+				error instanceof Error
+					? error.message
+					: "Unexpected error while creating project.",
+		};
+	}
 };

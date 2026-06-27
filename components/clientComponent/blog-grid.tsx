@@ -1,18 +1,17 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { useState } from "react";
-import type { ReactElement } from "react";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import type { BlogPost } from "@/types/blog-post.interface";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import type { ReactElement } from "react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import type { BlogPost } from "@/types/blog-post.interface";
 
 interface BlogGridProps {
 	posts: BlogPost[];
 }
 
 export const BlogGrid = ({ posts }: BlogGridProps): ReactElement => {
-	
 	const [activeIndex, setActiveIndex] = useState<number | null>(null);
 	const shouldReduceMotion = useReducedMotion();
 
@@ -23,34 +22,34 @@ export const BlogGrid = ({ posts }: BlogGridProps): ReactElement => {
 
 				return (
 					<motion.a
+						className="group relative rounded-3xl border border-border/70 bg-card/80 p-5 transition-colors hover:border-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
 						href={post.href}
 						key={post.id}
-						rel="noreferrer"
-						target="_blank"
-						className="group relative rounded-3xl border border-border/70 bg-card/80 p-5 transition-colors hover:border-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+						onBlur={(): void => setActiveIndex(null)}
+						onFocus={(): void => setActiveIndex(index)}
 						onMouseEnter={(): void => setActiveIndex(index)}
 						onMouseLeave={(): void => setActiveIndex(null)}
-						onFocus={(): void => setActiveIndex(index)}
-						onBlur={(): void => setActiveIndex(null)}
+						rel="noreferrer"
+						target="_blank"
 					>
 						<AnimatePresence>
 							{isActive ? (
 								<motion.span
-									layoutId="blog-card-hover"
-									className="absolute inset-0 rounded-3xl bg-foreground/4 ring-1 ring-foreground/10"
-									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
+									className="absolute inset-0 rounded-3xl bg-foreground/4 ring-1 ring-foreground/10"
 									exit={{ opacity: 0 }}
+									initial={{ opacity: 0 }}
+									layoutId="blog-card-hover"
 									transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
 								/>
 							) : null}
 						</AnimatePresence>
 						<motion.div
-							className="relative z-10 flex h-full flex-col gap-4"
 							animate={{ y: isActive ? -2 : 0 }}
+							className="relative z-10 flex h-full flex-col gap-4"
 							transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
 						>
-							<div className="flex items-center justify-between text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
+							<div className="flex items-center justify-between text-[11px] text-muted-foreground uppercase tracking-[0.35em]">
 								<span>{post.date}</span>
 								<span className="flex items-center gap-2 text-foreground/70">
 									Read
@@ -58,18 +57,16 @@ export const BlogGrid = ({ posts }: BlogGridProps): ReactElement => {
 								</span>
 							</div>
 							<div className="space-y-2">
-								<h3 className="text-lg font-semibold text-foreground">
+								<h3 className="font-semibold text-foreground text-lg">
 									{post.title}
 								</h3>
-								<p className="text-sm text-muted-foreground">
-									{post.excerpt}
-								</p>
+								<p className="text-muted-foreground text-sm">{post.excerpt}</p>
 							</div>
-							<div className="mt-auto flex items-center justify-between text-xs uppercase tracking-[0.3em] text-muted-foreground">
+							<div className="mt-auto flex items-center justify-between text-muted-foreground text-xs uppercase tracking-[0.3em]">
 								<span
 									className={cn(
 										"transition-colors",
-										isActive && "text-foreground",
+										isActive && "text-foreground"
 									)}
 								>
 									Open post
@@ -77,7 +74,7 @@ export const BlogGrid = ({ posts }: BlogGridProps): ReactElement => {
 								<IconArrowUpRight
 									className={cn(
 										"transition-transform",
-										isActive && "-translate-y-0.5 translate-x-0.5",
+										isActive && "translate-x-0.5 -translate-y-0.5"
 									)}
 									size={14}
 								/>
