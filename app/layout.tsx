@@ -18,21 +18,25 @@ const instrument_Serif = Instrument_Serif({
 export const metadata: Metadata = {
 	metadataBase: siteUrl,
 	title: {
-		default: "MK Katiyar | Full-Stack Developer Portfolio",
-		template: "%s | MK Katiyar",
+		default: "MK KATIYAR | Software Developer",
+		template: "%s | MK KATIYAR",
 	},
 	description:
-		"Explore MK Katiyar's portfolio featuring full-stack projects, engineering experience, technical expertise, writing, and gallery work.",
-	applicationName: "MK Katiyar Portfolio",
+		"Explore my digital world for featuring full-stack projects, engineering experience, technical expertise, writing, and gallery work.",
+	applicationName: "MK KATIYAR",
 	keywords: [
-		"MK Katiyar",
+		"MK KATIYAR",
 		"portfolio",
 		"full-stack developer",
-		"Next.js",
-		"React",
-		"TypeScript",
+		"software development",
+		"backend development",
 		"web development",
 		"software engineer",
+		"open source contributions",
+		"captured moments gallery",
+		"generation of mind",
+		"poetries",
+		"technical expertise"
 	],
 	alternates: {
 		canonical: "/",
@@ -43,20 +47,20 @@ export const metadata: Metadata = {
 		locale: "en_US",
 		url: "/",
 		siteName: siteConfig.name,
-		title: "MK Katiyar | Full-Stack Developer Portfolio",
+		title: "MK KATIYAR | Software Developer",
 		description: siteConfig.description,
 		images: [
 			{
 				url: "/opengraph-image",
 				width: 1200,
 				height: 630,
-				alt: "MK Katiyar portfolio preview",
+				alt: "MK KATIYAR | Software Developer",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "MK Katiyar | Full-Stack Developer Portfolio",
+		title: "MK KATIYAR | Software Developer",
 		description: siteConfig.description,
 		images: ["/twitter-image"],
 	},
@@ -94,14 +98,14 @@ export default function RootLayout({
 		inLanguage: "en",
 		publisher: {
 			"@type": "Person",
-			name: "MK Katiyar",
+			name: "MK KATIYAR",
 		},
 	};
 
 	const organizationJsonLd = {
 		"@context": "https://schema.org",
 		"@type": "Organization",
-		name: "MK Katiyar Portfolio",
+		name: "MK KATIYAR Portfolio",
 		url: siteConfig.url,
 		logo: toAbsoluteUrl("/images/hero-portrait.svg"),
 		sameAs: siteConfig.profiles,
@@ -110,7 +114,7 @@ export default function RootLayout({
 	const personJsonLd = {
 		"@context": "https://schema.org",
 		"@type": "Person",
-		name: "MK Katiyar",
+		name: "MK KATIYAR",
 		url: siteConfig.url,
 		image: toAbsoluteUrl("/images/hero-portrait.svg"),
 		jobTitle: "Full-Stack Developer",

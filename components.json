@@ -21,6 +21,7 @@
   },
   "registries": {
     "@acme": "https://acme.com/r/{name}.json",
-    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
+    "@7ovr": "https://7ovr.com/r/{name}.json"
   }
 }

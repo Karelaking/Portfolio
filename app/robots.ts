@@ -4,9 +4,6 @@ import { siteConfig, toAbsoluteUrl } from "@/lib/siteConfig";
 const disallowedPaths = [
 	"/dashboard",
 	"/dashboard/",
-	"/login",
-	"/sign-in",
-	"/sign-up",
 	"/api/",
 ];
 

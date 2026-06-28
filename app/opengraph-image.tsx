@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/siteConfig";
 
-export const alt = "MK Katiyar Portfolio preview";
+export const alt = "MK KATIYAR";
 
 export const size = {
 	width: 1200,
