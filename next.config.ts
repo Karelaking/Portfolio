@@ -51,7 +51,7 @@ const nextConfig: NextConfig = {
 		compilationMode: "annotation",
 	},
 	experimental: {},
-	allowedDevOrigins: ["192.168.29.241"],
+	allowedDevOrigins: ["192.168.29.142"],
 };
 
 export default nextConfig;
