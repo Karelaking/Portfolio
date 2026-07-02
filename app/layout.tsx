@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 		"captured moments gallery",
 		"generation of mind",
 		"poetries",
-		"technical expertise"
+		"technical expertise",
 	],
 	alternates: {
 		canonical: "/",
@@ -129,20 +129,15 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body className="bg-neutral-50 font-sans antialiased dark:bg-neutral-950">
-				<script
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-					type="application/ld+json"
-				/>
-				<script
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-					type="application/ld+json"
-				/>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify(organizationJsonLd),
-					}}
-					type="application/ld+json"
-				/>
+				<script type="application/ld+json">
+					{JSON.stringify(websiteJsonLd)}
+				</script>
+				<script type="application/ld+json">
+					{JSON.stringify(personJsonLd)}
+				</script>
+				<script type="application/ld+json">
+					{JSON.stringify(organizationJsonLd)}
+				</script>
 				<ClerkProvider>
 					<Providers>{children}</Providers>
 				</ClerkProvider>
