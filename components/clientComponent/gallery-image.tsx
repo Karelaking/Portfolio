@@ -1,9 +1,9 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export interface GalleryImageProps {
@@ -25,10 +25,18 @@ export const GalleryImage = ({
 	height = 420,
 	className,
 	priority = false,
-	loading = "lazy",
+	loading = "eager",
 }: GalleryImageProps): ReactElement => {
 	const [loaded, setLoaded] = useState<boolean>(false);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [naturalDimensions, setNaturalDimensions] = useState<{
+		width: number;
+		height: number;
+	} | null>(null);
+
+	const ratio = naturalDimensions
+		? naturalDimensions.width / naturalDimensions.height
+		: 1.2;
 
 	useEffect((): (() => void) => {
 		if (!isOpen) {
@@ -56,7 +64,7 @@ export const GalleryImage = ({
 				type="button"
 			>
 				<motion.div
-					className="relative overflow-hidden rounded-2xl border border-border/70"
+					className="relative overflow-hidden rounded-sm border border-border/70"
 					initial={{ opacity: 0, y: 10 }}
 					transition={{ duration: 0.3 }}
 					viewport={{ once: true }}
@@ -74,8 +82,13 @@ export const GalleryImage = ({
 						)}
 						height={height}
 						loading={loading}
-						onLoad={(): void => {
+						onLoad={(event): void => {
 							setLoaded(true);
+							const img = event.currentTarget;
+							setNaturalDimensions({
+								width: img.naturalWidth,
+								height: img.naturalHeight,
+							});
 						}}
 						priority={priority}
 						quality={priority ? 95 : 75}
@@ -104,26 +117,31 @@ export const GalleryImage = ({
 						<div className="relative z-10 w-fit md:w-auto">
 							<motion.div
 								animate={{ scale: 1, opacity: 1 }}
-								className="overflow-hidden rounded-3xl border border-border/70 bg-card p-3"
+								className="overflow-hidden rounded-sm border border-border/70 bg-card p-3"
 								exit={{ scale: 0.95, opacity: 0 }}
 								initial={{ scale: 0.95, opacity: 0 }}
-								style={{ maxWidth: `${width}px` }}
+								style={{
+									maxWidth: "90vw",
+									width: naturalDimensions
+										? `min(${naturalDimensions.width}px, calc(80vh * ${ratio}))`
+										: "auto",
+								}}
 								transition={{ duration: 0.15, ease: "easeOut" }}
 							>
 								<Image
 									alt={alt}
-									className="h-auto max-h-[80vh] w-fit rounded-2xl object-contain md:max-h-none"
-									height={height}
+									className="h-auto max-h-[80vh] w-[90vw] rounded-sm object-contain"
+									height={naturalDimensions ? naturalDimensions.height : height}
 									priority
 									quality={90}
 									sizes="100vw"
 									src={src}
 									style={{
-										maxHeight: `${height}px`,
-										width: "auto",
+										maxHeight: "80vh",
+										width: "100%",
 										height: "auto",
 									}}
-									width={width}
+									width={naturalDimensions ? naturalDimensions.width : width}
 								/>
 							</motion.div>
 							<div className="mt-4 flex items-center justify-between text-muted-foreground text-xs uppercase tracking-[0.3em]">
