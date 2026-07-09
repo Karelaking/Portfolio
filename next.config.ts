@@ -50,7 +50,9 @@ const nextConfig: NextConfig = {
 	reactCompiler: {
 		compilationMode: "annotation",
 	},
-	experimental: {},
+	experimental: {
+		viewTransition: true,
+	},
 	allowedDevOrigins: ["192.168.29.142"],
 };
 

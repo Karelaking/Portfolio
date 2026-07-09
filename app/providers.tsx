@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "next-themes";
 import type { ReactElement, ReactNode } from "react";
-import { Suspense } from "react";
+import { Suspense, ViewTransition } from "react";
 import { Toaster } from "sonner";
 import { ImageKitProvider } from "@/components/providers/imagekit-provider";
 import { Footer, NavigationBar } from "@/components/serverComponent";
@@ -32,7 +32,9 @@ export interface RootProviderProps {
 export const RootProvider = ({ children }: RootProviderProps): ReactElement => (
 	<>
 		<NavigationBar />
-		<main className="relative mx-auto w-full">{children}</main>
+		<ViewTransition>
+			<main className="relative mx-auto w-full">{children}</main>
+		</ViewTransition>
 		<Suspense fallback={<FooterSkeleton />}>
 			<Footer />
 		</Suspense>

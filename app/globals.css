@@ -93,6 +93,36 @@ html {
 	z-index: 9999;
 }
 
+/* ── View Transition: page navigation (React ViewTransition) ── */
+@keyframes vt-slide-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+}
+
+@keyframes vt-slide-fade-out {
+	to {
+		opacity: 0;
+		transform: translateY(-8px);
+	}
+}
+
+::view-transition-old(*) {
+	animation: vt-slide-fade-out 200ms ease-in both;
+}
+
+::view-transition-new(*) {
+	animation: vt-slide-fade-in 280ms ease-out 80ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation-duration: 0s;
+	}
+}
+
 /* Prevent interaction while the transition is running */
 ::view-transition {
 	pointer-events: none;

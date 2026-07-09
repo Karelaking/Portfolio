@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactElement, ReactNode } from "react";
+import { ViewTransition } from "react";
 import { SignOutButton } from "@/components/serverComponent";
 
 export const metadata: Metadata = {
@@ -38,7 +39,9 @@ const DashboardLayout = async ({
 				</div>
 			</div>
 		</header>
-		<main className="mx-auto w-full max-w-5xl px-6 py-10">{children}</main>
+		<ViewTransition>
+			<main className="mx-auto w-full max-w-5xl px-6 py-10">{children}</main>
+		</ViewTransition>
 	</div>
 );
 
