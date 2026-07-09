@@ -1,6 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Geist, Instrument_Serif, Script } from "next/font/google";
 import type { ReactElement, ReactNode } from "react";
 import { siteConfig, siteUrl, toAbsoluteUrl } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";

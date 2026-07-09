@@ -14,3 +14,18 @@ export const navLinks: NavigationLink[] = [
 	{ href: "/#gallery", label: "Gallery" },
 	{ href: "/#contact", label: "Contact" },
 ];
+
+
+export const GREETINGS: string[] = [
+	"HOLA",
+	"BONJOUR",
+	"CIAO",
+	"नमस्ते",
+	"こんにちは",
+	"你好",
+	"مَرْحَبًا",
+	"ПРИВЕТ",
+	"ΓΕΙΑ",
+	"HELLO",
+	"안녕하세요",
+];

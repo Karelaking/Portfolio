@@ -1,11 +1,13 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
-import {getHero} from "@/lib/portfolio/queries";
+import { getHero } from "@/lib/portfolio/queries";
 import { cn } from "@/lib";
 import { CountUpValue, HeroImage } from "../clientComponent";
-import { FadeIn } from "../motion";
 import { Container } from "../serverComponent";
+import { ZoomHollowText } from "../clientComponent/zoom-hollow";
+import { GREETINGS } from "@/data/NavigationLinks";
+
 
 const heroData = await getHero();
 
@@ -22,16 +24,13 @@ export const HeroPage = (): React.ReactElement => {
 			id="#"
 		>
 			<div className="flex flex-col gap-6">
-				<FadeIn>
-					<p className="font-bold text-neutral-800 text-xs uppercase tracking-[0.4em] dark:text-neutral-50">
-						Portfolio
-					</p>
-				</FadeIn>
-				<FadeIn delay={0.1}>
-					<h1 className="font-extrabold font-instrument-sans text-6xl text-neutral-600 leading-18 sm:text-7xl dark:text-neutral-200">
-						{heroData.title}
-					</h1>
-				</FadeIn>
+				<ZoomHollowText
+					className="text-7xl font-neutral-600"
+					words={GREETINGS}
+				/>
+				<h1 className="text-4xl font-bold tracking-wider text-foreground sm:text-5xl uppercase text-neutral-600">
+					mradul kumar katiyar
+				</h1>
 				<p className="max-w-xl font-sans text-base text-neutral-400 dark:text-neutral-400">
 					{heroData.description}
 				</p>

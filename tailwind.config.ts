@@ -11,7 +11,7 @@ const config = {
 				"geist-sans": ["var(--font-geist-sans)", "sans-serif"],
 			},
 		},
-		plugins: [],
+		plugins: ["prettier-plugin-tailwindcss"],
 	},
 };
 
