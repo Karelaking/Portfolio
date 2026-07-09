@@ -1,9 +1,9 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export interface GalleryImageProps {
