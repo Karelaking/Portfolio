@@ -15,7 +15,6 @@ export const Providers = ({ children }: ProvidersProps): ReactElement => (
 	<ThemeProvider
 		attribute="class"
 		defaultTheme="system"
-		disableTransitionOnChange
 		enableSystem
 	>
 		<ImageKitProvider>
