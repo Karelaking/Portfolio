@@ -38,3 +38,6 @@ build
 .env
 .env.production
 .env.development
+
+pnpm-lock.yaml
+pnpm-workspace.yaml
