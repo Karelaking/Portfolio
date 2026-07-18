@@ -1,7 +1,7 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
-import {getGalleryImages} from "@/lib/portfolio/queries";
+import { getGalleryImages } from "@/lib/portfolio/queries";
 import { GalleryImage } from "../clientComponent";
 import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
 

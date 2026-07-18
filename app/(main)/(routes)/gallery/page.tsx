@@ -12,23 +12,23 @@ import {
 import { toAbsoluteUrl } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-	title: "Creative Gallery | MK Katiyar",
+	title: "Creative Gallery & Photography | MK Katiyar",
 	description:
-		"Browse MK Katiyar's creative gallery featuring curated visual captures and portfolio imagery.",
+		"Explore MK Katiyar's creative gallery, showcasing professional visual captures, photography, dynamic moments, and creative design work.",
 	alternates: {
 		canonical: "/gallery",
 	},
 	openGraph: {
-		title: "Creative Gallery | MK Katiyar",
+		title: "Creative Gallery & Photography | MK Katiyar",
 		description:
-			"A curated gallery of visual captures and creative portfolio moments.",
+			"Explore MK Katiyar's creative gallery, showcasing professional visual captures, photography, dynamic moments, and creative design work.",
 		url: "/gallery",
 		type: "website",
 	},
 	twitter: {
-		title: "Creative Gallery | MK Katiyar",
+		title: "Creative Gallery & Photography | MK Katiyar",
 		description:
-			"A curated gallery of visual captures and creative portfolio moments.",
+			"Explore MK Katiyar's creative gallery, showcasing professional visual captures, photography, dynamic moments, and creative design work.",
 	},
 };
 

@@ -7,23 +7,23 @@ import { getWritingPosts } from "@/lib";
 import { toAbsoluteUrl } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-	title: "Writing by MK Katiyar",
+	title: "Technical & Creative Writing | MK Katiyar",
 	description:
-		"Read Hindi and English writing by MK Katiyar, including shayari, poems, and short stories from the portfolio archive.",
+		"Read technical articles and creative Hindi/English writing by MK Katiyar, including shayari, poems, and short stories from the portfolio archive.",
 	alternates: {
 		canonical: "/writing",
 	},
 	openGraph: {
-		title: "Writing by MK Katiyar",
+		title: "Technical & Creative Writing | MK Katiyar",
 		description:
-			"A curated archive of Hindi and English shayari, poems, and short stories.",
+			"Read technical articles and creative Hindi/English writing by MK Katiyar, including shayari, poems, and short stories from the portfolio archive.",
 		url: "/writing",
 		type: "website",
 	},
 	twitter: {
-		title: "Writing by MK Katiyar",
+		title: "Technical & Creative Writing | MK Katiyar",
 		description:
-			"A curated archive of Hindi and English shayari, poems, and short stories.",
+			"Read technical articles and creative Hindi/English writing by MK Katiyar, including shayari, poems, and short stories from the portfolio archive.",
 	},
 };
 

@@ -1,10 +1,10 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
+import { getExperience } from "@/lib/portfolio/queries";
 import type { ExperienceItem } from "@/types";
 import { ExperienceCard } from "../clientComponent";
 import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
-import {getExperience} from "@/lib/portfolio/queries";	
 
 const experience = await getExperience();
 
@@ -20,7 +20,7 @@ export const ExperiencePage = (): React.ReactElement => (
 		<SectionHeader
 			copy="Product, studio, and engineering roles that refined the craft."
 			label="Experience"
-			title="Prove of my tech life journey"
+			title="Proof of my tech journey"
 		/>
 		<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 			{featuredExperience.map((item: ExperienceItem, index: number) => (

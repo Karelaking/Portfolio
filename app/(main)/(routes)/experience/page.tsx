@@ -12,23 +12,23 @@ import {
 import type { ExperienceItem } from "@/types";
 
 export const metadata: Metadata = {
-	title: "Engineering Experience | MK Katiyar",
+	title: "Engineering & Software Experience | MK Katiyar",
 	description:
-		"Review MK Katiyar's engineering experience across product roles, shipped outcomes, and technical leadership.",
+		"Explore MK Katiyar's software engineering experience, featuring full-stack development, tech leadership, shipped products, and technical accomplishments.",
 	alternates: {
 		canonical: "/experience",
 	},
 	openGraph: {
-		title: "Engineering Experience | MK Katiyar",
+		title: "Engineering & Software Experience | MK Katiyar",
 		description:
-			"Engineering roles, product outcomes, and delivery highlights by MK Katiyar.",
+			"Explore MK Katiyar's software engineering experience, featuring full-stack development, tech leadership, shipped products, and technical accomplishments.",
 		url: "/experience",
 		type: "website",
 	},
 	twitter: {
-		title: "Engineering Experience | MK Katiyar",
+		title: "Engineering & Software Experience | MK Katiyar",
 		description:
-			"Engineering roles, product outcomes, and delivery highlights by MK Katiyar.",
+			"Explore MK Katiyar's software engineering experience, featuring full-stack development, tech leadership, shipped products, and technical accomplishments.",
 	},
 };
 

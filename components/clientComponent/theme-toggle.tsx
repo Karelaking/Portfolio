@@ -27,7 +27,7 @@ export const ThemeToggle = ({ className }: ThemeToggleProps): ReactElement => {
 				className={cn(
 					"inline-flex items-center justify-center rounded-full border border-border/70 bg-background/80",
 					"h-10 w-10 text-foreground transition hover:border-foreground",
-					className,
+					className
 				)}
 				type="button"
 			>
@@ -35,14 +35,14 @@ export const ThemeToggle = ({ className }: ThemeToggleProps): ReactElement => {
 					<IconSun
 						className={cn(
 							"absolute h-5 w-5 transition",
-							isDark ? "scale-0 opacity-0" : "scale-100 opacity-100",
+							isDark ? "scale-0 opacity-0" : "scale-100 opacity-100"
 						)}
 						strokeWidth={1.6}
 					/>
 					<IconMoon
 						className={cn(
 							"absolute h-5 w-5 transition",
-							isDark ? "scale-100 opacity-100" : "scale-0 opacity-0",
+							isDark ? "scale-100 opacity-100" : "scale-0 opacity-0"
 						)}
 						strokeWidth={1.6}
 					/>

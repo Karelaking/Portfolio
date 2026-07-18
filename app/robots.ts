@@ -1,11 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig, toAbsoluteUrl } from "@/lib/siteConfig";
 
-const disallowedPaths = [
-	"/dashboard",
-	"/dashboard/",
-	"/api/",
-];
+const disallowedPaths = ["/dashboard", "/dashboard/", "/api/"];
 
 export default function robots(): MetadataRoute.Robots {
 	return {

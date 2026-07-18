@@ -6,8 +6,8 @@
 interface ViewTransition {
 	finished: Promise<void>;
 	ready: Promise<void>;
-	updateCallbackDone: Promise<void>;
 	skipTransition: () => void;
+	updateCallbackDone: Promise<void>;
 }
 
 interface Document {

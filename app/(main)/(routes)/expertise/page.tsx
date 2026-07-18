@@ -11,23 +11,23 @@ import { toAbsoluteUrl } from "@/lib/siteConfig";
 import type { TechnologyItem } from "@/types/technology-item.interface";
 
 export const metadata: Metadata = {
-	title: "Tech Stack and Expertise | MK Katiyar",
+	title: "Tech Stack, Skills & Expertise | MK Katiyar",
 	description:
-		"Explore MK Katiyar's technical expertise across frameworks, tools, and project-backed implementation experience.",
+		"Explore MK Katiyar's technical expertise, skills and backend/frontend stack. Review project-backed implementation experience with modern tools.",
 	alternates: {
 		canonical: "/expertise",
 	},
 	openGraph: {
-		title: "Tech Stack and Expertise | MK Katiyar",
+		title: "Tech Stack, Skills & Expertise | MK Katiyar",
 		description:
-			"Frameworks, tools, and project-backed expertise used by MK Katiyar.",
+			"Explore MK Katiyar's technical expertise, skills and backend/frontend stack. Review project-backed implementation experience with modern tools.",
 		url: "/expertise",
 		type: "website",
 	},
 	twitter: {
-		title: "Tech Stack and Expertise | MK Katiyar",
+		title: "Tech Stack, Skills & Expertise | MK Katiyar",
 		description:
-			"Frameworks, tools, and project-backed expertise used by MK Katiyar.",
+			"Explore MK Katiyar's technical expertise, skills and backend/frontend stack. Review project-backed implementation experience with modern tools.",
 	},
 };
 

@@ -1,4 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
 import type { ReactElement, ReactNode } from "react";
@@ -18,11 +19,11 @@ const instrument_Serif = Instrument_Serif({
 export const metadata: Metadata = {
 	metadataBase: siteUrl,
 	title: {
-		default: "MK KATIYAR | Software Developer",
+		default: "MK KATIYAR | Full-Stack Software Developer",
 		template: "%s | MK KATIYAR",
 	},
 	description:
-		"Explore my digital world for featuring full-stack projects, engineering experience, technical expertise, writing, and gallery work.",
+		"Explore the portfolio of MK Katiyar, a Full-Stack Software Developer featuring scalable web applications, technical expertise, engineering experience, and writing.",
 	applicationName: "MK KATIYAR",
 	keywords: [
 		"MK KATIYAR",
@@ -117,7 +118,21 @@ export default function RootLayout({
 		name: "MK KATIYAR",
 		url: siteConfig.url,
 		image: toAbsoluteUrl("/images/hero-portrait.svg"),
-		jobTitle: "Full-Stack Developer",
+		jobTitle: "Full-Stack Software Developer",
+		knowsAbout: [
+			"Full-Stack Web Development",
+			"Software Engineering",
+			"React.js",
+			"Next.js",
+			"TypeScript",
+			"JavaScript",
+			"Node.js",
+			"Express.js",
+			"MongoDB",
+			"Database Design",
+			"REST APIs",
+			"Web Applications",
+		],
 		sameAs: siteConfig.profiles,
 	};
 
@@ -129,17 +144,28 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body className="bg-neutral-50 font-sans antialiased dark:bg-neutral-950">
-				<script type="application/ld+json">
-					{JSON.stringify(websiteJsonLd)}
-				</script>
-				<script type="application/ld+json">
-					{JSON.stringify(personJsonLd)}
-				</script>
-				<script type="application/ld+json">
-					{JSON.stringify(organizationJsonLd)}
-				</script>
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD integration */}
+				<script
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+					type="application/ld+json"
+				/>
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD integration */}
+				<script
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+					type="application/ld+json"
+				/>
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD integration */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(organizationJsonLd),
+					}}
+					type="application/ld+json"
+				/>
 				<ClerkProvider>
-					<Providers>{children}</Providers>
+					<Providers>
+						{children}
+						<Analytics />
+					</Providers>
 				</ClerkProvider>
 			</body>
 		</html>

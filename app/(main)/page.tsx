@@ -12,23 +12,23 @@ import {
 } from "@/components/pages";
 
 export const metadata: Metadata = {
-	title: "Full-Stack Developer Portfolio",
+	title: "Full-Stack Software Developer Portfolio",
 	description:
-		"Discover MK Katiyar's full-stack portfolio with projects, technical expertise, experience, writing, and contact details.",
+		"Discover MK Katiyar's full-stack developer portfolio showcasing Next.js applications, technical expertise, backend engineering experience, and creative writing.",
 	alternates: {
 		canonical: "/",
 	},
 	openGraph: {
-		title: "MK Katiyar | Full-Stack Developer Portfolio",
+		title: "MK Katiyar | Full-Stack Software Developer Portfolio",
 		description:
-			"Projects, expertise, experience, writing, and contact details in one portfolio.",
+			"Explore projects, tech stack, professional experience, writing, and contact details in MK Katiyar's software engineering portfolio.",
 		url: "/",
 		type: "website",
 	},
 	twitter: {
-		title: "MK Katiyar | Full-Stack Developer Portfolio",
+		title: "MK Katiyar | Full-Stack Software Developer Portfolio",
 		description:
-			"Projects, expertise, experience, writing, and contact details in one portfolio.",
+			"Explore projects, tech stack, professional experience, writing, and contact details in MK Katiyar's software engineering portfolio.",
 	},
 };
 

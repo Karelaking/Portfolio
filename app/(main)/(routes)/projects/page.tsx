@@ -12,23 +12,23 @@ import {
 import { toAbsoluteUrl } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-	title: "Projects by MK Katiyar",
+	title: "Full-Stack Projects & Case Studies | MK Katiyar",
 	description:
-		"Explore full-stack projects by MK Katiyar with problem statements, stack highlights, and live demos.",
+		"Explore shipped full-stack projects by MK Katiyar, featuring problem statements, software architectures, frontend/backend stack highlights, and live demos.",
 	alternates: {
 		canonical: "/projects",
 	},
 	openGraph: {
-		title: "Projects by MK Katiyar",
+		title: "Full-Stack Projects & Case Studies | MK Katiyar",
 		description:
-			"Browse shipped full-stack projects with technology context and live links.",
+			"Explore shipped full-stack projects by MK Katiyar, featuring problem statements, software architectures, frontend/backend stack highlights, and live demos.",
 		url: "/projects",
 		type: "website",
 	},
 	twitter: {
-		title: "Projects by MK Katiyar",
+		title: "Full-Stack Projects & Case Studies | MK Katiyar",
 		description:
-			"Browse shipped full-stack projects with technology context and live links.",
+			"Explore shipped full-stack projects by MK Katiyar, featuring problem statements, software architectures, frontend/backend stack highlights, and live demos.",
 	},
 };
 

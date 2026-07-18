@@ -44,7 +44,7 @@ export const ThemeToggleCircular = ({
 			// Calculate the maximum radius needed to cover the entire viewport
 			const endRadius = Math.hypot(
 				Math.max(x, window.innerWidth - x),
-				Math.max(y, window.innerHeight - y),
+				Math.max(y, window.innerHeight - y)
 			);
 
 			const transition = document.startViewTransition(() => {
@@ -63,15 +63,15 @@ export const ThemeToggleCircular = ({
 						duration: 500,
 						easing: "ease-in-out",
 						pseudoElement: "::view-transition-new(root)",
-					},
+					}
 				);
 			});
 		},
-		[onToggle],
+		[onToggle]
 	);
 
 	return (
-		<div ref={triggerRef} onClick={handleClick} role="presentation">
+		<div onClick={handleClick} ref={triggerRef} role="presentation">
 			{children}
 		</div>
 	);

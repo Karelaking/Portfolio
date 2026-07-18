@@ -12,11 +12,7 @@ export interface ProvidersProps {
 }
 
 export const Providers = ({ children }: ProvidersProps): ReactElement => (
-	<ThemeProvider
-		attribute="class"
-		defaultTheme="system"
-		enableSystem
-	>
+	<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 		<ImageKitProvider>
 			{children}
 			<Analytics />

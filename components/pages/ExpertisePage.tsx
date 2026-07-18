@@ -1,6 +1,6 @@
 import type React from "react";
-import { getTechnologies } from "@/lib";
 import { getTechnologyLogo } from "@/data/Technology";
+import { getTechnologies } from "@/lib";
 import type { TechnologyItem } from "@/types/technology-item.interface";
 import { Container, SectionHeader } from "../serverComponent";
 import { SectionOrnament } from "../serverComponent/section-ornament";
@@ -56,7 +56,9 @@ export const ExpertisePage = (): React.ReactElement => (
 										rel="noreferrer"
 										target="_blank"
 									>
-										{technology.websiteUrl.replace(REGEX_URL, "").replace(REGEX_DOMAIN, "")}
+										{technology.websiteUrl
+											.replace(REGEX_URL, "")
+											.replace(REGEX_DOMAIN, "")}
 									</a>
 								</div>
 							</div>

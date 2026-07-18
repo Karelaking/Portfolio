@@ -15,7 +15,6 @@ export const navLinks: NavigationLink[] = [
 	{ href: "/#contact", label: "Contact" },
 ];
 
-
 export const GREETINGS: string[] = [
 	"HOLA",
 	"BONJOUR",

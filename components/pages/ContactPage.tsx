@@ -1,6 +1,6 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
-import {getSocialLinks} from "@/lib/portfolio/queries";
+import { getSocialLinks } from "@/lib/portfolio/queries";
 import type { SocialLink as SocialLinkType } from "@/types";
 import { ContactForm } from "../clientComponent";
 import { Container, SectionHeader, SectionOrnament } from "../serverComponent";

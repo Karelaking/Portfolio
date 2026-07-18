@@ -1,6 +1,6 @@
 import { IconArrowMoveRight } from "@tabler/icons-react";
 import type { ReactElement } from "react";
-import {getCurrentFocus} from "@/lib/portfolio/queries";
+import { getCurrentFocus } from "@/lib/portfolio/queries";
 import { FadeIn } from "../motion";
 import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
 
