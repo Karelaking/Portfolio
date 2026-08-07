@@ -30,7 +30,12 @@ export const Footer = async ({
 			)}
 		>
 			{/* Grid Container Wrapper */}
-			<div className="mx-auto flex w-full max-w-7xl flex-col justify-between border-x border-neutral-200">
+			<div className="group relative mx-auto flex w-full max-w-7xl flex-col justify-between border-x border-neutral-200">
+				{/* Corner Node Dots at Grid Line Intersections */}
+				<span className="absolute -top-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+				<span className="absolute -top-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
 				{/* Main Compact 12-Column Grid */}
 				<div className="grid grid-cols-1 divide-y divide-neutral-200 border-b border-neutral-200 bg-white md:grid-cols-12 md:divide-y-0 md:divide-x">
 					{/* Left Brand Column (5 Cols) */}
