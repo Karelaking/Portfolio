@@ -25,6 +25,7 @@ export { GalleryImage, type GalleryImageProps } from "./gallery-image";
 export { HeroForm } from "./hero-form";
 export { HeroImage, type HeroImageProps } from "./hero-image";
 export { MobileMenu } from "./MobileMenu";
+export { HeaderMenuPopover } from "./header-menu-popover";
 export {
 	NovelTextEditor,
 	type NovelTextEditorProps,

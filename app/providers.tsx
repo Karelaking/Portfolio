@@ -27,7 +27,6 @@ export interface RootProviderProps {
 
 export const RootProvider = ({ children }: RootProviderProps): ReactElement => (
 	<>
-		<NavigationBar />
 		<ViewTransition>
 			<main className="relative mx-auto w-full">{children}</main>
 		</ViewTransition>

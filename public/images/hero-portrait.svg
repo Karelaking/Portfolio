@@ -1,8 +1,43 @@
-<svg width="420" height="520" viewBox="0 0 420 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="420" height="520" rx="48" fill="white"/>
-  <rect x="32" y="32" width="356" height="456" rx="32" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="210" cy="190" r="72" stroke="black" stroke-width="2" fill="white"/>
-  <path d="M138 320C163 280 195 260 210 260C225 260 257 280 282 320" stroke="black" stroke-width="2" stroke-linecap="round"/>
-  <path d="M130 386H290" stroke="black" stroke-width="2" stroke-linecap="round"/>
-  <path d="M110 430H310" stroke="black" stroke-width="2" stroke-linecap="round"/>
+<svg width="600" height="750" viewBox="0 0 600 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="750" fill="#EA6936"/>
+  <!-- Curtain/Background Texture details -->
+  <path d="M100 0V750" stroke="#DF5C28" stroke-width="20"/>
+  <path d="M200 0V750" stroke="#DF5C28" stroke-width="20"/>
+  <path d="M300 0V750" stroke="#DF5C28" stroke-width="20"/>
+  <path d="M400 0V750" stroke="#DF5C28" stroke-width="20"/>
+  <path d="M500 0V750" stroke="#DF5C28" stroke-width="20"/>
+  
+  <!-- Hoodie / Body -->
+  <path d="M120 750C120 620 180 500 300 500C420 500 480 620 480 750H120Z" fill="#18181B"/>
+  <text x="300" y="660" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="900" font-size="34" letter-spacing="2">humankind</text>
+  
+  <!-- Neck -->
+  <rect x="260" y="420" width="80" height="90" fill="#D29878" rx="20"/>
+  
+  <!-- Face -->
+  <rect x="210" y="240" width="180" height="210" fill="#E5AA8A" rx="70"/>
+  
+  <!-- Hair / Beanie Base -->
+  <path d="M190 270C190 170 230 110 300 110C370 110 410 170 410 270H190Z" fill="#EC4899"/>
+  <!-- Beanie Fold -->
+  <rect x="180" y="240" width="240" height="50" rx="16" fill="#F43F5E"/>
+  <!-- Beanie Pin -->
+  <circle cx="330" cy="215" r="14" fill="#84CC16"/>
+  
+  <!-- Glasses -->
+  <circle cx="255" cy="340" r="32" stroke="#18181B" stroke-width="8" fill="none"/>
+  <circle cx="345" cy="340" r="32" stroke="#18181B" stroke-width="8" fill="none"/>
+  <line x1="287" y1="340" x2="313" y2="340" stroke="#18181B" stroke-width="8"/>
+  <line x1="190" y1="335" x2="223" y2="335" stroke="#18181B" stroke-width="6"/>
+  <line x1="377" y1="335" x2="410" y2="335" stroke="#18181B" stroke-width="6"/>
+  
+  <!-- Eyes -->
+  <circle cx="255" cy="340" r="10" fill="#18181B"/>
+  <circle cx="345" cy="340" r="10" fill="#18181B"/>
+  
+  <!-- Nose -->
+  <path d="M296 360C296 375 304 375 304 360" stroke="#18181B" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Mouth -->
+  <path d="M275 405C290 415 310 415 325 405" stroke="#18181B" stroke-width="5" stroke-linecap="round" fill="none"/>
 </svg>

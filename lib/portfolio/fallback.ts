@@ -10,19 +10,19 @@ import type { SocialLink } from "@/types/social-link.interface";
 import type { TechnologyItem } from "@/types/technology-item.interface";
 
 export const fallbackHero: HeroData = {
-	title: "Minimal systems make the maximum impact",
-	subtitle: "Full stack web developer · API designer",
+	title: "Experienced Product Developer",
+	subtitle: "Full stack web developer · Product Engineer",
 	description:
-		"I craft monochrome, high-precision digital experiences where design discipline meets engineering rigor — built for clarity, performance, and long-term scale.",
-	location: "Kanpur, Uttar Pradesh 208015",
-	availability: "Open for freelance + collaborations",
+		"I develop visually stunning and highly functional products that elevate brands and create seamless digital experiences.",
+	location: "Based on New York, USA",
+	availability: "Develop, Deploy & Debug",
 	metrics: [
+		{ label: "Github commits", value: "356+" },
+		{ label: "Client projects", value: "278+" },
 		{ label: "Years building", value: "8+" },
-		{ label: "Product launches", value: "40" },
-		{ label: "Design systems", value: "12" },
 	],
 	imageSrc: "/images/hero-portrait.svg",
-	imageAlt: "Monochrome portrait illustration",
+	imageAlt: "Product Developer portrait",
 };
 
 export const fallbackExpertise: ExpertiseItem[] = [
