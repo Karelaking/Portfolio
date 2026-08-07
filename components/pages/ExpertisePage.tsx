@@ -2,10 +2,13 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
 import { getTechnologyLogo } from "@/data/Technology";
-import { getTechnologies } from "@/lib";
+import { getExpertise, getTechnologies } from "@/lib";
 
 export const ExpertisePage = async (): Promise<React.ReactElement> => {
-	const technologies = await getTechnologies();
+	const [expertisePillars, technologies] = await Promise.all([
+		getExpertise(),
+		getTechnologies(),
+	]);
 
 	return (
 		<section
@@ -18,19 +21,53 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12">
 					<div>
 						<span className="mb-2 block font-semibold text-xs text-neutral-400 tracking-[0.3em] uppercase">
-							// 02 . TECH STACK
+							// 02 . EXPERTISE & TECH STACK
 						</span>
 						<h2 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl">
-							CORE TECHNOLOGIES & PLATFORMS.
+							ENGINEERING PILLARS & CORE TECHNOLOGIES.
 						</h2>
 						<p className="mt-3 max-w-2xl font-normal text-base text-neutral-500 leading-relaxed sm:text-lg">
-							Frameworks, languages, databases, and tooling engineered for performance, resilience, and scale.
+							Disciplined software architecture, high-precision UI engineering, and platform tooling built for speed and resilience.
 						</p>
 					</div>
 				</header>
 
-				{/* Tech Stack Logo Grid with Intersection Corner Nodes */}
+				{/* Part 1: Core Domain Pillars Grid */}
+				<div className="border-b border-neutral-200 bg-white">
+					<div className="grid grid-cols-1 divide-y divide-neutral-200 sm:grid-cols-2 lg:grid-cols-4 sm:divide-y-0 sm:divide-x items-stretch">
+						{expertisePillars.map((pillar, idx) => {
+							const formattedIndex = String(idx + 1).padStart(2, "0");
+
+							return (
+								<div
+									className="group flex flex-col justify-between p-6 sm:p-8 transition hover:bg-neutral-50/80"
+									key={pillar.id}
+								>
+									<div>
+										<span className="font-mono font-extrabold text-xs text-neutral-400 tracking-widest uppercase block mb-3 group-hover:text-black">
+											[{formattedIndex}]
+										</span>
+										<h3 className="font-extrabold text-xl text-neutral-900 tracking-tight uppercase">
+											{pillar.title}
+										</h3>
+										<p className="mt-2.5 text-sm text-neutral-500 font-normal leading-relaxed">
+											{pillar.description}
+										</p>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+
+				{/* Part 2: Tech Stack Logo Grid with Corner Intersection Node Dots */}
 				<div className="flex-1 bg-white">
+					<div className="border-b border-neutral-200 bg-neutral-50/60 px-6 py-4 sm:px-10">
+						<span className="font-mono font-semibold text-xs text-neutral-500 tracking-widest uppercase">
+							[ CORE TECH STACK & TOOLKITS ]
+						</span>
+					</div>
+
 					<div className="grid grid-cols-2 divide-x divide-y divide-neutral-200 border-b border-neutral-200 bg-white sm:grid-cols-3 md:grid-cols-4 items-stretch">
 						{technologies.map((tech) => (
 							<div
@@ -51,7 +88,7 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 									{tech.name}
 								</h3>
 
-								{/* Category / Website Link */}
+								{/* Website Link */}
 								<a
 									className="mt-1 font-mono text-[10px] text-neutral-400 tracking-widest uppercase transition-colors duration-300 group-hover:text-neutral-700 hover:underline"
 									href={tech.websiteUrl}
