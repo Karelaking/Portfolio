@@ -44,3 +44,4 @@ pnpm-workspace.yaml
 
 # AI Agents workspace directories
 .agents/
+.vercel
