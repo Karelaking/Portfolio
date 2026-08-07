@@ -25,8 +25,8 @@ export const ThemeToggle = ({ className }: ThemeToggleProps): ReactElement => {
 			<button
 				aria-label="Toggle theme"
 				className={cn(
-					"inline-flex items-center justify-center rounded-full border border-border/70 bg-background/80",
-					"h-10 w-10 text-foreground transition hover:border-foreground",
+					"inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-900 shadow-md hover:scale-105 transition cursor-pointer dark:border-neutral-800 dark:bg-neutral-900 dark:text-white",
+					"h-11 w-11",
 					className
 				)}
 				type="button"
@@ -34,17 +34,17 @@ export const ThemeToggle = ({ className }: ThemeToggleProps): ReactElement => {
 				<span className="relative inline-flex h-5 w-5 items-center justify-center">
 					<IconSun
 						className={cn(
-							"absolute h-5 w-5 transition",
-							isDark ? "scale-0 opacity-0" : "scale-100 opacity-100"
+							"absolute h-5 w-5 transition-transform duration-300",
+							isDark ? "scale-0 opacity-0 rotate-90" : "scale-100 opacity-100 rotate-0"
 						)}
-						strokeWidth={1.6}
+						strokeWidth={1.8}
 					/>
 					<IconMoon
 						className={cn(
-							"absolute h-5 w-5 transition",
-							isDark ? "scale-100 opacity-100" : "scale-0 opacity-0"
+							"absolute h-5 w-5 transition-transform duration-300",
+							isDark ? "scale-100 opacity-100 rotate-0" : "scale-0 opacity-0 -rotate-90"
 						)}
-						strokeWidth={1.6}
+						strokeWidth={1.8}
 					/>
 				</span>
 			</button>

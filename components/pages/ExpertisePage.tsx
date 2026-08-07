@@ -12,7 +12,7 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 
 	return (
 		<section
-			className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900"
 			id="expertise"
 		>
 			{/* Grid Container Wrapper */}

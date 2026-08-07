@@ -10,7 +10,7 @@ export const ProjectsPage = async (): Promise<React.ReactElement> => {
 	const hasMoreProjects = projects.length > featuredProjects.length;
 
 	return (
-		<section className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900" id="projects">
+		<section className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900" id="projects">
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200">
 				{/* Corner Node Dots at Grid Line Intersections */}

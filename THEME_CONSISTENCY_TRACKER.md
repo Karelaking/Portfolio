@@ -1,6 +1,6 @@
 # Theme Consistency Tracker
 
-_Last updated: 2026-03-15_
+_Last updated: 2026-08-07_
 
 This file is the **single source of truth for theme decisions** (colors, tokens, dark mode, typography, and theme behavior) across the project.
 
@@ -22,10 +22,10 @@ Use this before creating or editing UI so agents/devs keep styling consistent an
 | Concern                                         | File                                          |
 | ----------------------------------------------- | --------------------------------------------- |
 | Theme tokens + CSS variables + dark mode values | `app/globals.css`                             |
-| Theme provider setup                            | `components/providers/theme-provider.tsx`     |
-| App-level provider wiring                       | `app/providers.tsx`                           |
+| Theme provider (next-themes) + app wiring       | `app/providers.tsx`                           |
 | User toggle UI                                  | `components/clientComponent/theme-toggle.tsx` |
-| Tailwind extension (fonts/content scanning)     | `tailwind.config.ts`                          |
+| View Transition circular reveal around toggle   | `components/animations/transitions/theme-toggle-circular.tsx` |
+| Font families (`geist-sans`, `instrument-sans`) | `tailwind.config.ts`                          |
 
 ---
 
@@ -38,22 +38,22 @@ From `app/providers.tsx`:
 - `attribute="class"`
 - `defaultTheme="system"`
 - `enableSystem`
-- `disableTransitionOnChange`
 
 This means:
 
 - Theme is applied via `.dark` class.
 - First load follows OS preference by default.
-- Theme switching avoids transition flicker.
+- Transitions are handled by the View Transition API (see below) rather than `disableTransitionOnChange`.
 
 ### Toggle behavior
 
-From `theme-toggle.tsx`:
+From `theme-toggle.tsx` + `theme-toggle-circular.tsx`:
 
 - Uses `useTheme()` from `next-themes`.
-- Reads `resolvedTheme`.
-- Toggles between `dark` and `light`.
+- Reads `resolvedTheme`; toggles between `dark` and `light` via `setTheme`.
 - Uses mounted guard (`useMounted`) to avoid hydration mismatch visuals.
+- Wrapped by `ThemeToggleCircular`, which animates a circular `clip-path` reveal around the click origin using the View Transition API (see `app/globals.css`).
+- Falls back to an instant toggle when `startViewTransition` is unavailable or `prefers-reduced-motion: reduce` is set.
 
 ---
 
@@ -101,10 +101,14 @@ Do not introduce random font families in component-level CSS.
 
 From `app/globals.css`:
 
-- `body`: `bg-background text-foreground`
+- `body`: `bg-background text-foreground overflow-x-hidden antialiased`
 - global border + outline alignment: `@apply border-border outline-ring/50`
+- all text/headings: `select-none`
 - monochrome custom scrollbar with dark variant overrides
-- smooth scrolling + reduced-motion fallback
+- smooth scrolling + `scroll-padding-top: 6rem` + reduced-motion fallback
+- View Transition rules: root override keeps colors normal, `::view-transition-new(root)` on top for the circular reveal, page navigation slide-fade via `vt-slide-fade-in`/`vt-slide-fade-out`, interaction disabled during transition, all disabled under reduced motion.
+- Named animations defined in `@theme inline`: `--animate-cell-ripple`, `--animate-scroll`.
+- Utility classes (non-token): `.hero-name` text stroke, `.animate-ping-slow`, `.scroll-section` reveal.
 
 Use these conventions instead of redefining per component.
 
@@ -134,7 +138,7 @@ Use these conventions instead of redefining per component.
 - [ ] I used semantic theme utilities, not raw hardcoded colors for core UI.
 - [ ] New cards/surfaces use existing radius and border patterns.
 - [ ] Dark mode works via `.dark` class without component-specific hacks.
-- [ ] I reused `ThemeToggle`/`AppThemeProvider` instead of adding parallel logic.
+- [ ] I reused `ThemeToggle`/the `next-themes` provider in `app/providers.tsx` instead of adding parallel logic.
 - [ ] I checked contrast/readability in both light and dark modes.
 - [ ] If I introduced new theme tokens, I documented them here and in `app/globals.css`.
 

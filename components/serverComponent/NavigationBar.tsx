@@ -1,13 +1,18 @@
+import { IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactElement } from "react";
-import { navLinks } from "@/data/NavigationLinks";
+import { HeaderMenuPopover } from "@/components/clientComponent";
 import { cn } from "@/lib/utils";
 import type { NavigationBarProps } from "@/types";
-import { MobileMenu, ThemeToggle } from "../clientComponent";
 
 export const Logo = (): ReactElement => (
-	<Link className="font-semibold text-lg tracking-tight" href="/">
-		MRADUL
+	<Link className="flex items-center gap-2 min-w-0 sm:gap-2.5" href="/">
+		<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black font-extrabold text-xs text-white sm:h-8 sm:w-8 dark:bg-white dark:text-black">
+			MK
+		</span>
+		<span className="font-extrabold text-neutral-900 text-sm tracking-tight uppercase truncate max-w-32.5 sm:text-xl min-[380px]:max-w-none dark:text-white">
+			mradul katiyar
+		</span>
 	</Link>
 );
 
@@ -16,27 +21,31 @@ export const NavigationBar = ({
 }: NavigationBarProps): ReactElement => (
 	<header
 		className={cn(
-			"sticky top-0 z-50 flex w-full max-w-full items-center justify-between border-border/60 border-b bg-background/90 px-8 py-2 backdrop-blur",
+			"sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/95 text-neutral-900 backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-950/95 dark:text-white",
 			className
 		)}
 	>
-		<Logo />
-		<nav
-			aria-label="Primary"
-			className="hidden w-full max-w-5xl items-center justify-center gap-x-8 text-muted-foreground text-xs uppercase tracking-[0.3em] sm:flex"
-		>
-			{navLinks.map((link) => (
-				<Link
-					className="group relative inline-flex items-center justify-center transition-colors hover:text-foreground focus-visible:text-foreground"
-					href={link.href}
-					key={link.href}
-				>
-					<span className="relative z-10">{link.label}</span>
-					<span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-foreground transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100" />
-				</Link>
-			))}
-		</nav>
-		<MobileMenu navLinks={navLinks} />
-		<ThemeToggle className="hidden sm:flex" />
+		{/* Max 7xl Grid Frame Alignment */}
+		<div className="group relative mx-auto flex w-full max-w-7xl items-center justify-between border-x border-neutral-200 px-4 py-3 sm:px-10 sm:py-4 dark:border-neutral-800">
+			{/* Corner Node Dots at Grid Line Intersections */}
+			<span className="absolute -top-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+			<span className="absolute -top-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+			<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+			<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+
+			{/* Left: Brand & Location */}
+			<div className="flex items-center gap-2.5 min-w-0 sm:gap-6">
+				<Logo />
+				<div className="hidden items-center gap-1.5 font-medium text-neutral-800 text-xs shrink-0 md:flex sm:text-sm dark:text-neutral-300">
+					<IconMapPin className="text-neutral-700 dark:text-neutral-400" size={16} />
+					<span>NEW DELHI, INDIA</span>
+				</div>
+			</div>
+
+			{/* Right: Combined Action Capsule (Hire me + Menu) */}
+			<div className="flex items-center shrink-0">
+				<HeaderMenuPopover />
+			</div>
+		</div>
 	</header>
 );

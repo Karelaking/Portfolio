@@ -7,8 +7,6 @@ import {
 	IconBrandX,
 	IconMail,
 	IconMapPin,
-	IconMessageCircle,
-	IconRocket,
 	IconWorld,
 } from "@tabler/icons-react";
 import Image from "next/image";
@@ -16,7 +14,7 @@ import Link from "next/link";
 import type React from "react";
 import { getHero, getSocialLinks } from "@/lib/portfolio/queries";
 import type { SocialLink } from "@/types/social-link.interface";
-import { CountUpValue, HeaderMenuPopover } from "../clientComponent";
+import { CountUpValue, HeaderMenuPopover, ThemeToggle } from "../clientComponent";
 
 const getSocialIcon = (platform: string): React.ReactElement => {
 	switch (platform.toLowerCase()) {
@@ -43,7 +41,7 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 	]);
 
 	return (
-		<section className="relative flex min-h-screen w-full flex-col justify-between border-b border-neutral-200 bg-white text-neutral-900">
+		<section className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between border-b border-neutral-200 bg-white text-neutral-900">
 			{/* Grid Container wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200">
 				{/* Corner Node Dots at Grid Line Intersections */}
@@ -51,30 +49,6 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 				<span className="absolute -top-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
 				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
 				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-				{/* Header Row (Single Unified Navbar) */}
-				<header className="sticky top-0 z-40 flex flex-nowrap items-center justify-between gap-2 sm:gap-4 border-b border-neutral-200 bg-white/95 px-4 py-3 sm:px-10 sm:py-4 backdrop-blur-md">
-					{/* Left: Brand & Location */}
-					<div className="flex items-center gap-2.5 sm:gap-6 min-w-0">
-						<Link className="flex items-center gap-2 sm:gap-2.5 min-w-0" href="/">
-							<span className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-black font-extrabold text-xs text-white">
-								MK
-							</span>
-							<span className="font-extrabold text-sm sm:text-xl text-neutral-900 tracking-tight uppercase truncate max-w-32.5 min-[380px]:max-w-none">
-								mradul katiyar
-							</span>
-						</Link>
-						<div className="hidden md:flex items-center gap-1.5 font-medium text-xs sm:text-sm text-neutral-800 shrink-0">
-							<IconMapPin className="text-neutral-700" size={16} />
-							<span>{heroData.location}</span>
-						</div>
-					</div>
-
-					{/* Right: Combined Action Capsule (Hire me + Menu) */}
-					<div className="flex items-center shrink-0">
-						<HeaderMenuPopover />
-					</div>
-				</header>
-
 				{/* Main Hero Body (2 Columns) */}
 				<div className="grid flex-1 items-stretch lg:grid-cols-[1.1fr_0.9fr]">
 					{/* Left Column */}
@@ -194,22 +168,9 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 				</div>
 			</div>
 
-			{/* Bottom-Right Floating Action Widgets */}
+			{/* Bottom-Right Floating Theme Switch Button */}
 			<div className="fixed right-6 bottom-6 z-50 flex items-center gap-2">
-				<button
-					aria-label="Launch quick action"
-					className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-400 text-neutral-900 shadow-md hover:scale-105 transition cursor-pointer"
-					type="button"
-				>
-					<IconRocket size={20} />
-				</button>
-				<button
-					aria-label="Open chat"
-					className="flex h-11 w-11 items-center justify-center rounded-full bg-black text-white shadow-md hover:scale-105 transition cursor-pointer"
-					type="button"
-				>
-					<IconMessageCircle size={20} />
-				</button>
+				<ThemeToggle />
 			</div>
 		</section>
 	);
