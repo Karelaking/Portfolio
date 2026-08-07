@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type React from "react";
 import { getGalleryImagesAction } from "@/actions";
-import { GalleryImage, HeaderMenuPopover } from "@/components/clientComponent";
+import { GalleryGrid, HeaderMenuPopover } from "@/components/clientComponent";
 import { toAbsoluteUrl } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -100,17 +100,9 @@ const page = async (): Promise<React.ReactElement> => {
 					</p>
 				</div>
 
-				{/* Sharp Bordered Rectangle Grid */}
-				<div className="grid flex-1 grid-cols-1 items-stretch divide-y divide-neutral-200 bg-neutral-200 sm:grid-cols-2 sm:divide-y-0 sm:divide-x">
-					{gallery.map((image, idx) => (
-						<GalleryImage
-							alt={image.alt}
-							index={idx + 1}
-							key={image.id}
-							sizes="(min-width: 768px) 50vw, 100vw"
-							src={image.src}
-						/>
-					))}
+				{/* Bin-Packed 2-Column Grid Component */}
+				<div className="flex-1">
+					<GalleryGrid images={gallery} />
 				</div>
 
 				{/* Bottom Sub-Bar Toolbar Row */}

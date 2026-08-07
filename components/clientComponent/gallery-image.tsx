@@ -13,6 +13,7 @@ export interface GalleryImageProps {
 	height?: number;
 	index?: number;
 	loading?: "lazy" | "eager";
+	onOrientationDetect?: (orientation: "landscape" | "portrait") => void;
 	priority?: boolean;
 	sizes?: string;
 	src: string;
@@ -24,14 +25,16 @@ export const GalleryImage = ({
 	alt,
 	index = 1,
 	sizes = "(min-width: 768px) 50vw, 100vw",
-	width = 600,
-	height = 450,
+	width = 800,
+	height = 600,
 	className,
 	priority = false,
 	loading = "eager",
+	onOrientationDetect,
 }: GalleryImageProps): ReactElement => {
 	const [loaded, setLoaded] = useState<boolean>(false);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [isLandscape, setIsLandscape] = useState<boolean>(index % 3 === 0);
 
 	useEffect((): (() => void) => {
 		if (!isOpen) {
@@ -55,7 +58,10 @@ export const GalleryImage = ({
 	return (
 		<>
 			<motion.div
-				className="group relative w-full overflow-hidden border-neutral-200 border-b bg-black cursor-pointer rounded-none sm:border-b-0"
+				className={cn(
+					"group relative w-full overflow-hidden border-b border-r border-neutral-200 bg-black cursor-pointer rounded-none",
+					isLandscape ? "sm:col-span-2" : "col-span-1"
+				)}
 				initial={{ opacity: 0, y: 20 }}
 				transition={{ duration: 0.5, delay: index * 0.1 }}
 				viewport={{ once: true }}
@@ -67,7 +73,12 @@ export const GalleryImage = ({
 					onClick={(): void => setIsOpen(true)}
 					type="button"
 				>
-					<div className="relative aspect-4/3 w-full overflow-hidden bg-neutral-900 rounded-none">
+					<div
+						className={cn(
+							"relative w-full overflow-hidden bg-neutral-900 rounded-none",
+							isLandscape ? "aspect-16/9 sm:aspect-16/10" : "aspect-3/4"
+						)}
+					>
 						{!loaded && (
 							<div className="absolute inset-0 animate-pulse bg-neutral-800" />
 						)}
@@ -80,10 +91,23 @@ export const GalleryImage = ({
 							)}
 							height={height}
 							loading={loading}
-							onLoad={(): void => setLoaded(true)}
+							onLoad={(event): void => {
+								setLoaded(true);
+								const img = event.currentTarget;
+								if (img.naturalWidth && img.naturalHeight) {
+									const orientation =
+										img.naturalWidth >= img.naturalHeight
+											? "landscape"
+											: "portrait";
+									setIsLandscape(orientation === "landscape");
+									if (onOrientationDetect) {
+										onOrientationDetect(orientation);
+									}
+								}
+							}}
 							priority={priority}
 							quality={90}
-							sizes={sizes}
+							sizes={isLandscape ? "(min-width: 768px) 100vw, 100vw" : sizes}
 							src={src}
 							width={width}
 						/>

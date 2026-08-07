@@ -2,7 +2,7 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
 import { getGalleryImages } from "@/lib/portfolio/queries";
-import { GalleryImage } from "../clientComponent";
+import { GalleryGrid } from "../clientComponent";
 
 export const GalleryPage = async (): Promise<React.ReactElement> => {
 	const gallery = await getGalleryImages();
@@ -28,17 +28,9 @@ export const GalleryPage = async (): Promise<React.ReactElement> => {
 					</div>
 				</header>
 
-				{/* Sharp Bordered Rectangle Grid */}
-				<div className="grid flex-1 grid-cols-1 items-stretch divide-y divide-neutral-200 bg-neutral-200 sm:grid-cols-2 sm:divide-y-0 sm:divide-x">
-					{featuredGallery.map((image, idx) => (
-						<GalleryImage
-							alt={image.alt}
-							index={idx + 1}
-							key={image.id}
-							sizes="(min-width: 768px) 50vw, 100vw"
-							src={image.src}
-						/>
-					))}
+				{/* Bin-Packed 2-Column Grid Component */}
+				<div className="flex-1">
+					<GalleryGrid images={featuredGallery} />
 				</div>
 
 				{/* Bottom Sub-Bar Toolbar Row */}

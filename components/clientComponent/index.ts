@@ -21,6 +21,7 @@ export {
 	type GalleryFormProps,
 	type GalleryFormValues,
 } from "./gallery-form";
+export { GalleryGrid } from "./gallery-grid";
 export { GalleryImage, type GalleryImageProps } from "./gallery-image";
 export { HeroForm } from "./hero-form";
 export { HeroImage, type HeroImageProps } from "./hero-image";
