@@ -1,78 +1,69 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
-import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
 import { getProjects } from "@/lib/portfolio/queries";
-import { Container, SectionHeader, SectionOrnament } from "../serverComponent";
+import { ProjectsGrid } from "../clientComponent";
 
-const projects = await getProjects();
-const featuredProjects = projects.slice(0, 4);
+export const ProjectsPage = async (): Promise<React.ReactElement> => {
+	const projects = await getProjects();
+	const featuredProjects = projects.slice(0, 4);
+	const hasMoreProjects = projects.length > featuredProjects.length;
 
-export const ProjectsPage = (): React.ReactElement => (
-	<Container
-		className="relative flex flex-col gap-8 border-border/70 py-12"
-		id="projects"
-	>
-		<SectionOrnament className="right-8" />
-		<SectionHeader
-			copy="A snapshot of recent work across product and interface design."
-			label="Projects"
-			title="Love to work with different tech"
-		/>
-		<div className="grid gap-6 md:grid-cols-2">
-			{featuredProjects.map((project) => (
-				<article
-					className="rounded-3xl border border-border/70 bg-card p-6"
-					key={project.id}
-				>
-					<Image
-						alt={project.imageAlt?.trim() || `${project.name} project preview`}
-						className="h-40 w-full rounded-2xl border border-border bg-background object-cover"
-						height={360}
-						sizes="(min-width: 768px) 50vw, 100vw"
-						src={project.imageSrc}
-						width={520}
-					/>
-					<div className="mt-4 flex items-start justify-between gap-4">
-						<div>
-							<h3 className="font-semibold text-lg">{project.name}</h3>
-							<p className="mt-2 text-muted-foreground text-sm">
-								{project.description}
-							</p>
-						</div>
-						<a
-							className="flex items-center gap-2 text-foreground text-xs uppercase tracking-[0.3em]"
-							href={project.href}
-							rel="noreferrer"
-							target="_blank"
+	return (
+		<section className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900" id="projects">
+			{/* Grid Container Wrapper */}
+			<div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200">
+				{/* Section Header Row */}
+				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12">
+					<div>
+						<span className="mb-2 block font-semibold text-xs text-neutral-400 tracking-[0.3em] uppercase">
+							// 03 . PROJECTS
+						</span>
+						<h2 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl">
+							FEATURED ENGINEERING & CASE STUDIES.
+						</h2>
+						<p className="mt-3 max-w-2xl font-normal text-base text-neutral-500 leading-relaxed sm:text-lg">
+							Full-stack applications, API platforms, and software architecture engineered with precision.
+						</p>
+					</div>
+				</header>
+
+				{/* Bin-Packed 2-Column Sharp Bordered Grid */}
+				<div className="flex-1">
+					<ProjectsGrid projects={featuredProjects} />
+				</div>
+
+				{/* Bottom Sub-Bar Toolbar Row */}
+				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 bg-white px-6 py-6 sm:px-10">
+					<p className="font-medium text-xs text-neutral-800 tracking-widest uppercase sm:text-sm">
+						SHOWCASING {featuredProjects.length} OF {projects.length} FEATURED PROJECTS
+					</p>
+
+					{hasMoreProjects ? (
+						<Link
+							className="group inline-flex items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900"
+							href="/projects"
 						>
-							View
-							<IconArrowUpRight size={16} />
-						</a>
-					</div>
-					<div className="mt-4 flex flex-wrap gap-2">
-						{project.tags.map((tag) => (
-							<span
-								className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.25em]"
-								key={tag}
-							>
-								{tag}
+							<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-xs text-white tracking-wider uppercase sm:text-sm">
+								<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
+									Show More Projects
+								</span>
+								<span className="absolute left-5 inline-block translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+									Show More Projects
+								</span>
 							</span>
-						))}
-					</div>
-				</article>
-			))}
-		</div>
-		{projects.length > featuredProjects.length ? (
-			<div className="flex justify-center">
-				<Link
-					className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 font-semibold text-foreground text-xs uppercase tracking-[0.2em] transition hover:border-foreground"
-					href="/projects"
-				>
-					Show more
-					<IconArrowUpRight size={14} />
-				</Link>
+							<span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs">
+								<span className="inline-flex transition-transform duration-300 group-hover:translate-x-5 group-hover:-translate-y-5">
+									<IconArrowUpRight size={16} />
+								</span>
+								<span className="absolute inline-flex -translate-x-5 translate-y-5 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
+									<IconArrowUpRight size={16} />
+								</span>
+							</span>
+						</Link>
+					) : null}
+				</div>
 			</div>
-		) : null}
-	</Container>
-);
+		</section>
+	);
+};

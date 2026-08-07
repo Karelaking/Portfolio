@@ -35,6 +35,7 @@ export {
 	ProjectDeleteButton,
 	type ProjectDeleteButtonProps,
 } from "./project-delete-button";
+export { ProjectsGrid } from "./projects-grid";
 export {
 	ProjectForm,
 	type ProjectFormProps,
