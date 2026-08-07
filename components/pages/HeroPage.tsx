@@ -80,7 +80,7 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 							</p>
 							<h1 className="mt-3 font-extrabold text-4xl text-neutral-900 tracking-tight leading-[1.1] sm:mt-4 sm:text-5xl md:text-6xl capitalize">
 								{heroData.description}
-								<span className="relative inline-block h-9 w-24 overflow-hidden rounded-full align-middle shadow-sm sm:h-12 sm:w-36 ml-6">
+								<span className="relative inline-block h-9 w-24 overflow-hidden rounded-full align-middle sm:h-12 sm:w-36 ml-6">
 									<video
 										autoPlay
 										className="h-full w-full rounded-full object-cover"

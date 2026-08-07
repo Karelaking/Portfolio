@@ -1,14 +1,11 @@
+import { IconArrowUpLeft } from "@tabler/icons-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import type React from "react";
 import { getTechnologiesAction } from "@/actions";
-import {
-	Container,
-	SectionHeader,
-	SectionOrnament,
-} from "@/components/serverComponent";
+import { HeaderMenuPopover } from "@/components/clientComponent";
 import { getTechnologyLogo } from "@/data/Technology";
 import { toAbsoluteUrl } from "@/lib/siteConfig";
-import type { TechnologyItem } from "@/types/technology-item.interface";
 
 export const metadata: Metadata = {
 	title: "Tech Stack, Skills & Expertise | MK Katiyar",
@@ -31,21 +28,9 @@ export const metadata: Metadata = {
 	},
 };
 
-const technologies = await getTechnologiesAction();
+const ExpertiseRoutePage = async (): Promise<React.ReactElement> => {
+	const technologies = await getTechnologiesAction();
 
-const getWebsiteLabel = (websiteUrl: string): string =>
-	websiteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
-
-const getRelatedProjectTags = (technology: TechnologyItem): string[] => {
-	const relatedTags = technology.relatedProjects
-		.flatMap((project) => project.tags)
-		.map((tag) => tag.trim())
-		.filter((tag) => tag.length > 0);
-
-	return Array.from(new Set(relatedTags)).slice(0, 8);
-};
-
-const ExpertiseRoutePage = (): React.ReactElement => {
 	const expertiseCollectionJsonLd = {
 		"@context": "https://schema.org",
 		"@type": "CollectionPage",
@@ -71,7 +56,7 @@ const ExpertiseRoutePage = (): React.ReactElement => {
 	};
 
 	return (
-		<>
+		<section className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900">
 			<script
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify(expertiseCollectionJsonLd),
@@ -84,116 +69,106 @@ const ExpertiseRoutePage = (): React.ReactElement => {
 				}}
 				type="application/ld+json"
 			/>
-			<Container
-				className="relative flex flex-col gap-8 border-border/70 py-12"
-				id="expertise"
-			>
-				<SectionOrnament className="top-10 right-10" />
 
-				<div className="mt-4 space-y-4">
-					<SectionHeader
-						as="h1"
-						copy="Frameworks and tools with related projects, tags, and direct links."
-						label="Tech Stack"
-						title="Core technologies I build with"
-					/>
-
-					<div className="grid gap-6 md:grid-cols-3">
-						{technologies.map((technology) => {
-							const relatedProjects = technology.relatedProjects.slice(0, 3);
-							const relatedTags = getRelatedProjectTags(technology);
-
-							return (
-								<article
-									className="rounded-3xl border border-border/70 bg-card p-6"
-									key={technology.id}
-								>
-									<div className="flex items-center gap-3">
-										<span className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background">
-											{getTechnologyLogo(technology.logoKey)}
-										</span>
-										<div>
-											<h2 className="font-semibold text-foreground text-lg">
-												{technology.name}
-											</h2>
-											<a
-												className="text-muted-foreground text-xs uppercase tracking-[0.16em] transition hover:text-foreground"
-												href={technology.websiteUrl}
-												rel="noreferrer"
-												target="_blank"
-											>
-												{getWebsiteLabel(technology.websiteUrl)}
-											</a>
-										</div>
-									</div>
-
-									<p className="mt-3 text-muted-foreground text-sm">
-										{technology.description}
-									</p>
-
-									{relatedTags.length > 0 ? (
-										<div className="mt-4 flex flex-wrap gap-2">
-											{relatedTags.map((tag) => (
-												<span
-													className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.18em]"
-													key={`${technology.id}-${tag}`}
-												>
-													{tag}
-												</span>
-											))}
-										</div>
-									) : null}
-
-									<div className="mt-5 space-y-2 border-border/70 border-t pt-4">
-										<p className="text-foreground text-xs uppercase tracking-[0.2em]">
-											Related Projects
-										</p>
-
-										{relatedProjects.length > 0 ? (
-											relatedProjects.map((project) => (
-												<div
-													className="space-y-2"
-													key={`${technology.id}-${project.id}`}
-												>
-													<a
-														className="font-medium text-sm underline-offset-4 hover:underline"
-														href={project.href}
-														rel="noreferrer"
-														target="_blank"
-													>
-														{project.name}
-													</a>
-													<div className="flex flex-wrap gap-2">
-														{project.tags.map((tag) => (
-															<span
-																className="rounded-full bg-muted px-2.5 py-1 text-[10px] text-muted-foreground uppercase tracking-[0.16em]"
-																key={`${project.id}-${technology.id}-${tag}`}
-															>
-																{tag}
-															</span>
-														))}
-													</div>
-												</div>
-											))
-										) : (
-											<p className="text-muted-foreground text-sm">
-												No related projects found yet.
-											</p>
-										)}
-									</div>
-								</article>
-							);
-						})}
+			{/* Grid Container Wrapper */}
+			<div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200">
+				{/* Header Row (Single Unified Navbar) */}
+				<header className="sticky top-0 z-40 flex flex-nowrap items-center justify-between gap-2 border-b border-neutral-200 bg-white/95 px-4 py-3 backdrop-blur-md sm:gap-4 sm:px-10 sm:py-4">
+					<div className="flex items-center gap-2.5 min-w-0 sm:gap-6">
+						<Link className="flex items-center gap-2 min-w-0 sm:gap-2.5" href="/">
+							<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black font-extrabold text-xs text-white sm:h-8 sm:w-8">
+								MK
+							</span>
+							<span className="font-extrabold text-sm text-neutral-900 tracking-tight uppercase truncate sm:text-xl">
+								mradul katiyar
+							</span>
+						</Link>
 					</div>
 
-					{technologies.length === 0 ? (
-						<p className="text-muted-foreground text-sm">
-							No technologies found in the database yet.
-						</p>
-					) : null}
+					<div className="flex items-center gap-2 shrink-0 sm:gap-3">
+						<HeaderMenuPopover />
+					</div>
+				</header>
+
+				{/* Title Header */}
+				<div className="border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12">
+					<span className="mb-2 block font-semibold text-xs text-neutral-400 tracking-[0.3em] uppercase">
+						// TECH STACK ARCHIVE
+					</span>
+					<h1 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl">
+						CORE TECHNOLOGIES & TOOLKITS
+					</h1>
+					<p className="mt-3 max-w-2xl font-normal text-base text-neutral-500 leading-relaxed sm:text-lg">
+						Full overview of languages, frameworks, databases, and platform infrastructure engineered for speed and resilience.
+					</p>
 				</div>
-			</Container>
-		</>
+
+				{/* Tech Stack Logo Grid with Intersection Corner Nodes */}
+				<div className="flex-1 bg-white">
+					<div className="grid grid-cols-2 divide-x divide-y divide-neutral-200 border-b border-neutral-200 bg-white sm:grid-cols-3 md:grid-cols-4 items-stretch">
+						{technologies.map((tech) => (
+							<div
+								className="group relative flex flex-col items-center justify-center p-8 text-center transition-all duration-300 hover:bg-neutral-50/80 min-h-[160px] sm:min-h-[180px]"
+								key={tech.id}
+							>
+								{/* Grid Intersection Corner Node Dots */}
+								<span className="absolute -top-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+								<span className="absolute -top-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+
+								{/* Tech Logo Icon */}
+								<div className="flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+									{getTechnologyLogo(tech.logoKey || tech.name)}
+								</div>
+
+								{/* Tech Name */}
+								<h2 className="mt-4 font-extrabold text-base text-neutral-900 tracking-tight uppercase transition-colors duration-300 group-hover:text-black sm:text-lg">
+									{tech.name}
+								</h2>
+
+								{/* Website Link */}
+								<a
+									className="mt-1 font-mono text-[10px] text-neutral-400 tracking-widest uppercase transition-colors duration-300 group-hover:text-neutral-700 hover:underline"
+									href={tech.websiteUrl}
+									rel="noreferrer"
+									target="_blank"
+								>
+									{tech.name.toLowerCase()}.dev ↗
+								</a>
+							</div>
+						))}
+					</div>
+				</div>
+
+				{/* Bottom Sub-Bar Toolbar Row */}
+				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 bg-white px-6 py-6 sm:px-10">
+					<p className="font-medium text-xs text-neutral-800 tracking-widest uppercase sm:text-sm">
+						TOTAL {technologies.length} TECHNOLOGIES & TOOLKITS
+					</p>
+
+					<Link
+						className="group inline-flex items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900"
+						href="/"
+					>
+						<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-xs text-white tracking-wider uppercase sm:text-sm">
+							<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
+								Back To Home
+							</span>
+							<span className="absolute left-5 inline-block translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+								Back To Home
+							</span>
+						</span>
+						<span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs">
+							<span className="inline-flex transition-transform duration-300 group-hover:-translate-x-5 group-hover:-translate-y-5">
+								<IconArrowUpLeft size={16} />
+							</span>
+							<span className="absolute inline-flex translate-x-5 translate-y-5 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
+								<IconArrowUpLeft size={16} />
+							</span>
+						</span>
+					</Link>
+				</div>
+			</div>
+		</section>
 	);
 };
 

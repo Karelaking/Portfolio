@@ -1,132 +1,99 @@
+import { IconArrowUpRight } from "@tabler/icons-react";
+import Link from "next/link";
 import type React from "react";
 import { getTechnologyLogo } from "@/data/Technology";
 import { getTechnologies } from "@/lib";
-import type { TechnologyItem } from "@/types/technology-item.interface";
-import { Container, SectionHeader } from "../serverComponent";
-import { SectionOrnament } from "../serverComponent/section-ornament";
 
-// const expertise = await getExpertiseAction();
-const technologies = await getTechnologies();
-const REGEX_URL = /^https?:\/\//;
-const REGEX_DOMAIN = /\/$/;
+export const ExpertisePage = async (): Promise<React.ReactElement> => {
+	const technologies = await getTechnologies();
 
-const getRelatedProjectTags = (technology: TechnologyItem): string[] => {
-	const relatedTags = technology.relatedProjects
-		.flatMap((project) => project.tags)
-		.map((tag) => tag.trim())
-		.filter((tag) => tag.length > 0);
-	return Array.from(new Set(relatedTags)).slice(0, 8);
-};
+	return (
+		<section
+			className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900"
+			id="expertise"
+		>
+			{/* Grid Container Wrapper */}
+			<div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200">
+				{/* Section Header Row */}
+				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12">
+					<div>
+						<span className="mb-2 block font-semibold text-xs text-neutral-400 tracking-[0.3em] uppercase">
+							// 02 . TECH STACK
+						</span>
+						<h2 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl">
+							CORE TECHNOLOGIES & PLATFORMS.
+						</h2>
+						<p className="mt-3 max-w-2xl font-normal text-base text-neutral-500 leading-relaxed sm:text-lg">
+							Frameworks, languages, databases, and tooling engineered for performance, resilience, and scale.
+						</p>
+					</div>
+				</header>
 
-export const ExpertisePage = (): React.ReactElement => (
-	<Container
-		className="relative flex flex-col gap-8 border-border/70 py-12"
-		id="expertise"
-	>
-		<SectionOrnament className="top-10 right-10" />
+				{/* Tech Stack Logo Grid with Intersection Corner Nodes */}
+				<div className="flex-1 bg-white">
+					<div className="grid grid-cols-2 divide-x divide-y divide-neutral-200 border-b border-neutral-200 bg-white sm:grid-cols-3 md:grid-cols-4 items-stretch">
+						{technologies.map((tech) => (
+							<div
+								className="group relative flex flex-col items-center justify-center p-8 text-center transition-all duration-300 hover:bg-neutral-50/80 min-h-[160px] sm:min-h-[180px]"
+								key={tech.id}
+							>
+								{/* Grid Intersection Corner Node Dots */}
+								<span className="absolute -top-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+								<span className="absolute -top-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
 
-		<div className="mt-4 space-y-4">
-			<SectionHeader
-				copy="Frameworks and tools with related projects, tags, and direct links."
-				label="Tech Stack"
-				title="Core technologies I build with"
-			/>
-
-			<div className="grid gap-6 md:grid-cols-3">
-				{technologies.map((technology) => {
-					const relatedProjects = technology.relatedProjects.slice(0, 3);
-					const relatedTags = getRelatedProjectTags(technology);
-
-					return (
-						<article
-							className="group rounded-3xl border border-border/70 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/30 hover:bg-background/80 hover:shadow-foreground/5 hover:shadow-xl"
-							key={technology.id}
-						>
-							<div className="flex items-center gap-3">
-								<span className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-110">
-									{getTechnologyLogo(technology.logoKey)}
-								</span>
-								<div>
-									<h3 className="font-semibold text-foreground text-lg transition-colors duration-300 group-hover:text-primary">
-										{technology.name}
-									</h3>
-									<a
-										className="text-muted-foreground text-xs uppercase tracking-[0.16em] transition-all duration-300 hover:text-foreground hover:tracking-[0.2em]"
-										href={technology.websiteUrl}
-										rel="noreferrer"
-										target="_blank"
-									>
-										{technology.websiteUrl
-											.replace(REGEX_URL, "")
-											.replace(REGEX_DOMAIN, "")}
-									</a>
+								{/* Tech Logo Icon */}
+								<div className="flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+									{getTechnologyLogo(tech.logoKey || tech.name)}
 								</div>
+
+								{/* Tech Name */}
+								<h3 className="mt-4 font-extrabold text-base text-neutral-900 tracking-tight uppercase transition-colors duration-300 group-hover:text-black sm:text-lg">
+									{tech.name}
+								</h3>
+
+								{/* Category / Website Link */}
+								<a
+									className="mt-1 font-mono text-[10px] text-neutral-400 tracking-widest uppercase transition-colors duration-300 group-hover:text-neutral-700 hover:underline"
+									href={tech.websiteUrl}
+									rel="noreferrer"
+									target="_blank"
+								>
+									{tech.name.toLowerCase()}.dev ↗
+								</a>
 							</div>
+						))}
+					</div>
+				</div>
 
-							<p className="mt-3 text-muted-foreground text-sm">
-								{technology.description}
-							</p>
+				{/* Bottom Sub-Bar Toolbar Row */}
+				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 bg-white px-6 py-6 sm:px-10">
+					<p className="font-medium text-xs text-neutral-800 tracking-widest uppercase sm:text-sm">
+						SHOWCASING {technologies.length} CORE TECHNOLOGIES & TOOLKITS
+					</p>
 
-							{relatedTags.length > 0 ? (
-								<div className="mt-4 flex flex-wrap gap-2">
-									{relatedTags.map((tag) => (
-										<span
-											className="rounded-full border border-border/70 px-3 py-1 text-[11px] uppercase tracking-[0.18em] transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/35 hover:bg-muted/50"
-											key={`${technology.id}-${tag}`}
-										>
-											{tag}
-										</span>
-									))}
-								</div>
-							) : null}
-
-							<div className="mt-5 space-y-2 border-border/70 border-t pt-4">
-								<p className="text-foreground text-xs uppercase tracking-[0.2em]">
-									Related Projects
-								</p>
-
-								{relatedProjects.length > 0 ? (
-									relatedProjects.map((project) => (
-										<div
-											className="space-y-2 transition-transform duration-300 hover:translate-x-0.5"
-											key={`${technology.id}-${project.id}`}
-										>
-											<a
-												className="font-medium text-sm underline-offset-4 transition-all duration-200 hover:tracking-[0.04em] hover:underline"
-												href={project.href}
-												rel="noreferrer"
-												target="_blank"
-											>
-												{project.name}
-											</a>
-											<div className="flex flex-wrap gap-2">
-												{project.tags.map((tag) => (
-													<span
-														className="rounded-full bg-muted px-2.5 py-1 text-[10px] text-muted-foreground uppercase tracking-[0.16em] transition-colors duration-200 hover:bg-muted/80"
-														key={`${project.id}-${technology.id}-${tag}`}
-													>
-														{tag}
-													</span>
-												))}
-											</div>
-										</div>
-									))
-								) : (
-									<p className="text-muted-foreground text-sm">
-										No related projects found yet.
-									</p>
-								)}
-							</div>
-						</article>
-					);
-				})}
+					<Link
+						className="group inline-flex items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900"
+						href="#projects"
+					>
+						<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-xs text-white tracking-wider uppercase sm:text-sm">
+							<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
+								Explore Projects
+							</span>
+							<span className="absolute left-5 inline-block translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+								Explore Projects
+							</span>
+						</span>
+						<span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs">
+							<span className="inline-flex transition-transform duration-300 group-hover:translate-x-5 group-hover:-translate-y-5">
+								<IconArrowUpRight size={16} />
+							</span>
+							<span className="absolute inline-flex -translate-x-5 translate-y-5 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
+								<IconArrowUpRight size={16} />
+							</span>
+						</span>
+					</Link>
+				</div>
 			</div>
-
-			{technologies.length === 0 ? (
-				<p className="text-muted-foreground text-sm">
-					No technologies found in the database yet.
-				</p>
-			) : null}
-		</div>
-	</Container>
-);
+		</section>
+	);
+};
