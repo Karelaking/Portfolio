@@ -1,8 +1,9 @@
-<svg width="520" height="420" viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="520" height="420" rx="28" fill="white"/>
-  <rect x="40" y="40" width="440" height="340" rx="24" stroke="black" stroke-width="2"/>
-  <rect x="96" y="120" width="328" height="4" fill="black"/>
-  <rect x="96" y="168" width="220" height="4" fill="black"/>
-  <rect x="96" y="216" width="260" height="4" fill="black"/>
-  <rect x="96" y="264" width="180" height="4" fill="black"/>
+<svg width="600" height="450" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#18181B"/>
+  <!-- Sharp Diagonal Grid Lines -->
+  <line x1="0" y1="0" x2="600" y2="450" stroke="#3F3F46" stroke-width="1.5"/>
+  <line x1="600" y1="0" x2="0" y2="450" stroke="#3F3F46" stroke-width="1.5"/>
+  <rect x="150" y="100" width="300" height="250" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="300" cy="225" r="70" fill="#FFFFFF"/>
+  <circle cx="300" cy="225" r="30" fill="#18181B"/>
 </svg>

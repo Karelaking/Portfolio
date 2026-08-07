@@ -1,6 +1,11 @@
-<svg width="520" height="420" viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="520" height="420" rx="28" fill="white"/>
-  <rect x="32" y="32" width="456" height="356" rx="24" stroke="black" stroke-width="2"/>
-  <path d="M120 300L220 200L320 280L400 210" stroke="black" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="170" cy="160" r="34" stroke="black" stroke-width="2"/>
+<svg width="600" height="450" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#09090B"/>
+  <!-- Sharp grid lines -->
+  <line x1="0" y1="225" x2="600" y2="225" stroke="#27272A" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="450" stroke="#27272A" stroke-width="1"/>
+  <!-- Abstract architectural shapes -->
+  <rect x="80" y="80" width="220" height="290" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="430" cy="225" r="110" fill="none" stroke="#E4E4E7" stroke-width="2"/>
+  <circle cx="430" cy="225" r="50" fill="#FFFFFF"/>
+  <path d="M80 80L300 225L80 370" stroke="#A1A1AA" stroke-width="1.5"/>
 </svg>

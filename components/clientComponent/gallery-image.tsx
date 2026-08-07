@@ -1,5 +1,6 @@
 "use client";
 
+import { IconArrowUpRight, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import type { ReactElement } from "react";
@@ -10,6 +11,7 @@ export interface GalleryImageProps {
 	alt: string;
 	className?: string;
 	height?: number;
+	index?: number;
 	loading?: "lazy" | "eager";
 	priority?: boolean;
 	sizes?: string;
@@ -20,23 +22,16 @@ export interface GalleryImageProps {
 export const GalleryImage = ({
 	src,
 	alt,
-	sizes,
-	width = 520,
-	height = 420,
+	index = 1,
+	sizes = "(min-width: 768px) 50vw, 100vw",
+	width = 600,
+	height = 450,
 	className,
 	priority = false,
 	loading = "eager",
 }: GalleryImageProps): ReactElement => {
 	const [loaded, setLoaded] = useState<boolean>(false);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [naturalDimensions, setNaturalDimensions] = useState<{
-		width: number;
-		height: number;
-	} | null>(null);
-
-	const ratio = naturalDimensions
-		? naturalDimensions.width / naturalDimensions.height
-		: 1.2;
 
 	useEffect((): (() => void) => {
 		if (!isOpen) {
@@ -55,98 +50,106 @@ export const GalleryImage = ({
 		};
 	}, [isOpen]);
 
+	const formattedIndex = String(index).padStart(2, "0");
+
 	return (
 		<>
-			<button
-				aria-label={`Open ${alt}`}
-				className="block w-full p-0 text-left"
-				onClick={(): void => setIsOpen(true)}
-				type="button"
+			<motion.div
+				className="group relative w-full overflow-hidden border-neutral-200 border-b bg-black cursor-pointer rounded-none sm:border-b-0"
+				initial={{ opacity: 0, y: 20 }}
+				transition={{ duration: 0.5, delay: index * 0.1 }}
+				viewport={{ once: true }}
+				whileInView={{ opacity: 1, y: 0 }}
 			>
-				<motion.div
-					className="relative overflow-hidden rounded-sm border border-border/70"
-					initial={{ opacity: 0, y: 10 }}
-					transition={{ duration: 0.3 }}
-					viewport={{ once: true }}
-					whileInView={{ opacity: 1, y: 0 }}
+				<button
+					aria-label={`View ${alt}`}
+					className="block h-full w-full cursor-pointer p-0 text-left rounded-none"
+					onClick={(): void => setIsOpen(true)}
+					type="button"
 				>
-					{loaded ? null : (
-						<div className="absolute inset-0 animate-pulse bg-muted/60" />
-					)}
-					<Image
-						alt={alt}
-						className={cn(
-							"h-48 w-full object-cover",
-							className,
-							loaded ? null : "opacity-0"
+					<div className="relative aspect-4/3 w-full overflow-hidden bg-neutral-900 rounded-none">
+						{!loaded && (
+							<div className="absolute inset-0 animate-pulse bg-neutral-800" />
 						)}
-						height={height}
-						loading={loading}
-						onLoad={(event): void => {
-							setLoaded(true);
-							const img = event.currentTarget;
-							setNaturalDimensions({
-								width: img.naturalWidth,
-								height: img.naturalHeight,
-							});
-						}}
-						priority={priority}
-						quality={priority ? 95 : 75}
-						sizes={sizes}
-						src={src}
-						width={width}
-					/>
-				</motion.div>
-			</button>
+						<Image
+							alt={alt}
+							className={cn(
+								"h-full w-full object-cover rounded-none transition-transform duration-700 ease-out group-hover:scale-105 group-hover:opacity-90",
+								className,
+								loaded ? "opacity-100" : "opacity-0"
+							)}
+							height={height}
+							loading={loading}
+							onLoad={(): void => setLoaded(true)}
+							priority={priority}
+							quality={90}
+							sizes={sizes}
+							src={src}
+							width={width}
+						/>
 
+						{/* Sharp Monochromatic Hover Overlay */}
+						<div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+							<div className="flex items-center justify-between">
+								<span className="font-mono text-xs font-semibold text-neutral-300 tracking-widest uppercase">
+									[ {formattedIndex} ]
+								</span>
+								<span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform duration-300 group-hover:scale-110">
+									<IconArrowUpRight size={18} />
+								</span>
+							</div>
+							<div>
+								<p className="font-extrabold text-lg text-white tracking-tight uppercase">
+									{alt}
+								</p>
+								<p className="mt-1 font-medium text-xs text-neutral-300 tracking-widest uppercase">
+									CLICK TO EXPAND
+								</p>
+							</div>
+						</div>
+					</div>
+				</button>
+			</motion.div>
+
+			{/* Lightbox Modal */}
 			<AnimatePresence>
 				{isOpen ? (
 					<motion.div
 						animate={{ opacity: 1 }}
-						className="fixed inset-0 z-50 flex items-center justify-center p-4"
+						className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md sm:p-8"
 						exit={{ opacity: 0 }}
 						initial={{ opacity: 0 }}
-						transition={{ duration: 0.15 }}
+						transition={{ duration: 0.2 }}
 					>
-						<motion.button
-							aria-label="Close image"
-							className="absolute inset-0 bg-background/80 backdrop-blur"
+						<button
+							aria-label="Close image lightbox"
+							className="absolute inset-0 h-full w-full cursor-pointer border-none bg-transparent"
 							onClick={(): void => setIsOpen(false)}
 							type="button"
 						/>
-						<div className="relative z-10 w-fit md:w-auto">
-							<motion.div
-								animate={{ scale: 1, opacity: 1 }}
-								className="overflow-hidden rounded-sm border border-border/70 bg-card p-3"
-								exit={{ scale: 0.95, opacity: 0 }}
-								initial={{ scale: 0.95, opacity: 0 }}
-								style={{
-									maxWidth: "90vw",
-									width: naturalDimensions
-										? `min(${naturalDimensions.width}px, calc(80vh * ${ratio}))`
-										: "auto",
-								}}
-								transition={{ duration: 0.15, ease: "easeOut" }}
-							>
+						<div className="relative z-10 w-full max-w-4xl rounded-none border border-neutral-800 bg-neutral-950 p-4 shadow-2xl sm:p-6">
+							<div className="flex items-center justify-between border-neutral-800 border-b pb-4">
+								<span className="font-mono text-xs text-neutral-400 tracking-widest uppercase">
+									[ {formattedIndex} ] — {alt}
+								</span>
+								<button
+									aria-label="Close"
+									className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-neutral-800 text-white hover:bg-neutral-700 transition"
+									onClick={(): void => setIsOpen(false)}
+									type="button"
+								>
+									<IconX size={16} />
+								</button>
+							</div>
+							<div className="relative mt-4 aspect-4/3 w-full overflow-hidden bg-black rounded-none">
 								<Image
 									alt={alt}
-									className="h-auto max-h-[80vh] w-[90vw] rounded-sm object-contain"
-									height={naturalDimensions ? naturalDimensions.height : height}
+									className="h-full w-full object-contain"
+									fill
 									priority
-									quality={90}
-									sizes="100vw"
+									quality={95}
 									src={src}
-									style={{
-										maxHeight: "80vh",
-										width: "100%",
-										height: "auto",
-									}}
-									width={naturalDimensions ? naturalDimensions.width : width}
 								/>
-							</motion.div>
-							<div className="mt-4 flex items-center justify-between text-muted-foreground text-xs uppercase tracking-[0.3em]">
-								<span>{alt}</span>
-								<span>Esc to close</span>
 							</div>
 						</div>
 					</motion.div>
