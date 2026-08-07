@@ -1,5 +1,6 @@
 export { AboutPage } from "./AboutPage";
 export { ContactPage } from "./ContactPage";
+export { CtaPage } from "./CtaPage";
 export { ExperiencePage } from "./ExperiencePage";
 export { ExpertisePage } from "./ExpertisePage";
 export { GalleryPage } from "./GalleryPage";

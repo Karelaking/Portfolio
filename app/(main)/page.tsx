@@ -3,6 +3,7 @@ import type React from "react";
 import {
 	AboutPage,
 	ContactPage,
+	CtaPage,
 	ExperiencePage,
 	ExpertisePage,
 	GalleryPage,
@@ -41,6 +42,7 @@ const page = (): React.JSX.Element => (
 		<ProjectsPage />
 		<WritingPage />
 		<GalleryPage />
+		<CtaPage />
 		<ContactPage />
 	</div>
 );
