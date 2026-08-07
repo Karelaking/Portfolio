@@ -1,5 +1,6 @@
 "use client";
 
+import { IconArrowUpRight, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { type ReactElement, useEffect, useId, useRef, useState } from "react";
@@ -11,11 +12,12 @@ interface WritingPostsGridProps {
 	posts: WritingPost[];
 }
 
-const PREVIEW_LENGTH = 120;
-const MAX_COLLAPSED_TAGS = 3;
+const PREVIEW_LENGTH = 140;
+const MAX_COLLAPSED_TAGS = 4;
 
 const buildPreview = (content: string): string => {
-	const normalized = content.replace(/\s+/g, " ").trim();
+	const plainText = content.replace(/<[^>]*>/g, " ");
+	const normalized = plainText.replace(/\s+/g, " ").trim();
 
 	if (normalized.length <= PREVIEW_LENGTH) {
 		return normalized;
@@ -28,6 +30,9 @@ export const WritingPostsGrid = ({
 	posts,
 }: WritingPostsGridProps): ReactElement => {
 	const [activePost, setActivePost] = useState<WritingPost | null>(null);
+	const [orientations, setOrientations] = useState<
+		Record<string, "landscape" | "portrait">
+	>({});
 	const id = useId();
 	const cardRef = useRef<HTMLDivElement>(null);
 	const shouldReduceMotion = useReducedMotion();
@@ -55,151 +60,209 @@ export const WritingPostsGrid = ({
 		};
 	}, [activePost]);
 
+	const handleImageLoad = (
+		postId: string,
+		naturalWidth: number,
+		naturalHeight: number
+	): void => {
+		const isLandscape = naturalWidth >= naturalHeight;
+		setOrientations((prev) => {
+			if (prev[postId]) return prev;
+			return { ...prev, [postId]: isLandscape ? "landscape" : "portrait" };
+		});
+	};
+
 	return (
 		<>
+			{/* Expandable Lightbox Reading Modal */}
 			<AnimatePresence>
 				{activePost ? (
-					<motion.div
-						animate={{ opacity: 1 }}
-						className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
-						exit={{ opacity: 0 }}
-						initial={{ opacity: 0 }}
-					/>
-				) : null}
-			</AnimatePresence>
-
-			<AnimatePresence>
-				{activePost ? (
-					<div className="fixed inset-0 z-60 grid place-items-center px-4 py-6">
+					<>
 						<motion.div
-							className="relative flex h-[min(90vh,720px)] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-border bg-card"
-							layoutId={`writing-card-${activePost.id}-${id}`}
-							ref={cardRef}
-						>
-							<button
-								aria-label="Close writing post"
-								className="absolute top-4 right-4 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-background/90 text-lg leading-none"
-								onClick={(): void => setActivePost(null)}
-								type="button"
+							animate={{ opacity: 1 }}
+							className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md"
+							exit={{ opacity: 0 }}
+							initial={{ opacity: 0 }}
+						/>
+
+						<div className="fixed inset-0 z-60 grid place-items-center px-4 py-6">
+							<motion.div
+								className="relative flex h-[min(90vh,750px)] w-full max-w-3xl flex-col overflow-hidden rounded-none border border-neutral-800 bg-neutral-950 text-white shadow-2xl"
+								layoutId={`writing-card-${activePost.id}-${id}`}
+								ref={cardRef}
 							>
-								×
-							</button>
+								<button
+									aria-label="Close writing post"
+									className="absolute top-4 right-4 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-neutral-800 text-white hover:bg-neutral-700 transition"
+									onClick={(): void => setActivePost(null)}
+									type="button"
+								>
+									<IconX size={18} />
+								</button>
 
-							<motion.div layoutId={`writing-image-${activePost.id}-${id}`}>
-								<Image
-									alt={activePost.coverImageAlt}
-									className="h-64 w-full object-cover"
-									height={640}
-									sizes="(min-width: 1024px) 768px, 100vw"
-									src={activePost.coverImageSrc}
-									width={1200}
-								/>
-							</motion.div>
+								<motion.div
+									className="relative h-64 w-full overflow-hidden bg-black rounded-none"
+									layoutId={`writing-image-${activePost.id}-${id}`}
+								>
+									<Image
+										alt={activePost.coverImageAlt}
+										className="h-64 w-full object-cover rounded-none"
+										height={640}
+										sizes="(min-width: 1024px) 768px, 100vw"
+										src={activePost.coverImageSrc}
+										width={1200}
+									/>
+								</motion.div>
 
-							<div className="flex min-h-0 flex-1 flex-col gap-4 p-6">
-								<div className="space-y-3">
-									<p className="text-[11px] text-muted-foreground uppercase tracking-[0.3em]">
-										{activePost.publishedAt}
-									</p>
-									<motion.h3
-										className="font-semibold text-2xl"
-										layoutId={`writing-title-${activePost.id}-${id}`}
-									>
-										{activePost.title}
-									</motion.h3>
-									<div className="flex flex-wrap gap-2">
-										{activePost.tags.map((tag) => (
-											<span
-												className="rounded-full border border-border/70 px-3 py-1 text-[10px] uppercase tracking-[0.22em]"
-												key={tag}
-											>
-												{tag}
-											</span>
-										))}
+								<div className="flex min-h-0 flex-1 flex-col gap-4 p-6 sm:p-8">
+									<div className="space-y-3">
+										<p className="font-mono text-xs text-neutral-400 tracking-widest uppercase">
+											PUBLISHED: {activePost.publishedAt}
+										</p>
+										<motion.h3
+											className="font-extrabold text-2xl sm:text-3xl text-white tracking-tight uppercase"
+											layoutId={`writing-title-${activePost.id}-${id}`}
+										>
+											{activePost.title}
+										</motion.h3>
+										<div className="flex flex-wrap gap-2 pt-1">
+											{activePost.tags.map((tag) => (
+												<span
+													className="rounded-none border border-neutral-800 bg-neutral-900 px-3 py-1 font-mono text-[10px] text-neutral-300 tracking-widest uppercase"
+													key={tag}
+												>
+													{tag}
+												</span>
+											))}
+										</div>
 									</div>
-								</div>
 
-								<div className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-1 text-muted-foreground text-sm leading-relaxed">
-									{/* Render content as HTML for formatted display */}
 									<div
+										className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-2 text-neutral-300 font-normal text-base leading-relaxed whitespace-pre-line border-t border-neutral-800 pt-4"
 										dangerouslySetInnerHTML={{ __html: activePost.content }}
 									/>
 								</div>
-							</div>
-						</motion.div>
-					</div>
+							</motion.div>
+						</div>
+					</>
 				) : null}
 			</AnimatePresence>
 
-			<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-				{posts.map((post) => (
-					<motion.button
-						className="h-full border-border/70 bg-card text-left"
-						key={post.id}
-						layoutId={`writing-card-${post.id}-${id}`}
-						onClick={(): void => setActivePost(post)}
-						type="button"
-						whileHover={{ y: shouldReduceMotion ? 0 : -4 }}
-					>
-						<div className="flex h-full flex-col overflow-hidden rounded-3xl border border-border/70">
-							<motion.div layoutId={`writing-image-${post.id}-${id}`}>
-								<Image
-									alt={post.coverImageAlt}
-									className="h-52 w-full object-cover"
-									height={400}
-									sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-									src={post.coverImageSrc}
-									width={800}
-								/>
-							</motion.div>
+			{/* Max 2-Column Grid Layout (Landscape = Both Columns, Portrait = 1 Column) */}
+			<div className="grid grid-cols-1 sm:grid-cols-2 border-b border-neutral-200 bg-white">
+				{posts.map((post, idx) => {
+					const detectedOrientation = orientations[post.id];
+					const isLandscape = detectedOrientation
+						? detectedOrientation === "landscape"
+						: idx % 3 === 2;
 
-							<div className="flex flex-1 flex-col gap-4 p-5">
-								<p className="text-[10px] text-muted-foreground uppercase tracking-[0.28em]">
-									{post.publishedAt}
-								</p>
-								<motion.h3
-									className="min-h-14 overflow-hidden font-semibold text-lg [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [display:-webkit-box]"
-									layoutId={`writing-title-${post.id}-${id}`}
-								>
-									{post.title}
-								</motion.h3>
+					const formattedIndex = String(idx + 1).padStart(2, "0");
+					const cleanExcerpt = buildPreview(post.content);
+
+					return (
+						<motion.button
+							className={cn(
+								"group relative flex flex-col justify-between border-b border-r border-neutral-200 bg-white p-0 text-left rounded-none cursor-pointer overflow-hidden transition hover:bg-neutral-50/80",
+								isLandscape ? "sm:col-span-2" : "col-span-1"
+							)}
+							key={post.id}
+							layoutId={`writing-card-${post.id}-${id}`}
+							onClick={(): void => setActivePost(post)}
+							type="button"
+							whileHover={{ y: shouldReduceMotion ? 0 : -2 }}
+						>
+							<div
+								className={cn(
+									"flex h-full w-full justify-between",
+									isLandscape ? "flex-col sm:flex-row" : "flex-col"
+								)}
+							>
+								{/* Cover Image Container */}
 								<div
-									className="min-h-16 overflow-hidden text-muted-foreground text-sm leading-relaxed [-webkit-box-orient:vertical] [-webkit-line-clamp:3] [display:-webkit-box]"
-									dangerouslySetInnerHTML={{
-										__html: buildPreview(post.content),
-									}}
-								/>
+									className={cn(
+										"relative overflow-hidden bg-neutral-900 rounded-none shrink-0",
+										isLandscape
+											? "w-full sm:w-1/2 aspect-16/10 sm:aspect-auto"
+											: "w-full aspect-3/4"
+									)}
+								>
+									<motion.div
+										className="h-full w-full"
+										layoutId={`writing-image-${post.id}-${id}`}
+									>
+										<Image
+											alt={post.coverImageAlt}
+											className="h-full w-full object-cover rounded-none transition-transform duration-700 ease-out group-hover:scale-105 group-hover:opacity-90"
+											height={600}
+											onLoad={(event): void => {
+												const img = event.currentTarget;
+												handleImageLoad(
+													post.id,
+													img.naturalWidth,
+													img.naturalHeight
+												);
+											}}
+											sizes={
+												isLandscape
+													? "(min-width: 768px) 50vw, 100vw"
+													: "(min-width: 768px) 50vw, 100vw"
+											}
+											src={post.coverImageSrc}
+											width={900}
+										/>
+									</motion.div>
 
-								<div className="mt-auto min-h-14 overflow-hidden">
-									<div className="flex flex-wrap gap-2">
-										{post.tags.slice(0, MAX_COLLAPSED_TAGS).map((tag) => (
-											<span
-												className={cn(
-													"rounded-full border border-border/70 px-2.5 py-1 text-[10px]",
-													"uppercase tracking-[0.2em]"
-												)}
-												key={tag}
-											>
-												{tag}
-											</span>
-										))}
+									{/* Sharp Index Badge */}
+									<div className="absolute top-4 left-4 z-10 rounded-none bg-black/80 backdrop-blur-xs px-3 py-1 font-mono text-xs font-semibold text-white tracking-widest uppercase border border-neutral-700">
+										[ {formattedIndex} ]
+									</div>
+								</div>
 
-										{post.tags.length > MAX_COLLAPSED_TAGS ? (
-											<span
-												className={cn(
-													"rounded-full border border-border/70 px-2.5 py-1 text-[10px]",
-													"uppercase tracking-[0.2em]"
-												)}
-											>
-												+{post.tags.length - MAX_COLLAPSED_TAGS}
-											</span>
-										) : null}
+								{/* Post Card Details */}
+								<div
+									className={cn(
+										"flex flex-1 flex-col justify-between p-6 sm:p-8",
+										isLandscape ? "sm:w-1/2" : "w-full"
+									)}
+								>
+									<div>
+										<p className="font-mono text-xs font-semibold text-neutral-400 tracking-widest uppercase mb-2">
+											{post.publishedAt}
+										</p>
+										<motion.h3
+											className={cn(
+												"font-extrabold text-neutral-900 tracking-tight uppercase leading-snug group-hover:text-black transition",
+												isLandscape ? "text-xl sm:text-3xl" : "text-xl sm:text-2xl"
+											)}
+											layoutId={`writing-title-${post.id}-${id}`}
+										>
+											{post.title}
+										</motion.h3>
+										<p className="mt-3 text-sm text-neutral-500 font-normal leading-relaxed line-clamp-3">
+											{cleanExcerpt}
+										</p>
+									</div>
+
+									<div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+										<div className="flex flex-wrap gap-1.5">
+											{post.tags.slice(0, MAX_COLLAPSED_TAGS).map((tag) => (
+												<span
+													className="rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-1 font-mono text-[10px] font-medium text-neutral-700 tracking-wider uppercase"
+													key={tag}
+												>
+													{tag}
+												</span>
+											))}
+										</div>
+										<span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white shadow-2xs transition-transform duration-300 group-hover:scale-110 shrink-0 ml-2">
+											<IconArrowUpRight size={18} />
+										</span>
 									</div>
 								</div>
 							</div>
-						</div>
-					</motion.button>
-				))}
+						</motion.button>
+					);
+				})}
 			</div>
 		</>
 	);
