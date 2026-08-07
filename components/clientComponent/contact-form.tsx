@@ -107,7 +107,7 @@ export const ContactForm = (): ReactElement => {
 				</label>
 				<textarea
 					aria-invalid={Boolean(errors.message)}
-					className="min-h-[140px] w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 py-3 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white"
+					className="min-h-35 w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 py-3 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white"
 					id="contact-message"
 					placeholder="Tell me about your project goals, timelines, or key requirements..."
 					{...register("message", {

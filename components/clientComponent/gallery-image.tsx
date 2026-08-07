@@ -76,7 +76,7 @@ export const GalleryImage = ({
 					<div
 						className={cn(
 							"relative w-full overflow-hidden bg-neutral-900 rounded-none",
-							isLandscape ? "aspect-16/9 sm:aspect-16/10" : "aspect-3/4"
+							isLandscape ? "aspect-video sm:aspect-16/10" : "aspect-3/4"
 						)}
 					>
 						{!loaded && (
@@ -113,7 +113,7 @@ export const GalleryImage = ({
 						/>
 
 						{/* Sharp Monochromatic Hover Overlay */}
-						<div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+						<div className="absolute inset-0 flex flex-col justify-between bg-linear-to-t from-black/80 via-black/30 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 							<div className="flex items-center justify-between">
 								<span className="font-mono text-xs font-semibold text-neutral-300 tracking-widest uppercase">
 									[ {formattedIndex} ]

@@ -71,7 +71,7 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 					<div className="grid grid-cols-2 divide-x divide-y divide-neutral-200 border-b border-neutral-200 bg-white sm:grid-cols-3 md:grid-cols-4 items-stretch">
 						{technologies.map((tech) => (
 							<div
-								className="group relative flex flex-col items-center justify-center p-8 text-center transition-all duration-300 hover:bg-neutral-50/80 min-h-[160px] sm:min-h-[180px]"
+								className="group relative flex flex-col items-center justify-center p-8 text-center transition-all duration-300 hover:bg-neutral-50/80 min-h-40 sm:min-h-45"
 								key={tech.id}
 							>
 								{/* Grid Intersection Corner Node Dots */}

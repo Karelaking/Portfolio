@@ -54,7 +54,7 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 							<span className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-black font-extrabold text-xs text-white">
 								MK
 							</span>
-							<span className="font-extrabold text-sm sm:text-xl text-neutral-900 tracking-tight uppercase truncate max-w-[130px] min-[380px]:max-w-none">
+							<span className="font-extrabold text-sm sm:text-xl text-neutral-900 tracking-tight uppercase truncate max-w-32.5 min-[380px]:max-w-none">
 								mradul katiyar
 							</span>
 						</Link>
