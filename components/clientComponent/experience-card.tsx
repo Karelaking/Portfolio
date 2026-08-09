@@ -1,5 +1,6 @@
 "use client";
 
+import { IconCheck } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import type { ReactElement } from "react";
 import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
@@ -15,126 +16,72 @@ export const ExperienceCard = ({
 	index = 0,
 }: ExperienceCardProps): ReactElement => {
 	const parsedHighlights = splitExperienceHighlights(item.highlights);
+	const isCurrent = item.period.toLowerCase().includes("present") || item.period.toLowerCase().includes("current");
+	const formattedIndex = String(index + 1).padStart(2, "0");
 
 	return (
 		<motion.div
-			className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/95 p-5 shadow-sm transition-all duration-300 hover:border-border/60 dark:bg-card/80 dark:hover:bg-card/95"
+			className="group relative flex flex-col rounded-none border border-neutral-200 bg-white p-5 shadow-2xs transition-all duration-300 hover:border-black sm:p-6 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-white"
 			initial={{ opacity: 0, y: 20 }}
 			transition={{ delay: (index ?? 0) * 0.1, duration: 0.5 }}
 			viewport={{ once: true, amount: 0.3 }}
-			whileHover={{ y: -4 }}
 			whileInView={{ opacity: 1, y: 0 }}
 		>
-			{/* Animated gradient background on hover - subtle for both modes */}
-			<motion.div
-				className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-transparent opacity-0 dark:from-primary/8"
-				transition={{ duration: 0.4 }}
-				whileHover={{ opacity: 1 }}
-			/>
+			{/* Corner Node Dots */}
+			<span className="absolute -top-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+			<span className="absolute -top-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+			<span className="absolute -bottom-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+			<span className="absolute -bottom-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 
-			{/* Animated glow effect on hover */}
-			<motion.div
-				className="absolute -inset-px rounded-2xl bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 blur dark:via-primary/10"
-				transition={{ duration: 0.4 }}
-				whileHover={{ opacity: 1 }}
-			/>
-
-			{/* Content */}
-			<div className="relative z-10">
-				{/* Header Section */}
-				<div className="flex flex-col gap-2.5">
-					{/* Role - Enhanced Typography */}
-					<motion.div
-						className="flex items-start justify-between gap-3"
-						transition={{ duration: 0.2 }}
-						whileHover={{ x: 2 }}
-					>
-						<div className="flex-1">
-							<h2 className="font-bold text-foreground text-lg leading-snug">
-								{item.role}
-							</h2>
-							<p className="mt-1 font-500 text-muted-foreground text-sm tracking-0.5">
-								{item.company}
-							</p>
-						</div>
-						<span className="shrink-0 font-medium text-muted-foreground/60 text-xs uppercase tracking-widest">
-							{item.period}
-						</span>
-					</motion.div>
+			{/* Compact Header Line */}
+			<div className="flex flex-wrap items-start justify-between gap-3">
+				<div className="flex flex-wrap items-center gap-3">
+					<span className="font-mono font-semibold text-xs text-neutral-400 tracking-widest uppercase dark:text-neutral-500">
+						[ {formattedIndex} ]
+					</span>
+					<h3 className="font-extrabold text-xl sm:text-2xl text-neutral-900 tracking-tight uppercase transition-colors group-hover:text-black dark:text-neutral-100 dark:group-hover:text-white">
+						{item.role}
+					</h3>
+					<span className="rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-0.5 font-mono font-semibold text-xs text-neutral-800 uppercase tracking-wider dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
+						@ {item.company}
+					</span>
 				</div>
 
-				{/* Summary - Improved readability */}
-				<p className="mt-3 line-clamp-2 text-foreground/80 text-sm leading-relaxed dark:text-foreground/75">
-					{item.summary}
-				</p>
-
-				{/* Divider */}
-				<div className="my-3 h-px w-8 bg-border/20 dark:bg-border/30" />
-
-				{parsedHighlights.coreTech.length > 0 ? (
-					<div className="mb-3 flex flex-wrap gap-1.5">
-						{parsedHighlights.coreTech.slice(0, 3).map((tech) => (
-							<span
-								className="rounded-full bg-primary/10 px-2.5 py-1 font-semibold text-[10px] text-primary uppercase tracking-[0.16em]"
-								key={`${item.id}-core-${tech}`}
-							>
-								{tech}
-							</span>
-						))}
-					</div>
-				) : null}
-
-				{/* Highlights - Enhanced Typography */}
-				<motion.ul className="space-y-2">
-					{parsedHighlights.highlights.slice(0, 2).map((highlight, i) => (
-						<motion.li
-							className="flex items-start gap-2.5 text-foreground/70 text-sm leading-relaxed dark:text-foreground/65"
-							initial={{ opacity: 0, x: -8 }}
-							key={`${item.id}-${highlight}`}
-							transition={{
-								delay: (index ?? 0) * 0.1 + i * 0.05,
-								duration: 0.3,
-							}}
-							viewport={{ once: true, amount: 0.3 }}
-							whileInView={{ opacity: 1, x: 0 }}
-						>
-							<motion.span
-								className="mt-1.5 block shrink-0 font-bold text-primary/80 dark:text-primary/90"
-								transition={{ duration: 0.2 }}
-								whileHover={{ scale: 1.3, rotate: 10 }}
-							>
-								▪
-							</motion.span>
-							<span className="line-clamp-1 font-500">{highlight}</span>
-						</motion.li>
-					))}
-					{parsedHighlights.highlights.length > 2 && (
-						<motion.li
-							className="pt-1 font-600 text-muted-foreground/70 text-xs uppercase tracking-0.5 dark:text-muted-foreground/60"
-							initial={{ opacity: 0 }}
-							transition={{ delay: (index ?? 0) * 0.1 + 0.15 }}
-							whileInView={{ opacity: 1 }}
-						>
-							+{parsedHighlights.highlights.length - 2} more skills
-						</motion.li>
+				<div className="flex items-center gap-3 shrink-0">
+					{isCurrent && (
+						<span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-700 uppercase tracking-wider dark:border-emerald-900/80 dark:bg-emerald-950/60 dark:text-emerald-400">
+							<span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+							<span>ACTIVE</span>
+						</span>
 					)}
-				</motion.ul>
+					<span className="font-mono font-semibold text-xs text-neutral-500 tracking-widest uppercase dark:text-neutral-400">
+						{item.period}
+					</span>
+				</div>
 			</div>
 
-			{/* Animated border highlight on hover */}
-			<motion.div
-				className="absolute inset-x-0 bottom-0 h-1 bg-linear-to-r from-primary/0 via-primary to-primary/0 dark:via-primary/90"
-				initial={{ scaleX: 0, opacity: 0 }}
-				transition={{ duration: 0.4 }}
-				whileHover={{ scaleX: 1, opacity: 1 }}
-			/>
+			{/* Summary Description */}
+			<p className="mt-3 font-normal text-sm sm:text-base text-neutral-600 leading-relaxed dark:text-neutral-400">
+				{item.summary}
+			</p>
 
-			{/* Corner accent - top right */}
-			<motion.div
-				className="absolute -top-1 -right-1 h-12 w-12 rounded-full bg-linear-to-bl from-primary/5 to-transparent opacity-0 dark:from-primary/10"
-				transition={{ duration: 0.3 }}
-				whileHover={{ opacity: 1 }}
-			/>
+			{/* Compact Inline Accomplishment Pills */}
+			{parsedHighlights.highlights.length > 0 && (
+				<div className="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-900 flex flex-wrap items-center gap-2">
+					<span className="font-mono font-semibold text-[10px] text-neutral-400 tracking-widest uppercase mr-1 dark:text-neutral-500">
+						KEY HIGHLIGHTS:
+					</span>
+					{parsedHighlights.highlights.map((highlight) => (
+						<span
+							className="inline-flex items-center gap-1.5 rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-1 font-mono text-[11px] font-medium text-neutral-700 uppercase tracking-wider transition hover:border-black hover:bg-white dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-300 dark:hover:border-white dark:hover:bg-neutral-900"
+							key={`${item.id}-hl-${highlight}`}
+						>
+							<IconCheck size={13} className="text-black dark:text-white shrink-0" />
+							<span>{highlight}</span>
+						</span>
+					))}
+				</div>
+			)}
 		</motion.div>
 	);
 };
