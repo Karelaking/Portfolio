@@ -2,6 +2,8 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
 
+import { GSAPSVGPattern } from "@/components/animations";
+
 export const CtaPage = (): React.ReactElement => {
 	return (
 		<section
@@ -9,6 +11,7 @@ export const CtaPage = (): React.ReactElement => {
 			data-gsap-stack="true"
 			id="cta"
 		>
+			<GSAPSVGPattern className="-translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 h-112 w-112 opacity-25" variant="concentric-rings" />
 			{/* Grid Container Wrapper with Full-Height Vertical Borders & Generous Inner Padding */}
 			<div
 				className="group relative mx-auto flex w-full max-w-7xl flex-col items-center justify-center border-x border-neutral-200 bg-neutral-50/70 px-6 py-10 text-center sm:px-10 sm:py-18 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/60"

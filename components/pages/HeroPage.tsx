@@ -13,6 +13,7 @@ import Link from "next/link";
 import type React from "react";
 import { getHero, getSocialLinks } from "@/lib/portfolio/queries";
 import type { SocialLink } from "@/types/social-link.interface";
+import { GSAPSVGPattern } from "@/components/animations";
 import { CountUpValue, ThemeToggle, ZoomHollowText } from "../clientComponent";
 
 const getSocialIcon = (platform: string): React.ReactElement => {
@@ -45,6 +46,8 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 			data-gsap-stack="true"
 			id="hero"
 		>
+			<GSAPSVGPattern className="-right-10 top-10 h-112 w-112 opacity-20" variant="concentric-rings" />
+			<GSAPSVGPattern className="left-0 top-0 h-full w-full opacity-10" variant="tech-grid" />
 			{/* Grid Container wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}
@@ -188,7 +191,11 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 
 					{/* Right Column: Hero Portrait */}
 					<div className="flex items-center justify-center bg-white p-6 sm:p-8 md:p-10 dark:bg-neutral-950">
-						<div className="relative aspect-4/5 w-full max-w-md overflow-hidden border border-neutral-200 bg-[#ea6936] dark:border-neutral-800">
+						<div
+							className="relative aspect-4/5 w-full max-w-md overflow-hidden border border-neutral-200 bg-[#ea6936] dark:border-neutral-800"
+							data-gsap-parallax="true"
+							data-gsap-speed="0.15"
+						>
 							<Image
 								alt={heroData.imageAlt}
 								className="object-cover object-center"

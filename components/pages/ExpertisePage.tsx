@@ -1,6 +1,7 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
+import { GSAPSVGPattern } from "@/components/animations";
 import { getTechnologyLogo } from "@/data/Technology";
 import { getExpertise, getTechnologies } from "@/lib";
 
@@ -16,6 +17,7 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 			data-gsap-stack="true"
 			id="expertise"
 		>
+			<GSAPSVGPattern className="-left-10 bottom-10 h-96 w-96 opacity-15" variant="concentric-rings" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

@@ -74,10 +74,54 @@ export const GSAPScrollProvider: React.FC<GSAPScrollProviderProps> = ({
 							},
 						});
 					}
+
+					// Animate Corner Grid Intersection Node Dots in Each Section
+					const cornerDots = section.querySelectorAll(
+						"span.rounded-full.border",
+					);
+					if (cornerDots.length > 0) {
+						gsap.fromTo(
+							cornerDots,
+							{ scale: 0, opacity: 0 },
+							{
+								scale: 1,
+								opacity: 1,
+								duration: 0.7,
+								stagger: 0.08,
+								ease: "back.out(2)",
+								scrollTrigger: {
+									trigger: section,
+									start: "top 85%",
+									toggleActions: "play none none reverse",
+								},
+							},
+						);
+					}
+
+					// Animate Section Titles with 3D Skew Slide Up
+					const sectionTitles = section.querySelectorAll("h1, h2");
+					sectionTitles.forEach((title: Element) => {
+						gsap.fromTo(
+							title,
+							{ opacity: 0, y: 45, skewY: 2.5 },
+							{
+								opacity: 1,
+								y: 0,
+								skewY: 0,
+								duration: 1,
+								ease: "power4.out",
+								scrollTrigger: {
+									trigger: title,
+									start: "top 88%",
+									toggleActions: "play none none reverse",
+								},
+							},
+						);
+					});
 				});
 			}
 
-			// 3. Reveal Animations for Elements with [data-gsap-reveal]
+			// 3. Element Reveal Animations [data-gsap-reveal]
 			const revealElements = gsap.utils.toArray(
 				"[data-gsap-reveal]",
 			) as HTMLElement[];
@@ -121,7 +165,7 @@ export const GSAPScrollProvider: React.FC<GSAPScrollProviderProps> = ({
 				);
 			});
 
-			// 4. Stagger Animations for Containers with [data-gsap-stagger]
+			// 4. Staggered 3D Card Flip Perspective Animations [data-gsap-stagger]
 			const staggerContainers = gsap.utils.toArray(
 				"[data-gsap-stagger]",
 			) as HTMLElement[];
@@ -134,14 +178,16 @@ export const GSAPScrollProvider: React.FC<GSAPScrollProviderProps> = ({
 				if (children.length > 0) {
 					gsap.fromTo(
 						children,
-						{ opacity: 0, y: 30, scale: 0.96 },
+						{ opacity: 0, y: 40, rotateX: -12, scale: 0.95 },
 						{
 							opacity: 1,
 							y: 0,
+							rotateX: 0,
 							scale: 1,
-							duration: 0.7,
+							duration: 0.8,
 							stagger: 0.08,
-							ease: "power2.out",
+							ease: "power3.out",
+							transformOrigin: "top center",
 							scrollTrigger: {
 								trigger: container,
 								start: "top 82%",
@@ -150,6 +196,26 @@ export const GSAPScrollProvider: React.FC<GSAPScrollProviderProps> = ({
 						},
 					);
 				}
+			});
+
+			// 5. Parallax Scroll Effect for Images & Media [data-gsap-parallax]
+			const parallaxElements = gsap.utils.toArray(
+				"[data-gsap-parallax]",
+			) as HTMLElement[];
+			parallaxElements.forEach((el: HTMLElement) => {
+				const speed = Number.parseFloat(
+					el.getAttribute("data-gsap-speed") || "0.2",
+				);
+				gsap.to(el, {
+					yPercent: speed * 50,
+					ease: "none",
+					scrollTrigger: {
+						trigger: el,
+						start: "top bottom",
+						end: "bottom top",
+						scrub: true,
+					},
+				});
 			});
 
 			// Refresh ScrollTrigger after DOM setup

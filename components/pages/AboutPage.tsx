@@ -1,5 +1,6 @@
 import { IconArrowRight, IconDownload } from "@tabler/icons-react";
 import type React from "react";
+import { GSAPSVGPattern } from "@/components/animations";
 import { Geometric3DPattern } from "@/components/clientComponent";
 import { getCurrentFocus, getHero } from "@/lib/portfolio/queries";
 
@@ -13,6 +14,7 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 			data-gsap-stack="true"
 			id="about"
 		>
+			<GSAPSVGPattern className="left-0 top-0 h-full w-full opacity-15" variant="tech-grid" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}
@@ -38,7 +40,11 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 				{/* 12-Column Sharp Bordered Grid Body */}
 				<div className="grid flex-1 grid-cols-1 items-stretch divide-y divide-neutral-200 border-b border-neutral-200 bg-neutral-50/70 lg:grid-cols-12 lg:divide-y-0 lg:divide-x dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-900/60">
 					{/* Left Column: 3D Geometric Pattern Interactive Canvas (5 Cols) */}
-					<div className="flex flex-col justify-center items-center bg-neutral-50/70 p-6 sm:p-8 lg:col-span-5 lg:p-10 dark:bg-neutral-900/60">
+					<div
+						className="flex flex-col justify-center items-center bg-neutral-50/70 p-6 sm:p-8 lg:col-span-5 lg:p-10 dark:bg-neutral-900/60"
+						data-gsap-parallax="true"
+						data-gsap-speed="0.1"
+					>
 						<Geometric3DPattern />
 					</div>
 

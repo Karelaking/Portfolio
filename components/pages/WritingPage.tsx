@@ -1,6 +1,7 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactElement } from "react";
+import { GSAPSVGPattern } from "@/components/animations";
 import { getWritingPosts } from "@/lib";
 import { WritingPostsGrid } from "../clientComponent/writing-posts-grid";
 
@@ -19,6 +20,8 @@ export const WritingPage = async ({
 			data-gsap-stack="true"
 			id="writing"
 		>
+			<GSAPSVGPattern className="right-4 top-4 h-80 w-80 opacity-20" variant="crosshair-accent" />
+			<GSAPSVGPattern className="left-4 bottom-8 h-64 w-80 opacity-25" variant="leaf-petal" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

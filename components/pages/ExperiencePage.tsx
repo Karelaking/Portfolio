@@ -1,5 +1,6 @@
 import { IconCheck, IconDownload } from "@tabler/icons-react";
 import type React from "react";
+import { GSAPSVGPattern } from "@/components/animations";
 import { getExperience } from "@/lib/portfolio/queries";
 import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
 
@@ -12,6 +13,7 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 			data-gsap-stack="true"
 			id="experience"
 		>
+			<GSAPSVGPattern className="left-4 top-0 h-full w-24 opacity-25" variant="timeline-path" />
 			{/* Grid Container Wrapper */}
 			<div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Section Header Row */}
