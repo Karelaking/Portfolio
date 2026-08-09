@@ -8,13 +8,17 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 
 	return (
 		<section
-			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-100"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900/90 dark:text-neutral-100"
+			data-gsap-stack="true"
 			id="experience"
 		>
 			{/* Grid Container Wrapper */}
 			<div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Section Header Row */}
-				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-neutral-50/70 px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-900/60">
+				<header
+					className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-neutral-50/70 px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-900/60"
+					data-gsap-reveal="fade-up"
+				>
 					<div>
 						<h2 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl dark:text-white">
 							PROFESSIONAL CAREER & ENGINEERING ROLES.
@@ -26,7 +30,10 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 				</header>
 
 				{/* 2-Column Sharp Bordered Grid Layout */}
-				<div className="grid flex-1 grid-cols-1 md:grid-cols-2 border-b border-neutral-200 bg-neutral-50/70 dark:border-neutral-800 dark:bg-neutral-900/60">
+				<div
+					className="grid flex-1 grid-cols-1 md:grid-cols-2 border-b border-neutral-200 bg-neutral-50/70 dark:border-neutral-800 dark:bg-neutral-900/60"
+					data-gsap-stagger="true"
+				>
 					{experienceList.map((item, idx) => {
 						const formattedIndex = String(idx + 1).padStart(2, "0");
 						const isCurrent = item.period.toLowerCase().includes("present") || item.period.toLowerCase().includes("current");

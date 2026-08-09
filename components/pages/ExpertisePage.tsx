@@ -12,7 +12,8 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 
 	return (
 		<section
-			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+			data-gsap-stack="true"
 			id="expertise"
 		>
 			{/* Grid Container Wrapper */}
@@ -23,7 +24,10 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 				{/* Section Header Row */}
-				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-950">
+				<header
+					className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-950"
+					data-gsap-reveal="fade-up"
+				>
 					<div>
 						<h2 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl dark:text-white">
 							ENGINEERING PILLARS & CORE TECHNOLOGIES.
@@ -36,7 +40,10 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 
 				{/* Part 1: Core Domain Pillars Grid */}
 				<div className="border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
-					<div className="grid grid-cols-1 divide-y divide-neutral-200 sm:grid-cols-2 lg:grid-cols-4 sm:divide-y-0 sm:divide-x items-stretch dark:divide-neutral-800">
+					<div
+						className="grid grid-cols-1 divide-y divide-neutral-200 sm:grid-cols-2 lg:grid-cols-4 sm:divide-y-0 sm:divide-x items-stretch dark:divide-neutral-800"
+						data-gsap-stagger="true"
+					>
 						{expertisePillars.map((pillar, idx) => {
 							const formattedIndex = String(idx + 1).padStart(2, "0");
 

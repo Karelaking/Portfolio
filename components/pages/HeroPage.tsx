@@ -40,7 +40,11 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 	]);
 
 	return (
-		<section className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between border-b border-neutral-200 bg-white text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100">
+		<section
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between border-b border-neutral-200 bg-white text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+			data-gsap-stack="true"
+			id="hero"
+		>
 			{/* Grid Container wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

@@ -102,7 +102,7 @@ export default async function WritingPostDetailPage({
 				</header>
 
 				{/* Cover Image Banner */}
-				<div className="relative w-full aspect-16/9 max-h-[480px] overflow-hidden border-b border-neutral-200 bg-neutral-900 dark:border-neutral-800">
+				<div className="relative w-full aspect-video max-h-120 overflow-hidden border-b border-neutral-200 bg-neutral-900 dark:border-neutral-800">
 					<Image
 						alt={post.coverImageAlt}
 						className="h-full w-full object-cover"

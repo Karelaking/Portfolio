@@ -4,9 +4,16 @@ import type React from "react";
 
 export const CtaPage = (): React.ReactElement => {
 	return (
-		<section className="relative flex w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-100">
+		<section
+			className="relative flex w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900/90 dark:text-neutral-100"
+			data-gsap-stack="true"
+			id="cta"
+		>
 			{/* Grid Container Wrapper with Full-Height Vertical Borders & Generous Inner Padding */}
-			<div className="group relative mx-auto flex w-full max-w-7xl flex-col items-center justify-center border-x border-neutral-200 bg-neutral-50/70 px-6 py-10 text-center sm:px-10 sm:py-18 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/60">
+			<div
+				className="group relative mx-auto flex w-full max-w-7xl flex-col items-center justify-center border-x border-neutral-200 bg-neutral-50/70 px-6 py-10 text-center sm:px-10 sm:py-18 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/60"
+				data-gsap-reveal="zoom-in"
+			>
 				{/* Corner Node Dots at Grid Line Intersections */}
 				<span className="absolute -top-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 				<span className="absolute -top-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />

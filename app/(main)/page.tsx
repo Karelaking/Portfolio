@@ -33,18 +33,22 @@ export const metadata: Metadata = {
 	},
 };
 
+import { GSAPScrollProvider } from "@/components/animations";
+
 const page = (): React.JSX.Element => (
-	<div className="bg-transparent px-0">
-		<HeroPage />
-		<AboutPage />
-		<ExpertisePage />
-		<ExperiencePage />
-		<ProjectsPage />
-		<WritingPage />
-		<GalleryPage />
-		<CtaPage />
-		<ContactPage />
-	</div>
+	<GSAPScrollProvider>
+		<div className="bg-neutral-950 px-0 relative">
+			<HeroPage />
+			<AboutPage />
+			<ExpertisePage />
+			<ExperiencePage />
+			<ProjectsPage />
+			<WritingPage />
+			<GalleryPage />
+			<CtaPage />
+			<ContactPage />
+		</div>
+	</GSAPScrollProvider>
 );
 
 export default page;
