@@ -1,6 +1,6 @@
 import { IconArrowRight, IconDownload } from "@tabler/icons-react";
-import Image from "next/image";
 import type React from "react";
+import { Geometric3DPattern } from "@/components/clientComponent";
 import { getCurrentFocus, getHero } from "@/lib/portfolio/queries";
 
 export const AboutPage = async (): Promise<React.ReactElement> => {
@@ -22,11 +22,8 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 				{/* Section Header Row */}
 				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-neutral-50/70 px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-900/60">
 					<div>
-						<span className="mb-2 block font-semibold text-xs text-neutral-500 tracking-[0.3em] uppercase dark:text-neutral-400">
-							// 01 . ABOUT ME
-						</span>
 						<h2 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl dark:text-white">
-							ENGINEERING WITH PURPOSE & DISCIPLINE.
+							ENGINEERING WITH PURPOSE & DISCIPLINE
 						</h2>
 						<p className="mt-3 max-w-2xl font-normal text-base text-neutral-600 leading-relaxed sm:text-lg dark:text-neutral-400">
 							I build full-stack systems where disciplined UI meets pragmatic backend engineering. Clean UX, reliable APIs, and long-term maintainability.
@@ -36,19 +33,9 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 
 				{/* 12-Column Sharp Bordered Grid Body */}
 				<div className="grid flex-1 grid-cols-1 items-stretch divide-y divide-neutral-200 border-b border-neutral-200 bg-neutral-50/70 lg:grid-cols-12 lg:divide-y-0 lg:divide-x dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-900/60">
-					{/* Left Column: Hero Portrait (5 Cols) */}
-					<div className="flex flex-col justify-center items-center bg-neutral-50/70 p-6 sm:p-10 lg:col-span-5 lg:p-12 dark:bg-neutral-900/60">
-						{/* Hero Portrait Frame */}
-						<div className="relative aspect-4/5 w-full max-w-sm overflow-hidden border border-neutral-200 bg-[#ea6936] dark:border-neutral-800">
-							<Image
-								alt={heroData.imageAlt || "Mradul Katiyar Portrait"}
-								className="object-cover object-center"
-								fill
-								priority
-								sizes="(max-width: 768px) 100vw, 400px"
-								src={heroData.imageSrc}
-							/>
-						</div>
+					{/* Left Column: 3D Geometric Pattern Interactive Canvas (5 Cols) */}
+					<div className="flex flex-col justify-center items-center bg-neutral-50/70 p-6 sm:p-8 lg:col-span-5 lg:p-10 dark:bg-neutral-900/60">
+						<Geometric3DPattern />
 					</div>
 
 					{/* Right Column: Background & Current Focus (7 Cols) */}

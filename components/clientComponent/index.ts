@@ -61,3 +61,4 @@ export {
 	type WritingFormValues,
 } from "./writing-form";
 export { ZoomHollowText } from "./zoom-hollow";
+export { Geometric3DPattern } from "./geometric-3d-pattern";
