@@ -1,7 +1,7 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
-import { GSAPSVGPattern } from "@/components/animations";
+import { GSAPEmptySpaceDecorations, GSAPSVGPattern } from "@/components/animations";
 import { getGalleryImages } from "@/lib/portfolio/queries";
 import { GalleryGrid } from "../clientComponent";
 
@@ -18,6 +18,7 @@ export const GalleryPage = async (): Promise<React.ReactElement> => {
 		>
 			<GSAPSVGPattern className="-right-10 bottom-8 h-80 w-80 opacity-15" variant="concentric-rings" />
 			<GSAPSVGPattern className="-left-10 top-12 h-72 w-72 opacity-25" variant="flower-mandala" />
+			<GSAPEmptySpaceDecorations section="gallery" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

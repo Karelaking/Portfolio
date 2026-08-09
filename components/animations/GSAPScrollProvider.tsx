@@ -61,9 +61,9 @@ export const GSAPScrollProvider: React.FC<GSAPScrollProviderProps> = ({
 
 					if (nextSection) {
 						gsap.to(section, {
-							scale: 0.94,
-							opacity: 0.4,
-							filter: "blur(4px)",
+							scale: 0.96,
+							opacity: 0.7,
+							filter: "blur(2px)",
 							transformOrigin: "top center",
 							ease: "none",
 							scrollTrigger: {

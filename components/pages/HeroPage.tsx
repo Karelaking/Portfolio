@@ -13,7 +13,7 @@ import Link from "next/link";
 import type React from "react";
 import { getHero, getSocialLinks } from "@/lib/portfolio/queries";
 import type { SocialLink } from "@/types/social-link.interface";
-import { GSAPSVGPattern } from "@/components/animations";
+import { GSAPEmptySpaceDecorations, GSAPSVGPattern } from "@/components/animations";
 import { CountUpValue, ThemeToggle, ZoomHollowText } from "../clientComponent";
 
 const getSocialIcon = (platform: string): React.ReactElement => {
@@ -46,8 +46,9 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 			data-gsap-stack="true"
 			id="hero"
 		>
-			<GSAPSVGPattern className="-right-10 top-10 h-112 w-112 opacity-20" variant="concentric-rings" />
+			<GSAPSVGPattern className="-right-10 top-10 h-112 w-md opacity-20" variant="concentric-rings" />
 			<GSAPSVGPattern className="left-0 top-0 h-full w-full opacity-10" variant="tech-grid" />
+			<GSAPEmptySpaceDecorations section="hero" />
 			{/* Grid Container wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

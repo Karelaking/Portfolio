@@ -1,7 +1,7 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type { ReactElement } from "react";
-import { GSAPSVGPattern } from "@/components/animations";
+import { GSAPEmptySpaceDecorations, GSAPSVGPattern } from "@/components/animations";
 import { getWritingPosts } from "@/lib";
 import { WritingPostsGrid } from "../clientComponent/writing-posts-grid";
 
@@ -16,12 +16,13 @@ export const WritingPage = async ({
 
 	return (
 		<section
-			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900/90 dark:text-neutral-100"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
 			data-gsap-stack="true"
 			id="writing"
 		>
 			<GSAPSVGPattern className="right-4 top-4 h-80 w-80 opacity-20" variant="crosshair-accent" />
 			<GSAPSVGPattern className="left-4 bottom-8 h-64 w-80 opacity-25" variant="leaf-petal" />
+			<GSAPEmptySpaceDecorations section="writing" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

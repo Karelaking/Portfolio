@@ -1,7 +1,7 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
-import { GSAPSVGPattern } from "@/components/animations";
+import { GSAPEmptySpaceDecorations, GSAPSVGPattern } from "@/components/animations";
 import { getProjects } from "@/lib/portfolio/queries";
 import { ProjectsGrid } from "../clientComponent";
 
@@ -17,6 +17,7 @@ export const ProjectsPage = async (): Promise<React.ReactElement> => {
 			id="projects"
 		>
 			<GSAPSVGPattern className="-right-10 top-0 h-96 w-96 opacity-15" variant="geometric-mesh" />
+			<GSAPEmptySpaceDecorations section="projects" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

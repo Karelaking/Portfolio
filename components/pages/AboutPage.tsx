@@ -1,6 +1,6 @@
 import { IconArrowRight, IconDownload } from "@tabler/icons-react";
 import type React from "react";
-import { GSAPSVGPattern } from "@/components/animations";
+import { GSAPEmptySpaceDecorations, GSAPSVGPattern } from "@/components/animations";
 import { Geometric3DPattern } from "@/components/clientComponent";
 import { getCurrentFocus, getHero } from "@/lib/portfolio/queries";
 
@@ -10,11 +10,12 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 
 	return (
 		<section
-			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900/90 dark:text-neutral-100"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
 			data-gsap-stack="true"
 			id="about"
 		>
 			<GSAPSVGPattern className="left-0 top-0 h-full w-full opacity-15" variant="tech-grid" />
+			<GSAPEmptySpaceDecorations section="about" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}

@@ -1,6 +1,6 @@
 import { IconCheck, IconDownload } from "@tabler/icons-react";
 import type React from "react";
-import { GSAPSVGPattern } from "@/components/animations";
+import { GSAPEmptySpaceDecorations, GSAPSVGPattern } from "@/components/animations";
 import { getExperience } from "@/lib/portfolio/queries";
 import { splitExperienceHighlights } from "@/lib/portfolio/experience-tech";
 
@@ -9,11 +9,12 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 
 	return (
 		<section
-			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900/90 dark:text-neutral-100"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50 text-neutral-900 shadow-2xl transition-all duration-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
 			data-gsap-stack="true"
 			id="experience"
 		>
 			<GSAPSVGPattern className="left-4 top-0 h-full w-24 opacity-25" variant="timeline-path" />
+			<GSAPEmptySpaceDecorations section="experience" />
 			{/* Grid Container Wrapper */}
 			<div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Section Header Row */}

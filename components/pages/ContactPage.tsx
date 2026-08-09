@@ -1,7 +1,7 @@
 import { IconArrowUp, IconArrowUpRight, IconMail, IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
 import type React from "react";
-import { GSAPSVGPattern } from "@/components/animations";
+import { GSAPEmptySpaceDecorations, GSAPSVGPattern } from "@/components/animations";
 import { getSocialLinks } from "@/lib/portfolio/queries";
 import type { SocialLink as SocialLinkType } from "@/types";
 import { ContactForm } from "../clientComponent";
@@ -16,6 +16,7 @@ export const ContactPage = async (): Promise<React.ReactElement> => {
 			id="contact"
 		>
 			<GSAPSVGPattern className="left-0 top-0 h-full w-full opacity-15" variant="tech-grid" />
+			<GSAPEmptySpaceDecorations section="contact" />
 			{/* Grid Container Wrapper */}
 			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}
