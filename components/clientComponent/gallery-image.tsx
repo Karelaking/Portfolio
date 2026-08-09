@@ -59,7 +59,7 @@ export const GalleryImage = ({
 		<>
 			<motion.div
 				className={cn(
-					"group relative w-full overflow-hidden border-b border-r border-neutral-200 bg-black cursor-pointer rounded-none",
+					"group relative w-full overflow-hidden border-b border-r border-neutral-200 bg-black cursor-pointer rounded-none dark:border-neutral-800",
 					isLandscape ? "sm:col-span-2" : "col-span-1"
 				)}
 				initial={{ opacity: 0, y: 20 }}

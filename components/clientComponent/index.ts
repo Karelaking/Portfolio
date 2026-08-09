@@ -60,3 +60,4 @@ export {
 	type WritingFormProps,
 	type WritingFormValues,
 } from "./writing-form";
+export { ZoomHollowText } from "./zoom-hollow";

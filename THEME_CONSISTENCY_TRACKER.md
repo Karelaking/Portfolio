@@ -144,16 +144,27 @@ Use these conventions instead of redefining per component.
 
 ---
 
+## Neutral Text Color Hierarchy Scale
+
+| Hierarchy Level | Light Mode Class | Dark Mode Class | Best Used For |
+| :--- | :--- | :--- | :--- |
+| **Level 1 (Primary)** | `text-neutral-900` | `dark:text-neutral-100` / `dark:text-white` | Page titles (`h1`), section headings (`h2`), card names |
+| **Level 2 (Secondary)** | `text-neutral-700` | `dark:text-neutral-300` | Section titles (`h3`), lead paragraphs, key body copy |
+| **Level 3 (Tertiary)** | `text-neutral-600` / `text-neutral-500` | `dark:text-neutral-400` | Subtitles, description copy, metadata labels, tag text |
+| **Level 4 (Muted)** | `text-neutral-400` | `dark:text-neutral-500` | Section comments (`// 01`), timestamps, grid brackets `[01]` |
+
+---
+
 ## Quick token usage map (recommended)
 
 | Use case        | Preferred classes                              |
 | --------------- | ---------------------------------------------- |
-| Page background | `bg-background`                                |
-| Card surface    | `bg-card border border-border/70`              |
-| Primary text    | `text-foreground`                              |
-| Secondary text  | `text-muted-foreground`                        |
+| Page background | `bg-white dark:bg-neutral-950` / `bg-background` |
+| Section borders | `border-neutral-200 dark:border-neutral-800` / `border-border` |
+| Primary text    | `text-neutral-900 dark:text-white` / `text-foreground` |
+| Secondary text  | `text-neutral-600 dark:text-neutral-400` / `text-muted-foreground` |
 | Focus ring      | `focus-visible:ring-1 focus-visible:ring-ring` |
-| Input shell     | `bg-background border border-input`            |
+| Input shell     | `bg-neutral-50 border-neutral-200 dark:bg-neutral-900 dark:border-neutral-800` |
 | Subtle accents  | `bg-accent text-accent-foreground`             |
 
 ---

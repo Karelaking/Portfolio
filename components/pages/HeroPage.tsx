@@ -14,7 +14,7 @@ import Link from "next/link";
 import type React from "react";
 import { getHero, getSocialLinks } from "@/lib/portfolio/queries";
 import type { SocialLink } from "@/types/social-link.interface";
-import { CountUpValue, HeaderMenuPopover, ThemeToggle } from "../clientComponent";
+import { CountUpValue, HeaderMenuPopover, ThemeToggle, ZoomHollowText } from "../clientComponent";
 
 const getSocialIcon = (platform: string): React.ReactElement => {
 	switch (platform.toLowerCase()) {
@@ -41,23 +41,33 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 	]);
 
 	return (
-		<section className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between border-b border-neutral-200 bg-white text-neutral-900">
+		<section className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between border-b border-neutral-200 bg-white text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100">
 			{/* Grid Container wrapper */}
-			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200">
+			<div className="group relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}
-				<span className="absolute -top-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-				<span className="absolute -top-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+				<span className="absolute -top-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+				<span className="absolute -top-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 				{/* Main Hero Body (2 Columns) */}
 				<div className="grid flex-1 items-stretch lg:grid-cols-[1.1fr_0.9fr]">
 					{/* Left Column */}
-					<div className="flex flex-col justify-between border-neutral-200 border-r-0 lg:border-r">
+					<div className="flex flex-col justify-between border-neutral-200 border-r-0 lg:border-r dark:border-neutral-800">
 						<div className="p-6 sm:p-10 md:p-12 lg:p-14">
-							<p className="font-medium text-lg text-neutral-900 tracking-tight sm:text-xl md:text-2xl uppercase">
-								{heroData.title}
-							</p>
-							<h1 className="mt-3 font-extrabold text-4xl text-neutral-900 tracking-tight leading-[1.1] sm:mt-4 sm:text-5xl md:text-6xl capitalize">
+							<div className="flex flex-wrap items-center gap-x-2.5 font-medium text-lg text-neutral-900 tracking-tight sm:text-xl md:text-2xl uppercase dark:text-neutral-100">
+								<span>{heroData.title}</span>
+								<span className="font-mono text-neutral-400 dark:text-neutral-500">—</span>
+								<ZoomHollowText
+									className="font-mono font-extrabold text-neutral-900 tracking-wider uppercase dark:text-neutral-100"
+									duration={0.7}
+									fillColor="transparent"
+									interval={2200}
+									strokeColor="var(--color-foreground)"
+									strokeWidth={1.8}
+									words={["FULL-STACK", "ENGINEER", "ARCHITECT", "BUILDER"]}
+								/>
+							</div>
+							<h1 className="mt-3 font-extrabold text-4xl text-neutral-900 tracking-tight leading-[1.1] sm:mt-4 sm:text-5xl md:text-6xl capitalize dark:text-white">
 								{heroData.description}
 								<span className="relative inline-block h-9 w-24 overflow-hidden rounded-full align-middle sm:h-12 sm:w-36 ml-6">
 									<video
@@ -73,14 +83,14 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 									</video>
 								</span>
 							</h1>
-							<p className="mt-6 max-w-lg font-normal text-base text-neutral-500 leading-relaxed sm:text-lg">
+							<p className="mt-6 max-w-lg font-normal text-base text-neutral-600 leading-relaxed sm:text-lg dark:text-neutral-400">
 								{heroData.subtitle}
 							</p>
 							<Link
-								className="group mt-8 inline-flex items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900 sm:mt-10"
+								className="group mt-8 inline-flex items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900 sm:mt-10 dark:bg-white dark:hover:bg-neutral-200"
 								href="#projects"
 							>
-								<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-sm text-white sm:text-base">
+								<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-sm text-white sm:text-base dark:text-black">
 									<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
 										Check Projects
 									</span>
@@ -88,7 +98,7 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 										Check Projects
 									</span>
 								</span>
-								<span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs">
+								<span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs dark:bg-black dark:text-white">
 									<span className="inline-flex transition-transform duration-300 group-hover:translate-x-6 group-hover:-translate-y-6">
 										<IconArrowUpRight size={18} />
 									</span>
@@ -100,22 +110,22 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 						</div>
 
 						{/* Metrics Section (Full-Bleed 3-Column Grid) */}
-						<div className="w-full border-t border-b border-neutral-200 bg-white">
+						<div className="w-full border-t border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
 							<div className="grid grid-cols-3">
 								{heroData.metrics.map((metric) => (
 									<div
-										className="flex flex-col justify-center border-r border-neutral-200 px-3 py-5 sm:px-8 sm:py-8 last:border-r-0 transition hover:bg-neutral-50/60"
+										className="flex flex-col justify-center border-r border-neutral-200 px-3 py-5 sm:px-8 sm:py-8 last:border-r-0 transition hover:bg-neutral-50/60 dark:border-neutral-800 dark:hover:bg-neutral-900/60"
 										key={metric.label}
 									>
 										<div className="flex items-center gap-1.5 sm:gap-2">
-											<span className="font-extrabold text-2xl text-neutral-900 tracking-tight sm:text-4xl md:text-5xl">
+											<span className="font-extrabold text-2xl text-neutral-900 tracking-tight sm:text-4xl md:text-5xl dark:text-neutral-100">
 												<CountUpValue value={metric.value} />
 											</span>
-											<span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100/90 font-bold text-emerald-600 text-[10px] shadow-2xs sm:h-7 sm:w-7 sm:text-xs">
+											<span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100/90 font-bold text-emerald-600 text-[10px] shadow-2xs sm:h-7 sm:w-7 sm:text-xs dark:bg-emerald-950/80 dark:text-emerald-400">
 												<IconArrowUp size={14} />
 											</span>
 										</div>
-										<span className="mt-1.5 font-semibold text-[10px] text-neutral-500 uppercase tracking-wider sm:text-sm">
+										<span className="mt-1.5 font-semibold text-[10px] text-neutral-500 uppercase tracking-wider sm:text-sm dark:text-neutral-400">
 											{metric.label}
 										</span>
 									</div>
@@ -125,8 +135,8 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 					</div>
 
 					{/* Right Column: Hero Portrait */}
-					<div className="flex items-center justify-center bg-white p-6 sm:p-8 md:p-10">
-						<div className="relative aspect-4/5 w-full max-w-md overflow-hidden  border border-neutral-200 bg-[#ea6936]">
+					<div className="flex items-center justify-center bg-white p-6 sm:p-8 md:p-10 dark:bg-neutral-950">
+						<div className="relative aspect-4/5 w-full max-w-md overflow-hidden border border-neutral-200 bg-[#ea6936] dark:border-neutral-800">
 							<Image
 								alt={heroData.imageAlt}
 								className="object-cover object-center"
@@ -140,8 +150,8 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 				</div>
 
 				{/* Bottom Toolbar Sub-bar */}
-				<div className="flex flex-wrap items-center justify-between gap-4 border-neutral-200 border-t px-6 py-4 sm:px-10">
-					<p className="font-medium text-xs text-neutral-800 sm:text-sm">
+				<div className="flex flex-wrap items-center justify-between gap-4 border-neutral-200 border-t px-6 py-4 sm:px-10 dark:border-neutral-800">
+					<p className="font-medium text-xs text-neutral-800 sm:text-sm dark:text-neutral-300">
 						{heroData.availability || "Develop, Deploy & Debug"}
 					</p>
 
@@ -149,7 +159,7 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 						{socialLinks.map((link: SocialLink) => (
 							<a
 								aria-label={link.label}
-								className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-neutral-700 hover:border-black hover:bg-neutral-100 transition"
+								className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-neutral-700 hover:border-black hover:bg-neutral-100 transition dark:border-neutral-800 dark:text-neutral-300 dark:hover:border-white dark:hover:bg-neutral-900"
 								href={link.href}
 								key={link.id}
 								rel="noopener noreferrer"
@@ -159,7 +169,7 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 							</a>
 						))}
 						<a
-							className="rounded-full border border-neutral-200 px-5 py-2 font-medium text-xs text-neutral-800 hover:border-black hover:bg-neutral-100 transition sm:text-sm"
+							className="rounded-full border border-neutral-200 px-5 py-2 font-medium text-xs text-neutral-800 hover:border-black hover:bg-neutral-100 transition sm:text-sm dark:border-neutral-800 dark:text-neutral-200 dark:hover:border-white dark:hover:bg-neutral-900"
 							href="#contact"
 						>
 							Download Resume

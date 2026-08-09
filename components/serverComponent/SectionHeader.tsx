@@ -17,14 +17,14 @@ export const SectionHeader = ({
 
 	return (
 		<div className="flex flex-col gap-3">
-			<p className="text-muted-foreground text-xs uppercase tracking-[0.4em]">
+			<p className="font-semibold text-xs text-neutral-500 uppercase tracking-[0.4em] dark:text-neutral-400">
 				{label}
 			</p>
-			<HeadingTag className="font-extrabold font-instrument-sans text-3xl text-neutral-600 leading-8 tracking-wider sm:text-6xl sm:leading-14 sm:tracking-wide dark:text-neutral-200">
+			<HeadingTag className="font-extrabold font-instrument-sans text-3xl text-neutral-900 leading-8 tracking-wider sm:text-6xl sm:leading-14 sm:tracking-wide dark:text-neutral-100">
 				{title}
 			</HeadingTag>
 			{copy ? (
-				<p className="max-w-2xl font-sans text-neutral-400 text-sm sm:text-base">
+				<p className="max-w-2xl font-sans text-neutral-600 text-sm sm:text-base dark:text-neutral-400">
 					{copy}
 				</p>
 			) : null}

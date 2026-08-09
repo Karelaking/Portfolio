@@ -41,10 +41,10 @@ export const HeaderMenuPopover = (): React.ReactElement => {
 	return (
 		<div className="relative" ref={menuRef}>
 			{/* Combined Pill Container (Hire me CTA + Menu Toggle) */}
-			<div className="inline-flex items-center rounded-full bg-black p-1 sm:p-1.5 shadow-sm">
+			<div className="inline-flex items-center rounded-full bg-black p-1 sm:p-1.5 shadow-sm dark:bg-neutral-900 dark:border dark:border-neutral-800">
 				{/* Inner White Pill Action Button */}
 				<Link
-					className="group/hire inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-1.5 sm:px-5 sm:py-2 font-medium text-xs text-neutral-900 transition hover:bg-neutral-100 sm:text-sm whitespace-nowrap"
+					className="group/hire inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-1.5 sm:px-5 sm:py-2 font-medium text-xs text-neutral-900 transition hover:bg-neutral-100 sm:text-sm whitespace-nowrap dark:bg-white dark:text-black dark:hover:bg-neutral-200"
 					href="#contact"
 				>
 					<span>Hire me</span>
@@ -62,7 +62,7 @@ export const HeaderMenuPopover = (): React.ReactElement => {
 				<button
 					aria-expanded={isOpen}
 					aria-label="Toggle navigation menu"
-					className="flex h-7 w-7 sm:h-8 sm:w-8 cursor-pointer items-center justify-center rounded-full text-white hover:bg-neutral-800 transition"
+					className="flex h-7 w-7 sm:h-8 sm:w-8 cursor-pointer items-center justify-center rounded-full text-white hover:bg-neutral-800 transition dark:hover:bg-neutral-800"
 					onClick={(): void => setIsOpen((prev) => !prev)}
 					type="button"
 				>
@@ -74,19 +74,19 @@ export const HeaderMenuPopover = (): React.ReactElement => {
 				<>
 					{/* Mobile backdrop overlay */}
 					<div
-						className="fixed inset-0 z-40 bg-black/20 backdrop-blur-2xs sm:hidden"
+						className="fixed inset-0 z-40 bg-black/40 backdrop-blur-2xs sm:hidden"
 						onClick={(): void => setIsOpen(false)}
 					/>
 
 					{/* Menu popover card */}
-					<div className="fixed inset-x-4 top-16 z-50 max-h-[80vh] overflow-y-auto rounded-3xl border border-neutral-100 bg-white p-5 shadow-2xl animate-in fade-in zoom-in-95 duration-150 sm:absolute sm:inset-x-auto sm:right-0 sm:top-14 sm:w-80 sm:p-6">
-						<div className="flex items-center justify-between pb-3 border-b border-neutral-100">
-							<span className="font-medium text-neutral-500 text-xs sm:text-sm">
+					<div className="fixed inset-x-4 top-16 z-50 max-h-[80vh] overflow-y-auto rounded-3xl border border-neutral-200 bg-white p-5 shadow-2xl animate-in fade-in zoom-in-95 duration-150 sm:absolute sm:inset-x-auto sm:right-0 sm:top-14 sm:w-80 sm:p-6 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white">
+						<div className="flex items-center justify-between pb-3 border-b border-neutral-200 dark:border-neutral-800">
+							<span className="font-medium text-neutral-500 text-xs sm:text-sm dark:text-neutral-400">
 								Menu
 							</span>
 							<button
 								aria-label="Close menu"
-								className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-neutral-200 transition"
+								className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-neutral-200 transition dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800"
 								onClick={(): void => setIsOpen(false)}
 								type="button"
 							>
@@ -97,15 +97,15 @@ export const HeaderMenuPopover = (): React.ReactElement => {
 							{navLinks.map((link, index) => (
 								<Link
 									className={cn(
-										"flex items-center gap-2 font-medium text-neutral-700 text-base sm:text-xl transition hover:text-neutral-900",
-										index === 0 && "font-bold text-neutral-900 text-lg sm:text-2xl"
+										"flex items-center gap-2 font-medium text-neutral-700 text-base sm:text-xl transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white",
+										index === 0 && "font-bold text-neutral-900 text-lg sm:text-2xl dark:text-white"
 									)}
 									href={link.href}
 									key={link.href}
 									onClick={(): void => setIsOpen(false)}
 								>
 									{index === 0 && (
-										<span className="font-normal text-neutral-400">—</span>
+										<span className="font-normal text-neutral-400 dark:text-neutral-500">—</span>
 									)}
 									{link.label}
 								</Link>

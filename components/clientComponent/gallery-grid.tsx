@@ -37,7 +37,7 @@ export const GalleryGrid = ({ images }: GalleryGridProps): ReactElement => {
 	};
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 bg-white">
+		<div className="grid grid-cols-1 sm:grid-cols-2 bg-white dark:bg-neutral-950">
 			{packedImages.map((image, idx) => (
 				<GalleryImage
 					alt={image.alt}

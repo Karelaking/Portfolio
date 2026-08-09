@@ -54,34 +54,34 @@ export const ContactForm = (): ReactElement => {
 		<form className="grid gap-6" onSubmit={handleSubmit(onSubmit)}>
 			<div className="grid gap-2">
 				<label
-					className="font-mono text-xs font-semibold text-neutral-400 tracking-widest uppercase"
+					className="font-mono text-xs font-semibold text-neutral-500 tracking-widest uppercase dark:text-neutral-400"
 					htmlFor="contact-name"
 				>
 					YOUR NAME *
 				</label>
 				<input
 					aria-invalid={Boolean(errors.name)}
-					className="h-12 w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white"
+					className="h-12 w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white dark:border-neutral-800 dark:bg-neutral-900 dark:text-white dark:placeholder:text-neutral-500 dark:focus:border-white dark:focus:bg-neutral-950"
 					id="contact-name"
 					placeholder="e.g. John Doe"
 					{...register("name", { required: "Name is required." })}
 					type="text"
 				/>
 				{errors.name ? (
-					<p className="font-mono text-xs text-red-600">{errors.name.message}</p>
+					<p className="font-mono text-xs text-red-600 dark:text-red-400">{errors.name.message}</p>
 				) : null}
 			</div>
 
 			<div className="grid gap-2">
 				<label
-					className="font-mono text-xs font-semibold text-neutral-400 tracking-widest uppercase"
+					className="font-mono text-xs font-semibold text-neutral-500 tracking-widest uppercase dark:text-neutral-400"
 					htmlFor="contact-email"
 				>
 					YOUR EMAIL *
 				</label>
 				<input
 					aria-invalid={Boolean(errors.email)}
-					className="h-12 w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white"
+					className="h-12 w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white dark:border-neutral-800 dark:bg-neutral-900 dark:text-white dark:placeholder:text-neutral-500 dark:focus:border-white dark:focus:bg-neutral-950"
 					id="contact-email"
 					placeholder="e.g. john@example.com"
 					{...register("email", {
@@ -94,20 +94,20 @@ export const ContactForm = (): ReactElement => {
 					type="email"
 				/>
 				{errors.email ? (
-					<p className="font-mono text-xs text-red-600">{errors.email.message}</p>
+					<p className="font-mono text-xs text-red-600 dark:text-red-400">{errors.email.message}</p>
 				) : null}
 			</div>
 
 			<div className="grid gap-2">
 				<label
-					className="font-mono text-xs font-semibold text-neutral-400 tracking-widest uppercase"
+					className="font-mono text-xs font-semibold text-neutral-500 tracking-widest uppercase dark:text-neutral-400"
 					htmlFor="contact-message"
 				>
 					PROJECT DETAILS *
 				</label>
 				<textarea
 					aria-invalid={Boolean(errors.message)}
-					className="min-h-35 w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 py-3 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white"
+					className="min-h-35 w-full rounded-none border border-neutral-200 bg-neutral-50 px-4 py-3 font-normal text-neutral-900 text-sm outline-none transition focus:border-black focus:bg-white dark:border-neutral-800 dark:bg-neutral-900 dark:text-white dark:placeholder:text-neutral-500 dark:focus:border-white dark:focus:bg-neutral-950"
 					id="contact-message"
 					placeholder="Tell me about your project goals, timelines, or key requirements..."
 					{...register("message", {
@@ -115,17 +115,17 @@ export const ContactForm = (): ReactElement => {
 					})}
 				/>
 				{errors.message ? (
-					<p className="font-mono text-xs text-red-600">{errors.message.message}</p>
+					<p className="font-mono text-xs text-red-600 dark:text-red-400">{errors.message.message}</p>
 				) : null}
 			</div>
 
 			<div className="pt-2">
 				<button
-					className="group inline-flex cursor-pointer items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900 disabled:cursor-not-allowed disabled:opacity-60"
+					className="group inline-flex cursor-pointer items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:hover:bg-neutral-200"
 					disabled={isPending}
 					type="submit"
 				>
-					<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-xs text-white tracking-wider uppercase sm:text-sm">
+					<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-xs text-white tracking-wider uppercase sm:text-sm dark:text-black">
 						<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
 							{isPending ? "Sending Message..." : "Send Message"}
 						</span>
@@ -133,7 +133,7 @@ export const ContactForm = (): ReactElement => {
 							{isPending ? "Sending Message..." : "Send Message"}
 						</span>
 					</span>
-					<span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs">
+					<span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs dark:bg-black dark:text-white">
 						{isPending ? (
 							<IconLoader2 className="animate-spin" size={16} />
 						) : (

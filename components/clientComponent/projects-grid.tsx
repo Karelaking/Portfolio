@@ -15,14 +15,14 @@ export const ProjectsGrid = ({ projects }: ProjectsGridProps): ReactElement => {
 	const shouldReduceMotion = useReducedMotion();
 
 	return (
-		<div className="flex flex-col divide-y divide-neutral-200 border-b border-neutral-200 bg-white">
+		<div className="flex flex-col divide-y divide-neutral-200 border-b border-neutral-200 bg-white dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-950">
 			{projects.map((project, idx) => {
 				const isEven = idx % 2 === 0;
 				const formattedIndex = String(idx + 1).padStart(2, "0");
 
 				return (
 					<motion.div
-						className="group relative flex flex-col divide-y divide-neutral-200 bg-white transition hover:bg-neutral-50/80 sm:flex-row sm:divide-y-0 sm:divide-x items-stretch"
+						className="group relative flex flex-col divide-y divide-neutral-200 bg-white transition hover:bg-neutral-50/80 sm:flex-row sm:divide-y-0 sm:divide-x items-stretch dark:divide-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900/80"
 						key={project.id}
 						initial={{ opacity: 0, y: 20 }}
 						transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -30,19 +30,19 @@ export const ProjectsGrid = ({ projects }: ProjectsGridProps): ReactElement => {
 						whileInView={{ opacity: 1, y: 0 }}
 					>
 						{/* Corner Node Dots at All Grid Line Intersections */}
-						<span className="absolute -top-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-						<span className="absolute -top-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-						<span className="absolute -bottom-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-						<span className="absolute -bottom-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+						<span className="absolute -top-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+						<span className="absolute -top-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+						<span className="absolute -bottom-1 -left-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+						<span className="absolute -bottom-1 -right-1 z-10 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 						<span
 							className={cn(
-								"hidden sm:block absolute -top-1 z-10 h-2 w-2 -translate-x-1/2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black",
+								"hidden sm:block absolute -top-1 z-10 h-2 w-2 -translate-x-1/2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white",
 								isEven ? "left-[40%]" : "left-[60%]"
 							)}
 						/>
 						<span
 							className={cn(
-								"hidden sm:block absolute -bottom-1 z-10 h-2 w-2 -translate-x-1/2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black",
+								"hidden sm:block absolute -bottom-1 z-10 h-2 w-2 -translate-x-1/2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white",
 								isEven ? "left-[40%]" : "left-[60%]"
 							)}
 						/>
@@ -55,28 +55,28 @@ export const ProjectsGrid = ({ projects }: ProjectsGridProps): ReactElement => {
 							)}
 						>
 							<div>
-								<div className="flex items-center gap-2 font-mono font-semibold text-xs text-neutral-400 tracking-widest uppercase mb-3">
-									<span className="h-1.5 w-1.5 rounded-full bg-black" />
+								<div className="flex items-center gap-2 font-mono font-semibold text-xs text-neutral-400 tracking-widest uppercase mb-3 dark:text-neutral-500">
+									<span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-white" />
 									<span>{project.tags[0] || "FEATURED PROJECT"}</span>
-									<span className="ml-auto font-mono text-xs text-neutral-400">
+									<span className="ml-auto font-mono text-xs text-neutral-400 dark:text-neutral-500">
 										[ {formattedIndex} ]
 									</span>
 								</div>
 
-								<h3 className="font-extrabold text-2xl text-neutral-900 tracking-tight uppercase sm:text-3xl leading-tight">
+								<h3 className="font-extrabold text-2xl text-neutral-900 tracking-tight uppercase sm:text-3xl leading-tight dark:text-neutral-100">
 									{project.name}
 								</h3>
 
-								<p className="mt-4 font-normal text-base text-neutral-500 leading-relaxed">
+								<p className="mt-4 font-normal text-base text-neutral-600 leading-relaxed dark:text-neutral-400">
 									{project.description}
 								</p>
 							</div>
 
-							<div className="mt-8 pt-5 border-t border-neutral-100 flex flex-wrap items-center justify-between gap-4">
+							<div className="mt-8 pt-5 border-t border-neutral-200 flex flex-wrap items-center justify-between gap-4 dark:border-neutral-800">
 								<div className="flex flex-wrap gap-1.5">
 									{project.tags.map((tag: string) => (
 										<span
-											className="rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-1 font-mono text-[10px] font-medium text-neutral-700 tracking-wider uppercase"
+											className="rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-1 font-mono text-[10px] font-medium text-neutral-700 tracking-wider uppercase dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300"
 											key={tag}
 										>
 											{tag}
@@ -88,7 +88,7 @@ export const ProjectsGrid = ({ projects }: ProjectsGridProps): ReactElement => {
 									{project.githubUrl ? (
 										<a
 											aria-label="GitHub Repository"
-											className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-800 hover:border-black hover:bg-neutral-100 transition"
+											className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-800 hover:border-black hover:bg-neutral-100 transition dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-white dark:hover:bg-neutral-800"
 											href={project.githubUrl}
 											rel="noreferrer"
 											target="_blank"
@@ -97,7 +97,7 @@ export const ProjectsGrid = ({ projects }: ProjectsGridProps): ReactElement => {
 										</a>
 									) : null}
 									<a
-										className="group/btn inline-flex items-center gap-1.5 rounded-full bg-black px-4 py-2 font-mono text-xs font-semibold text-white tracking-wider uppercase transition hover:bg-neutral-900"
+										className="group/btn inline-flex items-center gap-1.5 rounded-full bg-black px-4 py-2 font-mono text-xs font-semibold text-white tracking-wider uppercase transition hover:bg-neutral-900 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
 										href={project.href}
 										rel="noreferrer"
 										target="_blank"
@@ -115,7 +115,7 @@ export const ProjectsGrid = ({ projects }: ProjectsGridProps): ReactElement => {
 						{/* Cover Image Column (60% Width) matching exact full height of text column */}
 						<div
 							className={cn(
-								"w-full sm:w-[60%] shrink-0 relative overflow-hidden bg-neutral-900 rounded-none min-h-[260px] sm:min-h-0",
+								"w-full sm:w-[60%] shrink-0 relative overflow-hidden bg-neutral-900 rounded-none min-h-65 sm:min-h-0",
 								isEven ? "order-1 sm:order-2" : "order-1 sm:order-1"
 							)}
 						>

@@ -149,7 +149,7 @@ export const WritingPostsGrid = ({
 			</AnimatePresence>
 
 			{/* Max 2-Column Grid Layout (Landscape = Both Columns, Portrait = 1 Column) */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 border-b border-neutral-200 bg-white">
+			<div className="grid grid-cols-1 sm:grid-cols-2 border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
 				{posts.map((post, idx) => {
 					const detectedOrientation = orientations[post.id];
 					const isLandscape = detectedOrientation
@@ -162,7 +162,7 @@ export const WritingPostsGrid = ({
 					return (
 						<motion.button
 							className={cn(
-								"group relative flex flex-col justify-between border-b border-r border-neutral-200 bg-white p-0 text-left rounded-none cursor-pointer overflow-hidden transition hover:bg-neutral-50/80",
+								"group relative flex flex-col justify-between border-b border-r border-neutral-200 bg-white p-0 text-left rounded-none cursor-pointer overflow-hidden transition hover:bg-neutral-50/80 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900/80",
 								isLandscape ? "sm:col-span-2" : "col-span-1"
 							)}
 							key={post.id}
@@ -226,35 +226,35 @@ export const WritingPostsGrid = ({
 									)}
 								>
 									<div>
-										<p className="font-mono text-xs font-semibold text-neutral-400 tracking-widest uppercase mb-2">
+										<p className="font-mono text-xs font-semibold text-neutral-400 tracking-widest uppercase mb-2 dark:text-neutral-500">
 											{post.publishedAt}
 										</p>
 										<motion.h3
 											className={cn(
-												"font-extrabold text-neutral-900 tracking-tight uppercase leading-snug group-hover:text-black transition",
+												"font-extrabold text-neutral-900 tracking-tight uppercase leading-snug group-hover:text-black transition dark:text-neutral-100 dark:group-hover:text-white",
 												isLandscape ? "text-xl sm:text-3xl" : "text-xl sm:text-2xl"
 											)}
 											layoutId={`writing-title-${post.id}-${id}`}
 										>
 											{post.title}
 										</motion.h3>
-										<p className="mt-3 text-sm text-neutral-500 font-normal leading-relaxed line-clamp-3">
+										<p className="mt-3 text-sm text-neutral-600 font-normal leading-relaxed line-clamp-3 dark:text-neutral-400">
 											{cleanExcerpt}
 										</p>
 									</div>
 
-									<div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+									<div className="mt-6 pt-4 border-t border-neutral-200 flex items-center justify-between dark:border-neutral-800">
 										<div className="flex flex-wrap gap-1.5">
 											{post.tags.slice(0, MAX_COLLAPSED_TAGS).map((tag) => (
 												<span
-													className="rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-1 font-mono text-[10px] font-medium text-neutral-700 tracking-wider uppercase"
+													className="rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-1 font-mono text-[10px] font-medium text-neutral-700 tracking-wider uppercase dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300"
 													key={tag}
 												>
 													{tag}
 												</span>
 											))}
 										</div>
-										<span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white shadow-2xs transition-transform duration-300 group-hover:scale-110 shrink-0 ml-2">
+										<span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white shadow-2xs transition-transform duration-300 group-hover:scale-110 shrink-0 ml-2 dark:bg-white dark:text-black">
 											<IconArrowUpRight size={18} />
 										</span>
 									</div>

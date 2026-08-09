@@ -25,52 +25,52 @@ export const Footer = async ({
 	return (
 		<footer
 			className={cn(
-				"relative w-full overflow-hidden border-t border-b border-neutral-200 bg-white text-neutral-900",
+				"relative w-full overflow-hidden border-t border-b border-neutral-200 bg-white text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100",
 				className
 			)}
 		>
 			{/* Grid Container Wrapper */}
-			<div className="group relative mx-auto flex w-full max-w-7xl flex-col justify-between border-x border-neutral-200">
+			<div className="group relative mx-auto flex w-full max-w-7xl flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Corner Node Dots at Grid Line Intersections */}
-				<span className="absolute -top-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-				<span className="absolute -top-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
-				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black" />
+				<span className="absolute -top-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+				<span className="absolute -top-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
+				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 				{/* Main Compact 12-Column Grid */}
-				<div className="grid grid-cols-1 divide-y divide-neutral-200 border-b border-neutral-200 bg-white md:grid-cols-12 md:divide-y-0 md:divide-x">
+				<div className="grid grid-cols-1 divide-y divide-neutral-200 border-b border-neutral-200 bg-white md:grid-cols-12 md:divide-y-0 md:divide-x dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-950">
 					{/* Left Brand Column (5 Cols) */}
 					<div className="flex flex-col justify-between p-5 sm:p-6 md:col-span-5">
 						<div>
 							<Link className="flex items-center gap-2" href="/">
-								<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-black font-extrabold text-[10px] text-white">
+								<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-black font-extrabold text-[10px] text-white dark:bg-white dark:text-black">
 									MK
 								</span>
-								<span className="font-extrabold text-sm text-neutral-900 tracking-tight uppercase">
+								<span className="font-extrabold text-sm text-neutral-900 tracking-tight uppercase dark:text-white">
 									mradul katiyar
 								</span>
 							</Link>
-							<p className="mt-3 font-semibold text-xs text-neutral-800 tracking-tight uppercase">
+							<p className="mt-3 font-semibold text-xs text-neutral-800 tracking-tight uppercase dark:text-neutral-300">
 								CRAFTED IN MONOCHROME, TUNED FOR CLARITY.
 							</p>
 						</div>
 
 						<div className="mt-4 flex items-center gap-2">
 							<span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-							<span className="font-mono text-[10px] font-semibold text-neutral-500 tracking-wider uppercase">
+							<span className="font-mono text-[10px] font-semibold text-neutral-500 tracking-wider uppercase dark:text-neutral-400">
 								Available for new roles
 							</span>
 						</div>
 					</div>
 
 					{/* Middle Sections Column (4 Cols) */}
-					<div className="bg-white p-5 sm:p-6 md:col-span-4">
-						<span className="mb-2.5 block font-mono font-semibold text-[10px] text-neutral-400 tracking-widest uppercase">
+					<div className="bg-white p-5 sm:p-6 md:col-span-4 dark:bg-neutral-950">
+						<span className="mb-2.5 block font-mono font-semibold text-[10px] text-neutral-500 tracking-widest uppercase dark:text-neutral-400">
 							[ SECTIONS ]
 						</span>
 						<div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
 							{extendedSections.map((link) => (
 								<Link
-									className="group inline-flex items-center gap-1 font-mono text-xs text-neutral-600 transition hover:text-black"
+									className="group inline-flex items-center gap-1 font-mono text-xs text-neutral-600 transition hover:text-black dark:text-neutral-400 dark:hover:text-white"
 									href={link.href}
 									key={link.href}
 								>
@@ -85,14 +85,14 @@ export const Footer = async ({
 					</div>
 
 					{/* Right Connect Column (3 Cols) */}
-					<div className="bg-white p-5 sm:p-6 md:col-span-3">
-						<span className="mb-2.5 block font-mono font-semibold text-[10px] text-neutral-400 tracking-widest uppercase">
+					<div className="bg-white p-5 sm:p-6 md:col-span-3 dark:bg-neutral-950">
+						<span className="mb-2.5 block font-mono font-semibold text-[10px] text-neutral-500 tracking-widest uppercase dark:text-neutral-400">
 							[ CONNECT ]
 						</span>
 						<div className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:grid-cols-1">
 							{socialLinks.map((link) => (
 								<Link
-									className="group inline-flex items-center justify-between font-mono text-xs text-neutral-600 transition hover:text-black"
+									className="group inline-flex items-center justify-between font-mono text-xs text-neutral-600 transition hover:text-black dark:text-neutral-400 dark:hover:text-white"
 									href={link.href}
 									key={link.label}
 									rel="noreferrer"
@@ -110,16 +110,16 @@ export const Footer = async ({
 				</div>
 
 				{/* Slim Bottom Toolbar Copyright Row */}
-				<div className="flex flex-wrap items-center justify-between gap-3 bg-white px-5 py-3.5 sm:px-6">
-					<p className="font-mono text-[10px] text-neutral-500 tracking-widest uppercase sm:text-xs">
+				<div className="flex flex-wrap items-center justify-between gap-3 bg-white px-5 py-3.5 sm:px-6 dark:bg-neutral-950">
+					<p className="font-mono text-[10px] text-neutral-500 tracking-widest uppercase sm:text-xs dark:text-neutral-400">
 						© {year} MRADUL KATIYAR. ALL RIGHTS RESERVED.
 					</p>
 
 					<Link
-						className="group inline-flex items-center rounded-full bg-black p-1 shadow-2xs transition hover:bg-neutral-900"
+						className="group inline-flex items-center rounded-full bg-black p-1 shadow-2xs transition hover:bg-neutral-900 dark:bg-white dark:hover:bg-neutral-200"
 						href="#main"
 					>
-						<span className="relative flex h-5 items-center overflow-hidden pl-4 pr-2 font-medium text-[10px] text-white tracking-wider uppercase sm:text-xs">
+						<span className="relative flex h-5 items-center overflow-hidden pl-4 pr-2 font-medium text-[10px] text-white tracking-wider uppercase sm:text-xs dark:text-black">
 							<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
 								Back To Top
 							</span>
@@ -127,7 +127,7 @@ export const Footer = async ({
 								Back To Top
 							</span>
 						</span>
-						<span className="relative flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs">
+						<span className="relative flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs dark:bg-black dark:text-white">
 							<span className="inline-flex transition-transform duration-300 group-hover:-translate-y-4">
 								<IconArrowUp size={12} />
 							</span>
