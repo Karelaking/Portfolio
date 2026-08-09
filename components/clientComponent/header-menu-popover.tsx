@@ -1,6 +1,7 @@
 "use client";
 
 import { IconArrowUpRight, IconMenu2, IconX } from "@tabler/icons-react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
@@ -9,13 +10,14 @@ import { cn } from "@/lib/utils";
 
 export const HeaderMenuPopover = (): React.ReactElement => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const menuRef = useRef<HTMLDivElement>(null);
+	const [isHovered, setIsHovered] = useState<boolean>(false);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent): void => {
 			if (
-				menuRef.current &&
-				!menuRef.current.contains(event.target as Node)
+				containerRef.current &&
+				!containerRef.current.contains(event.target as Node)
 			) {
 				setIsOpen(false);
 			}
@@ -39,13 +41,44 @@ export const HeaderMenuPopover = (): React.ReactElement => {
 	}, [isOpen]);
 
 	return (
-		<div className="relative" ref={menuRef}>
+		<div className="relative" ref={containerRef}>
 			{/* Combined Pill Container (Hire me CTA + Menu Toggle) */}
-			<div className="inline-flex items-center rounded-full bg-black p-1 sm:p-1.5 shadow-sm dark:bg-neutral-900 dark:border dark:border-neutral-800">
-				{/* Inner White Pill Action Button */}
+			<div
+				className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-black p-1 sm:p-1.5 shadow-sm dark:bg-neutral-900 dark:border dark:border-neutral-800 overflow-hidden"
+				onMouseLeave={(): void => setIsHovered(false)}
+			>
+				{/* Left Menu Toggle Button (Fades/Expands on Hover) */}
+				<motion.div
+					animate={{
+						width: isHovered ? "auto" : 0,
+						opacity: isHovered ? 1 : 0,
+						scale: isHovered ? 1 : 0.6,
+					}}
+					className="flex shrink-0 items-center justify-center overflow-hidden"
+					initial={false}
+					transition={{
+						type: "spring",
+						stiffness: 300,
+						damping: 26,
+						mass: 0.8,
+					}}
+				>
+					<button
+						aria-expanded={isOpen}
+						aria-label="Toggle navigation menu"
+						className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full text-white transition hover:bg-neutral-800 sm:h-8 sm:w-8 dark:hover:bg-neutral-800"
+						onClick={(): void => setIsOpen((prev) => !prev)}
+						type="button"
+					>
+						{isOpen ? <IconX size={16} /> : <IconMenu2 size={16} />}
+					</button>
+				</motion.div>
+
+				{/* Inner White Pill Action Button ("Hire me" slides right) */}
 				<Link
-					className="group/hire inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-1.5 sm:px-5 sm:py-2 font-medium text-xs text-neutral-900 transition hover:bg-neutral-100 sm:text-sm whitespace-nowrap dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+					className="group/hire inline-flex shrink-0 items-center gap-1.5 rounded-full bg-white px-4 py-1.5 font-medium text-xs text-neutral-900 transition whitespace-nowrap hover:bg-neutral-100 sm:px-5 sm:py-2 sm:text-sm dark:bg-white dark:text-black dark:hover:bg-neutral-200"
 					href="#contact"
+					onMouseEnter={(): void => setIsHovered(true)}
 				>
 					<span>Hire me</span>
 					<span className="relative inline-flex h-4 w-4 items-center justify-center overflow-hidden">
@@ -58,16 +91,32 @@ export const HeaderMenuPopover = (): React.ReactElement => {
 					</span>
 				</Link>
 
-				{/* Menu Toggle Icon Button */}
-				<button
-					aria-expanded={isOpen}
-					aria-label="Toggle navigation menu"
-					className="flex h-7 w-7 sm:h-8 sm:w-8 cursor-pointer items-center justify-center rounded-full text-white hover:bg-neutral-800 transition dark:hover:bg-neutral-800"
-					onClick={(): void => setIsOpen((prev) => !prev)}
-					type="button"
+				{/* Right Menu Toggle Button (Fades/Collapses on Hover) */}
+				<motion.div
+					animate={{
+						width: isHovered ? 0 : "auto",
+						opacity: isHovered ? 0 : 1,
+						scale: isHovered ? 0.6 : 1,
+					}}
+					className="flex shrink-0 items-center justify-center overflow-hidden"
+					initial={false}
+					transition={{
+						type: "spring",
+						stiffness: 300,
+						damping: 26,
+						mass: 0.8,
+					}}
 				>
-					{isOpen ? <IconX size={16} /> : <IconMenu2 size={16} />}
-				</button>
+					<button
+						aria-expanded={isOpen}
+						aria-label="Toggle navigation menu"
+						className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full text-white transition hover:bg-neutral-800 sm:h-8 sm:w-8 dark:hover:bg-neutral-800"
+						onClick={(): void => setIsOpen((prev) => !prev)}
+						type="button"
+					>
+						{isOpen ? <IconX size={16} /> : <IconMenu2 size={16} />}
+					</button>
+				</motion.div>
 			</div>
 
 			{isOpen && (
