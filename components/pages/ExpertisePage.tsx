@@ -25,9 +25,6 @@ export const ExpertisePage = async (): Promise<React.ReactElement> => {
 				{/* Section Header Row */}
 				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-950">
 					<div>
-						<span className="mb-2 block font-semibold text-xs text-neutral-500 tracking-[0.3em] uppercase dark:text-neutral-400">
-							// 02 . EXPERTISE & TECH STACK
-						</span>
 						<h2 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl dark:text-white">
 							ENGINEERING PILLARS & CORE TECHNOLOGIES.
 						</h2>

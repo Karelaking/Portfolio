@@ -25,9 +25,6 @@ export const WritingPage = async ({
 				{/* Section Header Row */}
 				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-neutral-50/70 px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-900/60">
 					<div>
-						<span className="mb-2 block font-semibold text-xs text-neutral-500 tracking-[0.3em] uppercase dark:text-neutral-400">
-							// 05 . WRITING
-						</span>
 						{headingAs === "h1" ? (
 							<h1 className="font-extrabold text-3xl text-neutral-900 tracking-tight uppercase sm:text-4xl md:text-5xl dark:text-white">
 								IDEAS, PERSPECTIVES & WRITING.
