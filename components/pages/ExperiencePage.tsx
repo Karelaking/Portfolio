@@ -7,13 +7,13 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 
 	return (
 		<section
-			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-100"
 			id="experience"
 		>
 			{/* Grid Container Wrapper */}
 			<div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between border-x border-neutral-200 dark:border-neutral-800">
 				{/* Section Header Row */}
-				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-950">
+				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-neutral-50/70 px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-900/60">
 					<div>
 						<span className="mb-2 block font-semibold text-xs text-neutral-500 tracking-[0.3em] uppercase dark:text-neutral-400">
 							// 04 . EXPERIENCE
@@ -28,13 +28,13 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 				</header>
 
 				{/* 12-Column Sharp Bordered Experience Rows with All-Corner Node Dots */}
-				<div className="flex-1 border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
+				<div className="flex-1 border-b border-neutral-200 bg-neutral-50/70 dark:border-neutral-800 dark:bg-neutral-900/60">
 					{experienceList.map((item, idx) => {
 						const formattedIndex = String(idx + 1).padStart(2, "0");
 
 						return (
 							<div
-								className="group relative grid grid-cols-1 border-b border-neutral-200 bg-white transition hover:bg-neutral-50/80 lg:grid-cols-12 items-stretch dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900/80"
+								className="group relative grid grid-cols-1 border-b border-neutral-200 bg-neutral-50/70 transition hover:bg-white lg:grid-cols-12 items-stretch dark:border-neutral-800 dark:bg-neutral-900/60 dark:hover:bg-neutral-900"
 								key={item.id}
 							>
 								{/* Corner Node Dots at All Grid Line Intersections */}
@@ -54,7 +54,7 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 										<h3 className="font-extrabold text-2xl text-neutral-900 tracking-tight uppercase transition-colors group-hover:text-black sm:text-3xl dark:text-neutral-100 dark:group-hover:text-white">
 											{item.role}
 										</h3>
-										<div className="mt-3 inline-flex items-center gap-2 rounded-none border border-neutral-200 bg-neutral-50 px-3 py-1 font-mono font-semibold text-xs text-neutral-800 uppercase tracking-wider dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
+										<div className="mt-3 inline-flex items-center gap-2 rounded-none border border-neutral-200 bg-white px-3 py-1 font-mono font-semibold text-xs text-neutral-800 uppercase tracking-wider dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200">
 											<span>{item.company}</span>
 										</div>
 									</div>
@@ -98,7 +98,7 @@ export const ExperiencePage = async (): Promise<React.ReactElement> => {
 				</div>
 
 				{/* Bottom Sub-Bar Toolbar Row */}
-				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 bg-white px-6 py-6 sm:px-10 dark:border-neutral-800 dark:bg-neutral-950">
+				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 bg-neutral-50/70 px-6 py-6 sm:px-10 dark:border-neutral-800 dark:bg-neutral-900/60">
 					<p className="font-medium text-xs text-neutral-800 tracking-widest uppercase sm:text-sm dark:text-neutral-300">
 						SHOWCASING {experienceList.length} ENGINEERING & PRODUCT ROLES
 					</p>

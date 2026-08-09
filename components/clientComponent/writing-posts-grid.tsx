@@ -149,7 +149,7 @@ export const WritingPostsGrid = ({
 			</AnimatePresence>
 
 			{/* Max 2-Column Grid Layout (Landscape = Both Columns, Portrait = 1 Column) */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
+			<div className="grid grid-cols-1 sm:grid-cols-2 border-b border-neutral-200 bg-neutral-50/70 dark:border-neutral-800 dark:bg-neutral-900/60">
 				{posts.map((post, idx) => {
 					const detectedOrientation = orientations[post.id];
 					const isLandscape = detectedOrientation
@@ -162,7 +162,7 @@ export const WritingPostsGrid = ({
 					return (
 						<motion.button
 							className={cn(
-								"group relative flex flex-col justify-between border-b border-r border-neutral-200 bg-white p-0 text-left rounded-none cursor-pointer overflow-hidden transition hover:bg-neutral-50/80 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900/80",
+								"group relative flex flex-col justify-between border-b border-r border-neutral-200 bg-white p-0 text-left rounded-none cursor-pointer overflow-hidden transition hover:bg-neutral-100/70 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900",
 								isLandscape ? "sm:col-span-2" : "col-span-1"
 							)}
 							key={post.id}

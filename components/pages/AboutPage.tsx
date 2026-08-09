@@ -9,7 +9,7 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 
 	return (
 		<section
-			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-white text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+			className="relative flex min-h-[calc(100vh-65px)] w-full flex-col justify-between overflow-hidden border-b border-neutral-200 bg-neutral-50/70 text-neutral-900 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-100"
 			id="about"
 		>
 			{/* Grid Container Wrapper */}
@@ -20,7 +20,7 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 				<span className="absolute -bottom-1 -left-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 				<span className="absolute -bottom-1 -right-1 z-50 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
 				{/* Section Header Row */}
-				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-white px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-950">
+				<header className="flex flex-wrap items-center justify-between gap-6 border-b border-neutral-200 bg-neutral-50/70 px-6 py-8 sm:px-10 sm:py-12 dark:border-neutral-800 dark:bg-neutral-900/60">
 					<div>
 						<span className="mb-2 block font-semibold text-xs text-neutral-500 tracking-[0.3em] uppercase dark:text-neutral-400">
 							// 01 . ABOUT ME
@@ -35,9 +35,9 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 				</header>
 
 				{/* 12-Column Sharp Bordered Grid Body */}
-				<div className="grid flex-1 grid-cols-1 items-stretch divide-y divide-neutral-200 border-b border-neutral-200 bg-white lg:grid-cols-12 lg:divide-y-0 lg:divide-x dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-950">
+				<div className="grid flex-1 grid-cols-1 items-stretch divide-y divide-neutral-200 border-b border-neutral-200 bg-neutral-50/70 lg:grid-cols-12 lg:divide-y-0 lg:divide-x dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-900/60">
 					{/* Left Column: Hero Portrait (5 Cols) */}
-					<div className="flex flex-col justify-center items-center bg-white p-6 sm:p-10 lg:col-span-5 lg:p-12 dark:bg-neutral-950">
+					<div className="flex flex-col justify-center items-center bg-neutral-50/70 p-6 sm:p-10 lg:col-span-5 lg:p-12 dark:bg-neutral-900/60">
 						{/* Hero Portrait Frame */}
 						<div className="relative aspect-4/5 w-full max-w-sm overflow-hidden border border-neutral-200 bg-[#ea6936] dark:border-neutral-800">
 							<Image
@@ -69,7 +69,7 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 								<div className="grid grid-cols-1 gap-3">
 									{currentFocus.map((item, idx) => (
 										<div
-											className="group flex items-center justify-between rounded-none border border-neutral-200 bg-neutral-50/60 p-4 transition hover:border-black hover:bg-neutral-100/80 dark:border-neutral-800 dark:bg-neutral-900/60 dark:hover:border-white dark:hover:bg-neutral-900"
+											className="group flex items-center justify-between rounded-none border border-neutral-200 bg-white p-4 transition hover:border-black hover:bg-neutral-100/80 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-white dark:hover:bg-neutral-900"
 											key={item.id}
 										>
 											<div className="flex items-center gap-4">
@@ -93,7 +93,7 @@ export const AboutPage = async (): Promise<React.ReactElement> => {
 				</div>
 
 				{/* Bottom Sub-Bar Toolbar Row */}
-				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 bg-white px-6 py-6 sm:px-10 dark:border-neutral-800 dark:bg-neutral-950">
+				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 bg-neutral-50/70 px-6 py-6 sm:px-10 dark:border-neutral-800 dark:bg-neutral-900/60">
 					<p className="font-medium text-xs text-neutral-800 tracking-widest uppercase sm:text-sm dark:text-neutral-300">
 						BASED IN KANPUR, INDIA • FULL-STACK SOFTWARE DEVELOPER
 					</p>

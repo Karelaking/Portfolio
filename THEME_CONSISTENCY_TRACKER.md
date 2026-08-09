@@ -153,13 +153,22 @@ Use these conventions instead of redefining per component.
 | **Level 3 (Tertiary)** | `text-neutral-600` / `text-neutral-500` | `dark:text-neutral-400` | Subtitles, description copy, metadata labels, tag text |
 | **Level 4 (Muted)** | `text-neutral-400` | `dark:text-neutral-500` | Section comments (`// 01`), timestamps, grid brackets `[01]` |
 
+## Alternating Section Background Theme Standard
+
+| Section Type | Light Mode Class | Dark Mode Class | Included Sections |
+| :--- | :--- | :--- | :--- |
+| **Odd / Primary Sections** | `bg-white` | `dark:bg-neutral-950` | Hero, Expertise, Projects, Gallery, Contact |
+| **Even / Alternating Sections** | `bg-neutral-50/70` | `dark:bg-neutral-900/60` | About, Experience, Writing, CTA |
+| **Card Elevates (Inside Even)** | `bg-white` | `dark:bg-neutral-950` | Focus items, Career badges, Article cards |
+
 ---
 
 ## Quick token usage map (recommended)
 
 | Use case        | Preferred classes                              |
 | --------------- | ---------------------------------------------- |
-| Page background | `bg-white dark:bg-neutral-950` / `bg-background` |
+| Primary section background | `bg-white dark:bg-neutral-950` |
+| Alternating section background | `bg-neutral-50/70 dark:bg-neutral-900/60` |
 | Section borders | `border-neutral-200 dark:border-neutral-800` / `border-border` |
 | Primary text    | `text-neutral-900 dark:text-white` / `text-foreground` |
 | Secondary text  | `text-neutral-600 dark:text-neutral-400` / `text-muted-foreground` |
