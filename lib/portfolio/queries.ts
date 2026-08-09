@@ -37,6 +37,13 @@ export const getWritingPosts = cache(async (): Promise<WritingPost[]> => {
 	}
 });
 
+export const getWritingPostById = cache(
+	async (id: string): Promise<WritingPost | null> => {
+		const posts = await getWritingPosts();
+		return posts.find((p) => p.id === id || encodeURIComponent(p.id) === id) ?? null;
+	}
+);
+
 import mongoose from "mongoose";
 import { cache } from "react";
 import { connectMongo } from "@/lib/database/mongodb";

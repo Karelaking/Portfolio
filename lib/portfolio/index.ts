@@ -22,4 +22,5 @@ export {
 	getSocialLinks,
 	getTechnologies,
 	getWritingPosts, // Exporting getWritingPosts
+	getWritingPostById,
 } from "./queries";

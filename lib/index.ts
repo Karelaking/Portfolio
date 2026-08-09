@@ -20,5 +20,6 @@ export {
 	getSocialLinks,
 	getTechnologies,
 	getWritingPosts,
+	getWritingPostById,
 } from "./portfolio";
 export { cn } from "./utils";

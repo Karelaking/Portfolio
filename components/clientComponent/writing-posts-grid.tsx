@@ -1,10 +1,10 @@
 "use client";
 
-import { IconArrowUpRight, IconX } from "@tabler/icons-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { IconArrowUpRight } from "@tabler/icons-react";
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
-import { type ReactElement, useEffect, useId, useRef, useState } from "react";
-import { useOutsideClick } from "@/hooks/use-outside-click";
+import Link from "next/link";
+import { type ReactElement, useState } from "react";
 import { cn } from "@/lib/utils";
 import type { WritingPost } from "@/types/writing-post.interface";
 
@@ -29,36 +29,10 @@ const buildPreview = (content: string): string => {
 export const WritingPostsGrid = ({
 	posts,
 }: WritingPostsGridProps): ReactElement => {
-	const [activePost, setActivePost] = useState<WritingPost | null>(null);
 	const [orientations, setOrientations] = useState<
 		Record<string, "landscape" | "portrait">
 	>({});
-	const id = useId();
-	const cardRef = useRef<HTMLDivElement>(null);
 	const shouldReduceMotion = useReducedMotion();
-
-	useOutsideClick(cardRef, () => setActivePost(null));
-
-	useEffect((): (() => void) => {
-		const onKeyDown = (event: KeyboardEvent): void => {
-			if (event.key === "Escape") {
-				setActivePost(null);
-			}
-		};
-
-		window.addEventListener("keydown", onKeyDown);
-
-		if (activePost) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
-		}
-
-		return (): void => {
-			window.removeEventListener("keydown", onKeyDown);
-			document.body.style.overflow = "auto";
-		};
-	}, [activePost]);
 
 	const handleImageLoad = (
 		postId: string,
@@ -73,103 +47,28 @@ export const WritingPostsGrid = ({
 	};
 
 	return (
-		<>
-			{/* Expandable Lightbox Reading Modal */}
-			<AnimatePresence>
-				{activePost ? (
-					<>
-						<motion.div
-							animate={{ opacity: 1 }}
-							className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md"
-							exit={{ opacity: 0 }}
-							initial={{ opacity: 0 }}
-						/>
+		<div className="grid grid-cols-1 sm:grid-cols-2 border-b border-neutral-200 bg-neutral-50/70 dark:border-neutral-800 dark:bg-neutral-900/60">
+			{posts.map((post, idx) => {
+				const detectedOrientation = orientations[post.id];
+				const isLandscape = detectedOrientation
+					? detectedOrientation === "landscape"
+					: idx % 3 === 2;
 
-						<div className="fixed inset-0 z-60 grid place-items-center px-4 py-6">
-							<motion.div
-								className="relative flex h-[min(90vh,750px)] w-full max-w-3xl flex-col overflow-hidden rounded-none border border-neutral-800 bg-neutral-950 text-white shadow-2xl"
-								layoutId={`writing-card-${activePost.id}-${id}`}
-								ref={cardRef}
-							>
-								<button
-									aria-label="Close writing post"
-									className="absolute top-4 right-4 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-neutral-800 text-white hover:bg-neutral-700 transition"
-									onClick={(): void => setActivePost(null)}
-									type="button"
-								>
-									<IconX size={18} />
-								</button>
+				const formattedIndex = String(idx + 1).padStart(2, "0");
+				const cleanExcerpt = buildPreview(post.content);
 
-								<motion.div
-									className="relative h-64 w-full overflow-hidden bg-black rounded-none"
-									layoutId={`writing-image-${activePost.id}-${id}`}
-								>
-									<Image
-										alt={activePost.coverImageAlt}
-										className="h-64 w-full object-cover rounded-none"
-										height={640}
-										sizes="(min-width: 1024px) 768px, 100vw"
-										src={activePost.coverImageSrc}
-										width={1200}
-									/>
-								</motion.div>
-
-								<div className="flex min-h-0 flex-1 flex-col gap-4 p-6 sm:p-8">
-									<div className="space-y-3">
-										<p className="font-mono text-xs text-neutral-400 tracking-widest uppercase">
-											PUBLISHED: {activePost.publishedAt}
-										</p>
-										<motion.h3
-											className="font-extrabold text-2xl sm:text-3xl text-white tracking-tight uppercase"
-											layoutId={`writing-title-${activePost.id}-${id}`}
-										>
-											{activePost.title}
-										</motion.h3>
-										<div className="flex flex-wrap gap-2 pt-1">
-											{activePost.tags.map((tag) => (
-												<span
-													className="rounded-none border border-neutral-800 bg-neutral-900 px-3 py-1 font-mono text-[10px] text-neutral-300 tracking-widest uppercase"
-													key={tag}
-												>
-													{tag}
-												</span>
-											))}
-										</div>
-									</div>
-
-									<div
-										className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-2 text-neutral-300 font-normal text-base leading-relaxed whitespace-pre-line border-t border-neutral-800 pt-4"
-										dangerouslySetInnerHTML={{ __html: activePost.content }}
-									/>
-								</div>
-							</motion.div>
-						</div>
-					</>
-				) : null}
-			</AnimatePresence>
-
-			{/* Max 2-Column Grid Layout (Landscape = Both Columns, Portrait = 1 Column) */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 border-b border-neutral-200 bg-neutral-50/70 dark:border-neutral-800 dark:bg-neutral-900/60">
-				{posts.map((post, idx) => {
-					const detectedOrientation = orientations[post.id];
-					const isLandscape = detectedOrientation
-						? detectedOrientation === "landscape"
-						: idx % 3 === 2;
-
-					const formattedIndex = String(idx + 1).padStart(2, "0");
-					const cleanExcerpt = buildPreview(post.content);
-
-					return (
-						<motion.button
-							className={cn(
-								"group relative flex flex-col justify-between border-b border-r border-neutral-200 bg-white p-0 text-left rounded-none cursor-pointer overflow-hidden transition hover:bg-neutral-100/70 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900",
-								isLandscape ? "sm:col-span-2" : "col-span-1"
-							)}
-							key={post.id}
-							layoutId={`writing-card-${post.id}-${id}`}
-							onClick={(): void => setActivePost(post)}
-							type="button"
-							whileHover={{ y: shouldReduceMotion ? 0 : -2 }}
+				return (
+					<motion.div
+						className={cn(
+							"group relative border-b border-r border-neutral-200 bg-white text-left rounded-none overflow-hidden transition hover:bg-neutral-100/70 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900",
+							isLandscape ? "sm:col-span-2" : "col-span-1"
+						)}
+						key={post.id}
+						whileHover={{ y: shouldReduceMotion ? 0 : -2 }}
+					>
+						<Link
+							className="flex h-full w-full flex-col justify-between"
+							href={`/writing/${post.id}`}
 						>
 							<div
 								className={cn(
@@ -186,10 +85,7 @@ export const WritingPostsGrid = ({
 											: "w-full aspect-3/4"
 									)}
 								>
-									<motion.div
-										className="h-full w-full"
-										layoutId={`writing-image-${post.id}-${id}`}
-									>
+									<div className="h-full w-full">
 										<Image
 											alt={post.coverImageAlt}
 											className="h-full w-full object-cover rounded-none transition-transform duration-700 ease-out group-hover:scale-105 group-hover:opacity-90"
@@ -210,7 +106,7 @@ export const WritingPostsGrid = ({
 											src={post.coverImageSrc}
 											width={900}
 										/>
-									</motion.div>
+									</div>
 
 									{/* Sharp Index Badge */}
 									<div className="absolute top-4 left-4 z-10 rounded-none bg-black/80 backdrop-blur-xs px-3 py-1 font-mono text-xs font-semibold text-white tracking-widest uppercase border border-neutral-700">
@@ -229,15 +125,14 @@ export const WritingPostsGrid = ({
 										<p className="font-mono text-xs font-semibold text-neutral-400 tracking-widest uppercase mb-2 dark:text-neutral-500">
 											{post.publishedAt}
 										</p>
-										<motion.h3
+										<h3
 											className={cn(
 												"font-extrabold text-neutral-900 tracking-tight uppercase leading-snug group-hover:text-black transition dark:text-neutral-100 dark:group-hover:text-white",
 												isLandscape ? "text-xl sm:text-3xl" : "text-xl sm:text-2xl"
 											)}
-											layoutId={`writing-title-${post.id}-${id}`}
 										>
 											{post.title}
-										</motion.h3>
+										</h3>
 										<p className="mt-3 text-sm text-neutral-600 font-normal leading-relaxed line-clamp-3 dark:text-neutral-400">
 											{cleanExcerpt}
 										</p>
@@ -260,10 +155,10 @@ export const WritingPostsGrid = ({
 									</div>
 								</div>
 							</div>
-						</motion.button>
-					);
-				})}
-			</div>
-		</>
+						</Link>
+					</motion.div>
+				);
+			})}
+		</div>
 	);
 };
