@@ -35,6 +35,10 @@ export const GalleryImage = ({
 	const [loaded, setLoaded] = useState<boolean>(false);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [isLandscape, setIsLandscape] = useState<boolean>(index % 3 === 0);
+	const [dimensions, setDimensions] = useState<{ width: number; height: number }>({
+		width,
+		height,
+	});
 
 	useEffect((): (() => void) => {
 		if (!isOpen) {
@@ -95,6 +99,10 @@ export const GalleryImage = ({
 								setLoaded(true);
 								const img = event.currentTarget;
 								if (img.naturalWidth && img.naturalHeight) {
+									setDimensions({
+										width: img.naturalWidth,
+										height: img.naturalHeight,
+									});
 									const orientation =
 										img.naturalWidth >= img.naturalHeight
 											? "landscape"
@@ -135,7 +143,7 @@ export const GalleryImage = ({
 				</button>
 			</motion.div>
 
-			{/* Lightbox Modal */}
+			{/* Lightbox Modal matching original image dimensions */}
 			<AnimatePresence>
 				{isOpen ? (
 					<motion.div
@@ -151,28 +159,33 @@ export const GalleryImage = ({
 							onClick={(): void => setIsOpen(false)}
 							type="button"
 						/>
-						<div className="relative z-10 w-full max-w-4xl rounded-none border border-neutral-800 bg-neutral-950 p-4 shadow-2xl sm:p-6">
-							<div className="flex items-center justify-between border-neutral-800 border-b pb-4">
-								<span className="font-mono text-xs text-neutral-400 tracking-widest uppercase">
+						<div className="relative z-10 flex max-h-[92vh] max-w-[95vw] sm:max-w-[90vw] flex-col overflow-hidden rounded-none border border-neutral-800 bg-neutral-950 p-3 sm:p-5 shadow-2xl">
+							<div className="flex shrink-0 items-center justify-between border-b border-neutral-800 pb-3 gap-4">
+								<span className="font-mono text-xs font-semibold text-neutral-300 tracking-widest uppercase truncate">
 									[ {formattedIndex} ] — {alt}
 								</span>
 								<button
 									aria-label="Close"
-									className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-neutral-800 text-white hover:bg-neutral-700 transition"
+									className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-neutral-800 text-white hover:bg-neutral-700 transition"
 									onClick={(): void => setIsOpen(false)}
 									type="button"
 								>
 									<IconX size={16} />
 								</button>
 							</div>
-							<div className="relative mt-4 aspect-4/3 w-full overflow-hidden bg-black rounded-none">
+							<div className="relative mt-3 flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-black">
 								<Image
 									alt={alt}
-									className="h-full w-full object-contain"
-									fill
+									className="max-h-[calc(92vh-80px)] max-w-full w-auto h-auto object-contain"
+									height={dimensions.height}
 									priority
 									quality={95}
+									sizes="(min-width: 1024px) 1200px, 95vw"
 									src={src}
+									style={{
+										aspectRatio: `${dimensions.width} / ${dimensions.height}`,
+									}}
+									width={dimensions.width}
 								/>
 							</div>
 						</div>
