@@ -6,7 +6,6 @@ import {
 	IconBrandLinkedin,
 	IconBrandX,
 	IconMail,
-	IconMapPin,
 	IconWorld,
 } from "@tabler/icons-react";
 import Image from "next/image";
@@ -14,7 +13,7 @@ import Link from "next/link";
 import type React from "react";
 import { getHero, getSocialLinks } from "@/lib/portfolio/queries";
 import type { SocialLink } from "@/types/social-link.interface";
-import { CountUpValue, HeaderMenuPopover, ThemeToggle, ZoomHollowText } from "../clientComponent";
+import { CountUpValue, ThemeToggle, ZoomHollowText } from "../clientComponent";
 
 const getSocialIcon = (platform: string): React.ReactElement => {
 	switch (platform.toLowerCase()) {
@@ -54,22 +53,36 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 					{/* Left Column */}
 					<div className="flex flex-col justify-between border-neutral-200 border-r-0 lg:border-r dark:border-neutral-800">
 						<div className="p-6 sm:p-10 md:p-12 lg:p-14">
-							<div className="flex flex-wrap items-center gap-x-2.5 font-medium text-lg text-neutral-900 tracking-tight sm:text-xl md:text-2xl uppercase dark:text-neutral-100">
-								<span>{heroData.title}</span>
-								<span className="font-mono text-neutral-400 dark:text-neutral-500">—</span>
+							{/* Top Row: Prominent Hollow Greeting in 12 Global Languages */}
+							<div className="flex items-center justify-between mb-4 sm:mb-6">
 								<ZoomHollowText
-									className="font-mono font-extrabold text-neutral-900 tracking-wider uppercase dark:text-neutral-100"
-									duration={0.7}
+									className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-neutral-900 tracking-normal dark:text-neutral-100"
+									duration={0.6}
 									fillColor="transparent"
-									interval={2200}
+									interval={2000}
 									strokeColor="var(--color-foreground)"
-									strokeWidth={1.8}
-									words={["FULL-STACK", "ENGINEER", "ARCHITECT", "BUILDER"]}
+									strokeWidth={1.5}
+									words={[
+										"Hello",
+										"नमस्ते",
+										"Bonjour",
+										"¡Hola!",
+										"こんにちは",
+										"你好",
+										"مرحبا",
+										"안녕하세요",
+										"Привет",
+										"Γειά σου",
+										"สวัสดี",
+										"নমস্কার",
+									]}
 								/>
 							</div>
-							<h1 className="mt-3 font-extrabold text-4xl text-neutral-900 tracking-tight leading-[1.1] sm:mt-4 sm:text-5xl md:text-6xl capitalize dark:text-white">
+
+							{/* Main Description Headline with Embedded Video Capsule */}
+							<h1 className="mt-2 font-extrabold text-4xl text-neutral-900 tracking-tight leading-[1.12] sm:text-5xl md:text-6xl capitalize dark:text-white">
 								{heroData.description}
-								<span className="relative inline-block h-9 w-24 overflow-hidden rounded-full align-middle sm:h-12 sm:w-36 ml-6">
+								<span className="relative inline-block h-9 w-24 overflow-hidden rounded-full align-middle sm:h-12 sm:w-36 ml-4 sm:ml-6 ring-1 ring-neutral-300 dark:ring-neutral-700 shadow-md">
 									<video
 										autoPlay
 										className="h-full w-full rounded-full object-cover"
@@ -83,30 +96,65 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 									</video>
 								</span>
 							</h1>
-							<p className="mt-6 max-w-lg font-normal text-base text-neutral-600 leading-relaxed sm:text-lg dark:text-neutral-400">
+
+							{/* Name & Title Accent Row */}
+							<div className="mt-4 flex flex-wrap items-center gap-x-2.5 font-semibold text-lg text-neutral-800 tracking-tight sm:text-xl md:text-2xl uppercase dark:text-neutral-200">
+								<span>{heroData.title}</span>
+								<span className="font-mono text-neutral-400 dark:text-neutral-500">—</span>
+								<span className="font-mono text-xs text-neutral-500 tracking-widest uppercase dark:text-neutral-400">
+									SOFTWARE ARCHITECT
+								</span>
+							</div>
+
+							{/* Subtitle Body Copy */}
+							<p className="mt-5 max-w-lg font-normal text-base text-neutral-600 leading-relaxed sm:text-lg dark:text-neutral-400">
 								{heroData.subtitle}
 							</p>
-							<Link
-								className="group mt-8 inline-flex items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900 sm:mt-10 dark:bg-white dark:hover:bg-neutral-200"
-								href="#projects"
-							>
-								<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-sm text-white sm:text-base dark:text-black">
-									<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
-										Check Projects
+
+							{/* Core Skills Quick Badges */}
+							<div className="mt-6 flex flex-wrap gap-2">
+								{["NEXT.JS 15", "TYPESCRIPT", "TAILWIND V4", "NODE.JS", "MONGODB"].map((skill) => (
+									<span
+										className="rounded-none border border-neutral-200 bg-neutral-50 px-2.5 py-1 font-mono text-[10px] font-semibold text-neutral-600 tracking-wider uppercase transition hover:border-black dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-400 dark:hover:border-white"
+										key={skill}
+									>
+										{skill}
 									</span>
-									<span className="absolute left-5 inline-block translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-										Check Projects
+								))}
+							</div>
+
+							{/* CTA Action Row */}
+							<div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
+								<Link
+									className="group inline-flex items-center rounded-full bg-black p-1.5 shadow-sm transition hover:bg-neutral-900 dark:bg-white dark:hover:bg-neutral-200"
+									href="#projects"
+								>
+									<span className="relative flex h-6 items-center overflow-hidden pl-5 pr-3 font-medium text-sm text-white sm:text-base dark:text-black">
+										<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
+											Check Projects
+										</span>
+										<span className="absolute left-5 inline-block translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+											Check Projects
+										</span>
 									</span>
-								</span>
-								<span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs dark:bg-black dark:text-white">
-									<span className="inline-flex transition-transform duration-300 group-hover:translate-x-6 group-hover:-translate-y-6">
-										<IconArrowUpRight size={18} />
+									<span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-white text-black shadow-2xs dark:bg-black dark:text-white">
+										<span className="inline-flex transition-transform duration-300 group-hover:translate-x-6 group-hover:-translate-y-6">
+											<IconArrowUpRight size={18} />
+										</span>
+										<span className="absolute inline-flex -translate-x-6 translate-y-6 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
+											<IconArrowUpRight size={18} />
+										</span>
 									</span>
-									<span className="absolute inline-flex -translate-x-6 translate-y-6 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
-										<IconArrowUpRight size={18} />
-									</span>
-								</span>
-							</Link>
+								</Link>
+
+								<Link
+									className="group inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-5 py-3 font-mono text-xs font-semibold text-neutral-800 tracking-wider uppercase transition hover:border-black hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 dark:hover:border-white dark:hover:bg-neutral-900"
+									href="#contact"
+								>
+									<span>Get In Touch</span>
+									<IconArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={14} />
+								</Link>
+							</div>
 						</div>
 
 						{/* Metrics Section (Full-Bleed 3-Column Grid) */}
@@ -114,11 +162,11 @@ export const HeroPage = async (): Promise<React.ReactElement> => {
 							<div className="grid grid-cols-3">
 								{heroData.metrics.map((metric) => (
 									<div
-										className="flex flex-col justify-center border-r border-neutral-200 px-3 py-5 sm:px-8 sm:py-8 last:border-r-0 transition hover:bg-neutral-50/60 dark:border-neutral-800 dark:hover:bg-neutral-900/60"
+										className="group/metric flex flex-col justify-center border-r border-neutral-200 px-3 py-5 sm:px-8 sm:py-8 last:border-r-0 transition hover:bg-neutral-50/70 dark:border-neutral-800 dark:hover:bg-neutral-900/60"
 										key={metric.label}
 									>
 										<div className="flex items-center gap-1.5 sm:gap-2">
-											<span className="font-extrabold text-2xl text-neutral-900 tracking-tight sm:text-4xl md:text-5xl dark:text-neutral-100">
+											<span className="font-extrabold text-2xl text-neutral-900 tracking-tight sm:text-4xl md:text-5xl transition-transform duration-300 group-hover/metric:scale-105 dark:text-white">
 												<CountUpValue value={metric.value} />
 											</span>
 											<span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100/90 font-bold text-emerald-600 text-[10px] shadow-2xs sm:h-7 sm:w-7 sm:text-xs dark:bg-emerald-950/80 dark:text-emerald-400">

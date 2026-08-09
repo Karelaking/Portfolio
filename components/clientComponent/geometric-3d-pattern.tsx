@@ -259,23 +259,16 @@ export const Geometric3DPattern = (): React.ReactElement => {
 
 	return (
 		<motion.div
-			className="group relative flex h-full min-h-80 w-full flex-col justify-between overflow-hidden border border-neutral-200 bg-white p-0 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:min-h-96"
+			className="relative flex h-full min-h-80 w-full flex-col justify-between overflow-hidden bg-transparent p-0 sm:min-h-96"
 			initial={{ opacity: 0, scale: 0.96 }}
 			ref={containerRef}
 			transition={{ duration: 0.6 }}
 			viewport={{ once: true }}
 			whileInView={{ opacity: 1, scale: 1 }}
 		>
-			{/* Sharp Node Intersection Dots */}
-			<span className="absolute -top-1 -left-1 z-20 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
-			<span className="absolute -top-1 -right-1 z-20 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
-			<span className="absolute -bottom-1 -left-1 z-20 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
-			<span className="absolute -bottom-1 -right-1 z-20 h-2 w-2 rounded-full border border-neutral-300 bg-white shadow-2xs transition-colors duration-300 group-hover:border-black group-hover:bg-black dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-white dark:group-hover:bg-white" />
-
 			{/* Interactive 3D Canvas Area */}
 			<div className="relative flex h-full min-h-80 w-full flex-1 items-center justify-center sm:min-h-96">
 				<canvas className="absolute inset-0 h-full w-full" ref={canvasRef} />
-				<div className="pointer-events-none absolute inset-0 bg-radial from-transparent via-transparent to-white/30 dark:to-neutral-950/30" />
 			</div>
 		</motion.div>
 	);
